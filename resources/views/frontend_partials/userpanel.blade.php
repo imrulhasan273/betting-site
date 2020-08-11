@@ -1,6 +1,6 @@
 @if (Auth::user())
 <div id="mySidenav" class="sidenav">
-    <h2 style="padding-top: 18%;">
+    <h2 style="padding-top: 17%;">
         <i style="font-size: 27px;
                     left: 7px;color:#fff;
                     position: absolute;
@@ -18,7 +18,7 @@
         @if (Auth::user())
         <div class="eos-group-title"><i class="fa fa-user-tie" aria-hidden="true"></i> {{ Auth::user()->name }}</div>
         @endif
-        <a style="padding:0px;font-size: 14px;" href="oneten.php">
+        <a style="padding:0px;font-size: 14px;" href="{{ route('oneten') }}">
             <div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/oneten.gif" style="max-width: 22px;"></i> OneTen</div>
         </a>
         <!--<a style="padding:0px;font-size: 14px;" href="coin_flip"><div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/coin.png" style="max-width: 22px;"></i> Coin Flip</div></a>-->
