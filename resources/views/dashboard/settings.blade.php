@@ -24,9 +24,9 @@
                 </div>
 
                 <div class="card-body">
-                             <form action="" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+            <div class="form-group">
                         {{-- <label>Logo</label> --}}
                         <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
                                 style="display: none;"></p>
