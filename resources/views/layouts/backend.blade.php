@@ -14,11 +14,11 @@
         <!-- End navbar Section -->
 
         <!-- Start Main Content -->
-        <div class="content">
-            <div class="container-fluid">
+        {{-- <div class="content">
+            <div class="container-fluid"> --}}
                 @yield('content')
-            </div>
-        </div>
+            {{-- </div>
+        </div> --}}
         <!-- End Main Content -->
     </div>
   </div>

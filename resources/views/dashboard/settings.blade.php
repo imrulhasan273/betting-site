@@ -4,8 +4,10 @@ $active='settings';
 @extends('layouts.backend')
 
 @section('content')
-
+<div class="content">
+    <div class="container-fluid">
 <div class="row">
+
     <div class="col-sm-6 cat-form">
         {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
         <form action="" method="POST" enctype="multipart/form-data">
@@ -59,6 +61,10 @@ $active='settings';
                             <button class="btn btn-primary">Update Settings</button>
                         </div>
                     </form> --}}
+    </div>
+
+</div>
+
     </div>
 
 </div>
