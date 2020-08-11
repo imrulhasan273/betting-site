@@ -22,12 +22,5 @@ Route::get('/rules', 'HomeController@rules')->name('rules');
 
 route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'backendController@index')->name('admin.index');
-<<<<<<< HEAD
     Route::get('/setting', 'backendController@settings')->name('admin.settings');
-=======
-    Route::get('/setting', 'backendController@settings')->name('admin.setting');
-    Route::post('/setting/store', 'backendController@settingStore')->name('admin.setting.store');
-    Route::post('/setting/update/{id}', 'backendController@settingUpdate')->name('admin.setting.update');
-
->>>>>>> e55c07fac66fa9c986c5214c797632d17cc7439b
 });

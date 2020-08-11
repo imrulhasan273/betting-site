@@ -1,3 +1,6 @@
+@php
+    $active="settings"
+@endphp
 @extends('layouts.backend')
 
 @section('content')
