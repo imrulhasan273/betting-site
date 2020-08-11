@@ -7,11 +7,11 @@
             </div>
             <div class="col-md-9">
               <p class="footer-links">
-                <a href="index.php" id="footerlink">Home</a>
-                <a href="support.php" id="footerlink"> Contact-us</a>
-                <a href="rules.php" id="footerlink"> Rules & Regulations</a>
+                <a href="{{route('home')}}" id="footerlink">Home</a>
+                <a href="{{route('support')}}" id="footerlink"> Contact-us</a>
+                <a href="{{route('rules')}}" id="footerlink"> Rules & Regulations</a>
                 <a href="#" id="footerlink"> FAQ</a>
-                <a href="about.php" id="footerlink"> About Us</a>
+                <a href="{{route('about')}}" id="footerlink"> About Us</a>
               </p>
             </div>
           </div>
@@ -28,5 +28,5 @@
 
   </footer>
   <div class="col-md-12" style="padding: 0px;">
-    <p class="text-center" style="background: #FF7118; padding: 12px 0px;color: #fff;">&copy; bdbet10 llc</p>
+    <p class="text-center" style="background: #FF7118; padding: 12px 0px;color: #fff;">&copy; company name llc</p>
   </div>

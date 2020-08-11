@@ -83,50 +83,6 @@
                     <option value="sports24bd">sports24bd</option>}
                     option
                     <option value="Barisal Club">Barisal Club</option>
-                    <option value="Tipper shawon club">Tipper shawon club</option>
-                    <option value="BET LOVERS">BET LOVERS</option>
-                    <option value="MaxBet Club">💎MaxBet Club💎</option>
-                    <option value="Dark-Night">Dark-Night</option>
-                    <option value="BD 24">BD 24</option>
-                    <option value="5 Star Club">5 Star Club</option>
-                    <option value="Munshiganj Club">Munshiganj Club</option>
-                    <option value="RANGPUR CLUB">RANGPUR CLUB</option>
-                    <option value="Dubai Club">Dubai 🇦🇪 Club</option>
-                    <option value="Jamuna Club">Jamuna Club</option>
-                    <option value="Rock Club">Rock Club</option>
-                    <option value="King Club">King Club</option>
-                    <option value="GURU CLUB"> 🌀BET-GURU CLUB🌀 </option>
-                    <option value="Online Club">Online Club</option>
-                    <option value="City club">City club</option>
-                    <option value="Gazipur Club">Gazipur Club</option>
-                    <option value="STARWARS">Star Wars</option>
-                    <option value="THE-WORLD CLUB">THE-WORLD CLUB</option>
-                    <option value="Dhaka club">Dhaka club</option>
-                    <option value="Golden Club">Golden Club</option>
-                    <option value="Real Madrid club">Real Madrid club</option>
-                    <option value="FaridpurClub">Faridpur Club</option>
-                    <option value="Superclub">Super Club</option>
-                    <option value="Friends Club">Friends Club</option>
-                    <option value="Help line club">Help line club</option>
-                    <option value="Khulna Club">Khulna club</option>
-                    <option value="Green Club">Green Club</option>
-                    <option value="Lions Club">Lions Club</option>
-                    <option value="WinBet Club"> 🏆 WinBet Club 🏆</option>
-                    <option value="Australia Club ">Australia Club </option>
-                    <option value="Davil Club">Davil Club</option>
-                    <option value="CR7 CluB">CR7 CluB</option>
-                    <option value="Update club">Update club</option>
-                    <option value="Jessore Club">Jessore Club</option>
-                    <option value="AsiaClub">Asia club</option>
-                    <option value="SAKIB75 CLUB">SAKIB75 CLUB</option>
-                    <option value="Bangladesh Club">Bangladesh Club</option>
-                    <option value="Powerful Club">Powerful Club</option>
-                    <option value="Welcome to Sports">Welcome to Sports</option>
-                    <option value="Barcelona Club">Barcelona Club</option>
-                    <option value="Indiaclub">Indiaclub</option>
-                    <option value="Bet 365">Bet 365</option>
-                    <option value="Help Line bdBet">Help Line bdBet</option>
-                    <option value="STARS CLUB">STARS CLUB</option>
                 </select>
                 <br>
                 <input type="text" name="sponsor_register" id="sponsor_register" placeholder="SPONSOR'S USERNAME" class="form-control fojFwL" style="margin-bottom: 10px;" />
@@ -140,7 +96,6 @@
     </div>
     <!--START THIS PART IS THE PART OF NAVIGATION BAR USING MODAL (LOGIN / REG) -->
 
-
     <!--Start Body-->
     <div class="" id="allbody">
         <div id="mySidenav" class="sidenav  ">
@@ -153,7 +108,7 @@
                     text-align: center;
                     font-size: 30px;
                     background: #147b45;
-                    padding: 9px 3px;" href="index.php">sports24bd
+                    padding: 9px 3px;" href="{{ route('home')}}">
             </a>
         </h2>
         <div class="eos-menu" id="menu">

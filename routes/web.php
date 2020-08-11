@@ -23,3 +23,8 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/mybet', 'HomeController@mybet')->name('mybet');
+Route::get('/oneten', 'HomeController@oneten')->name('oneten');
+Route::get('/support', 'HomeController@support')->name('support');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/rules', 'HomeController@rules')->name('rules');

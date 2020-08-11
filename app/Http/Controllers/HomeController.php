@@ -25,4 +25,29 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function mybet()
+    {
+        return view('mybet');
+    }
+
+    public function oneten()
+    {
+        return view('oneten');
+    }
+
+    public function support()
+    {
+        return view('support');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function rules()
+    {
+        return view('rules');
+    }
 }
