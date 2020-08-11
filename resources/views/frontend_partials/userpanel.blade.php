@@ -1,6 +1,6 @@
 @if (Auth::user())
 <div id="mySidenav" class="sidenav">
-    <h2><i style="font-size: 27px;
+    <h2 style="padding-top: 18%;"><i style="font-size: 27px;
                     left: 7px;color:#fff;
                     position: absolute;
                     top: 18px;" class="fa fa-bars fa-lg " onclick="closeNav();" aria-hidden="true">
