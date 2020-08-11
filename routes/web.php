@@ -24,6 +24,9 @@ Route::get('/rules', 'HomeController@rules')->name('rules');
 # START DASHBOARD | ADMIN SIDE
 route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'backendController@index')->name('admin.index');
-    Route::get('/setting', 'backendController@settings')->name('admin.settings');
+    Route::get('/setting', 'backendController@settings')->name('admin.setting');
+    Route::post('/setting/store', 'backendController@settingStore')->name('admin.setting.store');
+    Route::post('/setting/update/{id}', 'backendController@settingUpdate')->name('admin.setting.update');
+
 });
 # END DASHBOARD | ADMIN SIDE

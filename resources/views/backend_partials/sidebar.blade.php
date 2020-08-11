@@ -65,7 +65,7 @@
     @else
     <li class="nav-item ">
     @endif
-    <a class="nav-link" href="{{ route('admin.settings') }}">
+    <a class="nav-link" href="{{ route('admin.setting') }}">
         <i class="material-icons">build</i>
         <p>Settings</p>
     </a>
