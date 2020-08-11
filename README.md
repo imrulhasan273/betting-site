@@ -9,3 +9,9 @@
 $ php artisan make:middleware RoleChecker
 
 ```
+
+# Custom MIddlewire
+
+```php
+middleware(['roleChecker:super_admin,admin,club']);
+```
