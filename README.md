@@ -21,4 +21,3 @@ middleware(['roleChecker:super_admin,admin,club']);
 ```cmd
 ~$ php artisan migrate:refresh --seed
 ```
-# Merge conflict

@@ -20,7 +20,10 @@ Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
 # END CLIENT SIDE ROUTES
 
+
+# START DASHBOARD | ADMIN SIDE
 route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'backendController@index')->name('admin.index');
     Route::get('/setting', 'backendController@settings')->name('admin.settings');
 });
+# END DASHBOARD | ADMIN SIDE

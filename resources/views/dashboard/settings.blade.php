@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-6 cat-form">
-              {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
+        {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
         <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -14,14 +14,12 @@
                                 style="display: none;"></p>
                 <p><label for="file" class="btn btn-warning" style="cursor: pointer;">Upload Image</label></p>
                 <p><img id="output" width="200" /></p>
-
                 <p>Website Logo.</p>
             </div>
 
             <div class="form-group">
                 <label>Footer text</label>
-                <textarea name="footer" id="footer" class="form-control"
-                                rows="5">
+                <textarea name="footer" id="footer" class="form-control" rows="5">
                 </textarea>
             </div>
 
