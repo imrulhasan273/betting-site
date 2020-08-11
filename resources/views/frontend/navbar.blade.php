@@ -1,6 +1,11 @@
 <nav class="navbar navbar-fixed-top" style="border-bottom-color:#fff" id="navtop">
     <div class="container-fluid">
+
         <div class="navbar-header">
+        <a class="navbar-brand" href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; openNav()" style="margin-right: -10px;">
+            <span class="glyphicon glyphicon-menu-hamburger">
+            </span>
+        </a>
         <a class="navbar-brand" href="{{ route('home') }}" style="width:230px;    padding: 9px 1px;">
             <img style="width:125px;margin-left: -2px;" src="frontend/img/logo.png" />
         </a>
