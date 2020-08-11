@@ -3,6 +3,7 @@
 @endphp
 @extends('layouts.backend')
 @section('content')
+<<<<<<< Updated upstream
 <div class="row">
     <div class="col-sm-6 cat-form">
               {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
@@ -11,6 +12,26 @@
             <div class="form-group">
                 {{-- <label>Logo</label> --}}
                 <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+=======
+
+           <div class="row">
+
+        <div class="col-md-12">
+
+                {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
+              <div class="card">
+                   <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Setup your site</h4>
+                  <p class="card-category"> Logo and footer text</p>
+                </div>
+
+                <div class="card-body">
+                             <form action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        {{-- <label>Logo</label> --}}
+                        <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+>>>>>>> Stashed changes
                                 style="display: none;"></p>
                 <p><label for="file" class="btn btn-warning" style="cursor: pointer;">Upload Image</label></p>
                 <p><img id="output" width="200" /></p>
@@ -25,10 +46,20 @@
                 </textarea>
             </div>
 
+<<<<<<< Updated upstream
             <div class="form-group">
                 <button class="btn btn-primary">Add Settings</button>
             </div>
         </form>
+=======
+                    <div class="form-group">
+                        <button class="btn btn-primary">Add Settings</button>
+                    </div>
+                </form>
+                </div>
+
+              </div>
+>>>>>>> Stashed changes
                 {{-- <h1>Else working, row count = {{$settings->count() }}</h1> --}}
 
                     {{-- <form action="" method="POST" enctype="multipart/form-data">
