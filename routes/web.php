@@ -19,5 +19,3 @@ Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
 # END CLIENT SIDE ROUTES
-
-Auth::routes();
