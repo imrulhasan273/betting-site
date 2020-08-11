@@ -1,4 +1,5 @@
 ---
 # Documentation
 ---
-### Laravel Betting Script ###
+
+### Laravel Betting Script

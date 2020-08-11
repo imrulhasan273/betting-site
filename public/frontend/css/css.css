@@ -1,0 +1,503 @@
+ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+     
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+  
+    .navbar{
+
+      background: #147B45;
+
+    }
+
+    .navbar a{
+
+        color: #fff;
+    }
+    .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #014443
+  }
+  .Welcome{
+    
+    width: 100%;
+
+  }
+  .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 12;
+  top: 0;
+
+  
+  background: #2b754e;
+  overflow-x: hidden;
+  transition: 0.5s;
+ 
+}
+.loginnav {
+  background: #333333;
+position: fixed;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: auto;
+    width: 266px;
+    height: auto;
+    overflow: auto;
+    border-left: 1px solid rgba(0,0,0,.176);
+    right:0;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 0px;
+  text-decoration: none;
+  
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.sidenav a:hover {
+  color: #ffffff;
+}
+
+.sidenav .closebtn {
+ position: absolute;
+    top: 32px;
+    right: 3px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+
+ background-color: #027B5B;
+ border: 1px solid  #e4db13;
+
+
+}
+
+ .nav-tabs.nav>li>a {
+    
+    padding: 5px 12px;
+}
+
+.live{
+
+
+
+
+}
+
+.live img{
+
+  position: relative;
+    left: 0px;
+    height: 30px;
+    width: auto;
+    top: 0px;
+}
+
+.live_text{
+
+  position: relative;
+    left: 17px;
+    top: -2px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #fff;
+ 
+
+
+}
+
+
+.panel-title{
+ 
+
+   color: #fff;
+   font-weight: bold;
+
+
+}
+
+
+.nav-pills>li>a {
+    
+    padding: 10px 12px;
+}
+ 
+
+ /* The Modal (background) */
+.m {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.m-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width:96%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.m-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.m-body {padding: 2px 16px;}
+
+.m-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+.ans{
+  margin-top: 1px;
+    padding: 0;
+    border-right: 1px solid #fff;
+}
+.que
+{
+ 
+    background: #494949;
+    color: #fff;
+}
+.qtitle
+{
+  background: #5B5D58;
+   
+    padding: 5px;
+}
+
+.bodytransition{/* -webkit-transform:translateX(-266px); */-ms-transform:translateX(-266px);transform:translateX(-266px);
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+}
+.bodytransition2{/* -webkit-transform:translateX(-266px); */-ms-transform:translateX(-266px);transform:translateX(-266px);
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+}
+
+.bodytransitionoff{
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+
+}
+
+.fojFwL {
+    color: rgb(255, 255, 255);
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    background: rgb(85, 85, 85);
+    border-color: rgb(85, 85, 85);
+}
+
+._9fc75 {
+    margin-bottom: 16px;
+}
+._293d1 {
+    display: -webkit-box;
+    display: flex;
+  
+    flex: 1;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+    min-height: 48px;
+    background-color: #222;
+    margin-bottom: 16px;
+    z-index: 999;
+}
+abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+._5fc2c.dfe8d {
+    background-color: #0e5f31;
+    font-weight: 500;
+}
+._5fc2c {
+    display: -webkit-box;
+    display: flex;
+    
+    flex: 1 1 0;
+    
+    flex-direction: column;
+ 
+    justify-content: center;
+
+    align-items: center;
+    padding: 8px 0;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: Roboto,sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+._5fc2c.dfe8d .ae156, ._5fc2c.dfe8d ._7ab16 {
+    color: #fff;
+}
+.ae156 {
+    color: #bbb;
+    height: 18px;
+    width: 18px;
+    margin-bottom: 5px;
+}
+
+._5fc2c.dfe8d .ae156, ._5fc2c.dfe8d ._7ab16 {
+    color: #fff;
+}
+._7ab16 {
+    font-size: 9px;
+    color: #bbb;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-transition: color .15s ease-in;
+    transition: color .15s ease-in;
+}
+abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+._5c053 {
+    display: -webkit-box;
+    display: flex;
+
+    flex: 1 1 0;
+ 
+    flex-direction: column; 
+    justify-content: center;
+   
+    align-items: center;
+    padding: 8px 0;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: Roboto,sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #222;
+    color: #bbb;
+    border: 0;
+}
+.a6fbd {
+    color: #bbb;
+    height: 18px;
+    width: 18px;
+    margin-bottom: 5px;
+}
+.efb59 {
+    font-size: 9px;
+    color: #bbb;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-transition: color .15s ease-in;
+    transition: color .15s ease-in;
+}
+abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.c1950 {
+    line-height: normal;
+}
+._847a8.d9f21 {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 16px;
+    overflow-x: scroll;
+}
+._847a8 {
+    display: -webkit-box;
+    display: flex;
+    padding: 0 0 8px;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+.c1950>* {
+    margin-bottom: 16px;
+}
+ol, ul {
+    list-style: none;
+}
+.a7170 {
+    text-align: center;
+    display: -webkit-box;
+    display: flex;
+    min-width: 72px;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+._8faff {
+    margin-right: 12px;
+    cursor: pointer;
+    width: 56px;
+    text-align: center;
+}
+.dfbb8 {
+    width: 56px;
+    font-size: 9px;
+    line-height: 11px;
+    color: #333;
+    text-align: center;
+    white-space: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+._8faff img {
+    width: 56px;
+    height: 56px;
+}
+
+._7c452 {
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+.fd0c8, ._6a45d {
+    width: 56px;
+    height: 56px;
+}
+.fd0c8 {
+    margin-bottom: 4px;
+}
+._1552c path {
+    fill: #3aaa35!important;
+}
+.c1950 {
+    line-height: normal;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background:green;
+  -webkit-text-fill-color: #fff;
+  
+  transition: background-color 5000s ease-in-out 0s;
+}
