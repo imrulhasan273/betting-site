@@ -144,6 +144,7 @@
           </div>
         </div>
       </nav>
+      @yield('content')
     </div>
   </div>
   <div class="fixed-plugin">
@@ -209,9 +210,8 @@
     </div>
   </div>
 
-  @yield('content')
   <!--   Core JS Files   -->
-  <script src=" {{asset('backend/js/core/jquery.min.js')}} "></script>
+<script src=" {{asset('backend/js/core/jquery.min.js')}} "></script>
 <script src="{{ asset('backend/js/core/popper.min.js') }}"></script>
   <script src=" {{asset('backend/js/core/bootstrap-material-design.min.js')}} "></script>
   <script src=" {{asset('backend/js/plugins/perfect-scrollbar.jquery.min.js')}} "></script>
