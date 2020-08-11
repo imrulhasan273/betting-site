@@ -21,5 +21,3 @@ Route::get('/rules', 'HomeController@rules')->name('rules');
 # END CLIENT SIDE ROUTES
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
