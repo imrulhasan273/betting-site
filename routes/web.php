@@ -19,3 +19,9 @@ Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
 # END CLIENT SIDE ROUTES
+
+route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/', 'backendController@index')->name('admin.index');
+
+});
