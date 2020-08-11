@@ -126,27 +126,26 @@
         </div>
 
         <!-- Start Nav bar -->
-        @include('frontend.navbar')
+        @include('frontend_partials.navbar')
         <!-- End Nav bar -->
 
         <!--Start Content Section -->
         @yield('content')
         <!--End Content Section -->
 
-
         <button type="button" id="betslip_toolkit" style="position: fixed;right: 10px;bottom:20px;display: none;">Bet Slip <span style="color:red;" id="total_multi">0</span></button>
 
-        @include('frontend.footer')
+        @include('frontend_partials.footer')
 
         <!-- Start All the Modals -->
-        @include('frontend.modals')
+        @include('frontend_partials.modals')
         <!-- End All the Modals -->
 
     </div>
     <!--End Body-->
 
     <!-- Start All the JQuery-Ajax Files -->
-    @include('frontend.scripts')
+    @include('frontend_partials.scripts')
     <!-- End All the JQuery Files -->
 
 </html>
