@@ -52,8 +52,8 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>RTL Support</p>
+              <i class="material-icons">build</i>
+              <p>Settings</p>
             </a>
           </li>
         </ul>

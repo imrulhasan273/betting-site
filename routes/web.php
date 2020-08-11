@@ -22,4 +22,6 @@ Route::get('/rules', 'HomeController@rules')->name('rules');
 
 route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'backendController@index')->name('admin.index');
+    Route::get('/setting', 'backendController@settings')->name('admin.settings');
+
 });

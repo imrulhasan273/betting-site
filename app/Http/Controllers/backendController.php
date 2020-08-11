@@ -10,4 +10,10 @@ class backendController extends Controller
 
         return view('dashboard.index');
    }
+
+   public function settings()
+   {
+       return view('dashboard.settings');
+
+   }
 }
