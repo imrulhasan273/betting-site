@@ -32,73 +32,14 @@
 <body style="background: #E8E8E8">
 
     <!--START THIS PART IS THE PART OF NAVIGATION BAR USING MODAL (LOGIN / REG) -->
-    <div>
-        <div id="loginnav" class="loginnav" style="display: none;">
-            <a id="closenav" class="closebtn" style="float: right;
-                                                    font-size: 34px;
-                                                    margin-right: 10px;">×</a>
-            <div class="">
-            <p style="color: #FFE71E;position: absolute;
-                        top: 20px;
-                        left: 63px;
-                        font-size: 20px;">Login your ID</p>
-            <div id="errorSignIn" class="alert" role="alert">
-                <button type="button" class="close" data-dismiss="" aria-hidden="true">
-                ×
-                </button> <strong id="alertsignin"> </strong><span id="signuperrorText"></span>
-            </div>
-            <form class="form-group">
-                <div class="form-group" style="padding: 7px;margin-top: 60px;">
-                <input type="text" name="user" id="user" placeholder="User Id" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <input type="password" name="password" id="password" placeholder="Password" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <button class="btn btn-success form-control" style="background: #FFE71E;color:#000" id="userSignInForm">Log In</button>
-                </div>
-            </form>
-            </div>
-        </div>
-        <div id="registernav" class="loginnav" style="display: none;">
-            <a id="closenavregister" class="closebtn" style="float: right;
-                                                            font-size: 34px;
-                                                            margin-right: 10px;">×
-            </a>
-            <div class="">
-            <p style="color: #55fbe4;position: absolute;
-                        top: 20px;
-                        left: 63px;
-                        font-size: 20px;">Create a new ID</p>
-            <div id="errorSignUp" class="alert" role="alert">
-                <button type="button" class="close" data-dismiss="" aria-hidden="true">
-                ×</button> <strong id="alertSignUp"> </strong><span id="signuperrorText"></span>
-            </div>
-            <form class="form-group">
-                <div class="form-group" style="padding: 7px;margin-top: 60px;">
-                <input type="text" name="name" id="name" placeholder="FULL NAME" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <input type="text" name="userId" id="userId" placeholder="USER ID" class="form-control fojFwL" style="margin-bottom: 10px;" />
-
-                <input type="number" name="mobileNumber" id="mobileNumber" placeholder="MOBILE NO" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <input type="email" name="email" id="email" placeholder="EMAIL" class="form-control fojFwL" style="margin-bottom: 10px;" />
-
-                <select class="form-control fojFwL" id="club" name="club">
-                    <option value="" disabled selected>Select Club</option>
-                    <option value="sports24bd">sports24bd</option>}
-                    option
-                    <option value="Barisal Club">Barisal Club</option>
-                </select>
-                <br>
-                <input type="text" name="sponsor_register" id="sponsor_register" placeholder="SPONSOR'S USERNAME" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <input type="passworrd" name="passwordsignup" id="passwordsignup" placeholder="PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <input type="passworrd" name="confirmPassword" id="confirmPassword" placeholder="CONFIRM PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
-                <button type="button" class="btn btn-success form-control" style="background: #55fbe4;color:#000" id="userSignUp">Register</button>
-                </div>
-            </form>
-            </div>
-        </div>
-    </div>
+    {{-- @guest --}}
+    @include('frontend_partials.login')
+    @include('frontend_partials.registration')
     <!--START THIS PART IS THE PART OF NAVIGATION BAR USING MODAL (LOGIN / REG) -->
 
     <!--Start Body-->
     <div class="" id="allbody">
-        <div id="mySidenav" class="sidenav  ">
+        <div id="mySidenav" class="sidenav">
         <h2><i style="font-size: 27px;
                         left: 7px;color:#fff;
                         position: absolute;
@@ -118,9 +59,13 @@
                 <div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/oneten.gif" style="max-width: 22px;"></i> OneTen</div>
             </a>
             <!--<a style="padding:0px;font-size: 14px;" href="coin_flip"><div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/coin.png" style="max-width: 22px;"></i> Coin Flip</div></a>-->
-            <a style="padding:0px;font-size: 14px;" href="userLogout">
+            <a style="padding:0px;font-size: 14px;" href="{{route('logout')}}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
                 <div class="eos-group-title"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i> Logout</div>
             </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             </div>
         </div>
         </div>

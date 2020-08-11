@@ -15,3 +15,9 @@ $ php artisan make:middleware RoleChecker
 ```php
 middleware(['roleChecker:super_admin,admin,club']);
 ```
+
+# **IMPORTANT COMMAND AFTER**
+
+```cmd
+~$ php artisan migrate:refresh --seed
+```

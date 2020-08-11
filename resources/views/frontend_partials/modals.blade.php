@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
       <!--Start place bet-->
       <div class="modal fade betForm" id="betting" role="dialog" aria-hidden="true" style="display: none;">
