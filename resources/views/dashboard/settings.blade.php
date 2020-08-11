@@ -4,8 +4,7 @@
 @extends('layouts.backend')
 
 @section('content')
-<div class="content">
-    <div class="container-fluid">
+
            <div class="row">
 
         <div class="col-sm-6 cat-form">
@@ -66,8 +65,6 @@
 
         </div>
     </div>
-    </div>
-</div>
 <script>
     var loadFile = function (event) {
         var image = document.getElementById('output');
