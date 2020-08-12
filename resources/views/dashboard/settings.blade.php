@@ -5,21 +5,26 @@
 @section('content')
 <div class="row">
 {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
-    <div class="card col-sm-6 cat-form">
+    <div class="card">
         <div class="card-header card-header-primary">
             <h4 class="card-title ">Setup your site</h4>
             <p class="card-category"> Logo and footer text</p>
         </div>
 
         <div class="card-body">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.setting.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     {{-- <label>Logo</label> --}}
-                    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
-                                            style="display: none;"></p>
-                    <p><label for="file" class="btn btn-warning" style="cursor: pointer;">Upload Image</label></p>
-                    <p><img id="output" width="200" /></p>
+                    <p>
+                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                    </p>
+                    <p>
+                        <label for="file" class="btn btn-warning" style="cursor: pointer;">Upload Image</label>
+                    </p>
+                    <p>
+                        <img id="output" width="200" />
+                    </p>
                     <p>Website Logo.</p>
                 </div>
 
@@ -30,7 +35,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary">Add Settings</button>
+                    <button type="submit" class="btn btn-primary">Add Settings</button>
                 </div>
             </form>
 

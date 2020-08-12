@@ -27,6 +27,29 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/setting', 'backendController@settings')->name('admin.setting');
     Route::post('/setting/store', 'backendController@settingStore')->name('admin.setting.store');
     Route::post('/setting/update/{id}', 'backendController@settingUpdate')->name('admin.setting.update');
-
 });
 # END DASHBOARD | ADMIN SIDE
+
+
+
+# START USER CONTROLLER ROUTE
+//
+# START USER CONTROLLER ROUTE
+
+
+
+# START SETTING CONTROLLER ROUTE
+//
+# START SETTING CONTROLLER ROUTE
+
+
+
+# START ---- CONTROLLER ROUTE
+//
+# START ---- CONTROLLER ROUTE
+
+
+
+# START ---- CONTROLLER ROUTE
+//
+# START ---- CONTROLLER ROUTE

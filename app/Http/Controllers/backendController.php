@@ -16,11 +16,11 @@ class backendController extends Controller
     public function settings()
     {
         return view('dashboard.settings');
-
     }
 
     public function settingStore(Request $request)
     {
+        dd($request);
         $settings = new Setting();
 
         if ($request->hasFile('image')) {
@@ -31,7 +31,6 @@ class backendController extends Controller
             // session()->flash('success', 'New Settings Added !!');
 
             return back();
-
         }
     }
 }
