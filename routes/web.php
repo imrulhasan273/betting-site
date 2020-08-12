@@ -45,9 +45,16 @@ route::group(['prefix' => 'wallet'], function () {
 # START DASHBOARD | ADMIN SIDE
 route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'backendController@index')->name('admin.index');
-    Route::get('/setting', 'backendController@settings')->name('admin.setting');
-    Route::post('/setting/store', 'backendController@settingStore')->name('admin.setting.store');
-    Route::post('/setting/update/{id}', 'backendController@settingUpdate')->name('admin.setting.update');
+
+    Route::get('/setting', 'settingsController@index')->name('admin.setting');
+    Route::post('/setting/store', 'settingsController@settingStore')->name('admin.setting.store');
+    Route::post('/setting/update/{id}', 'settingsController@settingUpdate')->name('admin.setting.update');
+
+
+    Route::get('/notice', 'noticeController@index')->name('admin.notice');
+    Route::post('/notice/store', 'noticeController@settingStore')->name('admin.notice.store');
+    Route::post('/notice/update/{id}', 'noticeController@settingUpdate')->name('admin.notice.update');
+
 });
 
 # END DASHBOARD | ADMIN SIDE
