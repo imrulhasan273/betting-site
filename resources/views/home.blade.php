@@ -98,13 +98,15 @@
 
       <!-------Start cricket tab===================================================================--->
       <div id="tab3" class="tab-pane fade">
+
         <!-- live section -->
         <div style="margin-top: 111px;">
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab3collapse" data-parent="#accordion">
             <!--<img src="frontend/img/live.gif"> -->
             <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
           </div>
-          <div class="" style="border: 1px solid #bfc5cc;">
+          <div class="panel-collapse collapse in" id="tab3collapse">
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#tab33419" style="background:#147B45;padding: 12px 7px;min-height:54px;">
               <span class="gameicon"><img src="frontend/img/ka-pl.png" width="27px;"></span>
               <h3 class="panel-title ">
@@ -223,11 +225,13 @@
         </div>
         <!-- live section  end-->
         <div>
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab32collapse" data-parent="#accordion">
             <!-- <img src="frontend/img/gogf.gif"> -->
             <span class="live_text" style="color:yellow">UPCOMING MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
-          <div class="" style="border: 1px solid #bfc5cc;">
+          <div class="panel-collapse collapse in" id="tab32collapse"">
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#tab3up3423" style="padding: 12px 7px;min-height:54px;min-height:54px;background: #147b45">
               <span class="gameicon"><img src="frontend/img/ka-pl.png" width="27px;"></span>
               <h3 class="panel-title">
@@ -317,16 +321,19 @@
       <div id="tab4" class="tab-pane fade">
         <!-- live section -->
         <div style="margin-top: 111px;">
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab4collapse" data-parent="#accordion">
             <!--<img src="frontend/img/live.gif"> -->
             <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
           </div>
         </div>
         <!-- live section  end-->
         <div>
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab42collapse" data-parent="#accordion">
             <!-- <img src="frontend/img/gogf.gif"> -->
             <span class="live_text" style="color:yellow">UPCOMING MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
       </div>
@@ -337,16 +344,20 @@
       <div id="tab5" class="tab-pane fade">
         <!-- live section -->
         <div style="margin-top: 111px;">
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab5collapse" data-parent="#accordion">
             <!--<img src="frontend/img/live.gif"> -->
             <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
         <!-- live section  end-->
         <div>
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab52collapse" data-parent="#accordion">
             <!-- <img src="frontend/img/gogf.gif"> -->
             <span class="live_text" style="color:yellow">UPCOMING MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
       </div>
@@ -357,11 +368,13 @@
       <div id="tab2" class="tab-pane fade active in">
         <!-- live section -->
         <div style="margin-top: 111px;">
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab2collapse" data-parent="#accordion">
             <!--<img src="frontend/img/live.gif"> -->
             <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
-          <div class="" style="border: 1px solid #bfc5cc;">
+          <div id="tab2collapse" class="panel-collapse collapse in" style="border: 1px solid #bfc5cc;">
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#tab23397" style="background:#147B45;padding: 12px 7px;min-height:54px;" aria-expanded="true">
               <span class="gameicon"><img src="frontend/img/1393757333.png" width="27px;"></span>
               <h3 class="panel-title">
@@ -418,11 +431,14 @@
         </div>
         <!-- live section  end-->
         <div>
-          <div class="live">
+          <div class="live" data-toggle="collapse" href="#tab22collapse" data-parent="#accordion">
             <!-- <img src="frontend/img/gogf.gif"> -->
             <span class="live_text" style="color:yellow">UPCOMING MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
-          <div class="" style="border: 1px solid #bfc5cc;">
+        </div>
+          <div id="tab22collapse" class="panel-collapse collapse in" class="" style="border: 1px solid #bfc5cc;">
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#tab2up3425" style="background: #147B45;padding: 12px 7px;min-height:54px;background: #147b45">
               <span class="gameicon"><img src="frontend/img/1393757333.png" width="27px;"></span>
               <h3 class="panel-title">
@@ -485,6 +501,8 @@
           <div class="live">
             <!--<img src="frontend/img/live.gif"> -->
             <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
         <!-- live section  end-->
@@ -492,6 +510,8 @@
           <div class="live">
             <!-- <img src="frontend/img/gogf.gif"> -->
             <span class="live_text" style="color:yellow">UPCOMING MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
       </div>
@@ -505,6 +525,8 @@
           <div class="live">
             <!--<img src="frontend/img/live.gif"> -->
             <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
         <!-- live section  end-->
@@ -512,6 +534,8 @@
           <div class="live">
             <!-- <img src="frontend/img/gogf.gif"> -->
             <span class="live_text" style="color:yellow">UPCOMING MATCHES</span>
+            <span style="float: right;color: #fff;">4 Matches</span>
+
           </div>
         </div>
       </div>

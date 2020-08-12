@@ -16,7 +16,7 @@ Auth::routes();
 # FRONT PAGES
 Route::get('/', 'HomeController@index')->name('home'); //home page
 Route::get('/mybet', 'HomeController@mybet')->name('mybet');
-// Route::get('/oneten', 'HomeController@oneten')->name('oneten');
+# Route::get('/oneten', 'HomeController@oneten')->name('oneten');
 Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
@@ -50,11 +50,9 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/setting/store', 'settingsController@settingStore')->name('admin.setting.store');
     Route::post('/setting/update/{id}', 'settingsController@settingUpdate')->name('admin.setting.update');
 
-
     Route::get('/notice', 'noticeController@index')->name('admin.notice');
     Route::post('/notice/store', 'noticeController@settingStore')->name('admin.notice.store');
     Route::post('/notice/update/{id}', 'noticeController@settingUpdate')->name('admin.notice.update');
-
 });
 
 # END DASHBOARD | ADMIN SIDE
