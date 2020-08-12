@@ -21,3 +21,9 @@ middleware(['roleChecker:super_admin,admin,club']);
 ```cmd
 ~$ php artisan migrate:refresh --seed
 ```
+
+# Image Package
+
+```cmd
+~$ composer require intervention/image
+```
