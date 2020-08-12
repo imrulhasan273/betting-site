@@ -30,7 +30,7 @@
   @php
   $footer = DB::table('settings')
       ->where('id', '=', 1)
-      ->pluck('footer');  // "5"
+      ->pluck('footer');
   @endphp
   <div class="col-md-12" style="padding: 0px;">
   <p class="text-center" style="background: #FF7118; padding: 12px 0px;color: #fff;">&copy; {{ $footer[0] }}</p>
