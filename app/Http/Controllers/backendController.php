@@ -19,6 +19,8 @@ class backendController extends Controller
 
     public function settingStore(Request $request)
     {
+        // dd($request);
+
         $settings = new Setting();
 
         if ($request->hasFile('image')) {
