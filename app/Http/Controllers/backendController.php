@@ -38,7 +38,6 @@ class backendController extends Controller
         $settings->warning = $request->warning;
         $settings->save();
         return back();
-
     }
 
     public function settingUpdate(Request $request, $id)
@@ -62,6 +61,5 @@ class backendController extends Controller
         $settings->save();
         // session()->flash('success', ' Settings Updated !!');
         return back();
-
     }
 }

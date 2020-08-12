@@ -8,6 +8,10 @@
 <body class="">
     <div class="wrapper ">
 
+        <div style="text-align: center">
+            <x-alert/>
+        </div>
+
         <!-- SIDE BAR -->
         @include('backend_partials.sidebar')
         <!-- SIDE BAR -->
