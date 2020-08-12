@@ -52,8 +52,8 @@ route::group(['prefix' => 'admin'], function () {
 
 
     Route::get('/notice', 'noticeController@index')->name('admin.notice');
-    Route::post('/notice/store', 'noticeController@settingStore')->name('admin.notice.store');
-    Route::post('/notice/update/{id}', 'noticeController@settingUpdate')->name('admin.notice.update');
+    Route::post('/notice/store', 'noticeController@noticeStore')->name('admin.notice.store');
+    Route::post('/notice/update/{id}', 'noticeController@noticeUpdate')->name('admin.notice.update');
 
 });
 
