@@ -791,7 +791,12 @@
       <!--Start modal notice-->
       <div class="modal fade" id="notice" role="dialog">
         <div class="modal-dialog  ">
-
+ @php
+  $notice_pop = DB::table('notices')
+      ->where('id', '=', 1)
+      ->pluck('notice_pop');
+    $notice_pop = $notice_pop[0] ?? null;
+  @endphp
           <!-- Modal content-->
           <div class="modal-content m-content">
             <div class="modal-header m-head" style="  background: #FF7118 !important;">
@@ -800,7 +805,7 @@
               <h4 class="modal-title" style="color: #fff"> &nbsp; Notice</h4>
             </div>
             <div class="modal-body" style="padding: 2% !important">
-              <p><strong>1. Dear users, Coronavirus has been affected all the sectors and sports, still COVID-19&nbsp;is affecting.</strong></p>
+            <p><strong>{{$notice_pop}}</strong></p>
             </div>
           </div>
 

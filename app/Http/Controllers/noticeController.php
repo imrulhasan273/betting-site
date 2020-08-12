@@ -29,7 +29,7 @@ class noticeController extends Controller
 
         $notices = Notice::find($id);
         $notices->notice_slide = $request->notice_slide;
-        $notices->notice_pop = $request->notice_slide;
+        $notices->notice_pop = $request->notice_pop;
         $notices->save();
         return back();
 
