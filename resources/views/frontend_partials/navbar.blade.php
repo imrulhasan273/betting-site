@@ -10,12 +10,14 @@
         @endif
         {{-- src="frontend/img/logo.png" --}}
         @php
-        $setting = DB::table('settings')
+        $images = DB::table('settings')
             ->where('id', '=', 1)
             ->pluck('image');  // "5"
+        $image = $images[0] ?? null;
+
         @endphp
         <a class="navbar-brand" href="{{ route('home') }}" style="width:230px;    padding: 9px 1px;">
-            <img style="width:125px;margin-left: -2px;"  src="{{asset('images/setting/'.$setting[0])}}" />
+            <img style="width:125px;margin-left: -2px;"  src="{{asset('images/setting/'.$image)}}" />
         </a>
         @if (Auth::user() == false)
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">

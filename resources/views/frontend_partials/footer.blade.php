@@ -21,11 +21,12 @@
         <div class="col-md-3">
           <hr>
             @php
-  $warning = DB::table('settings')
-      ->where('id', '=', 1)
-      ->pluck('warning');
-  @endphp
-          <span class="userAlert text-center" style="color: #f3bcab"> {{ $warning[0] }} </span>
+            $warnings = DB::table('settings')
+                ->where('id', '=', 1)
+                ->pluck('warning');
+                $warning = $warnings[0] ?? null;
+            @endphp
+          <span class="userAlert text-center" style="color: #f3bcab"> {{ $warning }} </span>
           <hr>
         </div>
       </div>
@@ -33,10 +34,11 @@
 
   </footer>
   @php
-  $footer = DB::table('settings')
+  $footers = DB::table('settings')
       ->where('id', '=', 1)
       ->pluck('footer');
+    $footer = $footers[0] ?? null;
   @endphp
   <div class="col-md-12" style="padding: 0px;">
-  <p class="text-center" style="background: #FF7118; padding: 12px 0px;color: #fff;">&copy; {{ $footer[0] }}</p>
+  <p class="text-center" style="background: #FF7118; padding: 12px 0px;color: #fff;">&copy; {{ $footer }}</p>
   </div>
