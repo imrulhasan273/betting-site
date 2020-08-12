@@ -15,21 +15,77 @@
     </h2>
     <div class="eos-menu" id="menu">
         <div class="eos-menu-content" style="height:360px;">
-        @if (Auth::user())
-        <div class="eos-group-title"><i class="fa fa-user-tie" aria-hidden="true"></i> {{ Auth::user()->name }}</div>
-        @endif
-        <a style="padding:0px;font-size: 14px;" href="{{ route('oneten') }}">
-            <div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/oneten.gif" style="max-width: 22px;"></i> OneTen</div>
-        </a>
-        <!--<a style="padding:0px;font-size: 14px;" href="coin_flip"><div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/coin.png" style="max-width: 22px;"></i> Coin Flip</div></a>-->
-        <a style="padding:0px;font-size: 14px;" href="{{route('logout')}}" onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-            <div class="eos-group-title"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i> Logout</div>
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
+            @if (Auth::user())
+                <div class="eos-group-title"><i class="fa fa-user-tie" aria-hidden="true"></i> {{ Auth::user()->name }}</div>
+            @endif
+            <div class="eos-group-title">
+                <i class="fas fa-wallet" aria-hidden="true">
+                </i>
+                    My Wallet
+                <i class="fa fa-angle-right fa-lg eos-pull-right" aria-hidden="true">
+                </i>
+            </div>
+            <div class="eos-group-content">
+                <li class="eos-item">
+                    <a href="#">
+                        <i class="" aria-hidden="true">
+                        </i> Profile
+                    </a>
+                </li>
+
+                <li class="eos-item">
+                    <a href="#" id="deposit-numberW" data-toggle="modal" data-target="#deposit">
+                        <i class="" aria-hidden="true">
+                        </i> Deposit
+                    </a>
+                </li>
+
+                <li class="eos-item">
+                    <a href="#" data-toggle="modal" data-target="#passwordverify">
+                        <i class="" aria-hidden="true">
+                        </i> Withdraw
+                    </a>
+                </li>
+
+                <li class="eos-item">
+                    <a href="#" data-toggle="modal" data-target="#balanceTransferclub">
+                        <i class="" aria-hidden="true">
+                        </i> Balance Transfer
+                    </a>
+                </li>
+                <li class="eos-item">
+                    <a href="#" data-toggle="modal" data-target="#changeClub">
+                        <i class="" aria-hidden="true">
+                        </i> Change Club
+                    </a>
+                </li>
+                <li class="eos-item">
+                    <a href="#" data-toggle="modal" data-target="#changePassword" >
+                        <i class="" aria-hidden="true">
+                        </i> Change Password
+                    </a>
+                </li>
+            </div>
+            <a style="padding:0px;font-size: 14px;" href="#"><div class="eos-group-title"><i class="fas fa-clipboard" aria-hidden="true"></i> My Statement</div></a>
+            <a style="padding:0px;font-size: 14px;" href="#"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> My Sponsor</div></a>
+            <a style="padding:0px;font-size: 14px;" href="{{ route('oneten') }}">
+                <div class="eos-group-title">
+                <i aria-hidden="true">
+                    <img src="frontend/img/oneten.gif" style="max-width: 22px;">
+                </i> OneTen</div>
+            </a>
+            <!--<a style="padding:0px;font-size: 14px;" href="coin_flip"><div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/coin.png" style="max-width: 22px;"></i> Coin Flip</div></a>-->
+            <a style="padding:0px;font-size: 14px;" href="{{route('logout')}}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                <div class="eos-group-title">
+                    <i class="glyphicon glyphicon-log-out" aria-hidden="true">
+                    </i> Logout
+                </div>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
     </div>
-    </div>
+</div>
 @endif
