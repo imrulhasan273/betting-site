@@ -25,17 +25,16 @@ Route::get('/rules', 'HomeController@rules')->name('rules');
 
 # PROFILE
 route::group(['prefix' => 'wallet'], function () {
-    Route::get('/wallet/profile', 'ProfileController@index')->name('profiles.profile');
-    Route::get('/wallet/deposit', 'ProfileController@index')->name('profiles.deposit');
-    Route::get('/wallet/widthdraw', 'ProfileController@index')->name('profiles.widthdraw');
-    Route::get('/wallet/b-transfer', 'ProfileController@index')->name('profiles.btransfer');
-    Route::get('/wallet/change-club', 'ProfileController@index')->name('profiles.changeclub');
-    Route::get('/wallet/change-password', 'ProfileController@index')->name('profiles.changepassword');
-    Route::get('/wallet/statement', 'ProfileController@index')->name('profiles.statement');
-    Route::get('/wallet/sponsor', 'ProfileController@index')->name('profiles.sponsor');
-    Route::get('/wallet/oneten', 'ProfileController@index')->name('profiles.oneten');
+    Route::get('/profile', 'ProfileController@index')->name('profiles.profile');
+    Route::get('/deposit', 'ProfileController@index')->name('profiles.deposit');
+    Route::get('/widthdraw', 'ProfileController@index')->name('profiles.widthdraw');
+    Route::get('/b-transfer', 'ProfileController@index')->name('profiles.btransfer');
+    Route::get('/change-club', 'ProfileController@index')->name('profiles.changeclub');
+    Route::get('/change-password', 'ProfileController@index')->name('profiles.changepassword');
+    Route::get('/statement', 'ProfileController@index')->name('profiles.statement');
+    Route::get('/sponsor', 'ProfileController@index')->name('profiles.sponsor');
+    Route::get('/oneten', 'ProfileController@index')->name('profiles.oneten');
 });
-
 # PROFILE
 
 
