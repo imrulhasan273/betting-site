@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class backendController extends Controller
 {
@@ -14,7 +16,8 @@ class backendController extends Controller
 
     public function settings()
     {
-        return view('dashboard.settings');
+        $settings = Setting::limit(1)->orderBy('id', 'desc')->get();
+        return view('dashboard.settings', compact('settings'));
     }
 
     public function settingStore(Request $request)
@@ -23,14 +26,40 @@ class backendController extends Controller
 
         $settings = new Setting();
 
-        if ($request->hasFile('image')) {
+        if (($request->image) > 0) {
 
-            $settings->footer = $request->footer;
-            $settings->save();
-
-            // session()->flash('success', 'New Settings Added !!');
-
-            return back();
+            $image = $request->file('image');
+            $img = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/setting/' . $img);
+            Image::make($image)->save($location);
+            $settings->image = $img;
         }
+        $settings->footer = $request->footer;
+        $settings->save();
+        return back();
+
+    }
+
+    public function settingUpdate(Request $request, $id)
+    {
+
+        $settings = Setting::find($id);
+
+        if (($request->image) > 0) {
+            if (File::exists('images/setting/' . $settings->image)) {
+                File::delete('images/setting/' . $settings->image);
+            }
+
+            $image = $request->file('image');
+            $img = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/setting/' . $img);
+            Image::make($image)->save($location);
+            $settings->image = $img;
+        }
+        $settings->footer = $request->footer;
+        $settings->save();
+        // session()->flash('success', ' Settings Updated !!');
+        return back();
+
     }
 }
