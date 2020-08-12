@@ -38,12 +38,6 @@ route::group(['prefix' => 'admin'], function () {
 
 
 
-# START SETTING CONTROLLER ROUTE
-//
-# START SETTING CONTROLLER ROUTE
-
-
-
 # START ---- CONTROLLER ROUTE
 //
 # START ---- CONTROLLER ROUTE

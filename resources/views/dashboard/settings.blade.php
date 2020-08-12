@@ -6,6 +6,7 @@
 <div class="row">
 {{-- <h1> if working, row count = {{ $settings->count() }}</h1> --}}
     <div class="card">
+
         <div class="card-header card-header-primary">
             <h4 class="card-title ">Setup your site</h4>
             <p class="card-category"> Logo and footer text</p>
@@ -17,20 +18,20 @@
                 <div class="form-group">
                     {{-- <label>Logo</label> --}}
                     <p>
-                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                        <input value="" type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
                     </p>
                     <p>
                         <label for="file" class="btn btn-warning" style="cursor: pointer;">Upload Image</label>
                     </p>
                     <p>
-                        <img id="output" width="200" />
+                        <img src="" id="output" width="200" />
                     </p>
-                    <p>Website Logo.</p>
+                    <p>Logo Preview.</p>
                 </div>
 
                 <div class="form-group">
                     <label>Footer text</label>
-                    <textarea name="footer" id="footer" class="form-control" rows="5">
+                    <textarea value="" name="footer" id="footer" class="form-control" rows="5">
                     </textarea>
                 </div>
 
