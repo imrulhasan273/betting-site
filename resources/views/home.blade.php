@@ -11,7 +11,7 @@
                                                         margin-left: -3px;" src="frontend/img/coin.png"></div>
             <div class="_7ab16">Coin Flip</div>
           </a>
-          <a class="_5fc2c _42580" href="{{route('oneten')}}">
+          <a class="_5fc2c _42580" href="{{route('profiles.oneten')}}">
             <div class="ae156"><img alt="One Ten" style="width: 27px;
                                                         margin-left: -3px;" src="frontend/img/oneten.gif"></div>
             <div class="_7ab16">One Ten</div>

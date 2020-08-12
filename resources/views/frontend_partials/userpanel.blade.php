@@ -19,62 +19,58 @@
                 <div class="eos-group-title"><i class="fa fa-user-tie" aria-hidden="true"></i> {{ Auth::user()->name }}</div>
             @endif
             <div class="eos-group-title">
-                <i class="fas fa-wallet" aria-hidden="true">
+                <i class="subMenus" aria-hidden="true">
                 </i>
                     My Wallet
                 <i class="fa fa-angle-right fa-lg eos-pull-right" aria-hidden="true">
                 </i>
             </div>
             <div style="" class="eos-group-content">
-                <li class="eos-item">
-                    Profile
-                    <a href="#">
-                        <i class="" aria-hidden="true">
-                        </i>
-                    </a>
-                </li>
+                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.profile') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Profile</div>
+                </a>
 
-                <li class="eos-item">
-                    Deposit
-                    <a href="#" id="deposit-numberW" data-toggle="modal" data-target="#deposit">
-                        <i class="" aria-hidden="true">
-                        </i>
-                    </a>
-                </li>
+                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.deposit') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Deposit</div>
+                </a>
 
-                <li class="eos-item">
-                    Withdraw
-                    <a href="#" data-toggle="modal" data-target="#passwordverify">
-                        <i class="" aria-hidden="true">
-                        </i>
-                    </a>
-                </li>
+                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.widthdraw') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Withdraw</div>
+                </a>
 
-                <li class="eos-item">
-                    Balance Transfer
-                    <a href="#" data-toggle="modal" data-target="#balanceTransferclub">
-                        <i class="" aria-hidden="true">
-                        </i>
-                    </a>
-                </li>
-                <li class="eos-item">
-                    Change Club
-                    <a href="#" data-toggle="modal" data-target="#changeClub">
-                        <i class="" aria-hidden="true">
-                        </i>
-                    </a>
-                </li>
-                <li class="eos-item">
-                    Change Password
-                    <a href="#" data-toggle="modal" data-target="#changePassword" >
-                        <i class="" aria-hidden="true">
-                        </i>
-                    </a>
-                </li>
+                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.btransfer') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Balance Transfer</div>
+                </a>
+
+                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.changeclub') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Change Club</div>
+                </a>
+
+                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.changepassword') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Change Password</div>
+                </a>
             </div>
-            <a style="padding:0px;font-size: 14px;" href="#"><div class="eos-group-title"><i class="fas fa-clipboard" aria-hidden="true"></i> My Statement</div></a>
-            <a style="padding:0px;font-size: 14px;" href="#"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> My Sponsor</div></a>
-            <a style="padding:0px;font-size: 14px;" href="{{ route('oneten') }}">
+            <a id="state" href="{{ route('profiles.statement') }}"><div class="eos-group-title"><i class="fas fa-clipboard" aria-hidden="true"></i> My Statement</div></a>
+            <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.sponsor') }}"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> My Sponsor</div></a>
+            <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.oneten') }}">
                 <div class="eos-group-title">
                 <i aria-hidden="true">
                     <img src="frontend/img/oneten.gif" style="max-width: 22px;">

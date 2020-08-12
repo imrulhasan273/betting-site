@@ -33,10 +33,10 @@ class HomeController extends Controller
         return view('mybet');
     }
 
-    public function oneten()
-    {
-        return view('oneten');
-    }
+    // public function oneten()
+    // {
+    //     return view('oneten');
+    // }
 
     public function support()
     {
