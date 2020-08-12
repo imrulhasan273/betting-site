@@ -17,6 +17,7 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->string('image')->nullable();
             $table->string('footer')->nullable();
+            $table->string('warning')->nullable();
             $table->timestamps();
         });
     }
