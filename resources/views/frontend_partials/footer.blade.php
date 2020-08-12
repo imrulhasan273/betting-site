@@ -1,7 +1,8 @@
 <footer class="footer-basic-centered " style="background: #147B45">
     <div class="">
       <div class="row">
-        <div class="col-md-6">
+
+        <div style="text-align: center" class="col-md-6">
           <div class="row">
             <div class="col-md-3">
             </div>

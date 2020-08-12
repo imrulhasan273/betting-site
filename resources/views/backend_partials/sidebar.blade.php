@@ -60,7 +60,7 @@
 
 
     <!-- Start Notice Panel -->
-    @if($active=='notices')
+    @if($active=='notice')
     <li class="active">
     @else
     <li class="nav-item ">
