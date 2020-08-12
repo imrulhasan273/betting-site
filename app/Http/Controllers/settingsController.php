@@ -34,6 +34,7 @@ class settingsController extends Controller
         $settings->footer = $request->footer;
         $settings->warning = $request->warning;
         $settings->save();
+        session()->flash('message', ' New Settings added !!');
         return back();
     }
 
@@ -56,7 +57,7 @@ class settingsController extends Controller
         $settings->footer = $request->footer;
         $settings->warning = $request->warning;
         $settings->save();
-        // session()->flash('success', ' Settings Updated !!');
+        session()->flash('message', ' Settings Updated !!');
         return back();
     }
 }
