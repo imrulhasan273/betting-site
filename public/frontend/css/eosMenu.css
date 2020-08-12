@@ -2,93 +2,113 @@
 .eos-menu *,
 .eos-menu *:before,
 .eos-menu *:after {
-	padding: 0px;
-	margin: 0px;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .eos-menu {
-	font-size: 14px;
-	color: #eee;
+    font-size: 14px;
+    color: #eee;
 }
 
 .eos-menu li {
-	list-style: none;
+    list-style: none;
 }
 
 .eos-menu .eos-menu-content {
-	position: absolute;
-	width: 100%;
-	overflow-y: hidden;
-	height: 0px;
-	z-index: 10;
-	transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-webkit-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    overflow-y: hidden;
+    height: 0px;
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
 }
 
 .eos-menu .eos-group-content {
-	overflow-y: hidden;
-	height: 0px;
-	transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-webkit-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
+    overflow-y: hidden;
+    height: 0px;
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
 }
 
 .eos-menu .eos-menu-title,
 .eos-menu .eos-group-title,
 .eos-menu .eos-item {
-	height: 40px;
-	line-height: 40px;
-	background: #2F4050;
-	border-color: #293744;
-	padding-left: 15px !important;
-	padding-right: 15px !important;
-	border-bottom: 1px solid transparent;
+    height: 40px;
+    line-height: 40px;
+    background: #2f4050;
+    border-color: #49545f;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border-bottom: 1px solid transparent;
 }
 
 .eos-menu .eos-menu-title .fa,
 .eos-menu .eos-group-title .fa,
 .eos-menu .eos-item .fa {
-	line-height: 40px;
+    line-height: 40px;
 }
 
 .eos-menu .eos-menu-title:hover,
 .eos-menu .eos-group-title:hover,
 .eos-menu .eos-item:hover {
-	cursor: pointer;
-	background: #293744;
+    cursor: pointer;
+    background: #293744;
 }
 
 .eos-menu .eos-group-content .eos-item {
-	background: #263442;
-	padding-left: 30px !important;
+    background: #263442;
+    padding-left: 30px !important;
 }
 
 .eos-menu .eos-item a {
-	color: #eee;
-	display: block;
-	text-decoration: none;
+    color: #eee;
+    display: block;
+    text-decoration: none;
 }
 
 .eos-menu .eos-pull-right {
-	float: right;
+    float: right;
 }
 
 .eos-menu .auto-height {
-	height: auto;
+    height: auto;
 }
 
 @media (min-width: 768px) {
-	.eos-menu .eos-menu-title {
-		display: none;
-	}
-	.eos-menu .eos-menu-content {
-		height: auto;
-		position: inherit;
-	}
+    .eos-menu .eos-menu-title {
+        display: none;
+    }
+    .eos-menu .eos-menu-content {
+        height: auto;
+        position: inherit;
+    }
+}
+
+.subMenus {
+    background: #f3b518;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.subMenus:hover {
+    background: #014443;
+}
+
+#state {
+    padding-left: 0px;
+    padding-top: 1px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    font-size: 14px;
 }

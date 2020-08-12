@@ -1,206 +1,206 @@
 @media screen and (max-width: 1204px) {
-  .liststyle {
-    padding: 8px;
-    border: 1px solid #123;
-    line-height: 38px;
-    width: 16%;
-    font-size: 12px;
-  }
+    .liststyle {
+        padding: 8px;
+        border: 1px solid #123;
+        line-height: 38px;
+        width: 16%;
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 1600px) {
-  .liststyle {
-    padding: 8px;
-    border: 1px solid #123;
-    line-height: 38px;
-    width: 16%;
-    font-size: 12px;
-  }
+    .liststyle {
+        padding: 8px;
+        border: 1px solid #123;
+        line-height: 38px;
+        width: 16%;
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 600px) {
-  #footerlink {
-    text-align: center;
-    width: 100%;
-  }
+    #footerlink {
+        text-align: center;
+        width: 100%;
+    }
 
-  .liststyle {
-    padding: 3px;
-    border: 1px solid #123;
-    line-height: 38px;
-    width: 33.3%;
-    font-size: 12px;
-    float: left;
-  }
+    .liststyle {
+        padding: 3px;
+        border: 1px solid #123;
+        line-height: 38px;
+        width: 33.3%;
+        font-size: 12px;
+        float: left;
+    }
 }
 
 .tab li.active {
-  background-color: #014443;
+    background-color: #014443;
 }
 
 .nav > li > a:focus,
 .nav > li > a:hover {
-  background: #014443;
+    background: #014443;
 }
 
 .nav > li > a {
-  padding: 1px 15px;
+    padding: 1px 15px;
 }
 
 .ans {
-  margin-top: 1px;
-  padding: 0;
-  border-right: 1px solid #027b5b;
-  height: 36px;
+    margin-top: 1px;
+    padding: 0;
+    border-right: 1px solid #027b5b;
+    height: 36px;
 }
 
 .ans div {
-  margin-top: 5px;
-  font-size: 16px;
+    margin-top: 5px;
+    font-size: 16px;
 }
 
 .que {
-  background: #3a3a3a;
-  color: #fff;
+    background: #3a3a3a;
+    color: #fff;
 }
 
 .qtitle {
-  background: #efffff;
-  padding: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #d3d3d3;
+    background: #efffff;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .qtitletext {
-  color: #212529;
+    color: #212529;
 }
 
 .gameicon {
-  width: 36px;
-  float: left;
+    width: 36px;
+    float: left;
 }
 
 .live {
-  background: #147b45;
-  padding: 10px 10px;
-  margin-bottom: 4px;
+    background: #147b45;
+    padding: 10px 10px;
+    margin-bottom: 4px;
 }
 
 #loader {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #0f7675 url(public/frontend/img/preloader.gif) no-repeat center;
-  z-index: 99999;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #0f7675 url(frontend/img/preloader.gif) no-repeat center;
+    z-index: 99999;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  background: #030321;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+    background: #030321;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 svg {
-  display: block;
-  font: 5.5em "Welcome to 6inBet";
+    display: block;
+    font: 5.5em "Welcome to 6inBet";
 
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .text-copy {
-  fill: none;
-  stroke: white;
-  stroke-dasharray: 6% 29%;
-  stroke-width: 5px;
-  stroke-dashoffset: 0%;
-  animation: stroke-offset 5.5s infinite linear;
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
 }
 
 .text-copy:nth-child(1) {
-  stroke: #4d163d;
-  animation-delay: -1;
+    stroke: #4d163d;
+    animation-delay: -1;
 }
 
 .text-copy:nth-child(2) {
-  stroke: #840037;
-  animation-delay: -2s;
+    stroke: #840037;
+    animation-delay: -2s;
 }
 
 .text-copy:nth-child(3) {
-  stroke: #bd0034;
-  animation-delay: -3s;
+    stroke: #bd0034;
+    animation-delay: -3s;
 }
 
 .text-copy:nth-child(4) {
-  stroke: #bd0034;
-  animation-delay: -4s;
+    stroke: #bd0034;
+    animation-delay: -4s;
 }
 
 .text-copy:nth-child(5) {
-  stroke: #fdb731;
-  animation-delay: -5s;
+    stroke: #fdb731;
+    animation-delay: -5s;
 }
 
 .text-copy2 {
-  fill: none;
-  stroke: white;
-  stroke-dasharray: 6% 29%;
-  stroke-width: 5px;
-  stroke-dashoffset: 0%;
-  animation: stroke-offset 5.5s infinite linear;
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
 }
 
 .text-copy2:nth-child(1) {
-  stroke: #4d163d;
-  animation-delay: -1;
+    stroke: #4d163d;
+    animation-delay: -1;
 }
 
 .text-copy2:nth-child(2) {
-  stroke: #840037;
-  animation-delay: -2s;
+    stroke: #840037;
+    animation-delay: -2s;
 }
 
 .text-copy2:nth-child(3) {
-  stroke: #bd0034;
-  animation-delay: -3s;
+    stroke: #bd0034;
+    animation-delay: -3s;
 }
 
 .text-copy2:nth-child(4) {
-  stroke: #3be694;
-  animation-delay: -4s;
+    stroke: #3be694;
+    animation-delay: -4s;
 }
 
 .text-copy2:nth-child(5) {
-  stroke: #fdb731;
-  animation-delay: -5s;
+    stroke: #fdb731;
+    animation-delay: -5s;
 }
 
 @keyframes stroke-offset {
-  100% {
-    stroke-dashoffset: -35%;
-  }
+    100% {
+        stroke-dashoffset: -35%;
+    }
 }
 
 .placebetbutton {
-  margin-right: 3px;
-  padding: 7px 0px;
-  background: #147b45;
-  color: #fff;
-  border: none;
-  border-radius: 17px;
-  width: 18%;
-  text-align: center;
+    margin-right: 3px;
+    padding: 7px 0px;
+    background: #147b45;
+    color: #fff;
+    border: none;
+    border-radius: 17px;
+    width: 18%;
+    text-align: center;
 }
 
 .alert {
-  display: none;
+    display: none;
 }
