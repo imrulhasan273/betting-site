@@ -3,7 +3,7 @@
         <div class="navbar-header">
         <!-- LEFT MODAL - NAV BAR -->
         @if (Auth::user())
-        <a class="navbar-brand" href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; openNav()" style="margin-right: -10px;">
+        <a style="padding-right: 18px;" class="navbar-brand" href="#" onclick="if (!window.__cfRLUnblockHandlers) return false; openNav()" style="margin-right: -10px;">
             <span class="glyphicon glyphicon-menu-hamburger">
             </span>
         </a>

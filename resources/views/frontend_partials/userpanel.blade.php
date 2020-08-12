@@ -25,44 +25,50 @@
                 <i class="fa fa-angle-right fa-lg eos-pull-right" aria-hidden="true">
                 </i>
             </div>
-            <div class="eos-group-content">
+            <div style="" class="eos-group-content">
                 <li class="eos-item">
+                    Profile
                     <a href="#">
                         <i class="" aria-hidden="true">
-                        </i> Profile
+                        </i>
                     </a>
                 </li>
 
                 <li class="eos-item">
+                    Deposit
                     <a href="#" id="deposit-numberW" data-toggle="modal" data-target="#deposit">
                         <i class="" aria-hidden="true">
-                        </i> Deposit
+                        </i>
                     </a>
                 </li>
 
                 <li class="eos-item">
+                    Withdraw
                     <a href="#" data-toggle="modal" data-target="#passwordverify">
                         <i class="" aria-hidden="true">
-                        </i> Withdraw
+                        </i>
                     </a>
                 </li>
 
                 <li class="eos-item">
+                    Balance Transfer
                     <a href="#" data-toggle="modal" data-target="#balanceTransferclub">
                         <i class="" aria-hidden="true">
-                        </i> Balance Transfer
+                        </i>
                     </a>
                 </li>
                 <li class="eos-item">
+                    Change Club
                     <a href="#" data-toggle="modal" data-target="#changeClub">
                         <i class="" aria-hidden="true">
-                        </i> Change Club
+                        </i>
                     </a>
                 </li>
                 <li class="eos-item">
+                    Change Password
                     <a href="#" data-toggle="modal" data-target="#changePassword" >
                         <i class="" aria-hidden="true">
-                        </i> Change Password
+                        </i>
                     </a>
                 </li>
             </div>
