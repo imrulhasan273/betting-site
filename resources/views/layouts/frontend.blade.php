@@ -47,5 +47,4 @@
     <!-- Start All the JQuery-Ajax Files -->
     @include('frontend_partials.scripts')
     <!-- End All the JQuery Files -->
-
 </html>

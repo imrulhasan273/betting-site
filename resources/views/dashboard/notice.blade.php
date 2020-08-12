@@ -1,5 +1,5 @@
 @php
-    $active="settings"
+    $active="notice"
 @endphp
 @extends('layouts.backend')
 @section('content')
