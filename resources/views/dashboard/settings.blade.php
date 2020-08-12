@@ -12,7 +12,7 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Setup your site</h4>
-                  <p class="card-category"> Logo and footer text</p>
+                  <p class="card-category"> Logo,Copy rights and Disclaimer</p>
                 </div>
 
                 <div class="card-body">
@@ -25,8 +25,13 @@
                     </div>
 
                     <div class="form-group">
-                    <label>Footer text</label>
+                    <label><strong>Copy Rights</strong></label>
                     <input type="text" name="footer" id="footer" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    <label><strong>Warning Disclaimer</strong></label>
+                   <textarea name="warning" id="warning" cols="30" rows="10" class="form-control"></textarea>
                     </div>
 
                 <div class="form-group">
@@ -39,7 +44,7 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Update Settings</h4>
-                  <p class="card-category"> Logo and footer text</p>
+                  <p class="card-category"> Logo, Copy rights and Disclaimer</p>
                 </div>
 
                 @foreach($settings as $setting)
@@ -51,12 +56,16 @@
                     <p><label for="file" class="btn btn-warning" style="cursor: pointer;">Upload Logo</label></p>
                     <p><img id="output" width="200" /></p>
                    <img src="{!! asset('images/setting/'.$setting->image) !!}" width="100">
-
                     </div>
 
                     <div class="form-group">
-                    <label>Footer text</label>
+                    <label><strong>Copy Rights</strong></label>
                     <input type="text" name="footer" id="footer" class="form-control" value="{{$setting->footer}}">
+                    </div>
+
+                     <div class="form-group">
+                    <label><strong>Warning Disclaimer</strong></label>
+                   <textarea name="warning" id="warning" cols="30" rows="10" class="form-control"> {{$setting->warning}}</textarea>
                     </div>
 
                 <div class="form-group">

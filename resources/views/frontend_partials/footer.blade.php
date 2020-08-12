@@ -20,7 +20,12 @@
         </div>
         <div class="col-md-3">
           <hr>
-          <span class="userAlert text-center" style="color: #f3bcab"> We don't allow anyone under 18 years to bet on this site and also site administrator is not liable for any kind of issues created by user.</span>
+            @php
+  $warning = DB::table('settings')
+      ->where('id', '=', 1)
+      ->pluck('warning');
+  @endphp
+          <span class="userAlert text-center" style="color: #f3bcab"> {{ $warning[0] }} </span>
           <hr>
         </div>
       </div>

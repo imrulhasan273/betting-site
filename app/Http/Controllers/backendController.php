@@ -35,6 +35,7 @@ class backendController extends Controller
             $settings->image = $img;
         }
         $settings->footer = $request->footer;
+        $settings->warning = $request->warning;
         $settings->save();
         return back();
 
@@ -57,6 +58,7 @@ class backendController extends Controller
             $settings->image = $img;
         }
         $settings->footer = $request->footer;
+        $settings->warning = $request->warning;
         $settings->save();
         // session()->flash('success', ' Settings Updated !!');
         return back();
