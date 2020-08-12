@@ -8,8 +8,14 @@
             </span>
         </a>
         @endif
+        {{-- src="frontend/img/logo.png" --}}
+        @php
+        $setting = DB::table('settings')
+            ->where('id', '=', 1)
+            ->pluck('image');  // "5"
+        @endphp
         <a class="navbar-brand" href="{{ route('home') }}" style="width:230px;    padding: 9px 1px;">
-            <img style="width:125px;margin-left: -2px;" src="frontend/img/logo.png" />
+            <img style="width:125px;margin-left: -2px;"  src="{{asset('images/setting/'.$setting[0])}}" />
         </a>
         @if (Auth::user() == false)
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
