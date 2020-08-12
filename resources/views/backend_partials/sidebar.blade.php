@@ -59,6 +59,17 @@
         </li>
 
 
+    <!-- Start Notice Panel -->
+    @if($active=='notices')
+    <li class="active">
+    @else
+    <li class="nav-item ">
+    @endif
+    <a class="nav-link" href="{{ route('admin.notice') }}">
+        <i class="material-icons">announcement</i>
+        <p>Notice</p>
+    </a>
+    </li>
     <!-- Start Setting Panel -->
     @if($active=='settings')
     <li class="active">
