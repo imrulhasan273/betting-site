@@ -25,7 +25,6 @@
                             <a href=" #" class="text-center liststyle" data-toggle="modal" data-target="#" style="text-decoration: none;margin-top: 3px;">
                                 Transaction History
                             </a>
-
                             <a href=" #" class="text-center liststyle" data-toggle="modal" data-target="#" style="text-decoration: none;margin-top: 3px;">
                                 OneTen
                             </a>

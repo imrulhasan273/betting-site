@@ -1577,9 +1577,6 @@
     }
 </script>
 
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9ad5efd2fa5d14655f988626-|49" defer="">
-</script>
-
 <!-- SCRIPTS FOR STATEMENTS -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -1594,6 +1591,9 @@
     });
 </script>
 <!-- SCRIPTS FOR STATEMENTS -->
+
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9ad5efd2fa5d14655f988626-|49" defer="">
+</script>
 
 
 <!-- END  COMMON FILES -->
