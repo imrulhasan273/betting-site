@@ -1,4 +1,4 @@
-<div class="bhoechie-tab-content ">
+<div class="bhoechie-tab-content">
     <center>
         <div class="">
             <div class="row">
@@ -34,3 +34,4 @@
 
 </div>
 <div class="col-lg-12  bhoechie-tab">
+

@@ -1,5 +1,5 @@
 <div class="col-lg-12  bhoechie-tab">
-    <div class="bhoechie-tab-content  active">
+    <div class="bhoechie-tab-content active">
         <center>
             <div class="">
                 <div class="row">
@@ -24,8 +24,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                                                                            </tbody>
-
+                                       </tbody>
                                     </table>
                                 </div><!--end of .table-responsive-->
                             </div>
@@ -33,8 +32,6 @@
                     </div>
                 </div>
             </div>
-
-
         </center>
     </div>
 </div>
