@@ -19,7 +19,7 @@
         </li>
         <!-- End Index Panel -->
 
-        <!-- -->
+        <!-- USER PANEL -->
         {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
         @if($active=='users')
         <li class="active ">
@@ -32,7 +32,23 @@
         </a>
         </li>
         {{-- @endif --}}
-        <!--- --->
+        <!--- USER PANEL --->
+
+
+        <!-- ROLE PANEL -->
+        {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if($active=='roles')
+            <li class="active ">
+            @else
+            <li>
+            @endif
+            <a class="nav-link" href="{{route('admin.roles')}}">
+                <i class="material-icons">psychology</i>
+                <p>Role</p>
+            </a>
+            </li>
+        {{-- @endif --}}
+        <!-- ROLE PANEL-->
 
         <li class="nav-item ">
           <a class="nav-link" href="./user.html">

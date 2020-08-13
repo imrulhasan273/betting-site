@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use App\Notice;
 use App\Setting;
@@ -37,5 +38,12 @@ class backendController extends Controller
         $users = User::all();
 
         return view('dashboard.users', compact('users'));
+    }
+
+    public function roles()
+    {
+        $roles = Role::all();
+
+        return view('dashboard.roles', compact('roles'));
     }
 }
