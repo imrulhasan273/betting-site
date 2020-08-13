@@ -70,7 +70,7 @@
                     </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary">Update Settings</button>
+                    <button class="btn btn-primary pull-right">Update Settings</button>
                 </div>
                 @endforeach
              </form>

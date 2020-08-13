@@ -60,7 +60,7 @@
                     </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary">Update Notice</button>
+                    <button class="btn btn-primary pull-right">Update Notice</button>
                 </div>
                 @endforeach
              </form>

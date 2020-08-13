@@ -46,18 +46,19 @@ route::group(['prefix' => 'admin'], function () {
 
     # START BACKEND CONTROLLER ---- ALL THE INDEX PAGES OF ALL CONTROLLERS ARE CONTROLLED HERE.
     Route::get('/', 'backendController@index')->name('admin.index');
-
     Route::get('/setting', 'backendController@settings')->name('admin.setting');
-
     Route::get('/notice', 'backendController@notices')->name('admin.notice');
-
     Route::get('/users', 'backendController@users')->name('admin.users');
     # END BACKEND CONTROLLER
 
     #===================================================================================================
 
     #-- START USER CONTROLLERS
-
+    Route::get('/users/add', 'UserController@add')->name('users.add');  //admin
+    Route::post('/users/store', 'UserController@store')->name('users.store');  //admin
+    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');  //admin
+    Route::post('/users/update', 'UserController@update')->name('users.update');  //admin
+    Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');  //admin
     # --END USER CONTROLLERS
 
 

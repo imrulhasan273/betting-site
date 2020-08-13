@@ -6,14 +6,14 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 @section('content')
 <div class="row">
     <div class="col-md-2">
-    <a href="#" name="add" class="btn btn-primary pull-right">Add User</a>
+    <a href="{{route('users.add')}}" name="add" class="btn btn-primary ">Add User</a>
     </div>
 
     <div class="col-md-12">
       <div class="card card-plain">
         <div class="card-header card-header-primary">
           <h4 class="card-title mt-0">Users</h4>
-          <p class="card-category"> All the shops appear here</p>
+          <p class="card-category">Users with roles</p>
         </div>
 
         <div class="card-body">
@@ -64,10 +64,10 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$user->photo}}
                         </td>
                         <td>
-                            <a href="#">Edit</a>
+                            <a href="{{route('users.edit',[$user->id])}}">Edit</a>
                         </td>
                         <td>
-                            <a href="#">Delete</a>
+                            <a href="{{route('users.destroy',[$user->id])}}">Delete</a>
                         </td>
                     </tr>
                 </tbody>
