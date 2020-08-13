@@ -11,7 +11,7 @@
         @php
         $images = DB::table('settings')
             ->where('id', '=', 1)
-            ->pluck('image');  // "5"
+            ->pluck('image');
         $image = $images[0] ?? null;
 
         @endphp
