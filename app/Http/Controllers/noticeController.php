@@ -20,6 +20,8 @@ class noticeController extends Controller
         $notices->notice_slide = $request->notice_slide;
         $notices->notice_pop = $request->notice_slide;
         $notices->save();
+        session()->flash('message', ' New Notice Added !!');
+
         return back();
 
     }
@@ -31,6 +33,7 @@ class noticeController extends Controller
         $notices->notice_slide = $request->notice_slide;
         $notices->notice_pop = $request->notice_pop;
         $notices->save();
+        session()->flash('message', ' Notice Updated !!');
         return back();
 
     }
