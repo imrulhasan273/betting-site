@@ -5,7 +5,7 @@
 <head>
     <title>Error 404</title>
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/404.css')}}">
-    <script type="text/javascript" src="{asset('frontend/js/404.js')}}"></script>
+    <script type="text/javascript" src="{{asset('frontend/js/404.js')}}"></script>
 </head>
 <body class="permission_denied">
   <div id="particles-js"></div>

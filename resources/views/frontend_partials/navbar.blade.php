@@ -8,7 +8,6 @@
             </span>
         </a>
         @endif
-        {{-- src="frontend/img/logo.png" --}}
         @php
         $images = DB::table('settings')
             ->where('id', '=', 1)
@@ -27,7 +26,7 @@
         @if(Auth::user())
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
             <div style="float: left;    margin-right: 6px;">
-                <img src="frontend/img/withdraw.png" style="width:40px;margin-left: 8px;" data-toggle="modal" data-target="#passwordverify">
+                <img src="{{asset('frontend/img/withdraw.png')}}" style="width:40px;margin-left: 8px;" data-toggle="modal" data-target="#passwordverify">
                 <p style="font-size: 12px;">Withdraw</p>
             </div>
         </div>
