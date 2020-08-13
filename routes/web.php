@@ -16,7 +16,6 @@ Auth::routes();
 # FRONT PAGES
 Route::get('/', 'HomeController@index')->name('home'); //home page
 Route::get('/mybet', 'HomeController@mybet')->name('mybet');
-# Route::get('/oneten', 'HomeController@oneten')->name('oneten');
 Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
@@ -44,33 +43,33 @@ route::group(['prefix' => 'wallet'], function () {
 
 # START DASHBOARD | ADMIN SIDE
 route::group(['prefix' => 'admin'], function () {
+
+    # START BACKEND CONTROLLER ---- ALL THE INDEX PAGES OF ALL CONTROLLERS ARE CONTROLLED HERE.
     Route::get('/', 'backendController@index')->name('admin.index');
 
-    Route::get('/setting', 'settingsController@index')->name('admin.setting');
+    Route::get('/setting', 'backendController@settings')->name('admin.setting');
+
+    Route::get('/notice', 'backendController@notices')->name('admin.notice');
+
+    Route::get('/users', 'backendController@users')->name('admin.users');
+    # END BACKEND CONTROLLER
+
+    #===================================================================================================
+
+    #-- START USER CONTROLLERS
+
+    # --END USER CONTROLLERS
+
+
+    #-- START SETTINGS CONTROLLER
     Route::post('/setting/store', 'settingsController@settingStore')->name('admin.setting.store');
     Route::post('/setting/update/{id}', 'settingsController@settingUpdate')->name('admin.setting.update');
+    #-- END SETTINGS CONTROLLER
 
-    Route::get('/notice', 'noticeController@index')->name('admin.notice');
+
+    #-- NOTICE CONTROLLER
     Route::post('/notice/store', 'noticeController@noticeStore')->name('admin.notice.store');
     Route::post('/notice/update/{id}', 'noticeController@noticeUpdate')->name('admin.notice.update');
+    #-- END CONTROLLER
+
 });
-
-# END DASHBOARD | ADMIN SIDE
-
-
-
-# START USER CONTROLLER ROUTE
-//
-# START USER CONTROLLER ROUTE
-
-
-
-# START ---- CONTROLLER ROUTE
-//
-# START ---- CONTROLLER ROUTE
-
-
-
-# START ---- CONTROLLER ROUTE
-//
-# START ---- CONTROLLER ROUTE

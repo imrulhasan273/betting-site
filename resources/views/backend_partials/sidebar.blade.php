@@ -19,7 +19,20 @@
         </li>
         <!-- End Index Panel -->
 
-
+        <!-- -->
+        {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+        @if($active=='users')
+        <li class="active ">
+        @else
+        <li>
+        @endif
+        <a class="nav-link" href="{{route('admin.users')}}">
+            <i class="material-icons">people</i>
+            <p>User</p>
+        </a>
+        </li>
+        {{-- @endif --}}
+        <!--- --->
 
         <li class="nav-item ">
           <a class="nav-link" href="./user.html">

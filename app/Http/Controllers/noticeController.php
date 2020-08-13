@@ -7,13 +7,6 @@ use Illuminate\Http\Request;
 
 class noticeController extends Controller
 {
-    public function index()
-    {
-        $notices = Notice::limit(1)->orderBy('id', 'desc')->get();
-
-        return view('dashboard.notice', compact('notices'));
-    }
-
     public function noticeStore(Request $request)
     {
         $notices = new Notice();

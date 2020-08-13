@@ -9,18 +9,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class settingsController extends Controller
 {
-
-
-    public function index()
-    {
-        $settings = Setting::limit(1)->orderBy('id', 'desc')->get();
-        return view('dashboard.settings', compact('settings'));
-    }
-
     public function settingStore(Request $request)
     {
-        // dd($request);
-
         $settings = new Setting();
 
         if (($request->image) > 0) {
