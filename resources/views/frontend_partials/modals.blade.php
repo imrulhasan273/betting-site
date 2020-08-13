@@ -564,16 +564,17 @@
                       ×</button> <strong id="alertPassword"></strong> <span id="errorChangePasswordText"></span>
                   </div>
                   <div class="form-group">
+                    <input style='display:none' type="password" name="" id="" class="form-control input-lg" placeholder="" tabindex="3">
                     <label style="text-align: left;width: 100%;">Current Password <span style="color:#DD4F43;"></span></label>
-                    <input type="text" name="currentPassword" id="currentPassword" class="form-control input-lg" placeholder="Current Password " tabindex="3" required>
+                    <input type="password" name="currentPassword" id="currentPassword" class="form-control input-lg" placeholder="Current Password " tabindex="3" required>
                   </div>
                   <div class="form-group">
                     <label style="text-align: left;width: 100%;">New Password <span style="color:#DD4F43;"></span></label>
-                    <input type="text" name="newPassword" id="newPassword" class="form-control input-lg" placeholder="New Password" tabindex="3" required>
+                    <input type="password" name="newPassword" id="newPassword" class="form-control input-lg" placeholder="New Password" tabindex="3" required>
                   </div>
                   <div class="form-group">
                     <label style="text-align: left;width: 100%;">Confirm Password <span style="color:#DD4F43;"></span></label>
-                    <input type="text" name="confirmPassword" id="confirmPasswordAgain" class="form-control input-lg" placeholder="Confirm Password" tabindex="3" required>
+                    <input type="password" name="confirmPassword" id="confirmPasswordAgain" class="form-control input-lg" placeholder="Confirm Password" tabindex="3" required>
                   </div>
                   <div class="row">
                     <div class="col-lg-3"></div>
