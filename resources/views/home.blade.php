@@ -13,8 +13,8 @@
 
 
     <!--START MATCH OPTION -->
-    @include('home.partials_home.QuickMenu')
-    <!--END MATCH OPTION -->
+        @include('home.partials_home.QuickMenu')
+   <!--END MATCH OPTION -->
 
 </div>
 <!--END CONTENT UPPER SECION -->

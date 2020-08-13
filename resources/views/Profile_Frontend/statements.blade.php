@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<section style="padding-top: 7%;" class="callaction ">
+<section style="padding-top: 7%;padding-bottom: 20%;" class="callaction ">
     <div class="content-wrap">
         <div class="container">
             <div class="row">

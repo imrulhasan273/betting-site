@@ -617,21 +617,28 @@
 
     });
 
+    // ============================================= CHANGES PASSOWORD ====================================================
+
     $("#changePasswordSubmit").on("click", function() {
 
 
       var currentPassword = $("#currentPassword").val();
       var newPassword = $("#newPassword").val();
       var confirmPassword = $("#confirmPasswordAgain").val();
+
+    //   console.log(currentPassword);
+
       $.ajax({
-        method: "POST",
-        url: 'change_password',
+        method: "get",
+        url: "{{ route('profiles.changepassword') }}",
         data: {
+
           currentPassword: currentPassword,
           newPassword: newPassword,
           confirmPassword: confirmPassword
         },
         success: function(data) {
+            console.log(data);
           if (data == "Password Updated") {
 
             $('#errorPassword').show();
@@ -1577,23 +1584,7 @@
     }
 </script>
 
-<!-- SCRIPTS FOR STATEMENTS -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-            e.preventDefault();
-            $(this).siblings('a.active').removeClass("active");
-            $(this).addClass("active");
-            var index = $(this).index();
-            $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-            $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-        });
-    });
-</script>
-<!-- SCRIPTS FOR STATEMENTS -->
-
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9ad5efd2fa5d14655f988626-|49" defer="">
 </script>
 
-
-<!-- END  COMMON FILES -->
+  <!-- END  COMMON FILES -->
