@@ -39,14 +39,11 @@ class ProfileController extends Controller
             ->where('id', '=', $userId)
             ->pluck('password');
 
-        $r = ($request->currentPassword);
-        $k = ($r + 0);
-
         $curPassDB = $query[0];
-        $curPassREQ = Hash::make($k);
 
+        $matchPass = Hash::check($request->currentPassword, $curPassDB);
 
-        if ($curPassDB == $curPassREQ) {
+        if ($matchPass) {
             if ($request->confirmPassword == $request->newPassword) {
                 $updatingPassword = User::where('id', $userId);
                 if ($updatingPassword) {
@@ -62,9 +59,7 @@ class ProfileController extends Controller
             $data = "Incorrect Current Password!";
         }
 
-        $s = [$curPassDB, $curPassREQ];
-
-        return response()->json($s);
+        return response()->json($data);
     }
 
     # BLADES

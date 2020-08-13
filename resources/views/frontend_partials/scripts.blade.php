@@ -617,7 +617,7 @@
 
     });
 
-    // ============================================= CHANGES PASSOWORD ====================================================
+    // ============================================= START CHANGES PASSOWORD ====================================================
 
     $("#changePasswordSubmit").on("click", function() {
 
@@ -625,8 +625,6 @@
       var currentPassword = $("#currentPassword").val();
       var newPassword = $("#newPassword").val();
       var confirmPassword = $("#confirmPasswordAgain").val();
-
-    //   console.log(currentPassword);
 
       $.ajax({
         method: "get",
@@ -664,12 +662,10 @@
           }
         }
       });
-
-
     });
+    // ============================================= END CHANGES PASSOWORD ====================================================
 
     $("#confirmpasswordSubmit").on("click", function() {
-
 
       var password = $("#confirmpassword").val();
 
