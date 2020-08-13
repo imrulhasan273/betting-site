@@ -791,12 +791,12 @@
       <!--Start modal notice-->
       <div class="modal fade" id="notice" role="dialog">
         <div class="modal-dialog  ">
- @php
-  $notice_pop = DB::table('notices')
-      ->where('id', '=', 1)
-      ->pluck('notice_pop');
-    $notice_pop = $notice_pop[0] ?? null;
-  @endphp
+        @php
+        $notice_pop = DB::table('notices')
+            ->where('id', '=', 1)
+            ->pluck('notice_pop');
+            $notice_pop = $notice_pop[0] ?? null;
+        @endphp
           <!-- Modal content-->
           <div class="modal-content m-content">
             <div class="modal-header m-head" style="  background: #FF7118 !important;">

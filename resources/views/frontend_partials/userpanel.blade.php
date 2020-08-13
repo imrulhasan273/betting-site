@@ -32,36 +32,35 @@
                         <img src="" style="max-width: 22px;">
                     </i> Profile</div>
                 </a>
-
-                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.deposit') }}">
+                <a style="padding:0px;font-size: 14px;" href="#" id="deposit-numberW" data-toggle="modal" data-target="#deposit">
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">
                     </i> Deposit</div>
                 </a>
 
-                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.widthdraw') }}">
+                <a data-toggle="modal" data-target="#passwordverify" style="padding:0px;font-size: 14px;" href="#">
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">
                     </i> Withdraw</div>
                 </a>
 
-                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.btransfer') }}">
+                <a data-toggle="" data-target="#" style="padding:0px;font-size: 14px;" href="#">
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">
                     </i> Balance Transfer</div>
                 </a>
 
-                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.changeclub') }}">
+                <a data-toggle="modal" data-target="#changeClub" style="padding:0px;font-size: 14px;" href="#">
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">
                     </i> Change Club</div>
                 </a>
 
-                <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.changepassword') }}">
+                <a data-toggle="modal" data-target="#changePassword" style="padding:0px;font-size: 14px;" href="#">
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">
@@ -73,7 +72,7 @@
             <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.oneten') }}">
                 <div class="eos-group-title">
                 <i aria-hidden="true">
-                    <img src="frontend/img/oneten.gif" style="max-width: 22px;">
+                    <img src="{{asset('frontend/img/oneten.gif')}}" style="max-width: 22px;">
                 </i> OneTen</div>
             </a>
             <!--<a style="padding:0px;font-size: 14px;" href="coin_flip"><div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/coin.png" style="max-width: 22px;"></i> Coin Flip</div></a>-->
