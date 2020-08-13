@@ -23,7 +23,6 @@ class noticeController extends Controller
         session()->flash('message', ' New Notice Added !!');
 
         return back();
-
     }
 
     public function noticeUpdate(Request $request, $id)
@@ -35,6 +34,5 @@ class noticeController extends Controller
         $notices->save();
         session()->flash('message', ' Notice Updated !!');
         return back();
-
     }
 }

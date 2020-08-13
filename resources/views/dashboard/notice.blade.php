@@ -7,7 +7,8 @@
      <div class="row">
 
         <div class="col-md-12">
-            @include('components.alert')
+            {{-- @include('components.alert') --}}
+            <x-alert/>
 
             @if($notices->count() < 1 )
               <div class="card">
