@@ -37,8 +37,7 @@ route::group(['prefix' => 'wallet'], function () {
 # PROFILE
 
 
-# -----------------============= END CLIENT SIDE ROUTES ===========-------------------------
-
+# -----------------============= END CLIENT SIDE ROUTES ===========-------------------------#
 
 
 # START DASHBOARD | ADMIN SIDE
@@ -46,19 +45,20 @@ route::group(['prefix' => 'admin'], function () {
 
     # START BACKEND CONTROLLER ---- ALL THE INDEX PAGES OF ALL CONTROLLERS ARE CONTROLLED HERE.
     Route::get('/', 'backendController@index')->name('admin.index');
-    Route::get('/setting', 'backendController@settings')->name('admin.setting');
-    Route::get('/notice', 'backendController@notices')->name('admin.notice');
-    Route::get('/users', 'backendController@users')->name('admin.users');
+    Route::get('/setting', 'backendController@settings')->name('admin.setting');    //SETTING
+    Route::get('/notice', 'backendController@notices')->name('admin.notice');       //NOTICE
+    Route::get('/users', 'backendController@users')->name('admin.users');           //USER
+    Route::get('/roles', 'backendController@roles')->name('admin.roles');           //ROLE
     # END BACKEND CONTROLLER
 
     #===================================================================================================
 
     #-- START USER CONTROLLERS
-    Route::get('/users/add', 'UserController@add')->name('users.add');  //admin
-    Route::post('/users/store', 'UserController@store')->name('users.store');  //admin
-    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');  //admin
-    Route::post('/users/update', 'UserController@update')->name('users.update');  //admin
-    Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');  //admin
+    Route::get('/users/add', 'UserController@add')->name('users.add');
+    Route::post('/users/store', 'UserController@store')->name('users.store');
+    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
+    Route::post('/users/update', 'UserController@update')->name('users.update');
+    Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');
     # --END USER CONTROLLERS
 
 
@@ -72,5 +72,4 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/notice/store', 'noticeController@noticeStore')->name('admin.notice.store');
     Route::post('/notice/update/{id}', 'noticeController@noticeUpdate')->name('admin.notice.update');
     #-- END CONTROLLER
-
 });

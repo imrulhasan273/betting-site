@@ -43,7 +43,7 @@ class UserController extends Controller
         }
 
 
-        return Redirect::route('admin.users');
+        return Redirect::route('admin.users')->with('message', 'User Added!');
     }
     public function edit(User $user)
     {
@@ -55,6 +55,11 @@ class UserController extends Controller
     }
     public function update(Request $request, User $user)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email,' . $request->id,
+        ]);
+
         $updatingUser = User::where('id', $request->id)->first();
         if ($updatingUser) {
             $updatingUser->update([
@@ -71,12 +76,12 @@ class UserController extends Controller
             }
         }
 
-        return Redirect::route('admin.users');
+        return Redirect::route('admin.users')->with('message', 'User info Updated!');
     }
     public function destroy(User $user)
     {
         $deleteUser = DB::table('users')->where('id', $user->id)->delete();
 
-        return Redirect::route('admin.users');
+        return back()->with('message', 'User Deleted!');
     }
 }

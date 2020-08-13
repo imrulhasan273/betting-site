@@ -5,11 +5,19 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 @extends('layouts.backend')
 @section('content')
 <div class="row">
+
+
+    <div class="col-md-12">
+        <x-alert/>
+    </div>
+
     <div class="col-md-2">
     <a href="{{route('users.add')}}" name="add" class="btn btn-primary ">Add User</a>
     </div>
 
     <div class="col-md-12">
+        <x-alert/>
+
       <div class="card card-plain">
         <div class="card-header card-header-primary">
           <h4 class="card-title mt-0">Users</h4>
