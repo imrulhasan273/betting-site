@@ -665,6 +665,42 @@
     });
     // ============================================= END CHANGES PASSOWORD ====================================================
 
+    // ===============================================START FORGET PASSWORD ====================================
+    $("#confirmEmailSubmit").on("click", function() {
+
+        var email = $("#confirmEmail").val();
+        // console.log(email);
+        $.ajax({
+        method: "GET",
+        url: "{{ route('profiles.forgetPass') }}",
+        data: {
+            email: email,
+        },
+        success: function(data) {
+            console.log(data);
+            if (data == "1") {
+            $('#withdraw').modal('toggle');
+            $('#passwordverify').modal('hide');
+            $('#withdraw').modal('show');
+
+            } else {
+            $('#errorpasswordconfirm').show();
+            $('#errorpasswordconfirm').removeClass('alert-success');
+            $('#errorpasswordconfirm').removeClass('alert-danger');
+            $('#errorpasswordconfirm').addClass('alert-danger');
+            $('#alertconfirmpassword').html("Password not mtched");
+
+            setTimeout(function() {
+                $("#errorpasswordconfirm").hide();
+            }, 3000);
+            }
+        }
+        });
+    });
+    // ===============================================END FORGET PASSWORD ====================================
+
+
+
     $("#confirmpasswordSubmit").on("click", function() {
 
       var password = $("#confirmpassword").val();
@@ -1584,3 +1620,5 @@
 </script>
 
   <!-- END  COMMON FILES -->
+
+

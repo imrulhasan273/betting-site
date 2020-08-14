@@ -31,6 +31,7 @@ class ProfileController extends Controller
     {
         # MODAL
     }
+    # -----------------------------USING AJAX -----------------------------
     public function changePassword(Request $request)
     {
         $userId = Auth::user()->id;
@@ -59,6 +60,13 @@ class ProfileController extends Controller
             $data = "Incorrect Current Password!";
         }
 
+        return response()->json($data);
+    }
+
+    # FORGET PASSWORD BY USER : CLIENT SIDE
+    public function forgetPass(Request $request)
+    {
+        $data = $request->email;
         return response()->json($data);
     }
 

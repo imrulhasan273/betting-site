@@ -29,10 +29,10 @@
         </select> --}}
         <br>
         {{-- <input type="text" name="sponsor_register" id="sponsor_register" placeholder="SPONSOR'S USERNAME" class="form-control fojFwL" style="margin-bottom: 10px;" /> --}}
-        <input type="passworrd" name="password" id="passwordsignup" placeholder="PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
-        <input type="passworrd" name="password_confirmation" id="confirmPassword" placeholder="CONFIRM PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
-        <button type="submit" class="btn btn-success form-control" style="background: #55fbe4;color:#000" id="userSignUp">{{ __('Register') }}</button>
-        </div>
+        <input type="password" name="password" id="passwordsignup" placeholder="PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
+        <input type="password" name="password_confirmation" id="confirmPassword" placeholder="CONFIRM PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
+        <button type="submit" class="btn btn-success form-control" style="background: #10c510;color:#000" id="userSignUp">{{ __('Register') }}</button>
+    </div>
     </form>
     </div>
 </div>

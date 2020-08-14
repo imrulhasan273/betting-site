@@ -816,3 +816,39 @@
 
 
       <!--------ALLL MODAL --->
+
+
+
+    <!-- Forget Password MODAL -->
+    <div id="forgetPassword" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header m-head" style="  background: #FF7118;">
+              <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
+              <h4 class="modal-title" style="color: white"> &nbsp; Confirm Password</h4>
+            </div>
+            <div class="modal-body" style="padding: 2% !important">
+              <div class="">
+                <div role="form" class="register-form">
+                  <div id="errorpasswordconfirm" class="alert" role="alert">
+                    <button type="button" class="close" data-dismiss="" aria-hidden="true">
+                      ×</button> <strong id="alertconfirmpassword"></strong> <span id="errorpasswordconfirm"></span>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label style="text-align: left;width: 100%;"> Email <span style="color:#DD4F43;"></span></label>
+                      <input style="color: #07000a" type="text" name="confirmEmail" id="confirmEmail" class="form-control input-lg" placeholder="Your Email " tabindex="3" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6"><input type="submit" id="confirmEmailSubmit" value="Request Confirmatation" class="btn btn-block btn-lg" tabindex="7" style="  background:#0cca1c ; color: #fff"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- End Forget Password MODAL -->

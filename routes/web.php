@@ -34,6 +34,7 @@ route::group(['prefix' => 'wallet'], function () {
     Route::get('/b-transfer', 'ProfileController@bTransfer')->name('profiles.btransfer');
     Route::get('/change-club', 'ProfileController@changeClub')->name('profiles.changeclub');
     Route::get('/change-password', 'ProfileController@changePassword')->name('profiles.changepassword');
+    Route::get('/forget-password', 'ProfileController@forgetPass')->name('profiles.forgetPass');
 });
 # PROFILE
 

@@ -21,6 +21,9 @@
         <button type="submit" class="btn btn-primary form-control" style="background: #169e2d;color:#000" id="">
             {{ __('Login') }}
         </button>
+
+        <a data-toggle="modal" data-target="#forgetPassword" type="submit" class="btn" style="color:rgb(12, 185, 238)">Forget Password</a>
+
     </div>
     </form>
     </div>
