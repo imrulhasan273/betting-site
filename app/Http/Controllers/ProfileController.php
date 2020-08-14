@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Mail\ForgetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
@@ -66,8 +68,8 @@ class ProfileController extends Controller
     # FORGET PASSWORD BY USER : CLIENT SIDE
     public function forgetPass(Request $request)
     {
-        $data = $request->email;
-        return response()->json($data);
+        # $data = $request->email;
+        # return response()->json($data);
     }
 
     # BLADES

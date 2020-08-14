@@ -27,3 +27,9 @@ middleware(['roleChecker:super_admin,admin,club']);
 ```cmd
 ~$ composer require intervention/image
 ```
+
+# Email Send
+
+```cmd
+~$ php artisan make:mail ForgetPassword --markdown=mail.forget.userPassword
+```

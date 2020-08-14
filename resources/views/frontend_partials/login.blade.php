@@ -22,7 +22,11 @@
             {{ __('Login') }}
         </button>
 
-        <a data-toggle="modal" data-target="#forgetPassword" type="submit" class="btn" style="color:rgb(12, 185, 238)">Forget Password</a>
+        @if (Route::has('password.request'))
+            <a href="{{ route('password.request') }}" type="submit" class="btn" style="color:rgb(12, 185, 238)">Forget Password</a>
+        @endif
+
+        {{-- <a data-toggle="modal" data-target="#forgetPassword" type="submit" class="btn" style="color:rgb(12, 185, 238)">Forget Password</a> --}}
 
     </div>
     </form>
