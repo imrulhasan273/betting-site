@@ -74,4 +74,11 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/notice/store', 'noticeController@noticeStore')->name('admin.notice.store');
     Route::post('/notice/update/{id}', 'noticeController@noticeUpdate')->name('admin.notice.update');
     #-- END CONTROLLER
+
+
+    #-- MESSAGE CONTROLLER
+    Route::get('/message', 'MessageController@index')->name('admin.message');
+    Route::post('/message/send', 'MessageController@send')->name('admin.message.send');
+    Route::get('/message/view', 'MessageController@view')->name('admin.message.view');
+    #-- MESSAGE CONTROLLER
 });
