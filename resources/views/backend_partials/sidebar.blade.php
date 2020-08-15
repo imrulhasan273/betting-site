@@ -57,8 +57,12 @@
             </li>
 
 
-            <!-- Start Dropdown Message Panel -->
-            <li class="nav-item ">
+                <!-- Start Dropdown Message Panel -->
+                @if($active=='sent_message' || $active=='message')
+                    <li class="active">
+                @else
+                    <li class="nav-item ">
+                @endif
                 <a class="nav-link" data-toggle="collapse" href="#msg">
                   <i class="material-icons">message</i>
                   <p> Message
