@@ -59,25 +59,37 @@
 
             <!-- Start Dropdown Message Panel -->
             <li class="nav-item ">
-                <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
+                <a class="nav-link" data-toggle="collapse" href="#msg">
                   <i class="material-icons">message</i>
                   <p> Message
                     <b class="caret"></b>
                   </p>
                 </a>
-                <div class="collapse" id="pagesExamples">
+                <div class="collapse" id="msg">
                   <ul class="nav">
-                    <li class="nav-item ">
-                      <a class="nav-link" href="{{ route('admin.message.view') }}">
-                        <span class="sidebar-mini"> P </span>
-                        <span class="sidebar-normal"> View Message </span>
-                      </a>
-                    </li>
-                    <li class="nav-item ">
-                      <a class="nav-link" href="{{ route('admin.message') }}">
-                        <span class="sidebar-mini"> RS </span>
-                        <span class="sidebar-normal"> Sent Message </span>
-                      </a>
+                        <!-- Start Message Panel -->
+                        @if($active=='sent_message')
+                            <li class="active">
+                            @else
+                            <li class="nav-item ">
+                        @endif
+                        <a class="nav-link" href="{{ route('admin.message.view') }}">
+                            <i class="material-icons">message</i>
+                            <p>Sent Message</p>
+                        </a>
+                        </li>
+                      </li>
+                    <!-- Start Message Panel -->
+                        @if($active=='message')
+                        <li class="active">
+                        @else
+                        <li class="nav-item ">
+                        @endif
+                        <a class="nav-link" href="{{ route('admin.message') }}">
+                            <i class="material-icons">message</i>
+                            <p>Message</p>
+                        </a>
+                        </li>
                     </li>
                   </ul>
                 </div>
@@ -86,29 +98,9 @@
             <!-- End Dropdown Message Panel -->
 
 
-            {{-- <!-- Start Message Panel -->
-            @if($active=='message')
-            <li class="active">
-            @else
-            <li class="nav-item ">
-            @endif
-            <a class="nav-link" href="{{ route('admin.message') }}">
-                <i class="material-icons">message</i>
-                <p>Message</p>
-            </a>
-            </li> --}}
 
-            {{-- <!-- Start Message Panel -->
-            @if($active=='sent_message')
-                <li class="active">
-                @else
-                <li class="nav-item ">
-            @endif
-            <a class="nav-link" href="{{ route('admin.message.view') }}">
-                <i class="material-icons">message</i>
-                <p>Sent Message</p>
-            </a>
-            </li> --}}
+
+
 
 
             <!-- Start Notice Panel -->
