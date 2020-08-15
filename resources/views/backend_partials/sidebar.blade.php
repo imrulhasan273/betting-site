@@ -56,50 +56,43 @@
                 </a>
             </li>
 
-             <!-- Dropdown  PANEL-->
-     <li class="nav-item ">
-            <a class="nav-link collapsed" data-toggle="collapse" href="#message" aria-expanded="false">
-              <i class="material-icons">message</i>
-              <p> Message
-                <b class="caret"></b>
-              </p>
-            </a>
-            <div class="collapse" id="message" style="">
-              <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="../examples/forms/regular.html">
-                    <span class="sidebar-mini"> RF </span>
-                    <span class="sidebar-normal"> Regular Forms </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../examples/forms/extended.html">
-                    <span class="sidebar-mini"> EF </span>
-                    <span class="sidebar-normal"> Extended Forms </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../examples/forms/validation.html">
-                    <span class="sidebar-mini"> VF </span>
-                    <span class="sidebar-normal"> Validation Forms </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../examples/forms/wizard.html">
-                    <span class="sidebar-mini"> W </span>
-                    <span class="sidebar-normal"> Wizard </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-            <!-- Dropdown  PANEL-->
+
+            <!-- Start Dropdown Message Panel -->
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
+                  <i class="material-icons">message</i>
+                  <p> Message
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="pagesExamples">
+                  <ul class="nav">
+                    <li class="nav-item ">
+                      <a class="nav-link" href="{{ route('admin.message.view') }}">
+                        <span class="sidebar-mini"> P </span>
+                        <span class="sidebar-normal"> View Message </span>
+                      </a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="{{ route('admin.message') }}">
+                        <span class="sidebar-mini"> RS </span>
+                        <span class="sidebar-normal"> Sent Message </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ">
+            <!-- End Dropdown Message Panel -->
+
+
+
 
             <!-- Start Message Panel -->
             @if($active=='message')
-                <li class="active">
-                @else
-                <li class="nav-item ">
+            <li class="active">
+            @else
+            <li class="nav-item ">
             @endif
             <a class="nav-link" href="{{ route('admin.message') }}">
                 <i class="material-icons">message</i>
