@@ -29,7 +29,3 @@ middleware(['roleChecker:super_admin,admin,club']);
 ```
 
 # Email Send
-
-```cmd
-~$ php artisan make:mail ForgetPassword --markdown=mail.forget.userPassword
-```
