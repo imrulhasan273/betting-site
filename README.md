@@ -2,6 +2,16 @@
 # Documentation
 ---
 
+---
+
+# Database Design (Schema Diagram)
+
+---
+
+![](MARKDOWN/db.png)
+
+---
+
 ### Laravel Betting Script
 
 ```cmd
