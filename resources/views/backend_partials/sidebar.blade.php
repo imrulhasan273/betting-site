@@ -57,28 +57,42 @@
             </li>
 
              <!-- Dropdown  PANEL-->
-            <div class="collapse" id="collapseExample">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="sidebar-mini"> MP </span>
-                            <span class="sidebar-normal"> My Profile </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="sidebar-mini"> EP </span>
-                            <span class="sidebar-normal"> Edit Profile </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span class="sidebar-mini"> S </span>
-                            <span class="sidebar-normal"> Settings </span>
-                        </a>
-                    </li>
-                </ul>
+     <li class="nav-item ">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#message" aria-expanded="false">
+              <i class="material-icons">message</i>
+              <p> Message
+                <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse" id="message" style="">
+              <ul class="nav">
+                <li class="nav-item ">
+                  <a class="nav-link" href="../examples/forms/regular.html">
+                    <span class="sidebar-mini"> RF </span>
+                    <span class="sidebar-normal"> Regular Forms </span>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="../examples/forms/extended.html">
+                    <span class="sidebar-mini"> EF </span>
+                    <span class="sidebar-normal"> Extended Forms </span>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="../examples/forms/validation.html">
+                    <span class="sidebar-mini"> VF </span>
+                    <span class="sidebar-normal"> Validation Forms </span>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="../examples/forms/wizard.html">
+                    <span class="sidebar-mini"> W </span>
+                    <span class="sidebar-normal"> Wizard </span>
+                  </a>
+                </li>
+              </ul>
             </div>
+          </li>
             <!-- Dropdown  PANEL-->
 
             <!-- Start Message Panel -->
