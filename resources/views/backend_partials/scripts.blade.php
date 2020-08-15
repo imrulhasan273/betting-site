@@ -50,3 +50,11 @@
     });
   </script>
 
+<!-- Added File for dropdown-->
+<script src="{{asset('backend/assets/js/core/jquery.min.js')}}"></script>
+<script src="{{asset('backend/assets/js/core/popper.min.js')}}"></script>
+<script src="{{asset('backend/assets/js/core/bootstrap-material-design.min.js')}}"></script>
+<!-- Added FIles for dropdown-->
+
+
+
