@@ -86,9 +86,7 @@
             <!-- End Dropdown Message Panel -->
 
 
-
-
-            <!-- Start Message Panel -->
+            {{-- <!-- Start Message Panel -->
             @if($active=='message')
             <li class="active">
             @else
@@ -98,9 +96,9 @@
                 <i class="material-icons">message</i>
                 <p>Message</p>
             </a>
-            </li>
+            </li> --}}
 
-            <!-- Start Message Panel -->
+            {{-- <!-- Start Message Panel -->
             @if($active=='sent_message')
                 <li class="active">
                 @else
@@ -110,7 +108,7 @@
                 <i class="material-icons">message</i>
                 <p>Sent Message</p>
             </a>
-            </li>
+            </li> --}}
 
 
             <!-- Start Notice Panel -->
