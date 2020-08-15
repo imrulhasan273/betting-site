@@ -175,7 +175,7 @@
 
       $.ajax({
         method: "POST",
-        url: 'clear_bet_slip',
+        // url: 'clear_bet_slip',
         data: {
           id: "1"
         },
@@ -200,7 +200,7 @@
 
         type: 'POST',
 
-        url: 'user_login',
+        // url: 'user_login',
 
         data: {
           user: user,
@@ -257,7 +257,7 @@
       //alert(userId);
       $.ajax({
         method: "POST",
-        url: 'user_validation',
+        // url: 'user_validation',
 
         data: {
           userId: userId
@@ -297,7 +297,7 @@
       if (sponsor !== '') {
         $.ajax({
           method: "POST",
-          url: 'user_validation',
+        //   url: 'user_validation',
           dataType: 'text',
           data: {
             sponsor: sponsor
@@ -354,7 +354,7 @@
 
       $.ajax({
         method: "POST",
-        url: 'user_signup',
+        // url: 'user_signup',
         data: {
           name: name,
           userId: userId,
@@ -472,7 +472,7 @@
 
         $.ajax({
           method: "POST",
-          url: 'deposit_request',
+        //   url: 'deposit_request',
           data: {
             dAmount: dAmount,
             dMethodt: dMethodt,
@@ -527,7 +527,7 @@
         personal_user_id
         $.ajax({
           method: "POST",
-          url: 'withdraw_request',
+        //   url: 'withdraw_request',
           data: {
             wAmount: wAmount,
             wMethod: wMethod,
@@ -578,7 +578,7 @@
 
       $.ajax({
         method: "POST",
-        url: 'change_club',
+        // url: 'change_club',
         data: {
           cClub: cClub,
           PasswordClubChange: PasswordClubChange
@@ -707,7 +707,7 @@
 
       $.ajax({
         method: "POST",
-        url: 'confirmpassword',
+        // url: 'confirmpassword',
         data: {
           password: password,
 
@@ -803,7 +803,7 @@
       //alert(bettingTitle + " " + bettingSubTitle + " " + BettingSubTitleOption);
       $.ajax({
         method: "POST",
-        url: 'betfacedata',
+        // url: 'betfacedata',
         dataType: 'JSON',
         data: {
           bettingTitle: bettingTitle,
@@ -855,7 +855,7 @@
         $("#load").removeClass("load");
         $.ajax({
           method: "POST",
-          url: 'place_bet',
+        //   url: 'place_bet',
           data: {
             match: match,
             matchBet: matchBet,
@@ -928,7 +928,7 @@
 
         $.ajax({
           method: "POST",
-          url: 'usertouserbalancetransfer',
+        //   url: 'usertouserbalancetransfer',
           data: {
             amount: transferAmount,
             toUser: to_userId,
@@ -988,7 +988,7 @@
 
         $.ajax({
           method: "POST",
-          url: 'usertoclubbalancetransfer',
+        //   url: 'usertoclubbalancetransfer',
           data: {
             amount: transferAmount,
             toUser: to_userId,
@@ -1043,7 +1043,7 @@
 
         $.ajax({
           method: "POST",
-          url: 'clubtouserbbalancetransfer',
+        //   url: 'clubtouserbbalancetransfer',
           data: {
             amount: transferAmount,
             toUser: to_userId,
@@ -1128,7 +1128,7 @@
 
         type: 'POST',
 
-        url: 'new_ticket',
+        // url: 'new_ticket',
 
         data: {
           subject: subject,
@@ -1184,7 +1184,7 @@
 
         type: 'POST',
 
-        url: 'reply_message',
+        // url: 'reply_message',
 
         data: {
           message: message,
@@ -1216,7 +1216,7 @@
 
           type: 'POST',
 
-          url: 'cancelwithdraw',
+        //   url: 'cancelwithdraw',
 
           data: {
             id: id
@@ -1378,7 +1378,7 @@
           } else {
             $.ajax({
               method: "POST",
-              url: 'oneten_betplace',
+            //   url: 'oneten_betplace',
 
               data: {
                 game_id: games_id,
@@ -1423,23 +1423,24 @@
       });
 
     });
-    setInterval(function() {
-      $.ajax({
-        method: "POST",
-        url: 'oneten_refresh',
-        data: {
-          wAmount: '1'
-        },
-        success: function(data) {
-          // console.log(data);
+    // oneten_refresh
+    // setInterval(function() {
+    //   $.ajax({
+    //     method: "POST",
+    //     url: 'oneten_refresh',
+    //     data: {
+    //       wAmount: '1'
+    //     },
+    //     success: function(data) {
+    //       // console.log(data);
 
-          if (data === "1") {
-            location.reload();
+    //       if (data === "1") {
+    //         location.reload();
 
-          }
-        }
-      });
-    }, 8000);
+    //       }
+    //     }
+    //   });
+    // }, 8000);
 
     $('#200a').click(function(event) {
       $('#stakeAmountoneten').val('200');
@@ -1516,7 +1517,7 @@
 
           $.ajax({
             method: "GET",
-            url: 'get_bet_slip',
+            // url: 'get_bet_slip',
             data: {
               uid: 'ss'
             },
@@ -1544,7 +1545,7 @@
     function delete_bet_slip(id) {
       $.ajax({
         method: "POST",
-        url: 'delete_bet_slip',
+        // url: 'delete_bet_slip',
         data: {
           id: id
         },
@@ -1576,7 +1577,7 @@
 
             $.ajax({
               method: "GET",
-              url: 'get_bet_slip',
+            //   url: 'get_bet_slip',
               data: {
                 uid: 'ss'
               },
@@ -1603,7 +1604,7 @@
     function count_multi() {
       $.ajax({
         method: "GET",
-        url: 'count_bet_slip',
+        // url: 'count_bet_slip',
         data: {
           id: "id"
         },
