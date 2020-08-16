@@ -15,37 +15,32 @@
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
-              <thead class="">
-                <th>
-                    ID
-                </th>
-                <th>
-                    Phone Number
-                </th>
-                <th>
-                    Sent Message
-                </th>
-              </thead>
-
+<table id="datatable" class="table table-striped table-bordered" style="width:100%">
+         <thead class="">
+             <tr>
+                <th>ID</th>
+                <th>Number</th>
+                <th>Message</th>
+             </tr>
+        </thead>
             @if($messages->count() > 0 )
-              @foreach ($messages as $message)
 
                 <tbody>
-                    <tr>
-                        <td>
-                            {{$message->id}}
-                        </td>
-                        <td>
-                            {{$message->user_no}}
-                        </td>
-                        <td>
-                            {{$message->user_message}}
-                        </td>
-                    </tr>
-                </tbody>
-
+            @foreach ($messages as $message)
+            <tr>
+                <td>#{{ $message->id }}</td>
+                <td>+880{{ $message->user_no }}</td>
+                <td>{{ $message->user_message }}</td>
+            </tr>
               @endforeach
+                </tbody>
+              <tfoot>
+                  <tr>
+                <th>ID</th>
+                <th>Number</th>
+                <th>Message</th>
+             </tr>
+              </tfoot>
               @endif
             </table>
           </div>

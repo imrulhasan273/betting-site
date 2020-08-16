@@ -58,10 +58,17 @@
 
 
 <!-- Added File for dropdown-->
-<script src="{{asset('backend/assets/js/core/jquery.min.js')}}"></script>
+<script src="{{asset('backend/assets/js/core/jquery-3.5.1.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/core/popper.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/core/bootstrap-material-design.min.js')}}"></script>
 <script src="{{asset('backend/assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 <!-- Added FIles for dropdown-->
 {{------================================= EXTRA ==============================================--}}
 
+
+<script>
+    $(document).ready(function() {
+    $('#datatable').DataTable();
+
+} );
+</script>
