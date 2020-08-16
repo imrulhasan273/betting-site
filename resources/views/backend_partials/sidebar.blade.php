@@ -78,8 +78,8 @@
                             <li class="nav-item ">
                         @endif
                         <a class="nav-link" href="{{ route('admin.message.view') }}">
-                            <i class="material-icons">message</i>
-                            <p>Sent Message</p>
+                            <i class="material-icons">mark_email_read</i>
+                            <p>View Sent Messages</p>
                         </a>
                         </li>
                       </li>
@@ -90,8 +90,8 @@
                         <li class="nav-item ">
                         @endif
                         <a class="nav-link" href="{{ route('admin.message') }}">
-                            <i class="material-icons">message</i>
-                            <p>Message</p>
+                            <i class="material-icons">send</i>
+                            <p>Send Message</p>
                         </a>
                         </li>
                     </li>
