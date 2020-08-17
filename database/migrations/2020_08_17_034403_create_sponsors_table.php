@@ -15,6 +15,11 @@ class CreateSponsorsTable extends Migration
     {
         Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->float('balance')->nullable();
+            $table->unsignedBigInteger('member')->nullable();
+            $table->string('email');
+            $table->float('commission')->nullable();
             $table->timestamps();
         });
     }

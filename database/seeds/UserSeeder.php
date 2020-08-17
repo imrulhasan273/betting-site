@@ -1,6 +1,8 @@
 <?php
 
 // use random;
+
+use App\Club;
 use App\Role;
 use App\User;
 use Illuminate\Support\Str;
@@ -57,10 +59,13 @@ class UserSeeder extends Seeder
         $user->role()->attach($role->id);
 
 
+        ## Added a club id to the users
         #Normal User Seeder
         $role = Role::where('name', 'user')->first();
+
         $user = User::create([
             'name' => 'Mr. Normal User',
+            'club_id' => 1,
             'email' => 'user@gmail.com',
             'password' => Hash::make('0000000000user'),
             'remember_token' => Str::random(60),

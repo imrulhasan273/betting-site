@@ -13,7 +13,7 @@ class ClubSeeder extends Seeder
     public function run()
     {
         Club::create([
-            'name' => 'Dhaka',
+            'name' => 'Dhaka Club',
             'balance' => 10000,
             'member' => null,
             'email' => 'dhakaclub@gmail.com',
@@ -21,7 +21,7 @@ class ClubSeeder extends Seeder
         ]);
 
         Club::create([
-            'name' => 'Rajshahi',
+            'name' => 'Rajshahi Club',
             'balance' => 11100,
             'member' => null,
             'email' => 'rajshahiclub@gmail.com',
