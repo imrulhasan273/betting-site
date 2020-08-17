@@ -14,7 +14,11 @@ class CreateWebMessagesTable extends Migration
     public function up()
     {
         Schema::create('web_messages', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('user_name');
+            $table->string('user_message_subject');
+            $table->string('user_sent_message');
             $table->timestamps();
         });
     }
