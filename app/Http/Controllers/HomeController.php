@@ -26,11 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(Auth::id());
-        $clubs = Club::all();
-        $sponsors = Sponsor::all();
-
-        return view('home', compact('clubs', 'sponsors'));
+        return view('home');
     }
 
     public function mybet()

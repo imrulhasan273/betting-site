@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Game;
 use App\Role;
 use App\User;
 use App\Notice;
@@ -44,5 +45,11 @@ class backendController extends Controller
         $roles = Role::all();
 
         return view('dashboard.roles', compact('roles'));
+    }
+
+    public function games()
+    {
+        $games = Game::all();
+        return view('dashboard.games', compact('games'));
     }
 }
