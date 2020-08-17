@@ -15,6 +15,16 @@ class CreateBetsTable extends Migration
     {
         Schema::create('bets', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('bet_by');
+            // $table->unsignedBigInteger('game_id');
+            // $table->unsignedBigInteger('question_id');
+            // $table->unsignedBigInteger('answer_id');
+            // $table->float('amount');
+            // $table->float('return_rate');
+            // $table->float('total_win');
+            // $table->float('return_amount');
+            // $table->float('club_fee');
+            // $table->string('status');
             $table->timestamps();
         });
     }

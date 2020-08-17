@@ -18,7 +18,6 @@ class backendController extends Controller
     }
 
 
-
     // this is the index page of Setting Model
     public function settings()
     {

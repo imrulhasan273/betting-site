@@ -15,6 +15,14 @@ class CreateGamesTable extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            //date
+            //time
+            $table->string('name');
+            $table->string('tournament_name');
+            $table->string('game_update');
+            $table->string('status');
             $table->timestamps();
         });
     }
