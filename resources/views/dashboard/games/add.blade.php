@@ -32,7 +32,7 @@ $active='games';
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">Select Game Type</label>
-                        <select name="type" class="form-control">
+                        <select name="type_id" class="form-control">
                             @foreach ($types as $type)
                                 <option style="color: rgb(19, 146, 219)" value="{{$type->id}}">{{$type->display_name}}</option>
                             @endforeach
@@ -65,12 +65,7 @@ $active='games';
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="bmd-label-floating">Tournament Name</label>
-                        <input name="tournament_name" value="" type="text" class="form-control">
-                    </div>
-                </div>
+
 
                 {{-- <div class="col-md-4">
                     <div class="form-group">
@@ -88,12 +83,19 @@ $active='games';
 
                 <div class="col-md-4">
                     <label class="bmd-label-floating">Date</label>
-                    <input type="text" class="form-control datepicker" value="10/06/2018">
+                    <input name="date" type="text" class="form-control datepicker" value="2020-01-01">
                 </div>
 
                 <div class="col-md-4">
                     <label class="bmd-label-floating">Time</label>
-                    <input type="text" class="form-control timepicker" value="00:00:00">
+                    <input name="time" type="text" class="form-control timepicker" value="00:00:00">
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Tournament Name</label>
+                        <input name="tournament_name" value="" type="text" class="form-control">
+                    </div>
                 </div>
 
             </div>
