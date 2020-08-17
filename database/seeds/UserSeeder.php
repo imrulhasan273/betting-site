@@ -1,7 +1,5 @@
 <?php
 
-// use random;
-
 use App\Club;
 use App\Role;
 use App\User;

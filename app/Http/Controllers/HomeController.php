@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Club;
+use App\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         // dd(Auth::id());
-        return view('home');
+        $clubs = Club::all();
+        $sponsors = Sponsor::all();
+
+        return view('home', compact('clubs', 'sponsors'));
     }
 
     public function mybet()

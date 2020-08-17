@@ -21,14 +21,22 @@
         {{-- <input type="number" name="mobileNumber" id="mobileNumber" placeholder="MOBILE NO" class="form-control fojFwL" style="margin-bottom: 10px;" /> --}}
         <input type="email" name="email" id="email" placeholder="EMAIL" class="form-control fojFwL" style="margin-bottom: 10px;" />
 
-        {{-- <select class="form-control fojFwL" id="club" name="club">
-            <option value="" disabled selected>Select Club</option>
-            <option value="sports24bd">sports24bd</option>
-            option
-            <option value="Barisal Club">Barisal Club</option>
-        </select> --}}
-
+        <select name="club" class="form-control fojFwL" id="" name="club">
+            <option value="">Select a Club</option>
+            @foreach ($clubs as $club)
+            <option value="{{$club->id}}">{{$club->name}}</option>
+            @endforeach
+        </select>
         <br>
+
+        <select name="sponsor" class="form-control fojFwL" id="" name="club">
+            <option value="">Select a Sponsor</option>
+            @foreach ($sponsors as $sponsor)
+            <option value="{{$sponsor->id}}">{{$sponsor->name}}</option>
+            @endforeach
+        </select>
+        <br>
+        <input type="text" name="phone" id="phone" placeholder="Phone Number" class="form-control fojFwL" style="margin-bottom: 10px;" />
         {{-- <input type="text" name="sponsor_register" id="sponsor_register" placeholder="SPONSOR'S USERNAME" class="form-control fojFwL" style="margin-bottom: 10px;" /> --}}
         <input type="password" name="password" id="passwordsignup" placeholder="PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
         <input type="password" name="password_confirmation" id="confirmPassword" placeholder="CONFIRM PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
