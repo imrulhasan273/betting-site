@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Game;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class GameController extends Controller
 {
@@ -42,7 +43,32 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
+
+        $request->validate([
+            'type_id' => 'required',
+            'c1' => 'required',
+            'c2' => 'required',
+            'status' => 'required',
+            'tournament_name' => 'required',
+            'date' => 'required',
+            'time' => 'required'
+        ]);
+
+        $name = $request->c1 . ' vs ' . $request->c2;
+
+        $user = Game::create([
+            'type_id' =>  $request->input('type_id'),
+            'date' => $request->input('date'),
+            'time' => $request->input('time'),
+            'name' => $name,
+            'tournament_name' => $request->input('tournament_name'),
+            'game_update' => '',
+            'status' => $request->input('status'),
+        ]);
+
+
+        return Redirect::route('admin.games')->with('message', 'Game Added!');
     }
 
     /**

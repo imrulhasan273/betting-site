@@ -19,8 +19,12 @@
 <link href="{{asset('backend/demo/demo.css')}}" rel="stylesheet" />
 
 
+
 <!-- Data Table CSS and JS CDN -->
 
 {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/> --}}
 
-{{------================================= EXTRA ==============================================--}}
+{{------================================= EXTRA PRO VERSION ==============================================--}}
+
+<link href="{{asset('backend\assets\css\material-dashboard.min1c51.css')}}" rel="stylesheet" />
+

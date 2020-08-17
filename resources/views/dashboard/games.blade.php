@@ -68,7 +68,7 @@ $active='games';
                             {{$game->id}}
                         </td>
                         <td>
-                            {{$game->type_id}}
+                            {{$game->type->name}}
                         </td>
                         <td>
                             {{$game->name}}
