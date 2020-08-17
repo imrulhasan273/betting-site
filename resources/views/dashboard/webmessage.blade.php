@@ -21,6 +21,7 @@
                 <th>Subject</th>
                 <th>Sent Message</th>
                 <th>Time</th>
+                <th>Action</th>
              </tr>
         </thead>
             @if($webmessages->count() > 0 )
@@ -33,6 +34,7 @@
                 <td>{{ $webmessage->user_message_subject }}</td>
                 <td>{{ $webmessage->user_sent_message }}</td>
                 <td>{{ $webmessage->created_at }}</td>
+                <td><a href="{{ route('webmessage.admin.send',$webmessage->user_id) }}"><i class="material-icons">quickreply</i></a></td>
             </tr>
               @endforeach
                 </tbody>

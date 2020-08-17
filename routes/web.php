@@ -91,7 +91,7 @@ route::group(['prefix' => 'admin'], function () {
 
     #------------- WEB MESSAGE Admin PART---------------------------------#
     Route::get('/webmessage', 'webMessageController@AdminIndex')->name('webmessage.admin.index');
-    Route::post('/webmessage/send', 'webMessageController@Adminsend')->name('webmessage.admin.send');
+    Route::post('/webmessage/send/{user_id}', 'webMessageController@Adminsend')->name('webmessage.admin.send');
     Route::get('/webmessage/view', 'webMessageController@Adminview')->name('webmessage.admin.view');
 
 });
