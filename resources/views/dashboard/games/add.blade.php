@@ -29,15 +29,20 @@ $active='games';
         @csrf
             <div class="row">
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="bmd-label-floating">Select Game Type</label>
-                        <select name="type_id" class="form-control">
-                            @foreach ($types as $type)
-                                <option style="color: rgb(19, 146, 219)" value="{{$type->id}}">{{$type->display_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                <div class="col-lg-5 col-md-6 col-sm-3">
+                    <select name="type_id" class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Game Type">
+                    @foreach ($types as $type)
+                        <option value="{{$type->id}}">{{$type->display_name}}</option>
+                    @endforeach
+                    </select>
+                </div>
+
+                <div class="col-lg-5 col-md-6 col-sm-3">
+                    <select name="status" class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Single Select">
+                      <option disabled selected>Game Status</option>
+                      <option value="live">Live</option>
+                      <option value="upcoming">Upcoming</option>
+                    </select>
                 </div>
 
 
@@ -54,32 +59,7 @@ $active='games';
                         <input name="c2" value="" type="text" class="form-control">
                     </div>
                 </div>
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="bmd-label-floating">Game Status</label>
-                        <select name="status" class="form-control">
-                            <option style="color: rgb(19, 146, 219)" value="live">Live</option>
-                            <option style="color: rgb(19, 146, 219)" value="upcoming">Upcoming</option>
-                        </select>
-                    </div>
-                </div>
-
-
-
-                {{-- <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="bmd-label-floating">Date</label>
-                        <input name="date" value="" type="text" class="form-control">
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="bmd-label-floating">Time</label>
-                        <input name="time" value="" type="text" class="form-control">
-                    </div>
-                </div> --}}
+  
 
                 <div class="col-md-4">
                     <label class="bmd-label-floating">Date</label>
@@ -97,6 +77,8 @@ $active='games';
                         <input name="tournament_name" value="" type="text" class="form-control">
                     </div>
                 </div>
+
+                
 
             </div>
 
