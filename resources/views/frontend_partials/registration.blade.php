@@ -23,10 +23,11 @@
 
         {{-- <select class="form-control fojFwL" id="club" name="club">
             <option value="" disabled selected>Select Club</option>
-            <option value="sports24bd">sports24bd</option>}
+            <option value="sports24bd">sports24bd</option>
             option
             <option value="Barisal Club">Barisal Club</option>
         </select> --}}
+
         <br>
         {{-- <input type="text" name="sponsor_register" id="sponsor_register" placeholder="SPONSOR'S USERNAME" class="form-control fojFwL" style="margin-bottom: 10px;" /> --}}
         <input type="password" name="password" id="passwordsignup" placeholder="PASSWORD" class="form-control fojFwL" style="margin-bottom: 10px;" />
