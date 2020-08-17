@@ -4,6 +4,8 @@
     <div style="padding-top: 10%;padding-bottom: 10%;" class="row justify-content-center">
         <div class="col-md-12">
             <div class="col-md-7 col-md-offset-2">
+                            <x-alert/>
+
           <form class="form-horizontal" action="{{ route('webmessage.send.user') }}" method="post">
               @csrf
           <fieldset>

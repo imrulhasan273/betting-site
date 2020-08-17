@@ -40,41 +40,21 @@ class webMessageController extends Controller
         $user_messages->user_message_subject = $request->user_message_subject;
         $user_messages->user_sent_message = $request->user_sent_message;
         $user_messages->save();
+        session()->flash('message', ' Message has been sent !!');
+        return back();
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+   public function AdminIndex()
+   {
+       $webmessages = webMessage::orderBy('id', 'desc')->get();
+      return view('dashboard.webmessage', compact('webmessages'));
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+   }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
+
+
 
     /**
      * Remove the specified resource from storage.
