@@ -46,22 +46,23 @@ class UserSeeder extends Seeder
         ]);
         $user->role()->attach($role->id);
 
-        #Normal User Seeder
-        $role = Role::where('name', 'user')->first();
+        #Sponsor Seeder
+        $role = Role::where('name', 'sponsor_admin')->first();
         $user = User::create([
-            'name' => 'Mr. Normal User 1',
-            'email' => 'user1@gmail.com',
-            'password' => Hash::make('0000000000user1'),
+            'name' => 'Sponsor Admin',
+            'email' => 'sponsor@gmail.com',
+            'password' => Hash::make('0000000000sponsor'),
             'remember_token' => Str::random(60),
         ]);
         $user->role()->attach($role->id);
 
+
         #Normal User Seeder
         $role = Role::where('name', 'user')->first();
         $user = User::create([
-            'name' => 'Test User',
-            'email' => 'user2@gmail.com',
-            'password' => Hash::make('0000000000user2'),
+            'name' => 'Mr. Normal User',
+            'email' => 'user@gmail.com',
+            'password' => Hash::make('0000000000user'),
             'remember_token' => Str::random(60),
         ]);
         $user->role()->attach($role->id);

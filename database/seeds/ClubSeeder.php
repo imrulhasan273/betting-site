@@ -1,5 +1,6 @@
 <?php
 
+use App\Club;
 use Illuminate\Database\Seeder;
 
 class ClubSeeder extends Seeder
@@ -11,6 +12,20 @@ class ClubSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Club::create([
+            'name' => 'Dhaka',
+            'balance' => 10000,
+            'member' => null,
+            'email' => 'dhakaclub@gmail.com',
+            'commission' => 0.02
+        ]);
+
+        Club::create([
+            'name' => 'Rajshahi',
+            'balance' => 11100,
+            'member' => null,
+            'email' => 'rajshahiclub@gmail.com',
+            'commission' => 0.05
+        ]);
     }
 }

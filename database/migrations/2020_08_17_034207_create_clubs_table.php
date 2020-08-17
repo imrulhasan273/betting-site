@@ -15,6 +15,11 @@ class CreateClubsTable extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->float('balance')->nullable();
+            $table->unsignedBigInteger('member')->nullable();
+            $table->string('email');
+            $table->float('commission')->nullable();
             $table->timestamps();
         });
     }
