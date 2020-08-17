@@ -35,6 +35,11 @@ route::group(['prefix' => 'wallet'], function () {
     Route::get('/change-club', 'ProfileController@changeClub')->name('profiles.changeclub');
     Route::get('/change-password', 'ProfileController@changePassword')->name('profiles.changepassword');
     Route::get('/forget-password', 'ProfileController@forgetPass')->name('profiles.forgetPass');
+
+     #------------- WEB MESSAGE USER PART---------------------------------#
+    Route::get('/webmessage', 'webMessageController@indexUser')->name('webmessage.index.user');
+    Route::post('/webmessage/send', 'webMessageController@sendUser')->name('webmessage.send.user');
+
 });
 # PROFILE
 
@@ -81,4 +86,10 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/message/send', 'MessageController@send')->name('admin.message.send');
     Route::get('/message/view', 'MessageController@view')->name('admin.message.view');
     #-- MESSAGE CONTROLLER
+
+    #------------- WEB MESSAGE Admin PART---------------------------------#
+    Route::get('/webmessage', 'webMessageController@AdminAdmin')->name('webmessage.admin.index');
+    Route::post('/webmessage/send', 'webMessageController@Adminsend')->name('webmessage.admin.send');
+    Route::get('/webmessage/view', 'webMessageController@Adminview')->name('webmessage.admin.view');
+
 });

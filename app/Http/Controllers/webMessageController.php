@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\webMessage;
 use Illuminate\Http\Request;
 
 class webMessageController extends Controller
@@ -11,9 +11,9 @@ class webMessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexUser()
     {
-        //
+        return view('Profile_Frontend.wallet_partials.statements.send_message');
     }
 
     /**
