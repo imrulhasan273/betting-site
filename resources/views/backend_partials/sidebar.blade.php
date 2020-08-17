@@ -47,8 +47,21 @@
             </a>
             </li>
             {{-- @endif --}}
-            <!-- ROLE PANEL-->
 
+            <!-- START GAMES LIST --->
+            @if($active=='games')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="">
+                <i class="material-icons">psychology</i>
+                <p>Game List</p>
+            </a>
+            </li>
+            <!-- END GAMES LIST --->
+
+            <!-- ROLE PANEL-->
             <li class="nav-item ">
                 <a class="nav-link" href="./notifications.html">
                     <i class="material-icons">notifications</i>
