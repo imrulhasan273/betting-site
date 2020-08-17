@@ -54,7 +54,7 @@
                 @else
                 <li>
             @endif
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('admin.games') }}">
                 <i class="material-icons">psychology</i>
                 <p>Game List</p>
             </a>
