@@ -24,11 +24,15 @@
              </tr>
         </thead>
             @if($messages->count() > 0 )
+            @php
+
+            @endphp
 
                 <tbody>
-            @foreach ($messages as $message)
+            @foreach ($messages as $key=> $message)
+
             <tr>
-                <td>#{{ $message->id }}</td>
+                <td>{{ ++$key }}</td>
                 <td>+880{{ $message->user_no }}</td>
                 <td>{{ $message->user_message }}</td>
             </tr>

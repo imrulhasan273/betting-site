@@ -59,3 +59,11 @@
   height: calc(100vh - 70px);
   margin-top: 70px;
 }
+
+.dataTables_filter{
+    float: right;
+}
+
+#datatable_paginate{
+    float: right;
+}
