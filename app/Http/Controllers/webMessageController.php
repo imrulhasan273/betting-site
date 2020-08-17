@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\webMessage;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,11 @@ class webMessageController extends Controller
         //
     }
 
+    public function Adminsend(Request $request, $user_id)
+    {
+        dd($user_id);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -34,6 +40,7 @@ class webMessageController extends Controller
      */
     public function sendUser(Request $request)
     {
+
         $user_messages = new webMessage();
         $user_messages->user_id = $request->user_id;
         $user_messages->user_name = $request->user_name;
@@ -42,15 +49,13 @@ class webMessageController extends Controller
         $user_messages->save();
         session()->flash('message', ' Message has been sent !!');
         return back();
-
     }
 
-   public function AdminIndex()
-   {
-       $webmessages = webMessage::orderBy('id', 'desc')->get();
-      return view('dashboard.webmessage', compact('webmessages'));
-
-   }
+    public function AdminIndex()
+    {
+        $webmessages = webMessage::orderBy('id', 'desc')->get();
+        return view('dashboard.webmessage', compact('webmessages'));
+    }
 
 
 
