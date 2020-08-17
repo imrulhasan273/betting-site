@@ -49,6 +49,7 @@ class backendController extends Controller
 
     public function games()
     {
+        // dd(Carbon\Carbon::now());
         $games = Game::all();
         return view('dashboard.games', compact('games'));
     }

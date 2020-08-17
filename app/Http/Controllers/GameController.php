@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Game;
+use App\Type;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -27,6 +28,12 @@ class GameController extends Controller
         //
     }
 
+
+    public function add()
+    {
+        $types = Type::all();
+        return view('dashboard.games.add', compact('types'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +42,7 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

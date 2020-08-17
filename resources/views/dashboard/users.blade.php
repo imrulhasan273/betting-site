@@ -16,7 +16,6 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
     </div>
 
     <div class="col-md-12">
-        <x-alert/>
 
       <div class="card card-plain">
         <div class="card-header card-header-primary">

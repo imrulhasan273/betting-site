@@ -65,6 +65,11 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');
     # --END USER CONTROLLERS
 
+    #-- START GAME CONTROLLERS
+    Route::get('/games/add', 'GameController@add')->name('games.add');
+    Route::post('/games/store', 'GameController@store')->name('games.store');
+    # --END GAME CONTROLLERS
+
 
     #-- START SETTINGS CONTROLLER
     Route::post('/setting/store', 'settingsController@settingStore')->name('admin.setting.store');
