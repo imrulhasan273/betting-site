@@ -27,7 +27,7 @@
         @endphp
         <select name="club" class="form-control fojFwL" id="" name="club">
             <option value="">Select a Club</option>
-            @foreach ($clubs as $club)
+            @foreach ($clubs ?? '' as $club)
             <option value="{{$club->id}}">{{$club->name}}</option>
             @endforeach
         </select>

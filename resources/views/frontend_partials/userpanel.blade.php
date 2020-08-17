@@ -69,6 +69,7 @@
             </div>
             <a id="state" href="{{ route('profiles.statement') }}"><div class="eos-group-title"><i class="fas fa-clipboard" aria-hidden="true"></i> My Statement</div></a>
             <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.sponsor') }}"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> My Sponsor</div></a>
+            <a style="padding:0px;font-size: 14px;" href="{{ route('webmessage.index.user') }}"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> Send Message</div></a>
             <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.oneten') }}">
                 <div class="eos-group-title">
                 <i aria-hidden="true">

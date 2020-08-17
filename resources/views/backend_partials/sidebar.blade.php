@@ -115,7 +115,18 @@
             <!-- End Dropdown Message Panel -->
 
 
-
+            <!-- START GAMES LIST --->
+            @if($active=='webmessage')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('webmessage.admin.index') }}">
+                <i class="material-icons">send</i>
+                <p>Web Message</p>
+            </a>
+            </li>
+            <!-- END GAMES LIST --->
 
 
 
