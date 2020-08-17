@@ -115,18 +115,57 @@
             <!-- End Dropdown Message Panel -->
 
 
-            <!-- START GAMES LIST --->
-            @if($active=='webmessage')
-                <li class="active ">
+                <!-- Start Dropdown Web Message Panel -->
+                @if($active=='webmessage' || $active=='sent_webmessage')
+                    <li class="active">
                 @else
-                <li>
-            @endif
-            <a class="nav-link" href="{{ route('webmessage.admin.index') }}">
-                <i class="material-icons">send</i>
-                <p>Web Message</p>
-            </a>
-            </li>
-            <!-- END GAMES LIST --->
+                    <li class="nav-item ">
+                @endif
+                <a class="nav-link" data-toggle="collapse" href="#webmsg">
+                  <i class="material-icons">forum</i>
+                  <p> User Messages
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="webmsg">
+                  <ul class="nav">
+                      <!-- Received web message LIST --->
+                        @if($active=='webmessage')
+                            <li class="active ">
+                            @else
+                            <li>
+                        @endif
+                        <a class="nav-link" href="{{ route('webmessage.admin.index') }}">
+                            <i class="material-icons">send</i>
+                            <p>Received Message</p>
+                        </a>
+                        </li>
+                            </li>
+                     <!-- Received web message LIST  END--->
+
+                      <!-- View Sent web message LIST --->
+                        @if($active=='sent_webmessage')
+                            <li class="active ">
+                            @else
+                            <li>
+                        @endif
+                        <a class="nav-link" href="{{ route('webmessage.admin.view') }}">
+                            <i class="material-icons">received</i>
+                            <p>Sent Messages</p>
+                        </a>
+                        </li>
+                            </li>
+            <!-- Sent web message LIST  END--->
+
+
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ">
+            <!-- End Dropdown Message Panel -->
+
+
+
 
 
 
