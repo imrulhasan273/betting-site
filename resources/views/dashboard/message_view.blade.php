@@ -4,9 +4,6 @@
 @extends('layouts.backend')
 @section('content')
 <div class="row">
-    <div class="col-md-2">
-    </div>
-
     <div class="col-md-12">
       <div class="card card-plain">
         <div class="card-header card-header-primary">
@@ -24,13 +21,8 @@
              </tr>
         </thead>
             @if($messages->count() > 0 )
-            @php
-
-            @endphp
-
                 <tbody>
             @foreach ($messages as $key=> $message)
-
             <tr>
                 <td>{{ ++$key }}</td>
                 <td>+880{{ $message->user_no }}</td>

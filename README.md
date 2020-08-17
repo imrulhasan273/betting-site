@@ -31,6 +31,11 @@ middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin'])
 ```cmd
 ~$ php artisan migrate:refresh --seed
 ```
+# **COMMAND IF CLASS NOT FOUND WHILE SEEDING**
+
+```cmd
+~$ composer dump-autoload
+```
 
 # Image Package
 
@@ -41,3 +46,4 @@ middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin'])
 # Email Send
 
 # Push test
+

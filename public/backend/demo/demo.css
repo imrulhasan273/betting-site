@@ -63,7 +63,13 @@
 .dataTables_filter{
     float: right;
 }
+.dataTables_filter label{
+    color: black;
+}
 
 #datatable_paginate{
     float: right;
+}
+#datatable_length label {
+    color: black;
 }
