@@ -47,7 +47,7 @@ class webMessageController extends Controller
         // dd($request);
         $admin_message = new WebMessageAdmin();
         $admin_message->user_id = $request->user_id;
-        // $admin_message->user_name = $request->user_name;
+         $admin_message->user_name = $request->user_name;
         $admin_message->admin_message_subject = $request->admin_message_subject;
         $admin_message->admin_sent_message = $request->admin_sent_message;
         $admin_message->save();
