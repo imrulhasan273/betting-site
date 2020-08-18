@@ -21,13 +21,13 @@
                     <input type="hidden" name="user_id" value="{{ $user->user_id }}">
                     <input type="hidden" name="user_name" value="{{ $user->user_name }}">
                     <div class="form-group">
-                    <label><strong>Subject</strong></label>
-                    <input type="text" name="admin_message_subject" id="admin_message_subject" class="form-control" value="{{ $user->user_message_subject }}">
+                        <label><strong>Subject</strong></label>
+                        <input type="text" name="admin_message_subject" id="admin_message_subject" class="form-control" value="{{ $user->user_message_subject }}">
                     </div>
 
                     <div class="form-group">
-                    <label><strong>Replay for user</strong></label>
-                   <textarea name="admin_sent_message" id="admin_sent_message" cols="30" rows="10" class="form-control"></textarea>
+                        <label><strong>Replay for user</strong></label>
+                        <textarea name="admin_sent_message" id="admin_sent_message" cols="30" rows="10" class="form-control"></textarea>
                     </div>
 
                 <div class="form-group">

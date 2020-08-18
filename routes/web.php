@@ -41,7 +41,6 @@ route::group(['prefix' => 'wallet'], function () {
     Route::post('/webmessage/send', 'webMessageController@sendUser')->name('webmessage.send.user');
 
     Route::get('/webmessage/view', 'webMessageController@viewUser')->name('webmessage.view.user');
-
 });
 # PROFILE
 
@@ -102,5 +101,4 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/webmessage/sent/view', 'webMessageController@AdminviewSent')->name('webmessage.admin.view');
 
     Route::post('/webmessage/send/{user_id}', 'webMessageController@AdminSendMessage')->name('webmessage.admin.send');
-
 });

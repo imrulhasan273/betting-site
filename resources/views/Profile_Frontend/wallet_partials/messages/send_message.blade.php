@@ -1,10 +1,15 @@
+@php
+
+$sub = $_GET['subject'] ?? null;
+
+@endphp
 @extends('layouts.frontend')
 @section('content')
 <div class="container">
     <div style="padding-top: 10%;padding-bottom: 10%;" class="row justify-content-center">
         <div class="col-md-12">
-            <div class="col-md-7 col-md-offset-2">
-                            <x-alert/>
+        <div class="col-md-7 col-md-offset-2">
+                <x-alert/>
 
           <form class="form-horizontal" action="{{ route('webmessage.send.user') }}" method="post">
               @csrf
@@ -23,10 +28,14 @@
 
             <!-- Subject input-->
             <div class="form-group">
-              <label class="col-md-3 control-label" for="email">Message Subject</label>
-              <div class="col-md-9">
-                <input id="subject" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control">
-              </div>
+                <label class="col-md-3 control-label" for="email">Message Subject</label>
+                <div class="col-md-9">
+                    @if($sub)
+                    <input id="subject" value="{{$sub}}" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control">
+                    @else
+                    <input id="subject" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control">
+                    @endif
+                </div>
             </div>
 
             <!-- Message body -->

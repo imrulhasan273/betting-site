@@ -4,34 +4,30 @@
     <div style="padding-top: 10%;padding-bottom: 10%;" class="row justify-content-center">
         <div class="col-md-12">
             <table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+                <thead>
+                    <tr>
+                    {{-- <th scope="col">User ID</th> --}}
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Reply</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($messages as $message)
+                    @can('view', $message)
+                    <tr>
+                        {{-- <td>{{ $message->user_id }}</td> --}}
+                        <td>{{ $message->admin_message_subject }}</td>
+                        <td>{{ $message->admin_sent_message }}</td>
+                        @php
+                            $sub ='subject='.$message->admin_message_subject;
+                        @endphp
+                        <td><a href="{{ route('webmessage.index.user',$sub) }}">Reply</a></td>
+                    </tr>
+                    @endcan
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
