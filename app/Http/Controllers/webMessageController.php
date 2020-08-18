@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\webMessage;
+use App\WebMessageAdmin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class webMessageController extends Controller
 {
@@ -17,19 +20,33 @@ class webMessageController extends Controller
         return view('Profile_Frontend.wallet_partials.statements.send_message');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function viewUser()
     {
-        //
+        //////////////////////query should be here
+        return view('Profile_Frontend.wallet_partials.statements.receivedwebmessage');
     }
 
-    public function Adminsend(Request $request, $user_id)
+
+
+    public function Admingetuser($user_id)
     {
-        dd($user_id);
+        // $user = webMessage::find($user_id);
+        $user = DB::table('web_messages')->where('user_id',$user_id)->orderBy('id','desc')->first();
+        return view('dashboard.webmessagesend', compact('user'));
+
+
+    }
+
+    public function AdminSendMessage(Request $request)
+    {
+        $admin_message = new WebMessageAdmin();
+        $admin_message->user_id = $request->user_id;
+        $admin_message->user_name = $request->user_name;
+        $admin_message->admin_message_subject = $request->admin_message_subject;
+        $admin_message->admin_sent_message = $request->admin_sent_message;
+        $admin_message->save();
+        session()->flash('message','Replay has been sent !!');
+        return back();
     }
 
     /**
@@ -58,7 +75,12 @@ class webMessageController extends Controller
     }
 
 
+    public function AdminviewSent()
+    {
+        $sent_messages_admin = WebMessageAdmin::orderBy('id', 'asc')->get();
+        return view('dashboard.sentwebmessageview',compact('sent_messages_admin'));
 
+    }
 
 
     /**

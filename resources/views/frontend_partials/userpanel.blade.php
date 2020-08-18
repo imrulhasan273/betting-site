@@ -25,6 +25,9 @@
                 <i class="fa fa-angle-right fa-lg eos-pull-right" aria-hidden="true">
                 </i>
             </div>
+
+
+
             <div style="" class="eos-group-content">
                 <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.profile') }}">
                     <div class="subMenus">
@@ -67,9 +70,36 @@
                     </i> Change Password</div>
                 </a>
             </div>
+
+
+             <div class="eos-group-title">
+                <i class="subMenus" aria-hidden="true">
+                </i>
+                    Message
+                <i class="fa fa-angle-right fa-lg eos-pull-right" aria-hidden="true">
+                </i>
+            </div>
+
+             <div style="" class="eos-group-content">
+
+                <a style="padding:0px;font-size: 14px;" href="{{ route('webmessage.index.user') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Send Message</div>
+                </a>
+
+                  <a style="padding:0px;font-size: 14px;" href="{{ route('webmessage.view.user') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Received Message</div>
+                </a>
+            </div>
+
             <a id="state" href="{{ route('profiles.statement') }}"><div class="eos-group-title"><i class="fas fa-clipboard" aria-hidden="true"></i> My Statement</div></a>
             <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.sponsor') }}"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> My Sponsor</div></a>
-            <a style="padding:0px;font-size: 14px;" href="{{ route('webmessage.index.user') }}"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> Send Message</div></a>
+            {{-- <a style="padding:0px;font-size: 14px;" href="{{ route('webmessage.index.user') }}"><div class="eos-group-title"><i class="fas fa-user-secret" aria-hidden="true"></i> Send Message</div></a> --}}
             <a style="padding:0px;font-size: 14px;" href="{{ route('profiles.oneten') }}">
                 <div class="eos-group-title">
                 <i aria-hidden="true">
