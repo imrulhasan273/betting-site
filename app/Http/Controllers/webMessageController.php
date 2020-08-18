@@ -6,6 +6,7 @@ use App\webMessage;
 use App\WebMessageAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class webMessageController extends Controller
@@ -63,14 +64,21 @@ class webMessageController extends Controller
     public function sendUser(Request $request)
     {
 
+        $validatedData = $request->validate([
+            'user_message_subject' => 'required',
+            'user_sent_message' => 'required',
+        ]);
+
+
         $user_messages = new webMessage();
         $user_messages->user_id = $request->user_id;
         $user_messages->user_name = $request->user_name;
         $user_messages->user_message_subject = $request->user_message_subject;
         $user_messages->user_sent_message = $request->user_sent_message;
         $user_messages->save();
-        session()->flash('message', ' Message has been sent !!');
-        return back();
+
+        // session()->flash('message', ' Message has been sent !!');
+        return back()->with('message', 'Message has been sent !!');
     }
 
     public function AdminIndex()

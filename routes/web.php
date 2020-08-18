@@ -74,6 +74,10 @@ route::group(['prefix' => 'admin'], function () {
     #-- START GAME CONTROLLERS
     Route::get('/games/add', 'GameController@add')->name('games.add');
     Route::post('/games/store', 'GameController@store')->name('games.store');
+
+    Route::get('/games/{game}/edit', 'GameController@edit')->name('games.edit');
+    Route::post('/games/update', 'GameController@update')->name('games.update');
+    Route::get('/games/{game}/destroy', 'GameController@destroy')->name('games.destroy');
     # --END GAME CONTROLLERS
 
 

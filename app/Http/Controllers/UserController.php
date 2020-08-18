@@ -40,10 +40,10 @@ class UserController extends Controller
             ]);
 
             $user->role()->attach($request->role_id);
+            return Redirect::route('admin.users')->with('message', 'User Added!');
         }
 
-
-        return Redirect::route('admin.users')->with('message', 'User Added!');
+        return Redirect::route('admin.users')->with('error', 'User is not Added!');
     }
     public function edit(User $user)
     {
@@ -66,18 +66,19 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
             ]);
-        }
+            if ($request->thisRole != $request->role_id) {
 
-        if ($request->thisRole != $request->role_id) {
-
-            $det = $updatingUser->role()->detach($request->thisRole);
-            if ($det) {
-                $updatingUser->role()->attach($request->role_id);
+                $det = $updatingUser->role()->detach($request->thisRole);
+                if ($det) {
+                    $updatingUser->role()->attach($request->role_id);
+                }
             }
+            return Redirect::route('admin.users')->with('message', 'User info Updated!');
         }
 
-        return Redirect::route('admin.users')->with('message', 'User info Updated!');
+        return Redirect::route('admin.users')->with('error', 'User info is not Updated!');
     }
+
     public function destroy(User $user)
     {
         $deleteUser = DB::table('users')->where('id', $user->id)->delete();

@@ -97,10 +97,10 @@ $active='games';
                             <a href="" type="button" rel="tooltip" class="btn btn-info">
                                 <i class="material-icons">check_circle</i>
                             </a>
-                            <a href="" type="button" rel="tooltip" class="btn btn-success">
+                            <a href="{{ route('games.edit',[$game->id]) }}" type="button" rel="tooltip" class="btn btn-success">
                               <i class="material-icons">edit</i>
                             </a>
-                            <a href="" type="button" rel="tooltip" class="btn btn-danger">
+                            <a href="{{ route('games.destroy',[$game->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
                               <i class="material-icons">close</i>
                             </a>
                         </td>

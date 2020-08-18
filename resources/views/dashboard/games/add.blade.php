@@ -59,7 +59,7 @@ $active='games';
                         <input name="c2" value="" type="text" class="form-control">
                     </div>
                 </div>
-  
+
 
                 <div class="col-md-4">
                     <label class="bmd-label-floating">Date</label>
@@ -78,7 +78,7 @@ $active='games';
                     </div>
                 </div>
 
-                
+
 
             </div>
 

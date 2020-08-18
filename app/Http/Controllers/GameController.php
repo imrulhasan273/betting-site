@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Game;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class GameController extends Controller
@@ -43,8 +44,6 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-
         $request->validate([
             'type_id' => 'required',
             'c1' => 'required',
@@ -90,7 +89,13 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        //
+        $c = explode(' vs ', $game->name);
+
+        $c1 = $c[0];
+        $c2 = $c[1];
+
+        $types = Type::all();
+        return view('dashboard.games.edit', compact('game', 'types', 'c1', 'c2'));
     }
 
     /**
@@ -102,7 +107,31 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        //
+        // $request->validate([
+        //     'type_id' => 'required',
+        //     'c1' => 'required',
+        //     'c2' => 'required',
+        //     'status' => 'required',
+        //     'tournament_name' => 'required',
+        //     'date' => 'required',
+        //     'time' => 'required'
+        // ]);
+
+        $name = $request->c1 . ' vs ' . $request->c2;
+        $updatingUser = Game::where('id', $request->id)->first();
+        if ($updatingUser) {
+            $updatingUser->update([
+                'type_id' =>  $request->input('type_id'),
+                'date' => $request->input('date'),
+                'time' => $request->input('time'),
+                'name' => $name,
+                'tournament_name' => $request->input('tournament_name'),
+                'status' => $request->input('status'),
+            ]);
+            return Redirect::route('admin.games')->with('message', 'Game info Updated!');
+        }
+
+        return Redirect::route('admin.games')->with('error', 'Game info not Updated!');
     }
 
     /**
@@ -113,6 +142,7 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        //
+        $deleteGame = DB::table('games')->where('id', $game->id)->delete();
+        return back()->with('message', 'Game Deleted!');
     }
 }

@@ -1,15 +1,27 @@
 @php
-
-$sub = $_GET['subject'] ?? null;
-
+    $sub = $_GET['subject'] ?? null;
 @endphp
 @extends('layouts.frontend')
 @section('content')
+<div class="col-md-12">
+    <x-alert/>
+</div>
 <div class="container">
+
     <div style="padding-top: 10%;padding-bottom: 10%;" class="row justify-content-center">
         <div class="col-md-12">
         <div class="col-md-7 col-md-offset-2">
-                <x-alert/>
+
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
           <form class="form-horizontal" action="{{ route('webmessage.send.user') }}" method="post">
               @csrf
@@ -31,9 +43,9 @@ $sub = $_GET['subject'] ?? null;
                 <label class="col-md-3 control-label" for="email">Message Subject</label>
                 <div class="col-md-9">
                     @if($sub)
-                    <input id="subject" value="{{$sub}}" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control">
+                    <input style="color: black" id="subject" value="{{$sub}}" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control">
                     @else
-                    <input id="subject" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control">
+                    <input style="color: black" id="subject" name="user_message_subject" type="text" placeholder="Your Email Subject" class="form-control" required>
                     @endif
                 </div>
             </div>
@@ -42,7 +54,7 @@ $sub = $_GET['subject'] ?? null;
             <div class="form-group">
               <label class="col-md-3 control-label" for="message">Your message</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="message" name="user_sent_message" placeholder="Please enter your message here..." rows="5"></textarea>
+                <textarea style="color: black" class="form-control" id="message" name="user_sent_message" placeholder="Please enter your message here..." rows="5" required></textarea>
               </div>
             </div>
 
