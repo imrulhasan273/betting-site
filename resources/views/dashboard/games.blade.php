@@ -28,34 +28,28 @@ $active='games';
                     ID
                 </th>
                 <th>
-                    Game Type
+                    Type
                 </th>
                 <th>
-                    Game Name
+                    Name
                 </th>
                 <th>
-                    Tournament Name
+                    Tournament
                 </th>
                 <th>
-                    Game Day
+                    Day
                 </th>
                 <th>
-                    Game Time
+                    Time
                 </th>
                 <th>
-                    Game Update
+                    Update
                 </th>
                 <th>
                     Betting Option
                 </th>
                 <th>
                     Status
-                </th>
-                <th>
-                    Action
-                </th>
-                <th>
-                   Action
                 </th>
                 <th>
                     Action
@@ -82,23 +76,33 @@ $active='games';
                         <td>
                             {{$game->time}}
                         </td>
-                        <td>
+                        <td class="td-actions text-left">
                             {{$game->game_update}}
+                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                                <i class="material-icons">sync</i>
+                            </a>
                         </td>
-                        <td>
-                            <a href="">Betting Options</a>
+                        <td class="td-actions text-center">
+                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                                <i class="material-icons">gavel</i>
+                            </a>
                         </td>
-                        <td>
+                        <td class="td-actions text-left">
                             {{$game->status}}
+                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                                <i class="material-icons">av_timer</i>
+                            </a>
                         </td>
-                        <td>
-                            <a href="">Action</a>
-                        </td>
-                        <td>
-                            <a href="">Action</a>
-                        </td>
-                        <td>
-                            <a href="">Action</a>
+                        <td class="td-actions text-right">
+                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                                <i class="material-icons">check_circle</i>
+                            </a>
+                            <a href="" type="button" rel="tooltip" class="btn btn-success">
+                              <i class="material-icons">edit</i>
+                            </a>
+                            <a href="" type="button" rel="tooltip" class="btn btn-danger">
+                              <i class="material-icons">close</i>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
