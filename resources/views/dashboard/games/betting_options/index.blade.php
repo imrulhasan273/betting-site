@@ -10,7 +10,12 @@ $active='games';
     </div>
 
     <div class="col-md-2">
-        <a href="{{route('games.add')}}" name="add" class="btn btn-primary ">Add Question</a>
+        <a href="{{route('admin.games.bet.question.add',[$game->id])}}" name="add" class="btn btn-primary ">
+            <span class="material-icons">
+            add_circle_outline
+            </span>
+            Add Question
+        </a>
     </div>
 
     <div class="col-md-12">

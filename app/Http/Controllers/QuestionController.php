@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Game;
 use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class QuestionController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +31,10 @@ class QuestionController extends Controller
         //
     }
 
+    public function add(Game $game)
+    {
+        return view('dashboard.games.betting_options.questions.add', compact('game'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +43,20 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'question' => 'required',
+        ]);
+
+        $gameStore = Question::create([
+            'game_id' =>  $request->input('game_id'),
+            'question' => $request->input('question'),
+        ]);
+
+        if ($gameStore) {
+            return Redirect::route('admin.games.bet', [$request->game_id])->with('message', 'Question Added!');
+        }
+        return Redirect::route('admin.games.bet', [$request->game_id])->with('message', 'Question is not Added!');
     }
 
     /**

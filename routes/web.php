@@ -71,6 +71,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');
     # --END USER CONTROLLERS
 
+    # ______________________________ START GAME RELATED CONTROLLERS_________________________________________________________
     #-- START GAME CONTROLLERS
     Route::get('/games/add', 'GameController@add')->name('games.add');
     Route::post('/games/store', 'GameController@store')->name('games.store');
@@ -78,8 +79,17 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/games/update', 'GameController@update')->name('games.update');
     Route::get('/games/{game}/destroy', 'GameController@destroy')->name('games.destroy');
     #-------BETTING OPTIONS
-    Route::get('/games/betting_options/{game}', 'GameController@betOptons')->name('admin.games.bet');           //ROLE
+    Route::get('/games/betting_options/{game}', 'GameController@betOptons')->name('admin.games.bet');
     # --END GAME CONTROLLERS
+
+
+    #-- START QUESTION CONTROLLERS
+    Route::get('/games/betting_options/q/add/{game}', 'QuestionController@add')->name('admin.games.bet.question.add');
+    Route::post('/games/betting_options/q/store', 'QuestionController@store')->name('admin.games.bet.question.store');
+
+    # --END QUESTION CONTROLLERS
+    # ______________________________ END GAME RELATED CONTROLLERS_________________________________________________________
+
 
 
 
