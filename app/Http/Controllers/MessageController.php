@@ -9,7 +9,7 @@ class MessageController extends Controller
 {
     public function index()
     {
-        return view('dashboard.message');
+        return view('dashboard.text_messages.message');
     }
 
     public function send(Request $request)
@@ -45,19 +45,13 @@ class MessageController extends Controller
             session()->flash('message', ' New Message Has Sent !!');
             return back();
         } else {
-           session()->flash('message', ' New Message Sending failed !!');
+            session()->flash('message', ' New Message Sending failed !!');
             return back();
-
         }
-
-    }public function view()
+    }
+    public function view()
     {
         $messages = Message::orderBy('id', 'desc')->get();
-        return view('dashboard.message_view',compact('messages'));
-
+        return view('dashboard.text_messages.message_view', compact('messages'));
     }
-
-
-
-
 }
