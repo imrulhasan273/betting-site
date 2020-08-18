@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Game;
 use App\Type;
+use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -34,6 +36,7 @@ class GameController extends Controller
     public function add()
     {
         $types = Type::all();
+
         return view('dashboard.games.add', compact('types'));
     }
     /**
@@ -154,7 +157,8 @@ class GameController extends Controller
     # When Admin CLick on Betoptions in Game list
     public function betOptons(Request $request, Game $game)
     {
-        // dd($game);
-        return view('dashboard.games.betting_options.index', compact('game'));
+        $questions = Question::all();
+        $answers = Answer::all();
+        return view('dashboard.games.betting_options.index', compact('game', 'questions', 'answers'));
     }
 }

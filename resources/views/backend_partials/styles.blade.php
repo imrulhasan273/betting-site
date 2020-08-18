@@ -28,3 +28,9 @@
 
 <link href="{{asset('backend\assets\css\material-dashboard.min1c51.css')}}" rel="stylesheet" />
 
+
+<style>
+.table-nostriped tbody tr:nth-of-type(odd) {
+    background-color:transparent;
+}
+</style>

@@ -53,10 +53,14 @@ class QuestionController extends Controller
             'question' => $request->input('question'),
         ]);
 
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Question is not Added!';
         if ($gameStore) {
-            return Redirect::route('admin.games.bet', [$request->game_id])->with('message', 'Question Added!');
+            $msg1 = 'message';
+            $msg2 = 'Question is Added!';
         }
-        return Redirect::route('admin.games.bet', [$request->game_id])->with('message', 'Question is not Added!');
+        return Redirect::route('admin.games.bet', [$request->game_id])->with($msg1, $msg2);
     }
 
     /**
