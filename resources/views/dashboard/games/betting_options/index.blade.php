@@ -39,9 +39,19 @@ $active='games';
                     <div class="card card-plain">
                         <div class="card-header card-header-info">
                             <h4 style="color: black; font-weight:bold" class="card-title mt-0">
-                            {{ $question->question}}
-                            <a href="{{ route('admin.games.bet.question.destroy',[$question->id]) }}" class="btn btn-outline-secondary bg-danger" style="float:right;backgounrd: blue;"><i class="material-icons">close</i></a>
-                            <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">Add Answer</a></h4>
+                                {{ $question->question}}
+                                <a href="" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: blue;">
+                                    <i class="material-icons">check_circle</i>
+                                </a>
+                                <a href="{{ route('admin.games.bet.question.destroy',[$question->id]) }}" class="btn btn-outline-secondary bg-danger" style="float:right;backgounrd: blue;">
+                                    <i class="material-icons">close</i> Question
+                                </a>
+                                <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">
+                                    <span class="material-icons">
+                                        add_circle_outline
+                                    </span> Answer
+                                </a>
+                            </h4>
                         </div>
                     </div>
                 </div>
