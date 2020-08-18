@@ -41,10 +41,14 @@ $active='games';
                             <h4 style="color: black; font-weight:bold" class="card-title mt-0">
                                 {{ $question->question}}
                                 <a href="" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: blue;">
+                                    @if ($question->is_active==true)
                                     <i class="material-icons">check_circle</i>
+                                    @else
+                                    <i class="material-icons">airplanemode_inactive</i>
+                                    @endif
                                 </a>
                                 <a href="{{ route('admin.games.bet.question.destroy',[$question->id]) }}" class="btn btn-outline-secondary bg-danger" style="float:right;backgounrd: blue;">
-                                    <i class="material-icons">close</i> Question
+                                    <i class="material-icons">delete</i> Question
                                 </a>
                                 <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">
                                     <span class="material-icons">
