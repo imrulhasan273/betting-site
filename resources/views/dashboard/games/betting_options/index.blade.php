@@ -38,7 +38,10 @@ $active='games';
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <div class="card-header card-header-info">
-                            <h4 style="color: black; font-weight:bold" class="card-title mt-0">{{ $question->question}} <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">Add Answer</a></h4>
+                            <h4 style="color: black; font-weight:bold" class="card-title mt-0">
+                            {{ $question->question}}
+                            <a href="{{ route('admin.games.bet.question.destroy',[$question->id]) }}" class="btn btn-outline-secondary bg-danger" style="float:right;backgounrd: blue;"><i class="material-icons">close</i></a>
+                            <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">Add Answer</a></h4>
                         </div>
                     </div>
                 </div>
@@ -72,8 +75,10 @@ $active='games';
                                     <td>
                                         Status
                                     </td>
-                                    <td>
-                                        Action
+                                    <td class="td-actions text-center">
+                                        <a href="{{ route('admin.games.bet.ques.answer.destroy',[$answer->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
+                                            <i class="material-icons">close</i>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -83,7 +88,6 @@ $active='games';
                     </div>
                 </div>
                 @endforeach
-
 
             <!-- Nested Table -->
           </div>

@@ -86,11 +86,13 @@ route::group(['prefix' => 'admin'], function () {
     #-- START QUESTION CONTROLLERS
     Route::get('/games/betting_options/q/add/{game}', 'QuestionController@add')->name('admin.games.bet.question.add');
     Route::post('/games/betting_options/q/store', 'QuestionController@store')->name('admin.games.bet.question.store');
+    Route::get('/games/questions/{question}/destroy', 'QuestionController@destroy')->name('admin.games.bet.question.destroy');
     # --END QUESTION CONTROLLERS
 
     #-- START ANSWER CONTROLLERS
     Route::get('/games/betting_options/a/add/{game}/{question}', 'AnswerController@add')->name('admin.games.bet.ques.answer.add');
     Route::post('/games/betting_options/a/store', 'AnswerController@store')->name('admin.games.bet.ques.answer.store');
+    Route::get('/games/answers/{answer}/destroy', 'AnswerController@destroy')->name('admin.games.bet.ques.answer.destroy');
     # --END ANSWER CONTROLLERS
     # ______________________________ END GAME RELATED CONTROLLERS_________________________________________________________
 

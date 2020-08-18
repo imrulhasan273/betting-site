@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Game;
 use App\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class QuestionController extends Controller
@@ -105,6 +106,11 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $deleteQues = DB::table('questions')->where('id', $question->id)->delete();
+        if ($deleteQues) {
+            return back()->with('message', 'Question Deleted!');
+        }
+
+        return back()->with('error', 'Question is not sDeleted!');
     }
 }

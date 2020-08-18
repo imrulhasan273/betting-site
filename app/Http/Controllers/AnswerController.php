@@ -109,6 +109,11 @@ class AnswerController extends Controller
      */
     public function destroy(Answer $answer)
     {
-        //
+        $deleteAns = DB::table('answers')->where('id', $answer->id)->delete();
+        if ($deleteAns) {
+            return back()->with('message', 'Answer Deleted!');
+        }
+
+        return back()->with('error', 'Answer is not sDeleted!');
     }
 }
