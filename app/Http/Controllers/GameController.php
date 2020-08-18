@@ -143,6 +143,18 @@ class GameController extends Controller
     public function destroy(Game $game)
     {
         $deleteGame = DB::table('games')->where('id', $game->id)->delete();
-        return back()->with('message', 'Game Deleted!');
+        if ($deleteGame) {
+            return back()->with('message', 'Game Deleted!');
+        }
+
+        return back()->with('error', 'Game is not sDeleted!');
+    }
+
+
+    # When Admin CLick on Betoptions in Game list
+    public function betOptons(Request $request, Game $game)
+    {
+        // dd($game);
+        return view('dashboard.games.betting_options.index', compact('game'));
     }
 }

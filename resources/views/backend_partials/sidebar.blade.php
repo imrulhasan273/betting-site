@@ -1,10 +1,43 @@
 <div class="sidebar" data-color="purple" data-background-color="white"
     data-image=" {{ asset('backend/img/sidebar-1.jpg') }} ">
     <div class="logo"><a href="" class="simple-text logo-normal">
-            Creative Tim
+            BD-BET
         </a></div>
     <div class="sidebar-wrapper">
         <ul class="nav">
+
+            <!-- START USER INFO -->
+            <div class="user">
+                <div class="photo">
+                  <img src="{{asset('backend/assets/img/faces/avatar.jpg')}}" />
+                </div>
+                <div class="user-info">
+                  <a data-toggle="collapse" href="#collapseExample" class="username">
+                    <span>
+                      Tania Andrew
+                      <b class="caret"></b>
+                    </span>
+                  </a>
+                  <div class="collapse" id="collapseExample">
+                    <ul class="nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">
+                          <span class="sidebar-mini"> MP </span>
+                          <span class="sidebar-normal"> My Profile </span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">
+                          <span class="sidebar-mini"> EP </span>
+                          <span class="sidebar-normal"> Edit Profile </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- END USER INFO -->
+
             <!-- Start Index Panel -->
             @if($active=='index')
                 <li class="active">
