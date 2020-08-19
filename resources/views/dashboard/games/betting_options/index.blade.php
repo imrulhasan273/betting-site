@@ -35,6 +35,7 @@ $active='games';
           <div class="table-responsive">
             <!-- Nested Table -->
                 @foreach ($questions as $question)
+                @if ($game->id == $question->game_id)
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <div class="card-header card-header-info">
@@ -101,7 +102,9 @@ $active='games';
                         </table>
                     </div>
                 </div>
+                @endif
                 @endforeach
+
 
             <!-- Nested Table -->
           </div>
