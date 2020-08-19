@@ -98,7 +98,7 @@ $active='games';
                                 @if($game->status!='hidden')
                                 <i class="material-icons">check_circle</i>
                                 @else
-                                <i class="material-icons">browser_not_supported</i>
+                                <i class="material-icons">airplanemode_inactive</i>
                                 @endif
                             </a>
                             <a href="{{ route('games.edit',[$game->id]) }}" type="button" rel="tooltip" class="btn btn-success">

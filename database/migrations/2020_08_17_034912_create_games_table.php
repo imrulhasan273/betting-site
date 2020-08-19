@@ -27,7 +27,9 @@ class CreateGamesTable extends Migration
             $table->string('name');
             $table->string('tournament_name');
             $table->string('game_update');
-            $table->string('status');
+
+            $table->enum('status', ['live', 'upcoming', 'hidden']);
+
             $table->timestamps();
         });
     }

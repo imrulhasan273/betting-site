@@ -41,7 +41,7 @@ $active='games';
                         <div class="card-header card-header-info">
                             <h4 style="color: black; font-weight:bold" class="card-title mt-0">
                                 {{ $question->question}}
-                                <a href="" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: blue;">
+                                <a href="{{ route('admin.games.question.status',[$game->id,$question->id,1]) }}" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: blue;">
                                     @if ($question->is_active==true)
                                     <i class="material-icons">check_circle</i>
                                     @else
@@ -64,16 +64,31 @@ $active='games';
                     <div class="card card-plain">
                         <table class="table table-hover">
                             <thead class="">
-                                <th>
+                                <th class="td-actions text-center">
                                     Answer
                                 </th>
-                                <th>
+                                <th class="td-actions text-center">
                                     Bet Rate
                                 </th>
-                                <th>
+                                <th class="td-actions text-center">
+                                   Place
+                                </th>
+                                <th class="td-actions text-center">
+                                    Bet Amount
+                                </th>
+                                <th class="td-actions text-center">
+                                    Return Amount
+                                </th>
+                                <th class="td-actions text-center">
                                     Status
                                 </th>
-                                <th>
+                                <th class="td-actions text-center">
+                                    Result
+                                </th>
+                                <th class="td-actions text-center">
+                                    Action
+                                </th>
+                                <th class="td-actions text-center">
                                     Action
                                 </th>
                             </thead>
@@ -81,14 +96,37 @@ $active='games';
                             @if($question->id == $answer->question_id)
                             <tbody>
                                 <tr>
-                                    <td>
+                                    <td class="td-actions text-center">
                                         {{$answer->answer}}
                                     </td>
-                                    <td>
+                                    <td class="td-actions text-center">
                                         {{$answer->bet_rate}}
                                     </td>
-                                    <td>
-                                        Status
+                                    <td class="td-actions text-center">
+                                        {{$answer->place}}
+                                    </td>
+                                    <td class="td-actions text-center">
+                                        {{$answer->bet_amount}}
+                                    </td>
+                                    <td class="td-actions text-center">
+                                        {{$answer->rtrn_amount}}
+                                    </td>
+                                    <td class="td-actions text-center">
+                                        {{$answer->status}}
+                                        <a href="" type="button" rel="tooltip" class="btn btn-info">
+                                            <i class="material-icons">av_timer</i>
+                                        </a>
+                                    </td>
+                                    <td class="td-actions text-center">
+                                        {{$answer->result}}
+                                    </td>
+                                    <td class="td-actions text-center">
+                                        <a href="" type="button" rel="tooltip" class="btn btn-danger">
+                                            <i class="material-icons">assignment_return</i>back
+                                        </a>
+                                        <a href="" type="button" rel="tooltip" class="btn btn-danger">
+                                            <i class="material-icons">get_app</i>return
+                                        </a>
                                     </td>
                                     <td class="td-actions text-center">
                                         <a href="{{ route('admin.games.bet.ques.answer.destroy',[$answer->id]) }}" type="button" rel="tooltip" class="btn btn-danger">

@@ -107,10 +107,51 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $deleteQues = DB::table('questions')->where('id', $question->id)->delete();
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Question is not sDeleted!';
         if ($deleteQues) {
-            return back()->with('message', 'Question Deleted!');
+            $msg1 = 'message';
+            $msg2 = 'Question Deleted!!';
         }
 
-        return back()->with('error', 'Question is not sDeleted!');
+        return back()->with($msg1, $msg2);
+    }
+
+    public function status($game_id, $ques_id, $code)
+    {
+        $status = DB::table('questions')
+            ->where('id', '=', $ques_id)
+            ->pluck('is_active');
+        $status = $status[0] ?? null;
+
+        $state = $status;
+
+        if ($code == 1) {
+            if ($status == 1) {
+                $state = 0;
+            } else if ($status == 0) {
+                $state = 1;
+            }
+        }
+
+
+        $updatingQues = Question::where('id', $ques_id)->first();
+        if ($updatingQues) {
+            $updatingQues->update([
+                'is_active' => $state,
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Question Status is not Changes!';
+        if ($updatingQues) {
+            $msg1 = 'message';
+            $msg2 = 'Question Status Changes!';
+        }
+
+        return Redirect::route('admin.games.bet', [$game_id])->with($msg1, $msg2);
     }
 }
