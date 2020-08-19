@@ -153,6 +153,39 @@ class GameController extends Controller
         return back()->with('error', 'Game is not sDeleted!');
     }
 
+    public function status($game_id, $code)
+    {
+        $status = DB::table('games')
+            ->where('id', '=', $game_id)
+            ->pluck('status');
+        $status = $status[0] ?? null;
+
+        $state = $status;
+
+        if ($code == 1) {
+            if ($status == 'live' || $status == 'hidden') {
+                $state = 'upcoming';
+            } else if ($status == 'upcoming') {
+                $state = 'live';
+            }
+        } else if ($code == 2) {
+            if ($status == 'hidden') {
+                $state = 'upcoming';
+            } else if ($status != 'hidden') {
+                $state = 'hidden';
+            }
+        }
+
+
+        $updatingGame = Game::where('id', $game_id)->first();
+        if ($updatingGame) {
+            $updatingGame->update([
+                'status' => $state,
+            ]);
+            return Redirect::route('admin.games')->with('message', 'Game info Updated!');
+        }
+    }
+
 
     # When Admin CLick on Betoptions in Game list
     public function betOptons(Request $request, Game $game)

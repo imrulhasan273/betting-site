@@ -80,6 +80,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/games/{game}/destroy', 'GameController@destroy')->name('games.destroy');
     #-------BETTING OPTIONS
     Route::get('/games/betting_options/{game}', 'GameController@betOptons')->name('admin.games.bet');
+    Route::get('/games/status/{game_id}/{code}', 'GameController@status')->name('admin.games.status'); //added
     # --END GAME CONTROLLERS
 
 

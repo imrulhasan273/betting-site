@@ -104,8 +104,6 @@ $active='games';
                 </div>
                 @endif
                 @endforeach
-
-
             <!-- Nested Table -->
           </div>
         </div>

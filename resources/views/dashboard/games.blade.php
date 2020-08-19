@@ -89,19 +89,26 @@ $active='games';
                         </td>
                         <td class="td-actions text-left">
                             {{$game->status}}
-                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                            <a href="{{ route('admin.games.status',[$game->id,1]) }}" type="button" rel="tooltip" class="btn btn-info">
                                 <i class="material-icons">av_timer</i>
                             </a>
                         </td>
                         <td class="td-actions text-right">
-                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                            <a href="{{ route('admin.games.status',[$game->id,2]) }}" type="button" rel="tooltip" class="btn btn-info">
+                                @if($game->status!='hidden')
                                 <i class="material-icons">check_circle</i>
+                                @else
+                                <i class="material-icons">browser_not_supported</i>
+                                @endif
                             </a>
                             <a href="{{ route('games.edit',[$game->id]) }}" type="button" rel="tooltip" class="btn btn-success">
                               <i class="material-icons">edit</i>
                             </a>
                             <a href="{{ route('games.destroy',[$game->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
                               <i class="material-icons">close</i>
+                            </a>
+                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                                <i class="material-icons">done_all</i>
                             </a>
                         </td>
                     </tr>
