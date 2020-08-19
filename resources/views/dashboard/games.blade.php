@@ -57,7 +57,13 @@ $active='games';
               </thead>
               @foreach ($games as $game)
                 <tbody>
-                    <tr>
+                    @if ($game->status=='hidden')
+                    <tr style="background: rgb(233, 128, 143)">
+                    @elseif($game->status=='live')
+                    <tr style="background: rgb(143, 218, 153)">
+                    @else
+                    <tr style="background: rgb(173, 224, 228)">
+                    @endif
                         <td class="td-actions text-center">
                             {{$game->id}}
                         </td>
@@ -89,12 +95,12 @@ $active='games';
                         </td>
                         <td class="td-actions text-center">
                             {{$game->status}}
-                            <a href="{{ route('admin.games.status',[$game->id,1]) }}" type="button" rel="tooltip" class="btn btn-info">
+                            <a href="{{ route('admin.games.status',[$game->id,1]) }}" type="button" rel="tooltip" class="btn btn-warning">
                                 <i class="material-icons">av_timer</i>
                             </a>
                         </td>
                         <td class="td-actions text-center">
-                            <a href="{{ route('admin.games.status',[$game->id,2]) }}" type="button" rel="tooltip" class="btn btn-info">
+                            <a href="{{ route('admin.games.status',[$game->id,2]) }}" type="button" rel="tooltip" class="btn btn-warning">
                                 @if($game->status!='hidden')
                                 <i class="material-icons">check_circle</i>
                                 @else

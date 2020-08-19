@@ -84,9 +84,9 @@ class AnswerController extends Controller
      * @param  \App\Answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Answer $answer)
+    public function edit($game_id, Answer $answer)
     {
-        //
+        return view('dashboard.games.betting_options.answers.edit', compact('game_id', 'answer'));
     }
 
     /**
@@ -98,7 +98,25 @@ class AnswerController extends Controller
      */
     public function update(Request $request, Answer $answer)
     {
-        //
+        // dd($request);
+
+        $updatingAnswer = Answer::where('id', $request->answer_id)->first();
+        if ($updatingAnswer) {
+            $updatingAnswer->update([
+                'answer' =>  $request->input('answer'),
+                'bet_rate' => $request->input('bet_rate'),
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Answer is not Updated!';
+        if ($updatingAnswer) {
+            $msg1 = 'message';
+            $msg2 = 'Answer is Updated!';
+        }
+
+        return Redirect::route('admin.games.bet', [$request->game_id])->with($msg1, $msg2);
     }
 
     /**
@@ -115,5 +133,43 @@ class AnswerController extends Controller
         }
 
         return back()->with('error', 'Answer is not sDeleted!');
+    }
+
+    public function status($game_id, $ans_id, $code)
+    {
+        // dd($ans_id);
+
+        $status = DB::table('answers')
+            ->where('id', '=', $ans_id)
+            ->pluck('status');
+        $status = $status[0] ?? null;
+
+        $state = $status;
+
+        if ($code == 1) {
+            if ($status == 'active') {
+                $state = 'inactive';
+            } else if ($status == 'inactive') {
+                $state = 'active';
+            }
+        }
+
+
+        $updatingAns = Answer::where('id', $ans_id)->first();
+        if ($updatingAns) {
+            $updatingAns->update([
+                'status' => $state,
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Answer Status is not Changes!';
+        if ($updatingAns) {
+            $msg1 = 'message';
+            $msg2 = 'Answer Status Changes!';
+        }
+
+        return Redirect::route('admin.games.bet', [$game_id])->with($msg1, $msg2);
     }
 }

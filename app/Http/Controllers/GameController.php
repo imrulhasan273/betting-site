@@ -182,8 +182,17 @@ class GameController extends Controller
             $updatingGame->update([
                 'status' => $state,
             ]);
-            return Redirect::route('admin.games')->with('message', 'Game info Updated!');
         }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Game Status is not Changes!';
+        if ($updatingGame) {
+            $msg1 = 'message';
+            $msg2 = 'Game Status Changes!';
+        }
+
+        return Redirect::route('admin.games')->with($msg1, $msg2);
     }
 
 
