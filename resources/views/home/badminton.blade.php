@@ -6,7 +6,7 @@
             $Collection = App\Game::where([['status','=','live'],['type_id', '=', 6]])->get();
             $LiveCount = $Collection->count();
         @endphp
-        <div class="live" data-toggle="collapse" href="#BBtab3collapse" data-parent="#accordion">
+        <div class="live" data-toggle="collapse" href="#BNtab3collapse" data-parent="#accordion">
             <span class="live_text" style="color:yellow">LIVE MATCHES </span>
             <span style="float: right;color: #fff;">{{$LiveCount}} Matches</span>
         </div>
