@@ -38,6 +38,15 @@
                 <div class="dfbb8">Table Tennis</div>
               </a>
             </li>
+
+            <li class="a7170"><a href="#tab101" data-toggle="tab">
+                <div class="_8faff">
+                  <div class="fd0c8 _7c452"><img alt="Football" style="width: 32px;height:33px;" src="frontend/img/table_tenis.png"></div>
+                </div>
+                <div class="dfbb8">Badminton</div>
+              </a>
+            </li>
+
           </ul>
         </div>
       </div>
