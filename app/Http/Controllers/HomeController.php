@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Club;
+use App\Game;
+use App\Answer;
 use App\Sponsor;
+use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $query = 'query';
+
+        $games = Game::all();
+        $questions = Question::all();
+        $answers = Answer::all();
+
+        dd($games);
+
+        return view('home', compact('query'));
     }
 
     public function mybet()

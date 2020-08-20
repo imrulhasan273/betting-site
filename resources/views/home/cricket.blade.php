@@ -1,10 +1,10 @@
 <div id="tab3" class="tab-pane fade">
 
-    <!-- live section -->
+    <!-- START LIVE SECTION -->
     <div style="margin-top: 111px;">
       <div class="live" data-toggle="collapse" href="#tab3collapse" data-parent="#accordion">
         <!--<img src="frontend/img/live.gif"> -->
-        <span class="live_text" style="color:yellow">LIVE MATCHES</span>
+        <span class="live_text" style="color:yellow">LIVE MATCHES </span>
         <span style="float: right;color: #fff;">4 Matches</span>
       </div>
       <div class="panel-collapse collapse in" id="tab3collapse">
@@ -124,7 +124,15 @@
         </div>
       </div>
     </div>
-    <!-- live section  end-->
+    <!-- END LIVE SECTION -->
+
+
+
+
+
+
+
+    <!-- START UPCOMING SECTION -->
     <div>
       <div class="live" data-toggle="collapse" href="#tab32collapse" data-parent="#accordion">
         <!-- <img src="frontend/img/gogf.gif"> -->
@@ -213,4 +221,6 @@
         </div>
       </div>
     </div>
+    <!-- END UPCOMING SECTION -->
+
   </div>
