@@ -29,26 +29,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $query = 'query';
-
         $games = Game::all();
         $questions = Question::all();
         $answers = Answer::all();
 
-        dd($games);
+        // dd($games);
 
-        return view('home', compact('query'));
+        return view('home', compact('games', 'questions', 'answers'));
     }
 
     public function mybet()
     {
         return view('mybet');
     }
-
-    // public function oneten()
-    // {
-    //     return view('oneten');
-    // }
 
     public function support()
     {
