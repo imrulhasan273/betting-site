@@ -23,6 +23,7 @@
 <div class="tab-content" id="content" style="margin-top: -113px;">
     <div class="tab-content" id="content" style="margin-top: -113px;">
 
+    @include('home.all')
       <!-------==========================Start cricket tab===========================--->
       @include('home.cricket')
       <!-------==============================End cricket tab==========================-->

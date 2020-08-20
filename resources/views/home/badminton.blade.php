@@ -27,7 +27,7 @@
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#BNtab33419{{$quesCount}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
                 <span class="gameicon"><img src="{{asset('frontend/img/BN.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
-                    {{ $game->name }}, {{ $game->tournament }} || {{ $game->date }} || {{ $game->time }}
+                    {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
             </div>
             <div id="BNtab33419{{$quesCount}}" class="panel-collapse collapse in">
@@ -118,7 +118,7 @@
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#BNUtab33419{{$quesCountU}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
                 <span class="gameicon"><img src="{{asset('frontend/img/BN.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
-                    {{ $game->name }}, {{ $game->tournament }} || {{ $game->date }} || {{ $game->time }}
+                    {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
             </div>
             <div id="BNUtab33419{{$quesCountU}}" class="panel-collapse collapse in">

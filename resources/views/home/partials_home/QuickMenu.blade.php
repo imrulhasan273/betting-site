@@ -3,6 +3,13 @@
       <div class="fe902">
         <div class="c1950">
           <ul data-test-name="quickAccess" class="_847a8 d9f21">
+
+            <li class="a7170"><a href="#tabALL" data-toggle="tab">
+                <div class="_8faff"><img alt="Football" src="{{asset('frontend/img/all.png')}}"></div>
+                <div class="dfbb8">All</div>
+              </a>
+            </li>
+
             <li class="a7170"><a href="#tab2" data-toggle="tab">
                 <div class="_8faff"><img alt="Football" src="{{asset('frontend/img/f_ball.png')}}"></div>
                 <div class="dfbb8">Football</div>

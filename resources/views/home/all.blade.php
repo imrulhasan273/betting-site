@@ -1,12 +1,12 @@
-<div id="tab6" class="tab-pane fade">
+<div id="tabALL" class="tab-pane fade active in">
 
     <!-- =====================START LIVE SECTION================================ -->
     <div style="margin-top: 111px;">
         @php
-            $Collection = App\Game::where([['status','=','live'],['type_id', '=', 4]])->get();
+            $Collection = App\Game::where([['status','=','live']])->get();
             $LiveCount = $Collection->count();
         @endphp
-        <div class="live" data-toggle="collapse" href="#Ttab3collapse" data-parent="#accordion">
+        <div class="live" data-toggle="collapse" href="#ALLtab3collapse" data-parent="#accordion">
             <span class="live_text" style="color:yellow">LIVE MATCHES </span>
             <span style="float: right;color: #fff;">{{$LiveCount}} Matches</span>
         </div>
@@ -16,21 +16,21 @@
             $ansCount=1;
         @endphp
 
-        <div class="panel-collapse collapse in" id="Ttab3collapse">
+        <div class="panel-collapse collapse in" id="ALLtab3collapse">
 
             <!-- START GAME LOOP -->
             @foreach ($games as $game)
-            @if ($game->type->name == 'tennis' && $game->status=='live')
+            @if ($game->status=='live')
             @php
                 $quesCount++;
             @endphp
-            <div class="" data-toggle="collapse" data-parent="#accordion" href="#Ttab33419{{$quesCount}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
-                <span class="gameicon"><img src="{{asset('frontend/img/T.png')}}" width="27px;"></span>
+            <div class="" data-toggle="collapse" data-parent="#accordion" href="#ALLtab33419{{$quesCount}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
+                <span class="gameicon"><img src="{{asset('frontend/img/all.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
             </div>
-            <div id="Ttab33419{{$quesCount}}" class="panel-collapse collapse in">
+            <div id="ALLtab33419{{$quesCount}}" class="panel-collapse collapse in">
                 <div id="3419" class="panel-collapse collapse in">
                     <div class="que" style="">
                         <div class="collapse_2nd" style="">
@@ -42,12 +42,12 @@
                                 $ansCount++
                             @endphp
 
-                            <div class="qtitle" data-toggle="collapse" data-parent="#accordion" href="#Tq323845{{$ansCount}}" style="">
+                            <div class="qtitle" data-toggle="collapse" data-parent="#accordion" href="#ALLq323845{{$ansCount}}" style="">
                                 <h4 class="panel-title qtitletext">
                                     {{$question->question}}<span class="" style="margin-left: 5px;color:#ff3b30!important;font-size:.7em;"><i> LIVE</i></span>
                                 </h4>
                             </div>
-                            <div id="Tq323845{{$ansCount}}" class="panel-collapse">
+                            <div id="ALLq323845{{$ansCount}}" class="panel-collapse">
                                 <div class="container-fluid">
                                     <div class="row" style="background: #5F5F5F">
 
@@ -94,10 +94,10 @@
     <!-- =====================START UPCOMING SECTION================================ -->
     <div>
         @php
-            $Collection = App\Game::where([['status','=','upcoming'],['type_id', '=', 4]])->get();
+            $Collection = App\Game::where([['status','=','upcoming']])->get();
             $UpcomingCount = $Collection->count();
         @endphp
-        <div class="live" data-toggle="collapse" href="#TUtab3collapse" data-parent="#accordion">
+        <div class="live" data-toggle="collapse" href="#ALLUtab3collapse" data-parent="#accordion">
             <span class="live_text" style="color:yellow">UPCOMING MATCHES </span>
             <span style="float: right;color: #fff;">{{$UpcomingCount}} Matches</span>
         </div>
@@ -107,21 +107,21 @@
             $ansCountU=1;
         @endphp
 
-        <div class="panel-collapse collapse in" id="TUtab3collapse">
+        <div class="panel-collapse collapse in" id="ALLUtab3collapse">
 
             <!-- START GAME LOOP -->
             @foreach ($games as $game)
-            @if ($game->type->name == 'tennis' && $game->status=='upcoming')
+            @if ($game->status=='upcoming')
             @php
                 $quesCountU++;
             @endphp
-            <div class="" data-toggle="collapse" data-parent="#accordion" href="#TUtab33419{{$quesCountU}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
-                <span class="gameicon"><img src="{{asset('frontend/img/T.png')}}" width="27px;"></span>
+            <div class="" data-toggle="collapse" data-parent="#accordion" href="#ALLUtab33419{{$quesCountU}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
+                <span class="gameicon"><img src="{{asset('frontend/img/all.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
             </div>
-            <div id="TUtab33419{{$quesCountU}}" class="panel-collapse collapse in">
+            <div id="ALLUtab33419{{$quesCountU}}" class="panel-collapse collapse in">
                 <div id="3419" class="panel-collapse collapse in">
                     <div class="que" style="">
                         <div class="collapse_2nd" style="">
@@ -133,12 +133,12 @@
                                 $ansCountU++
                             @endphp
 
-                            <div class="qtitle" data-toggle="collapse" data-parent="#accordion" href="#TUq323845{{$ansCountU}}" style="">
+                            <div class="qtitle" data-toggle="collapse" data-parent="#accordion" href="#ALLUq323845{{$ansCountU}}" style="">
                                 <h4 class="panel-title qtitletext">
                                     {{$question->question}}<span style="margin-left: 5px;color:#37b000!important;font-size:.7em;"><i> UPCOMING</i></span>
                                 </h4>
                             </div>
-                            <div id="TUq323845{{$ansCountU}}" class="panel-collapse">
+                            <div id="ALLUq323845{{$ansCountU}}" class="panel-collapse">
                                 <div class="container-fluid">
                                     <div class="row" style="background: #5F5F5F">
 
