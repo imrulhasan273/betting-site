@@ -57,6 +57,7 @@
                                         <div class="col-md-3 col-xs-6 ans" style="margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
                                                 data-game_id = "{{$game->id}}"
+                                                data-type_id = "{{$game->type_id}}"
                                                 data-game = "{{$game->name}}"
                                                 data-status = "{{$game->status}}"
                                                 data-ques_id = "{{$question->id}}"
@@ -157,6 +158,7 @@
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
                                                 data-game_id = "{{$game->id}}"
                                                 data-game = "{{$game->name}}"
+                                                data-type_id = "{{$game->type_id}}"
                                                 data-status = "{{$game->status}}"
                                                 data-ques_id = "{{$question->id}}"
                                                 data-ques = "{{$question->question}}"

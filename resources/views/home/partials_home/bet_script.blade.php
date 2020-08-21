@@ -3,6 +3,7 @@ $('#betting').on('show.bs.modal', function (event) {
 
     // ============ get all the data from games ================
     var button = $(event.relatedTarget)
+    var type_id = button.data('type_id');
     var match = button.data('match');
     var status = button.data('status');
     var ques = button.data('ques');
@@ -42,7 +43,6 @@ $('#betting').on('show.bs.modal', function (event) {
     function returnamount(stakeamount) {
       var stakeAmount = stakeamount;
       var betRate = bet_rate;
-      console.log(betRate);
       $("#stakeAmountView").text(stakeAmount);
       var PossWinning = stakeAmount * betRate;
       $("#possibleAmount").text(PossWinning.toFixed(2));
@@ -62,19 +62,22 @@ $('#betting').on('show.bs.modal', function (event) {
         $(".gameLiveOrUpcoming").css("background", "#6918ec");
     }
 
-    // if (gameType == 1) {
-    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
-    // } else if (gameType == 2) {
-    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
-    // } else if (gameType == 3) {
-    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
-    // } else if (gameType == 4) {
-    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
-    // } else if (gameType == 5) {
-    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
-    // } else if (gameType == 6) {
-    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
-    // }
+    console.log('Type: ');
+    console.log(type_id);
+
+    if (type_id == "1") {
+        $('#gameLogo').attr('src', "{{asset('frontend/img/ka-pl.png')}}");
+    } else if (type_id == "2") {
+        $('#gameLogo').attr('src', "{{asset('frontend/img/1393757333.png')}}");
+    } else if (type_id == "3") {
+        $('#gameLogo').attr('src', "{{asset('frontend/img/BB.png')}}");
+    } else if (type_id == "4") {
+        $('#gameLogo').attr('src', "{{asset('frontend/img/T.png')}}");
+    } else if (type_id == "5") {
+        $('#gameLogo').attr('src', "{{asset('frontend/img/TT.png')}}");
+    } else if (type_id == "6") {
+        $('#gameLogo').attr('src', "{{asset('frontend/img/BN.png')}}");
+    }
 
     // ========== Send all the data to server using Ajax ===========
 
