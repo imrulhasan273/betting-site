@@ -1295,7 +1295,7 @@
     $("#menu").eosMenu();
 </script>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-36251023-1']);
     _gaq.push(['_setDomainName', 'jqueryscript.net']);
@@ -1625,7 +1625,7 @@
         }
       });
     }
-</script>
+</script> --}}
 
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9ad5efd2fa5d14655f988626-|49" defer="">
 </script>

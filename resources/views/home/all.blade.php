@@ -63,6 +63,9 @@
                                                     </span>
                                                 </div>
                                             </div>
+                                            <!--START  MODALS -->
+                                            @include('home.partials_home.bet_modal')
+                                            <!-- END MODALS -->
                                         </div>
 
                                         @endif

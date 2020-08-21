@@ -33,7 +33,7 @@
 
     <!-- =======================START BETTING ON ANSWERS-===================== -->
       <!--Start place bet-->
-      <div class="modal fade betForm" id="betting" role="dialog" aria-hidden="true" style="display: none;">
+      {{-- <div class="modal fade betForm" id="betting" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content m-content">
@@ -98,7 +98,7 @@
 
 
                       <div class="form-group">
-                        <div class="row" style="    padding:0px 10%;">
+                        <div class="row" style="padding:0px 10%;">
                             <div class="col-lg-12">
                                 <button class="placebetbutton" id="200">200</button>
                                 <button class="placebetbutton" id="500">500</button>
@@ -140,7 +140,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!--End place bet-->
 
 
