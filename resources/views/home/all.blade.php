@@ -17,7 +17,6 @@
         @endphp
 
         <div class="panel-collapse collapse in" id="ALLtab3collapse">
-
             <!-- START GAME LOOP -->
             @foreach ($games as $game)
             @if ($game->status=='live')
@@ -55,17 +54,24 @@
                                         @foreach ($answers as $answer)
                                         @if ($question->id == $answer->question_id)
                                         <div class="col-md-3 col-xs-6 ans" style="margin-top: 0px;border:1px solid #777A7D;">
-                                            <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select " bettingtitle="3419" bettingsubtitle=" 23845" bettingsubtitleoption="55934" gametype="2" gamestatus="1">
+                                            <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
+                                                data-match = "{{$game->name}} | {{$game->tournament_name}} | {{$game->date}} | {{$game->time}}"
+                                                data-game_id = "{{$game->id}}"
+                                                data-game = "{{$game->name}}"
+                                                data-status = "{{$game->status}}"
+                                                data-ques_id = "{{$question->id}}"
+                                                data-ques = "{{$question->question}}"
+                                                data-ans_id = "{{$answer->id}}"
+                                                data-ans = "{{$answer->answer}}"
+                                                data-ans_bet_rate = "{{$answer->bet_rate}}">
+
                                                 <div class="" align="center" style="color:#fff;background:#5F5F5F;">
                                                     {{$answer->answer}}
-                                                    <span class="" text-align="center" style="color:#F9CD51;">
+                                                    <span id="ansID" class="" text-align="center" style="color:#F9CD51;">
                                                     {{$answer->bet_rate}}
                                                     </span>
                                                 </div>
                                             </div>
-                                            <!--START  MODALS -->
-                                            @include('home.partials_home.bet_modal')
-                                            <!-- END MODALS -->
                                         </div>
 
                                         @endif
@@ -149,10 +155,18 @@
                                         @foreach ($answers as $answer)
                                         @if ($question->id == $answer->question_id)
                                         <div class="col-md-3 col-xs-6 ans" style="margin-top: 0px;border:1px solid #777A7D;">
-                                            <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select " bettingtitle="3419" bettingsubtitle=" 23845" bettingsubtitleoption="55934" gametype="2" gamestatus="1">
+                                            <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select"
+                                                      data-game_id = "{{$game->id}}"
+                                                      data-game = "{{$game->name}}"
+                                                      data-status = "{{$game->status}}"
+                                                      data-ques_id = "{{$question->id}}"
+                                                       data-ques = "{{$question->question}}"
+                                                      data-ans_id = "{{$answer->id}}"
+                                                      data-ans = "{{$answer->answer}}"
+                                                       data-ans_bet_rate = "{{$answer->bet_rate}}">
                                                 <div class="" align="center" style="color:#fff;background:#5F5F5F;">
                                                     {{$answer->answer}}
-                                                    <span class="" text-align="center" style="color:#F9CD51;">
+                                                    <span text-align="center" style="color:#F9CD51;">
                                                     {{$answer->bet_rate}}
                                                     </span>
                                                 </div>
@@ -183,3 +197,5 @@
     <!-- ===============================END UPCOMING SECTION================================ -->
 
   </div>
+
+

@@ -737,6 +737,8 @@
 
     });
 
+
+    // =========   BET OPTION ===================== (Not My Approach: its developers approach)
     var show = 1;
     var bettingTitle = "";
 
@@ -1085,6 +1087,7 @@
       }
 
     });
+
     $('#200').click(function(event) {
       $('#stakeAmount').val('200');
       returnamount('200')
@@ -1626,6 +1629,8 @@
       });
     }
 </script> --}}
+
+
 
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="9ad5efd2fa5d14655f988626-|49" defer="">
 </script>

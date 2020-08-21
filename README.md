@@ -47,3 +47,9 @@ middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin'])
 # Email Send
 
 # Push test
+
+# Seed Data Command
+
+```cmd
+~$ composer require orangehill/iseed
+```

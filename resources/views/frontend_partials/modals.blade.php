@@ -32,6 +32,7 @@
 
 
     <!-- =======================START BETTING ON ANSWERS-===================== -->
+    @include('home.partials_home.bet_modal')
       <!--Start place bet-->
       {{-- <div class="modal fade betForm" id="betting" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">

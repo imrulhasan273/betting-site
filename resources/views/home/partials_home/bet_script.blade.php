@@ -1,17 +1,96 @@
 <script type="text/javascript">
-    $("#placeBet").on("click", function() {
-        console.log('HELLO');
-        var game = $("#bettingTitle").html();
-        console.log(game);
+$('#betting').on('show.bs.modal', function (event) {
+
+    // ============ get all the data from games ================
+    var button = $(event.relatedTarget)
+    var match = button.data('match');
+    var status = button.data('status');
+    var ques = button.data('ques');
+    var ans = button.data('ans');
+    var bet_rate = button.data('ans_bet_rate');
+
+
+    // ============= Get the html value from Modal ================
+    returnamount('100')
+
+    $('#200').click(function(event) {
+      $('#stakeAmount').val('200');
+      returnamount('200')
 
     });
+    $('#500').click(function(event) {
+      $('#stakeAmount').val('500');
+      returnamount('500')
+
+    });
+    $('#1000').click(function(event) {
+      $('#stakeAmount').val('1000');
+      returnamount('1000')
+
+    });
+    $('#3000').click(function(event) {
+      $('#stakeAmount').val('3000');
+      returnamount('3000')
+
+    });
+    $('#5000').click(function(event) {
+      $('#stakeAmount').val('5000');
+      returnamount('5000')
+
+    });
+
+    function returnamount(stakeamount) {
+      var stakeAmount = stakeamount;
+      var betRate = bet_rate;
+      console.log(betRate);
+      $("#stakeAmountView").text(stakeAmount);
+      var PossWinning = stakeAmount * betRate;
+      $("#possibleAmount").text(PossWinning.toFixed(2));
+    }
+
+    //========== Show All the datas in the Modal ===========
+    var modal = $(this);
+    modal.find('.bettingTitle').html(match);
+    modal.find('.gameLiveOrUpcoming').html(status);
+    modal.find('#bettingSubTitle').html(ques);
+    modal.find('#BettingSubTitleOption').html(ans);
+    modal.find('#betRateShow').html(bet_rate);
+
+    if (status == 'live') {
+        $(".gameLiveOrUpcoming").css("background", "#ec5d18");
+    } else {
+        $(".gameLiveOrUpcoming").css("background", "#6918ec");
+    }
+
+    // if (gameType == 1) {
+    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
+    // } else if (gameType == 2) {
+    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
+    // } else if (gameType == 3) {
+    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
+    // } else if (gameType == 4) {
+    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
+    // } else if (gameType == 5) {
+    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
+    // } else if (gameType == 6) {
+    //     $('#gameLogo').attr('src', '{{asset('frontend/img/all.png')}}');
+    // }
+
+    // ========== Send all the data to server using Ajax ===========
+
+})
+
 </script>
+
+
+{{--  --}}
+
 
 {{-- <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-36251023-1']);
-        _gaq.push(['_setDomainName', 'jqueryscript.net']);
-        _gaq.push(['_trackPageview']);
+        _gaq.push(['_setDomainName', '.net']);
+        _gaq.push(['_trajqueryscriptckPageview']);
 
         (function() {
           var ga = document.createElement('script');
