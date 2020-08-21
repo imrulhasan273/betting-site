@@ -1560,10 +1560,17 @@
 
     }
 
-    function seect_option(a, b, c) {
-      if (multi == 0) {
+
+
+    // ============================BET SECTION ===========================
+    function seect_option(a, b, c)
+    {
+      if (multi == 0)
+      {
         $('#betting').modal('show');
-      } else {
+      }
+      else
+      {
         $.ajax({
           method: "POST",
           url: 'betfacedata_2',
@@ -1583,13 +1590,16 @@
               },
               success: function(datas) {
 
-                if (data == '1') {
+                if (data == '1')
+                {
                   $("#bet_slip").load('bet_slip');
                   $('#bet_slip_div').css('display', 'block');
                   show = 0;
                   count_multi();
 
-                } else {
+                }
+                else
+                {
                   alert(data);
                   $("#bet_slip").load('bet_slip');
                 }

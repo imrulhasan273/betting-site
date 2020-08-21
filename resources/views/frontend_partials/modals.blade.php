@@ -30,6 +30,8 @@
         </div>
     </div>
 
+
+    <!-- =======================START BETTING ON ANSWERS-===================== -->
       <!--Start place bet-->
       <div class="modal fade betForm" id="betting" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
@@ -46,6 +48,7 @@
                         <button type="button" class="close" data-dismiss="" aria-hidden="true">
                           ×</button> <strong id="alertBet"></strong> <span id="errorchangeClubText"></span>
                       </div>
+
                       <div class="form-group">
                         <div class="row">
                           <div class="col-lg-12">
@@ -57,13 +60,32 @@
                             </div>
                             <div style="width:90%;float:left;">
                               <label>
-                                <span id="bettingTitle">Southern W vs Lughborough W &lt;&gt; Womens Cricket Super League &lt;&gt; 01 sep 2019 05:00 pm</span>
-                                <span id="gameLiveOrUpcoming" class="badge text-right" style="background: rgb(249, 220, 28);">Live</span>
+                                <span id="bettingTitle">
+                                    COUNTRY 1 VS COUNTRY 2 &lt;&gt; TOURNAMENT &lt;&gt; DATE | TIME
+                                </span>
+                                <span id="gameLiveOrUpcoming" class="badge text-right" style="background: rgb(249, 220, 28);">
+                                    Live
+                                </span>
                               </label>
                             </div>
                             <br>
-                            <label style="padding: 5px 10%;"><small id="bettingSubTitle">Toss Winner...? </small></label><br>
-                            <label style="padding: 5px 10%;"><span id="BettingSubTitleOption">Lughborough w</span> <span id="betRateShow" class="badge text-right">1.92</span></label> <br>
+                            <label style="padding: 5px 10%;">
+                                <small id="bettingSubTitle">
+                                    QUESTION
+                                </small>
+                            </label>
+
+                            <br>
+
+                            <label style="padding: 5px 10%;">
+                                <span id="BettingSubTitleOption">
+                                    ANSWER
+                                </span>
+                                <span id="betRateShow" class="badge text-right">
+                                    BET RATE
+                                </span>
+                            </label>
+                            <br>
                             <input type="text" id="match" value="" hidden="1">
                             <input type="text" id="matchBet" value="" hidden="1">
                             <input type="text" id="betRate" value="" hidden="1">
@@ -73,11 +95,17 @@
                           </div>
                         </div>
                       </div>
+
+
                       <div class="form-group">
                         <div class="row" style="    padding:0px 10%;">
-                          <div class="col-lg-12">
-                            <button class="placebetbutton" id="200">200</button><button class="placebetbutton" id="500">500</button><button class="placebetbutton" id="1000">1000</button>
-                            <button class="placebetbutton" id="3000">3000</button><button class="placebetbutton" id="5000">5000</button></div>
+                            <div class="col-lg-12">
+                                <button class="placebetbutton" id="200">200</button>
+                                <button class="placebetbutton" id="500">500</button>
+                                <button class="placebetbutton" id="1000">1000</button>
+                                <button class="placebetbutton" id="3000">3000</button>
+                                <button class="placebetbutton" id="5000">5000</button>
+                            </div>
                         </div>
                         <div class="row" style="padding: 10px 10%;">
                           <div class="col-lg-12 col-xs-12" style="margin-bottom: 10px;;">
@@ -168,10 +196,14 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="row" style="    padding:0px 10%;">
+                    <div class="row" style="padding:0px 10%;">
                       <div class="col-lg-12">
-                        <button class="placebetbutton" id="200a">200</button><button class="placebetbutton" id="500a">500</button><button class="placebetbutton" id="1000a">1000</button>
-                        <button class="placebetbutton" id="3000a">3000</button><button class="placebetbutton" id="5000a">5000</button></div>
+                        <button class="placebetbutton" id="200a">200</button>
+                        <button class="placebetbutton" id="500a">500</button>
+                        <button class="placebetbutton" id="1000a">1000</button>
+                        <button class="placebetbutton" id="3000a">3000</button>
+                        <button class="placebetbutton" id="5000a">5000</button>
+                    </div>
                     </div>
                     <div class="row" style="padding: 10px 10%;">
                       <div class="col-lg-12 col-xs-12" style="margin-bottom: 10px;;">
@@ -215,6 +247,15 @@
         </div>
       </div>
       <!--End place bet oneten-->
+
+
+
+
+
+
+
+
+
 
 
       <!--Start Modal withdraw -->
