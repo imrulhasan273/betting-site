@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class BetController extends Controller
 {
+
+    # ____________________________________Using Ajax__________________________________
+    public function placeBit(Request $request)
+    {
+        $data = $request->BETamount;
+
+
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      *

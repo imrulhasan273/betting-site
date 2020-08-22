@@ -10,8 +10,10 @@ $('#betting').on('show.bs.modal', function (event) {
     var ans = button.data('ans');
     var bet_rate = button.data('ans_bet_rate');
 
-    console.log(match);
-
+    //Extra values for identification
+    let game_id = button.data('game_id');
+    let ques_id = button.data('ques_id');
+    let ans_id = button.data('ans_id');
 
 
     // ============= Get the html value from Modal ================
@@ -59,14 +61,21 @@ $('#betting').on('show.bs.modal', function (event) {
     modal.find('#BettingSubTitleOption').html(ans);
     modal.find('#betRateShow').html(bet_rate);
 
+    //  Extra Values sent to Modal for identity
+    modal.find('#gameID').val(game_id);
+    modal.find('#quesID').val(ques_id);
+    modal.find('#ansID').val(ans_id);
+
+
+
     if (status == 'live') {
         $(".gameLiveOrUpcoming").css("background", "#ec5d18");
     } else {
         $(".gameLiveOrUpcoming").css("background", "#6918ec");
     }
 
-    console.log('Type: ');
-    console.log(type_id);
+    // console.log('Type: ');
+    // console.log(type_id);
 
     if (type_id == "1") {
         $('#gameLogo').attr('src', "{{asset('frontend/img/ka-pl.png')}}");
@@ -81,10 +90,50 @@ $('#betting').on('show.bs.modal', function (event) {
     } else if (type_id == "6") {
         $('#gameLogo').attr('src', "{{asset('frontend/img/BN.png')}}");
     }
-
-    // ========== Send all the data to server using Ajax ===========
-
 })
+
+// ========== WHEN PLACE A BET ===> Send all the data to server using Ajax ===========
+
+var betclick = 0;
+$("#placeBet").on("click", function() {
+    betclick = betclick + 1;
+    if (betclick == 1)
+    {
+        console.log('BET PLACED - ');
+        var gameID = $("#gameID").val();
+        var quesID = $("#quesID").val();
+        var ansID = $("#ansID").val();
+        var BETreturnRate = $("#betRateShow").text();
+        var BETamount = $("#stakeAmount").val();
+
+
+        console.log(gameID);
+        console.log(quesID);
+        console.log(ansID);
+        console.log(BETreturnRate);
+        console.log(BETamount);
+
+        $("#placeBet").addClass("hideplace");
+        // $("#load").removeClass("load");
+
+        $.ajax({
+            method: "get",
+            url: "{{ route('bets.placeBit') }}",
+            data: {
+                gameID: gameID,
+                quesID: quesID,
+                ansID: ansID,
+                BETreturnRate: BETreturnRate,
+                BETamount: BETamount,
+            },
+
+            success: function(data) {
+                console.log('return: ');
+                console.log(data);
+            }
+        });
+    }
+});
 
 </script>
 

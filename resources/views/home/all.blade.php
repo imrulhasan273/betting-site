@@ -68,7 +68,7 @@
 
                                                 <div class="" align="center" style="color:#fff;background:#5F5F5F;">
                                                     {{$answer->answer}}
-                                                    <span id="ansID" class="" text-align="center" style="color:#F9CD51;">
+                                                    <span id="" class="" text-align="center" style="color:#F9CD51;">
                                                     {{$answer->bet_rate}}
                                                     </span>
                                                 </div>

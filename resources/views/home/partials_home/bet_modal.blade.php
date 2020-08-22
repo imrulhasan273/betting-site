@@ -57,12 +57,9 @@
                                             </span>
                                         </label>
                                         <br>
-                                        <input type="text" id="match" value="" hidden="1">
-                                        <input type="text" id="matchBet" value="" hidden="1">
-                                        <input type="text" id="betRate" value="" hidden="1">
-                                        <input type="text" id="betId" value="" hidden="1">
-                                        <input type="text" id="matchId" value="" hidden="1">
-                                        <input type="text" id="betTitleId" value="" hidden="1">
+                                        <input type="text" id="gameID" value="" hidden="1">
+                                        <input type="text" id="quesID" value="" hidden="1">
+                                        <input type="text" id="ansID" value="" hidden="1">
                                     </div>
                                     </div>
                                 </div>

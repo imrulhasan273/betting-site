@@ -19,6 +19,7 @@ Route::get('/mybet', 'HomeController@mybet')->name('mybet');
 Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
+Route::get('/place_bit', 'BetController@placeBit')->name('bets.placeBit');
 # FRONT PAGES
 
 

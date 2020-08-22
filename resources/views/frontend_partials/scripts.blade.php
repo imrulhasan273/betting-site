@@ -834,6 +834,8 @@
 
     });
 
+
+
     $("#stakeAmount").keyup(function() {
       var stakeAmount = $(this).val();
       var betRate = $("#betRate").val();
@@ -841,6 +843,7 @@
       var st = stakeAmount * betRate;
       $("#possibleAmount").text(st.toFixed(2));
     });
+
     var betclick = 0;
     $("#placeBet").on("click", function() {
       betclick = betclick + 1;
@@ -915,6 +918,7 @@
          },1);*/
       }
     });
+
     var click = 0;
 
     $("#balanceTransferSubmit").on("click", function() {
