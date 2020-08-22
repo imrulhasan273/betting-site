@@ -12,6 +12,7 @@ class BetController extends Controller
     # ____________________________________Using Ajax__________________________________
     public function placeBit(Request $request)
     {
+        # Requested Data from JS - Ajax Request
         $gameID = $request->gameID;
         $quesID = $request->quesID;
         $ansID =  $request->ansID;
@@ -19,9 +20,14 @@ class BetController extends Controller
         $BETamount =  $request->BETamount;
         $match =  $request->match;
 
-        #
+        # Auth User
         $userId = Auth::user()->id;
         $total_win = $BETamount * $BETreturnRate;
+
+        # Calculation of Club Fee
+
+        # Calculation of Current Date and Time
+
         $BetInsert = Bet::create([
             'bet_by' =>  $userId,
             'match' => $match,
