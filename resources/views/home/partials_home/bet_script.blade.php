@@ -10,6 +10,9 @@ $('#betting').on('show.bs.modal', function (event) {
     var ans = button.data('ans');
     var bet_rate = button.data('ans_bet_rate');
 
+    console.log(match);
+
+
 
     // ============= Get the html value from Modal ================
     returnamount('100')
