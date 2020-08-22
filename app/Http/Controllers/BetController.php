@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class BetController extends Controller
@@ -25,8 +26,11 @@ class BetController extends Controller
         $total_win = $BETamount * $BETreturnRate;
 
         # Calculation of Club Fee
-
-        # Calculation of Current Date and Time
+        $club_id = DB::table('users')->where('id', $userId)->pluck('club_id');
+        $club_id = $club_id[0] ?? null;
+        $commission = DB::table('clubs')->where('id', $club_id)->pluck('commission');
+        $commission = $commission[0] ?? null;
+        $commission = ($commission * $total_win) / 100;
 
         $BetInsert = Bet::create([
             'bet_by' =>  $userId,
@@ -38,7 +42,7 @@ class BetController extends Controller
             'return_rate' => $BETreturnRate,
             'total_win' => $total_win,
             'return_amount' => $total_win,
-            'club_fee' => 0.01,
+            'club_fee' => $commission,
         ]);
 
         if ($BetInsert) {

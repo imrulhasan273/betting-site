@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id')->withTimestamps();
     }
+
+    public function club()
+    {
+        return $this->hasOne(Club::class, 'club_id');
+    }
 }
