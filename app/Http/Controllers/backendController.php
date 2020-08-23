@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bet;
 use App\Game;
 use App\Role;
 use App\User;
@@ -60,5 +61,11 @@ class backendController extends Controller
     {
         $games = Game::all();
         return view('dashboard.fgames', compact('games'));
+    }
+
+    public function bets()
+    {
+        $bets = Bet::all();
+        return view('dashboard.bets', compact('bets'));
     }
 }

@@ -19,7 +19,13 @@ Route::get('/mybet', 'HomeController@mybet')->name('mybet');
 Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
+
+
+# START BET CONTROLLER
 Route::get('/place_bit', 'BetController@placeBit')->name('bets.placeBit');
+Route::get('/bets/status/{bet_id}/{code}', 'BetController@status')->name('admin.bets.status'); //added
+# END BET CONTROLLER
+
 # FRONT PAGES
 
 
@@ -60,6 +66,8 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/roles', 'backendController@roles')->name('admin.roles');           //ROLE
     Route::get('/games', 'backendController@games')->name('admin.games');           //ROLE
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames');           //ROLE
+    Route::get('/bets', 'backendController@bets')->name('admin.bets');           //ROLE
+
 
 
     # END BACKEND CONTROLLER

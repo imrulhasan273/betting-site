@@ -107,6 +107,19 @@
             </li>
             <!-- END FINISHED GAMES LIST --->
 
+            <!-- START BET LIST --->
+            @if($active=='bets')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.bets') }}">
+                <i class="material-icons">psychology</i>
+                <p>Game Bet List</p>
+            </a>
+            </li>
+            <!-- END BET LIST --->
+
             <!-- ROLE PANEL-->
             <li class="nav-item ">
                 <a class="nav-link" href="./notifications.html">

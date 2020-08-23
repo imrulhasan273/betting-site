@@ -6,6 +6,7 @@ use App\Bet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class BetController extends Controller
 {
@@ -55,6 +56,38 @@ class BetController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function status($bet_id, $code)
+    {
+        $status = DB::table('bets')
+            ->where('id', '=', $bet_id)
+            ->pluck('status');
+        $status = $status[0] ?? null;
+
+        $state = $status;
+
+        if ($code == 0) {
+            $state = 'cancelled';
+        }
+
+
+        $updatingBet = Bet::where('id', $bet_id)->first();
+        if ($updatingBet) {
+            $updatingBet->update([
+                'status' => $state,
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Bet Status is not Changes!';
+        if ($updatingBet) {
+            $msg1 = 'message';
+            $msg2 = 'Bet Status Changes!';
+        }
+
+        return Redirect::route('admin.bets')->with($msg1, $msg2);
     }
     /**
      * Display a listing of the resource.
