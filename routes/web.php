@@ -85,6 +85,14 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');
     # --END USER CONTROLLERS
 
+
+
+    # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
+
+    # ______________________________ END AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
+
+
+
     # ______________________________ START GAME RELATED CONTROLLERS_________________________________________________________
     #-- START GAME CONTROLLERS
     Route::get('/games/add', 'GameController@add')->name('games.add');

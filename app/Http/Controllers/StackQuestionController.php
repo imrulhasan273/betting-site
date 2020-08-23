@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\AutoStackChild;
+use App\StackQuestion;
 use Illuminate\Http\Request;
 
-class AutoStackChildController extends Controller
+class StackQuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AutoStackChildController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\AutoStackChild  $autoStackChild
+     * @param  \App\StackQuestion  $stackQuestion
      * @return \Illuminate\Http\Response
      */
-    public function show(AutoStackChild $autoStackChild)
+    public function show(StackQuestion $stackQuestion)
     {
         //
     }
@@ -52,10 +52,10 @@ class AutoStackChildController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\AutoStackChild  $autoStackChild
+     * @param  \App\StackQuestion  $stackQuestion
      * @return \Illuminate\Http\Response
      */
-    public function edit(AutoStackChild $autoStackChild)
+    public function edit(StackQuestion $stackQuestion)
     {
         //
     }
@@ -64,10 +64,10 @@ class AutoStackChildController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\AutoStackChild  $autoStackChild
+     * @param  \App\StackQuestion  $stackQuestion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AutoStackChild $autoStackChild)
+    public function update(Request $request, StackQuestion $stackQuestion)
     {
         //
     }
@@ -75,10 +75,10 @@ class AutoStackChildController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\AutoStackChild  $autoStackChild
+     * @param  \App\StackQuestion  $stackQuestion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AutoStackChild $autoStackChild)
+    public function destroy(StackQuestion $stackQuestion)
     {
         //
     }

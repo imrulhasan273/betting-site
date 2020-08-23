@@ -28,7 +28,7 @@ $active='autoStack';
                     ID
                 </th>
                 <th class="td-actions text-center">
-                    Name
+                    Category Name
                 </th>
                 <th class="td-actions text-center">
                     Stack Option
@@ -44,7 +44,7 @@ $active='autoStack';
                             {{$AutoStackCat->id}}
                         </td>
                         <td class="td-actions text-center">
-                            {{-- {{$AutoStackCat->name}} --}}
+                            {{$AutoStackCat->name}}
                         </td>
                         <td class="td-actions text-center">
                             <a href="" type="button" rel="tooltip" class="btn btn-info">

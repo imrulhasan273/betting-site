@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AutoStackChildSeeder extends Seeder
+class StackQuestionSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\AutoStackChild;
+use App\StackAnswer;
 use Faker\Generator as Faker;
 
-$factory->define(AutoStackChild::class, function (Faker $faker) {
+$factory->define(StackAnswer::class, function (Faker $faker) {
     return [
         //
     ];
