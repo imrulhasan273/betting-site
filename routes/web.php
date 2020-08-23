@@ -68,7 +68,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames');           //ROLE
     Route::get('/bets', 'backendController@bets')->name('admin.bets');           //ROLE
 
-    Route::get('/types', 'backendController@AutoStackCats')->name('admin.AutoStackCats');    //ROLE
+    Route::get('/autostack-category', 'backendController@AutoStackCats')->name('admin.AutoStackCats');    //ROLE
 
 
 
@@ -86,9 +86,14 @@ route::group(['prefix' => 'admin'], function () {
     # --END USER CONTROLLERS
 
 
-
     # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
-
+    #  --  START AUTO STACK CATEGORY --
+    Route::get('/autostack-category/add/', 'AutoStackCategoryController@add')->name('admin.auto_stack.cats.add');
+    Route::post('/autostack-category/store', 'AutoStackCategoryController@store')->name('admin.auto_stack.cats.store');
+    Route::get('/autostack-category/{autoStackCategory}/edit', 'AutoStackCategoryController@edit')->name('admin.auto_stack.cats.edit');
+    Route::post('/autostack-category/update', 'AutoStackCategoryController@update')->name('admin.auto_stack.cats.update');
+    Route::get('/autostack-category/{autoStackCategory}/destroy', 'AutoStackCategoryController@destroy')->name('admin.auto_stack.cats.destroy');
+    #  --  END AUTO STACK CATEGORY ----
     # ______________________________ END AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
 
 

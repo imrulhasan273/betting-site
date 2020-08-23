@@ -10,7 +10,7 @@ $active='autoStack';
     </div>
 
     <div class="col-md-2">
-        <a href="{{route('games.add')}}" name="add" class="btn btn-primary ">Add Category</a>
+        <a href="{{ route('admin.auto_stack.cats.add') }}" name="add" class="btn btn-primary ">Add Category</a>
     </div>
 
     <div class="col-md-12">
@@ -48,14 +48,14 @@ $active='autoStack';
                         </td>
                         <td class="td-actions text-center">
                             <a href="" type="button" rel="tooltip" class="btn btn-info">
-                                <i class="material-icons">gavel</i>
+                                <i class="material-icons">ballot</i>
                             </a>
                         </td>
                         <td class="td-actions text-center">
-                            <a href="" type="button" rel="tooltip" class="btn btn-success">
+                            <a href="{{route('admin.auto_stack.cats.edit',[$AutoStackCat->id])}}" type="button" rel="tooltip" class="btn btn-success">
                               <i class="material-icons">edit</i>
                             </a>
-                            <a href="" type="button" rel="tooltip" class="btn btn-danger">
+                            <a href="{{ route('admin.auto_stack.cats.destroy',[$AutoStackCat->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
                               <i class="material-icons">close</i>
                             </a>
                         </td>
