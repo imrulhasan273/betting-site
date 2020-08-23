@@ -59,6 +59,8 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users', 'backendController@users')->name('admin.users');           //USER
     Route::get('/roles', 'backendController@roles')->name('admin.roles');           //ROLE
     Route::get('/games', 'backendController@games')->name('admin.games');           //ROLE
+    Route::get('/fgames', 'backendController@fgames')->name('admin.fgames');           //ROLE
+
 
     # END BACKEND CONTROLLER
 

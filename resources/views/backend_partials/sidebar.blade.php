@@ -94,6 +94,19 @@
             </li>
             <!-- END GAMES LIST --->
 
+            <!-- START FINISHED GAMES LIST --->
+            @if($active=='fgames')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.fgames') }}">
+                <i class="material-icons">psychology</i>
+                <p>Finished Game List</p>
+            </a>
+            </li>
+            <!-- END FINISHED GAMES LIST --->
+
             <!-- ROLE PANEL-->
             <li class="nav-item ">
                 <a class="nav-link" href="./notifications.html">

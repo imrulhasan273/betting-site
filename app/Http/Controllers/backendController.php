@@ -55,4 +55,10 @@ class backendController extends Controller
         $games = Game::all();
         return view('dashboard.games', compact('games'));
     }
+
+    public function fgames()
+    {
+        $games = Game::all();
+        return view('dashboard.fgames', compact('games'));
+    }
 }

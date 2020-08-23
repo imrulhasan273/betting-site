@@ -174,6 +174,8 @@ class GameController extends Controller
             } else if ($status != 'hidden') {
                 $state = 'hidden';
             }
+        } else if ($code == 0) {
+            $state = 'finished';
         }
 
 
