@@ -68,6 +68,9 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames');           //ROLE
     Route::get('/bets', 'backendController@bets')->name('admin.bets');           //ROLE
 
+    Route::get('/types', 'backendController@AutoStackCats')->name('admin.AutoStackCats');    //ROLE
+
+
 
 
     # END BACKEND CONTROLLER

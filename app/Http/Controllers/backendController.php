@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AutoStackCategory;
 use App\Bet;
 use App\Game;
 use App\Role;
@@ -67,5 +68,12 @@ class backendController extends Controller
     {
         $bets = Bet::all();
         return view('dashboard.bets', compact('bets'));
+    }
+
+    # For Auto Stack Management
+    public function AutoStackCats()
+    {
+        $AutoStackCats = AutoStackCategory::all();
+        return view('dashboard.AutoStackCats', compact('AutoStackCats'));
     }
 }

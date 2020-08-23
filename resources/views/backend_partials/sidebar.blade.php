@@ -126,7 +126,7 @@
                 @else
                 <li>
             @endif
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('admin.AutoStackCats')}}">
                 <i class="material-icons">psychology</i>
                 <p>Auto Stack Management</p>
             </a>
