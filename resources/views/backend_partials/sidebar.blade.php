@@ -120,6 +120,19 @@
             </li>
             <!-- END BET LIST --->
 
+            <!-- START AUTO STACK LIST --->
+            @if($active=='autoStack')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="">
+                <i class="material-icons">psychology</i>
+                <p>Auto Stack Management</p>
+            </a>
+            </li>
+            <!-- END AUTO STACK LIST --->
+
             <!-- ROLE PANEL-->
             <li class="nav-item ">
                 <a class="nav-link" href="./notifications.html">
