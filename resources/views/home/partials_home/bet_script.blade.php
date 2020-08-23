@@ -1,4 +1,11 @@
 <script type="text/javascript">
+
+// ===================Auto Refresh Page=================
+// setTimeout(function()
+// {
+//     location.reload();
+// }, 10000);
+
 $('#betting').on('show.bs.modal', function (event) {
 
     // ============ get all the data from games ================
@@ -120,9 +127,47 @@ $("#placeBet").on("click", function() {
                 match : match,
             },
 
-            success: function(data) {
+            success: function(data)
+            {
                 console.log('return: ');
                 console.log(data);
+
+                if (data !== "")
+                {
+                    if (data == "Bit has been placed successfully!")
+                    {
+                        $('#errorBet').show();
+                        $('#errorBet').removeClass('alert-success');
+                        $('#errorBet').removeClass('alert-danger');
+                        $('#errorBet').addClass('alert-success');
+                        $('#alertBet').html(data);
+
+                        setTimeout(function()
+                        {
+                            $("#errorBet").hide();
+                            $(".betForm").hide();
+                            location.reload();
+                        }, 1000);
+                    }
+                    else
+                    {
+                        $('#errorBet').show();
+                        $('#errorBet').removeClass('alert-success');
+                        $('#errorBet').removeClass('alert-danger');
+                        $('#errorBet').addClass('alert-danger');
+                        $('#alertBet').html(data);
+                        betclick = 0;
+                        setTimeout(function()
+                        {
+                            $("#errorBet").hide();
+                        }, 1000);
+                    }
+                }
+                else
+                {
+                    $(".betForm").hide();
+                    location.reload();
+                }
             }
         });
     }

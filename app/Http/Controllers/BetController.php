@@ -13,6 +13,9 @@ class BetController extends Controller
     # ____________________________________Using Ajax__________________________________
     public function placeBit(Request $request)
     {
+        # Auth User
+        $userId = Auth::user()->id;
+
         # Requested Data from JS - Ajax Request
         $gameID = $request->gameID;
         $quesID = $request->quesID;
@@ -21,8 +24,7 @@ class BetController extends Controller
         $BETamount =  $request->BETamount;
         $match =  $request->match;
 
-        # Auth User
-        $userId = Auth::user()->id;
+
         $total_win = $BETamount * $BETreturnRate;
 
         # Calculation of Club Fee
@@ -30,7 +32,8 @@ class BetController extends Controller
         $club_id = $club_id[0] ?? null;
         $commission = DB::table('clubs')->where('id', $club_id)->pluck('commission');
         $commission = $commission[0] ?? null;
-        $commission = ($commission * $total_win) / 100;
+        // $commission = ($commission * $total_win) / 100;
+        $commission = ($total_win) / 100;
 
         $BetInsert = Bet::create([
             'bet_by' =>  $userId,
@@ -46,9 +49,9 @@ class BetController extends Controller
         ]);
 
         if ($BetInsert) {
-            $data = 'Inserted';
+            $data = 'Bit has been placed successfully!';
         } else {
-            $data = 'Not Inserted';
+            $data = 'Bet has not been placed!';
         }
 
         return response()->json($data);

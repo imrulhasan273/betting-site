@@ -1,3 +1,4 @@
+
 <script type="text/javascript">
     var log = 0;
     if (log) {
@@ -739,188 +740,189 @@
 
 
     // =========   BET OPTION ===================== (Not My Approach: its developers approach)
-    var show = 1;
-    var bettingTitle = "";
+    // var show = 1;
+    // var bettingTitle = "";
 
-    var bettingSubTitle = "";
-    var BettingSubTitleOption = "";
-    $(document).on('click', '.data-show', function() {
-      //$("#data-show").on("click", function () {
-      bettingTitle = $(this).attr('bettingTitle');
+    // var bettingSubTitle = "";
+    // var BettingSubTitleOption = "";
+    // $(document).on('click', '.data-show', function() {
+    //   //$("#data-show").on("click", function () {
+    //   bettingTitle = $(this).attr('bettingTitle');
 
-      bettingSubTitle = $(this).attr('bettingSubTitle');
-      BettingSubTitleOption = $(this).attr('BettingSubTitleOption');
+    //   bettingSubTitle = $(this).attr('bettingSubTitle');
+    //   BettingSubTitleOption = $(this).attr('BettingSubTitleOption');
 
-      var gameType = $(this).attr('gameType');
-      var gameStatus = $(this).attr('gameStatus');
+    //   var gameType = $(this).attr('gameType');
+    //   var gameStatus = $(this).attr('gameStatus');
 
-      $("#stakeAmount").val(100.00);
-      if (gameStatus == 1) {
+    //   $("#stakeAmount").val(100.00);
+    //   if (gameStatus == 1) {
 
-        $("#gameLiveOrUpcoming").text('Live');
-        $("#gameLiveOrUpcoming").css("background", "#ec5d18");
+    //     $("#gameLiveOrUpcoming").text('Live');
+    //     $("#gameLiveOrUpcoming").css("background", "#ec5d18");
 
-      } else {
-        $("#gameLiveOrUpcoming").text('Upcoming');
-        $("#gameLiveOrUpcoming").css("background", "#6918ec");
-      }
+    //   } else {
+    //     $("#gameLiveOrUpcoming").text('Upcoming');
+    //     $("#gameLiveOrUpcoming").css("background", "#6918ec");
+    //   }
 
-      if (gameType == 1) {
-        $('#gameLogo').attr('src', 'frontend/img/1393757333.png');
-      } else if (gameType == 2) {
-        $('#gameLogo').attr('src', 'frontend/img/ka-pl.png');
-      } else if (gameType == 3) {
-        $('#gameLogo').attr('src', 'frontend/img/basket.png');
-      } else if (gameType == 4) {
-        $('#gameLogo').attr('src', 'frontend/img/boxing.png');
-      } else if (gameType == 5) {
-        $('#gameLogo').attr('src', 'frontend/img/tenis.png');
-      } else if (gameType == 6) {
-        $('#gameLogo').attr('src', 'frontend/img/h.png');
-      } else if (gameType == 7) {
-        $('#gameLogo').attr('src', 'frontend/img/badminton.png');
-      } else if (gameType == 8) {
-        $('#gameLogo').attr('src', 'frontend/img/ice_hockey.png');
-      } else if (gameType == 9) {
-        $('#gameLogo').attr('src', 'frontend/img/handball.png');
+    //   if (gameType == 1) {
+    //     $('#gameLogo').attr('src', 'frontend/img/1393757333.png');
+    //   } else if (gameType == 2) {
+    //     $('#gameLogo').attr('src', 'frontend/img/ka-pl.png');
+    //   } else if (gameType == 3) {
+    //     $('#gameLogo').attr('src', 'frontend/img/basket.png');
+    //   } else if (gameType == 4) {
+    //     $('#gameLogo').attr('src', 'frontend/img/boxing.png');
+    //   } else if (gameType == 5) {
+    //     $('#gameLogo').attr('src', 'frontend/img/tenis.png');
+    //   } else if (gameType == 6) {
+    //     $('#gameLogo').attr('src', 'frontend/img/h.png');
+    //   } else if (gameType == 7) {
+    //     $('#gameLogo').attr('src', 'frontend/img/badminton.png');
+    //   } else if (gameType == 8) {
+    //     $('#gameLogo').attr('src', 'frontend/img/ice_hockey.png');
+    //   } else if (gameType == 9) {
+    //     $('#gameLogo').attr('src', 'frontend/img/handball.png');
 
-      } else if (gameType == 10) {
-        $('#gameLogo').attr('src', 'frontend/img/baseball.png');
-      } else if (gameType == 11) {
-        $('#gameLogo').attr('src', 'frontend/img/rugbyball.png');
-      } else if (gameType == 12) {
-        $('#gameLogo').attr('src', 'frontend/img/snooker.png');
+    //   } else if (gameType == 10) {
+    //     $('#gameLogo').attr('src', 'frontend/img/baseball.png');
+    //   } else if (gameType == 11) {
+    //     $('#gameLogo').attr('src', 'frontend/img/rugbyball.png');
+    //   } else if (gameType == 12) {
+    //     $('#gameLogo').attr('src', 'frontend/img/snooker.png');
 
-      } else if (gameType == 13) {
-        $('#gameLogo').attr('src', 'frontend/img/dart.png');
-      } else if (gameType == 14) {
-        $('#gameLogo').attr('src', 'frontend/img/table_tenis.png');
-      } else if (gameType == 15) {
-        $('#gameLogo').attr('src', 'frontend/img/beach_volley.png');
-      } else if (gameType == 16) {
-        $('#gameLogo').attr('src', 'frontend/img/floorball.png');
-      } else if (gameType == 17) {
-        $('#gameLogo').attr('src', 'frontend/img/bandy.png');
-      }
-      //alert(bettingTitle + " " + bettingSubTitle + " " + BettingSubTitleOption);
-      $.ajax({
-        method: "POST",
-        // url: 'betfacedata',
-        dataType: 'JSON',
-        data: {
-          bettingTitle: bettingTitle,
-          bettingSubTitle: bettingSubTitle,
-          BettingSubTitleOption: BettingSubTitleOption
-        },
-        success: function(data) {
-          //  alert(data.BettingSubTitleOption);
-          $("#BettingSubTitleOption").text(data.BettingSubTitleOption);
-          $("#bettingSubTitle").text(data.bettingSubTitle);
-          $("#betRateShow").text(data.betRate);
-          $("#bettingTitle").text(data.bettingTitle);
-          /* set hidden value*/
-          $("#match").val(data.bettingSubTitle);
-          $("#matchBet").val(data.BettingSubTitleOption);
-          $("#betRate").val(data.betRate);
-          $("#betId").val(BettingSubTitleOption);
-          $("#matchId").val(bettingTitle);
-          $("#betTitleId").val(bettingSubTitle);
+    //   } else if (gameType == 13) {
+    //     $('#gameLogo').attr('src', 'frontend/img/dart.png');
+    //   } else if (gameType == 14) {
+    //     $('#gameLogo').attr('src', 'frontend/img/table_tenis.png');
+    //   } else if (gameType == 15) {
+    //     $('#gameLogo').attr('src', 'frontend/img/beach_volley.png');
+    //   } else if (gameType == 16) {
+    //     $('#gameLogo').attr('src', 'frontend/img/floorball.png');
+    //   } else if (gameType == 17) {
+    //     $('#gameLogo').attr('src', 'frontend/img/bandy.png');
+    //   }
+    //   //alert(bettingTitle + " " + bettingSubTitle + " " + BettingSubTitleOption);
+    //   $.ajax({
+    //     method: "POST",
+    //     // url: 'betfacedata',
+    //     dataType: 'JSON',
+    //     data: {
+    //       bettingTitle: bettingTitle,
+    //       bettingSubTitle: bettingSubTitle,
+    //       BettingSubTitleOption: BettingSubTitleOption
+    //     },
+    //     success: function(data) {
+    //       //  alert(data.BettingSubTitleOption);
+    //       $("#BettingSubTitleOption").text(data.BettingSubTitleOption);
+    //       $("#bettingSubTitle").text(data.bettingSubTitle);
+    //       $("#betRateShow").text(data.betRate);
+    //       $("#bettingTitle").text(data.bettingTitle);
+    //       /* set hidden value*/
+    //       $("#match").val(data.bettingSubTitle);
+    //       $("#matchBet").val(data.BettingSubTitleOption);
+    //       $("#betRate").val(data.betRate);
+    //       $("#betId").val(BettingSubTitleOption);
+    //       $("#matchId").val(bettingTitle);
+    //       $("#betTitleId").val(bettingSubTitle);
 
-          var st = data.betRate * 100.00;
-          $("#possibleAmount").text(st.toFixed(2));
-        }
-      });
-
-
-    });
+    //       var st = data.betRate * 100.00;
+    //       $("#possibleAmount").text(st.toFixed(2));
+    //     }
+    //   });
 
 
-
-    $("#stakeAmount").keyup(function() {
-      var stakeAmount = $(this).val();
-      var betRate = $("#betRate").val();
-      $("#stakeAmountView").text(stakeAmount);
-      var st = stakeAmount * betRate;
-      $("#possibleAmount").text(st.toFixed(2));
-    });
-
-    var betclick = 0;
-    $("#placeBet").on("click", function() {
-      betclick = betclick + 1;
-      if (betclick == 1) {
-        var match = $("#match").val();
-        var matchBet = $("#matchBet").val();
-        var betRate = $("#betRate").val();
-        var stakeAmount = $("#stakeAmount").val();
-        var betId = $("#betId").val();
-        var matchId = $("#matchId").val();
-        var betTitleId = $("#betTitleId").val();
-
-        //$("#placeBet").addClass("hideplace");
-        $("#load").removeClass("load");
-        $.ajax({
-          method: "POST",
-        //   url: 'place_bet',
-          data: {
-            match: match,
-            matchBet: matchBet,
-            betRate: betRate,
-            stakeAmount: stakeAmount,
-            betId: betId,
-            matchId: matchId,
-            betTitleId: betTitleId
-          },
-          success: function(data) {
-
-            if (data !== "") {
-
-              if (data == "Bet Placed Successfully") {
-
-                $('#errorBet').show();
-                $('#errorBet').removeClass('alert-success');
-                $('#errorBet').removeClass('alert-danger');
-                $('#errorBet').addClass('alert-success');
-                $('#alertBet').html(data);
-
-                setTimeout(function() {
-                  $("#errorBet").hide();
-                  $(".betForm").hide();
-                  location.reload();
-                }, 1000);
-              } else {
-
-                $('#errorBet').show();
-                $('#errorBet').removeClass('alert-success');
-                $('#errorBet').removeClass('alert-danger');
-                $('#errorBet').addClass('alert-danger');
-                $('#alertBet').html(data);
-                betclick = 0;
-                setTimeout(function() {
-
-                  $("#errorBet").hide();
+    // });
 
 
-                }, 1000);
+
+    // $("#stakeAmount").keyup(function() {
+    //   var stakeAmount = $(this).val();
+    //   var betRate = $("#betRate").val();
+    //   $("#stakeAmountView").text(stakeAmount);
+    //   var st = stakeAmount * betRate;
+    //   $("#possibleAmount").text(st.toFixed(2));
+    // });
+
+    // var betclick = 0;
+    // $("#placeBet").on("click", function() {
+    //   betclick = betclick + 1;
+    //   if (betclick == 1) {
+    //     var match = $("#match").val();
+    //     var matchBet = $("#matchBet").val();
+    //     var betRate = $("#betRate").val();
+    //     var stakeAmount = $("#stakeAmount").val();
+    //     var betId = $("#betId").val();
+    //     var matchId = $("#matchId").val();
+    //     var betTitleId = $("#betTitleId").val();
+
+    //     //$("#placeBet").addClass("hideplace");
+    //     $("#load").removeClass("load");
+    //     $.ajax({
+    //       method: "POST",
+    //     //   url: 'place_bet',
+    //       data: {
+    //         match: match,
+    //         matchBet: matchBet,
+    //         betRate: betRate,
+    //         stakeAmount: stakeAmount,
+    //         betId: betId,
+    //         matchId: matchId,
+    //         betTitleId: betTitleId
+    //       },
+    //       success: function(data) {
+
+    //         if (data !== "") {
+
+    //           if (data == "Bet Placed Successfully") {
+
+    //             $('#errorBet').show();
+    //             $('#errorBet').removeClass('alert-success');
+    //             $('#errorBet').removeClass('alert-danger');
+    //             $('#errorBet').addClass('alert-success');
+    //             $('#alertBet').html(data);
+
+    //             setTimeout(function() {
+    //               $("#errorBet").hide();
+    //               $(".betForm").hide();
+    //               location.reload();
+    //             }, 1000);
+    //           } else {
+
+    //             $('#errorBet').show();
+    //             $('#errorBet').removeClass('alert-success');
+    //             $('#errorBet').removeClass('alert-danger');
+    //             $('#errorBet').addClass('alert-danger');
+    //             $('#alertBet').html(data);
+    //             betclick = 0;
+    //             setTimeout(function() {
+
+    //               $("#errorBet").hide();
 
 
-              }
-            } else {
+    //             }, 1000);
 
 
-              //$(".betForm").hide();
-              // location.reload();
-            }
-          }
-        });
-        /*  setTimeout(
-         function () {
+    //           }
+    //         } else {
 
-         },1);*/
-      }
-    });
+
+    //           //$(".betForm").hide();
+    //           // location.reload();
+    //         }
+    //       }
+    //     });
+    //     /*  setTimeout(
+    //      function () {
+
+    //      },1);*/
+    //   }
+    // });
+
+
 
     var click = 0;
-
     $("#balanceTransferSubmit").on("click", function() {
 
       click = click + 1;
