@@ -14,9 +14,9 @@ class settingsController extends Controller
         $settings = new Setting();
 
         if (($request->image) > 0) {
-
+            $logo="logo";
             $image = $request->file('image');
-            $img = time() . '.' . $image->getClientOriginalExtension();
+            $img = $logo . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/setting/' . $img);
             Image::make($image)->save($location);
             $settings->image = $img;
@@ -37,9 +37,9 @@ class settingsController extends Controller
             if (File::exists('images/setting/' . $settings->image)) {
                 File::delete('images/setting/' . $settings->image);
             }
-
+            $logo = "logo";
             $image = $request->file('image');
-            $img = time() . '.' . $image->getClientOriginalExtension();
+            $img = $logo . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/setting/' . $img);
             Image::make($image)->save($location);
             $settings->image = $img;
