@@ -23,8 +23,7 @@ $active='autoStack';
         <div class="card-header card-header-primary">
             <h4 class="card-title mt-0">Stack Options ({{ $autoStackCategory->id }})</h4>
             <p style="color:burlywood;" class="card-category">
-                Game Name:  |
-                Tournament: |
+                Category Name: {{ $autoStackCategory->name }}
             </p>
         </div>
 
@@ -72,24 +71,6 @@ $active='autoStack';
                                     Bet Rate
                                 </th>
                                 <th class="td-actions text-center">
-                                   Place
-                                </th>
-                                <th class="td-actions text-center">
-                                    Bet Amount
-                                </th>
-                                <th class="td-actions text-center">
-                                    Return Amount
-                                </th>
-                                <th class="td-actions text-center">
-                                    Status
-                                </th>
-                                <th class="td-actions text-center">
-                                    Result
-                                </th>
-                                <th class="td-actions text-center">
-                                    Action
-                                </th>
-                                <th class="td-actions text-center">
                                     Action
                                 </th>
                             </thead>
@@ -112,33 +93,7 @@ $active='autoStack';
                                         {{$answer->bet_rate}}
                                     </td>
                                     <td class="td-actions text-center">
-                                        {{$answer->place}}
-                                    </td>
-                                    <td class="td-actions text-center">
-                                        {{$answer->bet_amount}}
-                                    </td>
-                                    <td class="td-actions text-center">
-                                        {{$answer->rtrn_amount}}
-                                    </td>
-                                    <td class="td-actions text-center">
-                                        {{$answer->status}}
-                                        <a href="{{ route('admin.auto_stack.stack_options.ques.answer.status',[$game->id,$answer->id,1]) }}" type="button" rel="tooltip" class="btn btn-warning">
-                                            <i class="material-icons">av_timer</i>
-                                        </a>
-                                    </td>
-                                    <td class="td-actions text-center">
-                                        {{$answer->result}}
-                                    </td>
-                                    <td class="td-actions text-center">
-                                        <a href="" type="button" rel="tooltip" class="btn btn-primary">
-                                            <i class="material-icons">assignment_return</i>back
-                                        </a>
-                                        <a href="" type="button" rel="tooltip" class="btn btn-danger">
-                                            <i class="material-icons">get_app</i>return
-                                        </a>
-                                    </td>
-                                    <td class="td-actions text-center">
-                                        <a href="{{ route('admin.auto_stack.stack_options.ques.answer.edit',[$game->id,$answer->id]) }}" type="button" rel="tooltip" class="btn btn-success">
+                                        <a href="{{ route('admin.auto_stack.stack_options.ques.answer.edit',[$autoStackCategory->id,$answer->id]) }}" type="button" rel="tooltip" class="btn btn-success">
                                             <i class="material-icons">edit</i>
                                           </a>
                                         <a href="{{ route('admin.auto_stack.stack_options.ques.answer.destroy',[$answer->id]) }}" type="button" rel="tooltip" class="btn btn-danger">

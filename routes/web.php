@@ -103,15 +103,13 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/autostack-category/questions/status/{cat_id}/{ques_id}/{code}', 'StackQuestionController@status')->name('admin.auto_stack.stack_options.question.status'); //added
     # --END  STACK QUESTION CONTROLLERS
 
-    #-- START ANSWER CONTROLLERS
-    Route::get('/games/betting_options/a/add/{autoStackCategory}/{question}', 'StackAnswerController@add')->name('admin.auto_stack.stack_options.ques.answer.add');
-    // Route::post('/games/betting_options/a/store', 'StackAnswerController@store')->name('admin.auto_stack.stack_options.ques.answer.store');
-    // Route::get('/games/answers/{answer}/destroy', 'StackAnswerController@destroy')->name('admin.auto_stack.stack_options.ques.answer.destroy');
-    // Route::get('/games/answers/status/{game_id}/{ans_id}/{code}', 'StackAnswerController@status')->name('admin.auto_stack.stack_options.ques.answer.status'); //added
-
-    // Route::get('/games/answers/{game_id}/{answer}/edit', 'StackAnswerController@edit')->name('admin.auto_stack.stack_options.ques.answer.edit');
-    // Route::post('/games/answers/update', 'StackAnswerController@update')->name('admin.auto_stack.stack_options.ques.answer.update');
-    # --END ANSWER CONTROLLERS
+    #-- START AUTO STACK ANSWER CONTROLLERS
+    Route::get('/games/betting_options/a/add/{autoStackCategory}/{stackQuestion}', 'StackAnswerController@add')->name('admin.auto_stack.stack_options.ques.answer.add');
+    Route::post('/autostack-category/stack-options/a/store', 'StackAnswerController@store')->name('admin.auto_stack.stack_options.ques.answer.store');
+    Route::get('/autostack-category/answers/{stackAnswer}/destroy', 'StackAnswerController@destroy')->name('admin.auto_stack.stack_options.ques.answer.destroy');
+    Route::get('/autostack-category/answers/{cat_id}/{stackAnswer}/edit', 'StackAnswerController@edit')->name('admin.auto_stack.stack_options.ques.answer.edit');
+    Route::post('/autostack-category/answers/update', 'StackAnswerController@update')->name('admin.auto_stack.stack_options.ques.answer.update');
+    # --END AUTO STACK ANSWER CONTROLLERS
 
     # ______________________________ END AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
 
