@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\AutoStackCategory;
+use App\StackAnswer;
+use App\StackQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -123,5 +125,12 @@ class AutoStackCategoryController extends Controller
             return back()->with('message', 'Category Deleted!');
         }
         return back()->with('error', 'Category is not sDeleted!');
+    }
+
+    public function stackOptions(Request $request, AutoStackCategory $autoStackCategory)
+    {
+        $questions = StackQuestion::all();
+        $answers = StackAnswer::all();
+        return view('dashboard.auto_stacks.stack_options.index', compact('autoStackCategory', 'questions', 'answers'));
     }
 }

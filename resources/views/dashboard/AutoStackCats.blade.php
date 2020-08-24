@@ -47,7 +47,7 @@ $active='autoStack';
                             {{$AutoStackCat->name}}
                         </td>
                         <td class="td-actions text-center">
-                            <a href="" type="button" rel="tooltip" class="btn btn-info">
+                            <a href="{{route('admin.auto_stack.stack_options',[$AutoStackCat->id])}}" type="button" rel="tooltip" class="btn btn-info">
                                 <i class="material-icons">ballot</i>
                             </a>
                         </td>
