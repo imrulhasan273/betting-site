@@ -7,6 +7,8 @@ use App\AutoStackCategory;
 use App\Game;
 use App\Type;
 use App\Question;
+use App\StackAnswer;
+use App\StackQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -209,8 +211,26 @@ class GameController extends Controller
 
         return view('dashboard.games.betting_options.index', compact('game', 'questions', 'answers', 'autoStackCats'));
     }
+
+    # In this function the Stack Has been auto loaded to the betOptions
     public function addStack(Request $request)
     {
-        dd($request);
+        $ans = array();
+        $ques = array();
+        // $AutoStackCats = AutoStackCategory::where('id', $request->autoStack)->get();
+        $StackQuestions = StackQuestion::where('auto_stack_cat_id', $request->autoStack)->get();
+
+        foreach ($StackQuestions as $questions) {
+            $StackAnswers = StackAnswer::where('question_id', $questions->id)->get();
+
+            foreach ($StackAnswers as $answer) {
+                array_push($ques, $questions->id);
+                array_push($ans, $answer->id);
+            }
+        }
+
+
+        var_dump($ques);
+        var_dump($ans);
     }
 }

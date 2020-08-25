@@ -24,7 +24,7 @@ $active='games';
                 @csrf
                 <div class="">
                     <select name="autoStack" class="selectpicker" data-size="7" data-style="btn btn-success btn-round" title="Select from Stack">
-                        <option disabled selected>Auto Stack</option>
+                        <option disabled selected>Stacks</option>
                         @foreach ($autoStackCats as $autoStackCat)
                             <option value="{{$autoStackCat->id}}">{{$autoStackCat->name}}</option>
                         @endforeach
