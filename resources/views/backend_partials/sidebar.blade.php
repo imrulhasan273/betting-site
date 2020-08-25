@@ -67,6 +67,22 @@
             <!--- USER PANEL --->
 
 
+            <!-- USER PANEL -->
+            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if($active=='clubs')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.clubs') }}">
+                <i class="material-icons">people</i>
+                <p>Clubs</p>
+            </a>
+            </li>
+            {{-- @endif --}}
+            <!--- USER PANEL --->
+
+
             <!-- ROLE PANEL -->
             {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
             @if($active=='roles')

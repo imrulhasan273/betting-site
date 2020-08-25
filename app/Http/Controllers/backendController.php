@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\AutoStackCategory;
 use App\Bet;
+use App\Club;
 use App\Game;
 use App\Role;
 use App\User;
 use App\Notice;
-use App\Question;
 use App\Setting;
-use Facade\Ignition\QueryRecorder\Query;
+use App\Question;
+use App\AutoStackCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Facade\Ignition\QueryRecorder\Query;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class backendController extends Controller
@@ -75,5 +76,12 @@ class backendController extends Controller
     {
         $AutoStackCats = AutoStackCategory::all();
         return view('dashboard.AutoStackCats', compact('AutoStackCats'));
+    }
+
+    public function clubs()
+    {
+        $users = User::all();
+        $clubs = Club::all();
+        return view('dashboard.clubs', compact('clubs'));
     }
 }

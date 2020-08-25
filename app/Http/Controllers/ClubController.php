@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Club;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClubController extends Controller
 {
@@ -25,6 +27,11 @@ class ClubController extends Controller
     public function create()
     {
         //
+    }
+
+    public function add()
+    {
+        # code...
     }
 
     /**
@@ -78,8 +85,14 @@ class ClubController extends Controller
      * @param  \App\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Club $club)
+    public function destroy(Club $club, User $user)
     {
-        //
+        $deleteClub = DB::table('clubs')->where('id', $club->id)->delete();
+        $deleteUser = DB::table('users')->where('id', $user->id)->delete();
+        if ($deleteClub && $deleteUser) {
+            return back()->with('message', 'Club and User Deleted!');
+        }
+
+        return back()->with('error', 'Club and User are not Deleted!');
     }
 }

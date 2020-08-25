@@ -16,6 +16,7 @@ class CreateClubsTable extends Migration
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('is_active')->default(1);
             $table->float('balance')->nullable();
             $table->unsignedBigInteger('member')->nullable();
             $table->string('email');
@@ -23,7 +24,6 @@ class CreateClubsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

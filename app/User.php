@@ -43,8 +43,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id')->withTimestamps();
     }
 
+    //For Normal User
     public function club()
     {
-        return $this->hasOne(Club::class, 'club_id');
+        return $this->belongsToMany(Club::class, 'club_id');
+    }
+
+    //For Club Owner
+    public function clubOwner()
+    {
+        return $this->belongsToMany(Club::class, 'club_user', 'user_id', 'club_id')->withTimestamps();
     }
 }

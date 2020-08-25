@@ -227,6 +227,9 @@ class GameController extends Controller
                 'game_id' =>  $request->input('game_id'),
                 'question' => $questions->question,
             ]);
+            if ($questionStore) {
+                $flag++;
+            }
 
             foreach ($StackAnswers as $answer) {
                 //Add the answer and also the question_id (PK: Have to find it from the DB:Question)
@@ -235,9 +238,6 @@ class GameController extends Controller
                     'answer' => $answer->answer,
                     'bet_rate' => $answer->bet_rate,
                 ]);
-                if ($AnsStore) {
-                    $flag++;
-                }
             }
         }
 

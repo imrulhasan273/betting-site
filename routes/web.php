@@ -64,6 +64,8 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/notice', 'backendController@notices')->name('admin.notice');       //NOTICE
     Route::get('/users', 'backendController@users')->name('admin.users');           //USER
     Route::get('/roles', 'backendController@roles')->name('admin.roles');           //ROLE
+    Route::get('/clubs', 'backendController@clubs')->name('admin.clubs');           //USER
+
     Route::get('/games', 'backendController@games')->name('admin.games');           //ROLE
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames');           //ROLE
     Route::get('/bets', 'backendController@bets')->name('admin.bets');           //ROLE
@@ -85,6 +87,12 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users/{user}/destroy', 'UserController@destroy')->name('users.destroy');
     # --END USER CONTROLLERS
 
+
+    # ------ START CLUBS CONTROLLER
+    Route::get('/clubs/add', 'ClubController@add')->name('clubs.add');
+    Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy');
+
+    # ------ END CLUBS CONTROLLER
 
     # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
     #  --  START AUTO STACK CATEGORY --
