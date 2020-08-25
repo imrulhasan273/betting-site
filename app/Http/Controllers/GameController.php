@@ -215,29 +215,40 @@ class GameController extends Controller
     # In this function the Stack Has been auto loaded to the betOptions
     public function addStack(Request $request)
     {
-        //$request->autoStack
-        //$request->game_id
+        $flag = 0;
 
-
-        $ans = array();
-        $ques = array();
-        // $AutoStackCats = AutoStackCategory::where('id', $request->autoStack)->get();
         $StackQuestions = StackQuestion::where('auto_stack_cat_id', $request->autoStack)->get();
 
         foreach ($StackQuestions as $questions) {
             $StackAnswers = StackAnswer::where('question_id', $questions->id)->get();
 
-            array_push($ques, $questions->id);
             //Add the question and also the game_id (PK : Already got it from Request)
+            $questionStore = Question::create([
+                'game_id' =>  $request->input('game_id'),
+                'question' => $questions->question,
+            ]);
 
             foreach ($StackAnswers as $answer) {
-                array_push($ans, $answer->id);
                 //Add the answer and also the question_id (PK: Have to find it from the DB:Question)
-
+                $AnsStore = Answer::create([
+                    'question_id' =>  $questionStore->id,
+                    'answer' => $answer->answer,
+                    'bet_rate' => $answer->bet_rate,
+                ]);
+                if ($AnsStore) {
+                    $flag++;
+                }
             }
         }
 
-        var_dump($ques);
-        var_dump($ans);
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Stack has not been added to the Game!';
+        if ($flag > 1) {
+            $msg1 = 'message';
+            $msg2 = 'Stack has been added to the Game!';
+        }
+
+        return back()->with($msg1, $msg2);
     }
 }
