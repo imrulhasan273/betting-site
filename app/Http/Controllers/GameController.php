@@ -215,6 +215,10 @@ class GameController extends Controller
     # In this function the Stack Has been auto loaded to the betOptions
     public function addStack(Request $request)
     {
+        //$request->autoStack
+        //$request->game_id
+
+
         $ans = array();
         $ques = array();
         // $AutoStackCats = AutoStackCategory::where('id', $request->autoStack)->get();
@@ -223,12 +227,15 @@ class GameController extends Controller
         foreach ($StackQuestions as $questions) {
             $StackAnswers = StackAnswer::where('question_id', $questions->id)->get();
 
+            array_push($ques, $questions->id);
+            //Add the question and also the game_id (PK : Already got it from Request)
+
             foreach ($StackAnswers as $answer) {
-                array_push($ques, $questions->id);
                 array_push($ans, $answer->id);
+                //Add the answer and also the question_id (PK: Have to find it from the DB:Question)
+
             }
         }
-
 
         var_dump($ques);
         var_dump($ans);

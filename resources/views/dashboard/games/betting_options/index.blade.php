@@ -23,6 +23,7 @@ $active='games';
             <form method="POST" action="{{ route('admin.games.addStack') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="">
+                    <input name="game_id" type="text" value="{{ $game->id }}" hidden>
                     <select name="autoStack" class="selectpicker" data-size="7" data-style="btn btn-success btn-round" title="Select from Stack">
                         <option disabled selected>Stacks</option>
                         @foreach ($autoStackCats as $autoStackCat)
