@@ -35,7 +35,6 @@ class ClubController extends Controller
 
     public function add()
     {
-
         return view('dashboard.clubs.add');
     }
 

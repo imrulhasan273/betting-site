@@ -83,5 +83,16 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(60),
         ]);
         $user->role()->attach($role->id);
+
+        # Normal User Club Registration
+        $count = Club::where('id', 1)->pluck('member');
+        $count = $count[0];
+        $updatingClub = Club::where('id', 1)->first();
+        if ($updatingClub) {
+            $updatingClub->update([
+                'member' => $count + 1,
+            ]);
+        }
+        // -- - - - - -- - -- - - - - ---
     }
 }
