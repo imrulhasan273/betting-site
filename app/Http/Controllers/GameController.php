@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\AutoStackCategory;
 use App\Game;
 use App\Type;
 use App\Question;
@@ -203,6 +204,13 @@ class GameController extends Controller
     {
         $questions = Question::all();
         $answers = Answer::all();
-        return view('dashboard.games.betting_options.index', compact('game', 'questions', 'answers'));
+
+        $autoStackCats = AutoStackCategory::all();
+
+        return view('dashboard.games.betting_options.index', compact('game', 'questions', 'answers', 'autoStackCats'));
+    }
+    public function addStack(Request $request)
+    {
+        dd($request);
     }
 }

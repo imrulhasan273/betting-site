@@ -17,7 +17,7 @@ $active='autoStack';
       <div class="card card-plain">
         <div class="card-header card-header-primary">
           <h4 class="card-title mt-0">Categories</h4>
-          <p class="card-category"> All the games appearing here</p>
+          <p style="color: blanchedalmond" class="card-category"> Stack Categories are appearing here</p>
         </div>
 
         <div class="card-body">
@@ -39,7 +39,7 @@ $active='autoStack';
               </thead>
               @foreach ($AutoStackCats as $AutoStackCat)
                 <tbody>
-                    <tr style="background: rgb(178, 206, 233)">
+                    <tr style="background: rgb(178, 206, 233); color:rgb(0, 0, 0)">
                         <td class="td-actions text-center">
                             {{$AutoStackCat->id}}
                         </td>

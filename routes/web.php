@@ -125,6 +125,9 @@ route::group(['prefix' => 'admin'], function () {
     #-------BETTING OPTIONS
     Route::get('/games/betting_options/{game}', 'GameController@betOptons')->name('admin.games.bet');
     Route::get('/games/status/{game_id}/{code}', 'GameController@status')->name('admin.games.status'); //added
+    # ---------AUTO STACK ADDITION
+    Route::post('/games/betting_options/', 'GameController@addStack')->name('admin.games.addStack'); //added
+
     # --END GAME CONTROLLERS
 
 

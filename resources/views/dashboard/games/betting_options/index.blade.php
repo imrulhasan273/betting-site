@@ -18,6 +18,27 @@ $active='games';
         </a>
     </div>
 
+        <!-- AUTO STACK ADD -->
+        <div style="padding-left:50%;">
+            <form method="POST" action="{{ route('admin.games.addStack') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="">
+                    <select name="autoStack" class="selectpicker" data-size="7" data-style="btn btn-success btn-round" title="Select from Stack">
+                        <option disabled selected>Auto Stack</option>
+                        @foreach ($autoStackCats as $autoStackCat)
+                            <option value="{{$autoStackCat->id}}">{{$autoStackCat->name}}</option>
+                        @endforeach
+                    </select>
+                    <button name="submit" type="submit" class="btn btn-success ">
+                        <span class="material-icons">
+                        add_circle_outline
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- AUTO STACK ADD -->
+
     <div class="col-md-12">
       <div class="card card-plain">
         <div class="card-header card-header-primary">
