@@ -19,7 +19,7 @@ class CreateClubsTable extends Migration
             $table->string('is_active')->default(1);
             $table->float('balance')->nullable();
             $table->unsignedBigInteger('member')->nullable();
-            $table->string('email');
+            // $table->string('email');
             $table->float('commission')->nullable();
             $table->timestamps();
         });

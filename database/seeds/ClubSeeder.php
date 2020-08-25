@@ -16,7 +16,7 @@ class ClubSeeder extends Seeder
             'name' => 'Dhaka Club',
             'balance' => 10000,
             'member' => null,
-            'email' => 'dhakaclub@gmail.com',
+            // 'email' => 'dhakaclub@gmail.com',
             'commission' => 0.02
         ]);
 
@@ -24,7 +24,7 @@ class ClubSeeder extends Seeder
             'name' => 'Rajshahi Club',
             'balance' => 11100,
             'member' => null,
-            'email' => 'rajshahiclub@gmail.com',
+            // 'email' => 'rajshahiclub@gmail.com',
             'commission' => 0.05
         ]);
     }

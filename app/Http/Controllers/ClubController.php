@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Club;
+use App\Role;
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class ClubController extends Controller
 {
@@ -31,7 +35,8 @@ class ClubController extends Controller
 
     public function add()
     {
-        # code...
+
+        return view('dashboard.clubs.add');
     }
 
     /**
@@ -42,7 +47,38 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email,except,id',
+            'password' => 'required',
+            'passwordConfirm' => 'required'
+        ]);
+
+        if ($request->password == $request->passwordConfirm) {
+
+            $NewClub = Club::create([
+                'name' => $request->club_name,
+                'balance' => 0,
+                'member' => null,
+                'commission' => $request->club_commission
+            ]);
+
+            #Club Admin
+            $club = Club::where('id', $NewClub->id)->first();   //added
+            $role = Role::where('name', 'club_admin')->first();
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'remember_token' => Str::random(60),
+            ]);
+            $user->role()->attach($role->id);
+            $user->clubOwner()->attach($club->id);    //added
+
+            return Redirect::route('admin.clubs')->with('message', 'Club-User Added!');
+        }
+
+        return Redirect::route('admin.clubs')->with('error', 'Club-User Not Added!');
     }
 
     /**

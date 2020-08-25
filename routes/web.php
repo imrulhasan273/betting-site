@@ -90,8 +90,8 @@ route::group(['prefix' => 'admin'], function () {
 
     # ------ START CLUBS CONTROLLER
     Route::get('/clubs/add', 'ClubController@add')->name('clubs.add');
+    Route::post('/clubs/store', 'ClubController@store')->name('clubs.store');
     Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy');
-
     # ------ END CLUBS CONTROLLER
 
     # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
