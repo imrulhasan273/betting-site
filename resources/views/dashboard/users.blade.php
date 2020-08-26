@@ -74,7 +74,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             <a href="{{route('users.edit',[$user->id])}}">Edit</a>
                         </td>
                         <td>
-                            <a href="{{route('users.destroy',[$user->id])}}">Delete</a>
+                            <a onclick="return confirm('Are You Sure to delete the User?')"  href="{{route('users.destroy',[$user->id])}}">Delete</a>
                         </td>
                     </tr>
                 </tbody>

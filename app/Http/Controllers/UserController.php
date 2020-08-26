@@ -73,10 +73,17 @@ class UserController extends Controller
                     $updatingUser->role()->attach($request->role_id);
                 }
             }
-            return Redirect::route('admin.users')->with('message', 'User info Updated!');
         }
 
-        return Redirect::route('admin.users')->with('error', 'User info is not Updated!');
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'User info is not Updated!';
+        if ($updatingUser) {
+            $msg1 = 'message';
+            $msg2 = 'User info is Updated!';
+        }
+
+        return Redirect::route('admin.users')->with($msg1, $msg2);
     }
 
     public function destroy(User $user)

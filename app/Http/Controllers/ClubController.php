@@ -99,7 +99,8 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+        // dd($club);
+        return view('dashboard.clubs.edit', compact('club'));
     }
 
     /**
@@ -111,7 +112,26 @@ class ClubController extends Controller
      */
     public function update(Request $request, Club $club)
     {
-        //
+        // dd($request);
+
+        $updatingClub = Club::where('id', $request->id)->first();
+        if ($updatingClub) {
+            $updatingClub->update([
+                'name' => $request->name,
+                'commission' => $request->commission,
+                'is_active' => $request->is_active,
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Club Info is not Updated!';
+        if ($updatingClub) {
+            $msg1 = 'message';
+            $msg2 = 'Club Info Updated!';
+        }
+
+        return Redirect::route('admin.clubs')->with($msg1, $msg2);
     }
 
     /**
@@ -125,9 +145,9 @@ class ClubController extends Controller
         $deleteClub = DB::table('clubs')->where('id', $club->id)->delete();
         $deleteUser = DB::table('users')->where('id', $user->id)->delete();
         if ($deleteClub && $deleteUser) {
-            return back()->with('message', 'Club and User Deleted!');
+            return back()->with('message', 'Club and User have been Deleted!');
         }
 
-        return back()->with('error', 'Club and User are not Deleted!');
+        return back()->with('error', 'Club and User have not been Deleted!');
     }
 }

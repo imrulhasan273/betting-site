@@ -91,6 +91,8 @@ route::group(['prefix' => 'admin'], function () {
     # ------ START CLUBS CONTROLLER
     Route::get('/clubs/add', 'ClubController@add')->name('clubs.add');
     Route::post('/clubs/store', 'ClubController@store')->name('clubs.store');
+    Route::get('/clubs/{club}/edit', 'ClubController@edit')->name('clubs.edit');
+    Route::post('/clubs/update', 'ClubController@update')->name('clubs.update');
     Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy');
     # ------ END CLUBS CONTROLLER
 

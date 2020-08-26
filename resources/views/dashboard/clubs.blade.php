@@ -83,8 +83,13 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                         <td>
                             {{$club->commission}}
                         </td>
-                        <td>
-                            <a href="{{ route('clubs.destroy',[$club->id,$club->user[0]->id]) }}">Delete</a>
+                        <td class="td-actions text-center">
+                            <a href="{{ route('clubs.edit',[$club->id]) }}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a onclick="return confirm('This will also delete the User. Delete?')" href="{{ route('clubs.destroy',[$club->id,$club->user[0]->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
+                                <i class="material-icons">close</i>
+                              </a>
                         </td>
                     </tr>
                 </tbody>

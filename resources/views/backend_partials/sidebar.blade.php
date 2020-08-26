@@ -67,20 +67,49 @@
             <!--- USER PANEL --->
 
 
-            <!-- USER PANEL -->
-            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
-            @if($active=='clubs')
-                <li class="active ">
-                @else
-                <li>
+            <!-- Start Dropdown Club Panel -->
+            @if($active=='clubs' || $active=='clubsWidth')
+            <li class="active">
+            @else
+                <li class="nav-item ">
             @endif
-            <a class="nav-link" href="{{ route('admin.clubs') }}">
-                <i class="material-icons">people</i>
-                <p>Clubs</p>
+            <a class="nav-link" data-toggle="collapse" href="#msg">
+            <i class="material-icons">people</i>
+            <p> Club
+                <b class="caret"></b>
+            </p>
             </a>
-            </li>
-            {{-- @endif --}}
-            <!--- USER PANEL --->
+            <div class="collapse" id="msg">
+            <ul class="nav">
+                <!-- Start Club List Panel -->
+                @if($active=='clubs')
+                <li class="active">
+                    @else
+                    <li class="nav-item ">
+                        @endif
+                        <a class="nav-link" href="{{ route('admin.clubs') }}">
+                            <i class="material-icons">people</i>
+                            <p>Club List</p>
+                        </a>
+                    </li>
+                </li>
+                <!-- Start Club Widthdraw Panel -->
+                @if($active=='clubsWidth')
+                <li class="active">
+                    @else
+                    <li class="nav-item ">
+                        @endif
+                        <a class="nav-link" href="">
+                            <i class="material-icons">people</i>
+                            <p>Club Widthdraw</p>
+                        </a>
+                    </li>
+                </li>
+            </ul>
+            </div>
+        </li>
+        <li class="nav-item ">
+        <!-- End Dropdown Club Panel -->
 
 
             <!-- ROLE PANEL -->
