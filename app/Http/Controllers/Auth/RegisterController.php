@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Club;
 use App\Role;
 use App\User;
 use Illuminate\Support\Str;
@@ -77,8 +78,18 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'remember_token' => Str::random(60),
         ]);
-
         $user->role()->attach($role->id);
+
+        # Normal User Club Registration
+        $count = Club::where('id', $user->club_id)->pluck('member');
+        $count = $count[0];
+        $updatingClub = Club::where('id', $user->club_id)->first();
+        if ($updatingClub) {
+            $updatingClub->update([
+                'member' => $count + 1,
+            ]);
+        }
+        // -- - - - - -- - -- - - - - ---
 
         return $user;
     }
