@@ -147,6 +147,8 @@ class ClubController extends Controller
      */
     public function destroy(Club $club, User $user)
     {
+        $this->authorize('delete', $club);
+
         $deleteClub = DB::table('clubs')->where('id', $club->id)->delete();
         $deleteUser = DB::table('users')->where('id', $user->id)->delete();
         if ($deleteClub && $deleteUser) {

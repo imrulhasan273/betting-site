@@ -56,6 +56,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 </th>
               </thead>
               @foreach ($clubs as $club)
+                @can('view', $club)
 
                 <tbody>
                     <tr>
@@ -93,6 +94,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                         </td>
                     </tr>
                 </tbody>
+                @endcan
               @endforeach
             </table>
           </div>

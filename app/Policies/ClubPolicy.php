@@ -39,7 +39,7 @@ class ClubPolicy
      */
     public function view(User $user, Club $club)
     {
-        //
+        return $user->id == $club->user[0]->id;
     }
 
     /**
@@ -55,8 +55,7 @@ class ClubPolicy
 
     public function edit(User $user, Club $club)
     {
-        //logic need to be changed
-        return $user->id == $club->user_id;
+        return $user->id == $club->user[0]->id;
     }
 
     /**
@@ -80,7 +79,7 @@ class ClubPolicy
      */
     public function delete(User $user, Club $club)
     {
-        //
+        return $user->id == $club->user[0]->id;
     }
 
     /**
