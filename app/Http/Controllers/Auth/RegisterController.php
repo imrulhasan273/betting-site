@@ -55,6 +55,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'sponsor' => ['required', 'string', 'email', 'max:255', 'exists:users,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,30 +68,43 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $role = Role::where('name', 'user')->first();
+        $REFuser = User::where('email', '=', $data['sponsor'])->first();
+        if ($REFuser === null) {
+            // user doesn't exist
+            dd('does not exist');
+        } else {
+            // dd($REFuser->id);
 
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'club_id' => $data['club'],
-            'sponsor_id' => $data['sponsor'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
-            'remember_token' => Str::random(60),
-        ]);
-        $user->role()->attach($role->id);
+            $role = Role::where('name', 'user')->first();
 
-        # Normal User Club Registration
-        $count = Club::where('id', $user->club_id)->pluck('member');
-        $count = $count[0];
-        $updatingClub = Club::where('id', $user->club_id)->first();
-        if ($updatingClub) {
-            $updatingClub->update([
-                'member' => $count + 1,
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'club_id' => $data['club'],
+                // 'sponsor_id' => $REFuser->id,
+                'phone' => $data['phone'],
+                'password' => Hash::make($data['password']),
+                'remember_token' => Str::random(60),
             ]);
-        }
-        // -- - - - - -- - -- - - - - ---
+            // Add User id and Role id into the pivot table
+            $user->role()->attach($role->id);
 
-        return $user;
+            //Add User ID and Ref User ID into the pivot table
+            $user->ref()->attach($REFuser->id);
+
+
+            # Normal User Club Registration
+            $count = Club::where('id', $user->club_id)->pluck('member');
+            $count = $count[0];
+            $updatingClub = Club::where('id', $user->club_id)->first();
+            if ($updatingClub) {
+                $updatingClub->update([
+                    'member' => $count + 1,
+                ]);
+            }
+            // -- - - - - -- - -- - - - - ---
+
+            return $user;
+        }
     }
 }

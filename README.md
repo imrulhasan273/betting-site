@@ -53,3 +53,7 @@ middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin'])
 ```cmd
 ~$ composer require orangehill/iseed
 ```
+
+# Sponsor Table
+
+php artisan make:migration create_user_sponsor_table

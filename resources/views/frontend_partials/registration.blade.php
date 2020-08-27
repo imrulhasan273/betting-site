@@ -23,7 +23,6 @@
 
         @php
             $clubs = App\Club::all();
-            $sponsors = App\Sponsor::all();
         @endphp
         <select name="club" class="form-control fojFwL" id="" name="club">
             <option value="">Select a Club</option>
@@ -33,12 +32,15 @@
         </select>
         <br>
 
-        <select name="sponsor" class="form-control fojFwL" id="" name="club">
+        {{-- <select name="sponsor" class="form-control fojFwL" id="" name="club">
             <option value="">Select a Sponsor</option>
             @foreach ($sponsors as $sponsor)
             <option value="{{$sponsor->id}}">{{$sponsor->name}}</option>
             @endforeach
-        </select>
+        </select> --}}
+
+        <input type="text" name="sponsor" id="sponsor" placeholder="Sponsor Email" class="form-control fojFwL" style="margin-bottom: 10px;" />
+
         <br>
         <input type="text" name="phone" id="phone" placeholder="Phone Number" class="form-control fojFwL" style="margin-bottom: 10px;" />
         {{-- <input type="text" name="sponsor_register" id="sponsor_register" placeholder="SPONSOR'S USERNAME" class="form-control fojFwL" style="margin-bottom: 10px;" /> --}}
