@@ -11,9 +11,11 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
         <x-alert/>
     </div>
 
+    @if($authRole=='admin' || $authRole == 'super_admin')
     <div class="col-md-2">
     <a href="{{route('clubs.add')}}" name="add" class="btn btn-primary ">Add New Club User</a>
     </div>
+    @endif
 
     <div class="col-md-12">
 
