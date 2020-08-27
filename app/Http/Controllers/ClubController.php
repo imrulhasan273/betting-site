@@ -8,11 +8,14 @@ use App\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class ClubController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -99,6 +102,8 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
+        $this->authorize('edit', $club);
+
         // dd($club);
         return view('dashboard.clubs.edit', compact('club'));
     }
