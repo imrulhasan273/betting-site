@@ -16,8 +16,9 @@ class CreatePaymentOptionsTable extends Migration
         Schema::create('payment_options', function (Blueprint $table) {
             $table->id();
             $table->string('method');
+            $table->enum('type', ['personal', 'agent', ''])->default('');
             $table->string('phone');
-            $table->string('status');
+            $table->enum('status', ['active', 'inactive', ''])->default('active');
             $table->timestamps();
         });
     }

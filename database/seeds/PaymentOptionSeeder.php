@@ -1,5 +1,6 @@
 <?php
 
+use App\PaymentOption;
 use Illuminate\Database\Seeder;
 
 class PaymentOptionSeeder extends Seeder
@@ -11,6 +12,11 @@ class PaymentOptionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $payment = PaymentOption::create([
+            'method' => 'Bikash',
+            'type' => 'personal',
+            'phone' => '017XXXXXXXXX',
+            'status' => 'active',
+        ]);
     }
 }

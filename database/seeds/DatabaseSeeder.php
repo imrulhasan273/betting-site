@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(PaymentOptionSeeder::class);
+
         $this->call(ClubSeeder::class);
 
         $this->call(RoleSeeder::class);
