@@ -6,6 +6,11 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
 
+            @php
+                $roles = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+                $role = $roles[0];
+            @endphp
+
             <!-- START USER INFO -->
             <div class="user">
                 <div class="photo">
