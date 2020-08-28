@@ -19,7 +19,7 @@
                 <div class="user-info">
                   <a data-toggle="collapse" href="#collapseExample" class="username">
                     <span>
-                      Tania Andrew
+                      {{Auth::user()->name}}
                       <b class="caret"></b>
                     </span>
                   </a>
