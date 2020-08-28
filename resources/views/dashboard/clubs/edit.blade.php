@@ -1,5 +1,6 @@
 @php
 $active='clubs';
+$authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 @endphp
 @extends('layouts.backend')
 
@@ -46,9 +47,14 @@ $active='clubs';
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Commission</label>
+                        @if($authRole=='admin' || $authRole == 'super_admin')
                         <input name="commission" value="{{ $club->commission }}" type="text" class="form-control">
+                        @else
+                        <input name="commission" value="{{ $club->commission }}" type="text" class="form-control" disabled>
+                        @endif
                     </div>
                 </div>
+
 
                 <div class="col-lg-5 col-md-6 col-sm-3">
                     <label class="bmd-label-floating">Is Active</label>
