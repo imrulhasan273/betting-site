@@ -15,6 +15,9 @@ class CreatePaymentOptionsTable extends Migration
     {
         Schema::create('payment_options', function (Blueprint $table) {
             $table->id();
+            $table->string('method');
+            $table->string('phone');
+            $table->string('status');
             $table->timestamps();
         });
     }

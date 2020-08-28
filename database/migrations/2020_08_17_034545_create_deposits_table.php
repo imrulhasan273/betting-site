@@ -15,6 +15,20 @@ class CreateDepositsTable extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->string('deposit_by');
+            $table->string('deposit_to');
+            $table->float('amount');
+
+            $table->unsignedBigInteger('method_id');
+            $table->foreign('method_id')->references('id')->on('payment_options')->onDelete('cascade');
+
+            $table->string('transection_id');
+            $table->text('note');
+            $table->string('status');
             $table->timestamps();
         });
     }
