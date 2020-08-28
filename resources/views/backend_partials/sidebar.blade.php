@@ -78,13 +78,13 @@
             @else
                 <li class="nav-item ">
             @endif
-            <a class="nav-link" data-toggle="collapse" href="#msg">
+            <a class="nav-link" data-toggle="collapse" href="#clb">
             <i class="material-icons">people</i>
             <p> Club
                 <b class="caret"></b>
             </p>
             </a>
-            <div class="collapse" id="msg">
+            <div class="collapse" id="clb">
             <ul class="nav">
                 <!-- Start Club List Panel -->
                 @if($active=='clubs')
@@ -286,6 +286,22 @@
               <li class="nav-item ">
             <!-- End Dropdown Message Panel -->
 
+
+
+            <!-- PAYMENT OPTION PANEL -->
+            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if($active=='payments')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.paymentOption') }}">
+                <i class="material-icons">people</i>
+                <p>Payment Option</p>
+            </a>
+            </li>
+            {{-- @endif --}}
+            <!--- PAYMENT OPTION PANEL --->
 
 
 

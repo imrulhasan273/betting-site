@@ -74,6 +74,8 @@ route::group(['prefix' => 'admin'], function () {
 
     Route::get('/autostack-category', 'backendController@AutoStackCats')->name('admin.AutoStackCats')->middleware(['roleChecker:super_admin,admin,null,null']);
 
+    Route::get('/payment-options', 'backendController@PaymentOption')->name('admin.paymentOption')->middleware(['roleChecker:super_admin,admin,null,null']);
+
     # END BACKEND CONTROLLER
 
     #===================================================================================================

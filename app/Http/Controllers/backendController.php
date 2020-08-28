@@ -11,6 +11,7 @@ use App\Notice;
 use App\Setting;
 use App\Question;
 use App\AutoStackCategory;
+use App\PaymentOption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Facade\Ignition\QueryRecorder\Query;
@@ -83,5 +84,11 @@ class backendController extends Controller
         $users = User::all();
         $clubs = Club::all();
         return view('dashboard.clubs', compact('clubs'));
+    }
+
+    public function paymentOption()
+    {
+        $paymentOptions = PaymentOption::all();
+        return view('dashboard.paymentOptions', compact('paymentOptions'));
     }
 }
