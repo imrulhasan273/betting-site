@@ -6,16 +6,17 @@
             <div class="row">
                 <div class="col-lg-11 bhoechie-tab-container" style="width: 98.5% !important;background: #ffffff;">
 
-
                     <!-- START OPTIONS -->
-                    <div class="col-lg-12  bhoechie-tab-menu">
+                    <div class="col-lg-12 bhoechie-tab-menu">
                         <div class="list-group " style="margin-top: 5px;overflow:hidden;">
                             <a href=" #" class="active text-center liststyle" style="text-decoration: none;margin-top: 3px;">
                                 All Bets
                             </a>
+
                             <a href=" #" class=" text-center liststyle" data-toggle="modal" data-target="#" style="text-decoration: none;margin-top: 3px;">
                                 All Deposit
                             </a>
+
                             <a href="#" class=" text-center liststyle" data-toggle="modal" data-target="" style="text-decoration: none;margin-top: 3px;">
                                 All Withdrawal
                             </a>
@@ -73,7 +74,6 @@
 
 
 
-
                     <!-- START COIN FLIP SECTION -->
 
                     <!-- END COIN FLIP SECTION -->
@@ -89,6 +89,11 @@
                      <!--START BIT SLIP-->
 
                     <!--END BIT SLIP-->
+
+                    <!-- START SCRIPTS -->
+                    @include('Profile_Frontend.wallet_partials.statements.scripts')
+                    <!-- END SCRIPTS -->
+
 
                 </div>
             </div>
