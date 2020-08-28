@@ -1,3 +1,18 @@
+<!--  START SCRIPTS FOR NAV BAR BALANCE STATUS -->
+<script type="text/javascript">
+    $('#tapbalance').click(function(event) {
+      $('#tbalance2').hide();
+      $('#tbalance').show();
+      setTimeout(function() {
+
+        $("#tbalance").hide();
+
+        $("#tbalance2").show();
+      }, 2000);
+    });
+</script>
+<!--  END SCRIPTS FOR NAV BAR BALANCE STATUS -->
+
 
 <script type="text/javascript">
     var log = 0;

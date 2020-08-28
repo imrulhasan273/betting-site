@@ -24,6 +24,28 @@
             <button class="btn btn-success" style="margin-left: 10px;background: #208E50" id="openlogin">Login</button>
         </div>
         @endif
+
+
+        @if (Auth::user())
+        <div style="position: absolute;
+                    top: 8px;
+                    left: 166px;
+                    background: #fd7117;
+                    color: #fff;
+                    border-radius: 32px;font-size: 14px;">
+            <p style="padding: 5px 4px;" id="tapbalance">
+                <span style="background: #fff;
+                    color: #000;
+                    padding: 2px 10px;
+                    border-radius: 45px;">ট
+                </span>
+                <span id="tbalance" style="display: none;"> 0 </span>
+                <span id="tbalance2" style=""> Tap for balance</span>
+            </p>
+        </div>
+        @endif
+
+
         @if(Auth::user())
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
             <div style="float: left;    margin-right: 6px;">
