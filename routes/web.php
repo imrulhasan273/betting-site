@@ -83,6 +83,7 @@ route::group(['prefix' => 'admin'], function () {
 
     # ------START INDEX CONTROLLER
     Route::get('/account-balance/edit', 'IndexController@edit')->name('index.acc.edit')->middleware(['roleChecker:super_admin,admin,null,null']);
+    Route::post('/account-balance/update', 'IndexController@update')->name('index.acc.update')->middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin']);
     # ------END INDEX CONTROLLER
 
 
