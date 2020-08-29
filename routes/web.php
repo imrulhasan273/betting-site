@@ -81,6 +81,11 @@ route::group(['prefix' => 'admin'], function () {
 
     #===================================================================================================
 
+    # ------START INDEX CONTROLLER
+    Route::get('/account-balance/edit', 'IndexController@edit')->name('index.acc.edit')->middleware(['roleChecker:super_admin,admin,null,null']);
+    # ------END INDEX CONTROLLER
+
+
     # -- START PAYMENT CONTROLLER --
     Route::get('/payments-option/create', 'PaymentOptionController@create')->name('payments-option.create')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::post('/payments-option/store', 'PaymentOptionController@store')->name('payments-option.store')->middleware(['roleChecker:super_admin,admin,null,null']);

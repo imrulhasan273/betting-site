@@ -32,8 +32,14 @@ class backendController extends Controller
 
 
         # SUPER ADMIN FOR ACC BALANCE
-        $superAdmin = User::where('id', 1)->get();
+        $superAdmin = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'super_admin');
+            }
+        )->get();
         $superAdmin = $superAdmin[0];
+
 
         # TOTAL ADMINS (normal users)
         $CountAdmins = User::whereHas(

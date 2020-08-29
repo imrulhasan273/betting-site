@@ -35,12 +35,12 @@ $active='index';
                         <i class="material-icons">store</i>
                     </div>
                     <p class="card-category">Account Balance</p>
-                    <h3 class="card-title">$ {{ $superAdmin->credits }}</h3>
+                    <h3 class="card-title">BDT. {{ $superAdmin->credits }}</h3>
                 </div>
                 <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">date_range</i> Last 24 Hours
-                    </div>
+                    <a href="{{ route('index.acc.edit') }}" type="button" rel="tooltip" class="btn btn-success">
+                        <i class="material-icons">attach_money</i>Recharge
+                    </a>
                 </div>
             </div>
         </div>
