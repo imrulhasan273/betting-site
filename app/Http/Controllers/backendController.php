@@ -21,7 +21,11 @@ class backendController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        # SUPER ADMIN FOR ACC BALANCE
+        $superAdmin = User::where('id', 1)->get();
+        $superAdmin = $superAdmin[0];
+
+        return view('dashboard.index', compact('superAdmin'));
     }
 
 
@@ -90,5 +94,10 @@ class backendController extends Controller
     {
         $paymentOptions = PaymentOption::all();
         return view('dashboard.paymentOptions', compact('paymentOptions'));
+    }
+
+    public function SITE_ACC()
+    {
+        return view('dashboard.siteAccount');
     }
 }

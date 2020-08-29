@@ -76,18 +76,19 @@ route::group(['prefix' => 'admin'], function () {
 
     Route::get('/payment-options', 'backendController@PaymentOption')->name('admin.paymentOption')->middleware(['roleChecker:super_admin,admin,null,null']);
 
+
     # END BACKEND CONTROLLER
 
     #===================================================================================================
 
     # -- START PAYMENT CONTROLLER --
-    Route::get('/payments-option/create', 'PaymentOptionController@create')->name('paymentsOptions.create')->middleware(['roleChecker:super_admin,admin,null,null']);
-    Route::post('/payments-option/store', 'PaymentOptionController@store')->name('paymentsOptions.store')->middleware(['roleChecker:super_admin,admin,null,null']);
-    Route::get('/payments-option/{paymentOption}/edit', 'PaymentOptionController@edit')->name('paymentsOptions.edit')->middleware(['roleChecker:super_admin,admin,null,null']);
-    Route::post('/payments-option/update', 'PaymentOptionController@update')->name('paymentsOptions.update')->middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin']);
-    Route::get('/payments-option/{paymentOption}/destroy', 'PaymentOptionController@destroy')->name('paymentsOptions.destroy')->middleware(['roleChecker:super_admin,admin,null,null']);
-
+    Route::get('/payments-option/create', 'PaymentOptionController@create')->name('payments-option.create')->middleware(['roleChecker:super_admin,admin,null,null']);
+    Route::post('/payments-option/store', 'PaymentOptionController@store')->name('payments-option.store')->middleware(['roleChecker:super_admin,admin,null,null']);
+    Route::get('/payments-option/{paymentOption}/edit', 'PaymentOptionController@edit')->name('payments-option.edit')->middleware(['roleChecker:super_admin,admin,null,null']);
+    Route::post('/payments-option/update', 'PaymentOptionController@update')->name('payments-option.update')->middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin']);
+    Route::get('/payments-option/{paymentOption}/destroy', 'PaymentOptionController@destroy')->name('payments-option.destroy')->middleware(['roleChecker:super_admin,admin,null,null']);
     # --  END PAYMENT CONTROLLER
+
     #-- START USER CONTROLLERS
     Route::get('/users/add', 'UserController@add')->name('users.add')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::post('/users/store', 'UserController@store')->name('users.store')->middleware(['roleChecker:super_admin,admin,null,null']);

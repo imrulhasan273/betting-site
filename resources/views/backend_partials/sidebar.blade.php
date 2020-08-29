@@ -303,11 +303,6 @@
             {{-- @endif --}}
             <!--- PAYMENT OPTION PANEL --->
 
-
-
-
-
-
             <!-- Start Notice Panel -->
             @if($active=='notice')
                 <li class="active">
@@ -320,6 +315,7 @@
             </a>
             </li>
             <!-- Start Setting Panel -->
+
             @if($active=='settings')
                 <li class="active">
                 @else

@@ -5,13 +5,14 @@ $active='index';
 
 @section('content')
     <div class="row">
+
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons">content_copy</i>
                     </div>
-                    <p class="card-category">Used Space</p>
+                    <p class="card-category">Requested Transection</p>
                     <h3 class="card-title">49/50
                         <small>GB</small>
                     </h3>
@@ -25,14 +26,17 @@ $active='index';
             </div>
         </div>
 
+
+
+        <!----------===================ACCOUNT BALNCE OF ORGANIZATION==========-------------->
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
                         <i class="material-icons">store</i>
                     </div>
-                    <p class="card-category">Revenue</p>
-                    <h3 class="card-title">$34,245</h3>
+                    <p class="card-category">Account Balance</p>
+                    <h3 class="card-title">$ {{ $superAdmin->credits }}</h3>
                 </div>
                 <div class="card-footer">
                     <div class="stats">
@@ -41,39 +45,50 @@ $active='index';
                 </div>
             </div>
         </div>
+        <!------------================= ACCOUNT BALNCE OF ORGANIZATION===================---------- -->
 
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">info_outline</i>
-                  </div>
-                  <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">75</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">local_offer</i> Tracked from Github
-                  </div>
-                </div>
-              </div>
-            </div>
+
+
+        <!------------================= TOTAL CLUBS===================---------- -->
             <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
-                  </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">house_siding</i>
+                    </div>
+                    <p class="card-category">Total Clubs</p>
+                    <h3 class="card-title">75</h3>
+                    </div>
+                    <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">local_offer</i> Tracked from Github
+                    </div>
+                    </div>
                 </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Just Updated
-                  </div>
-                </div>
-              </div>
             </div>
+        <!------------================= TOTAL CLUBS===================---------- -->
+
+
+            <!------------================= TOTAL USERS ===================---------- -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">supervised_user_circle</i>
+                    </div>
+                    <p class="card-category">Total Users</p>
+                    <h3 class="card-title">+245</h3>
+                    </div>
+                    <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <!------------================= TOTAL CLUBS===================---------- -->
+
+
           </div>
           <div class="row">
             <div class="col-md-4">

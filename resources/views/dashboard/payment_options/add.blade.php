@@ -26,7 +26,7 @@ $active='payments';
         </div>
         <div class="card-body">
 
-        <form method="POST" action="{{route('paymentsOptions.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('payments-option.store')}}" enctype="multipart/form-data">
         @csrf
             <div class="row">
 

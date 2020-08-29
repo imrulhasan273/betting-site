@@ -26,7 +26,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
           <p class="card-category"></p>
         </div>
         <div class="card-body">
-        <form method="POST" action="{{route('paymentsOptions.update')}}">
+        <form method="POST" action="{{route('payments-option.update')}}">
         @csrf
 
             <div class="row">

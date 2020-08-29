@@ -10,7 +10,7 @@ $active='payments';
     </div>
 
     <div class="col-md-2">
-        <a href="{{ route('paymentsOptions.create') }}" name="add" class="btn btn-primary ">Add Payment Option</a>
+        <a href="{{ route('payments-option.create') }}" name="add" class="btn btn-primary ">Add Payment Option</a>
     </div>
 
     <div class="col-md-12">
@@ -61,10 +61,10 @@ $active='payments';
                             {{$paymentOption->status}}
                         </td>
                         <td class="td-actions text-center">
-                            <a href="{{ route('paymentsOptions.edit',[$paymentOption->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
+                            <a href="{{ route('payments-option.edit',[$paymentOption->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
                                 <i class="material-icons">edit</i>Edit
                               </a>
-                            <a href=" {{ route('paymentsOptions.destroy',[$paymentOption->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
+                            <a href=" {{ route('payments-option.destroy',[$paymentOption->id]) }}" type="button" rel="tooltip" class="btn btn-danger">
                               <i class="material-icons">remove</i>Delete
                             </a>
                         </td>
