@@ -6,7 +6,7 @@ $active='index';
 @section('content')
     <div class="row">
 
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        {{-- <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">
@@ -24,8 +24,7 @@ $active='index';
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div> --}}
 
 
         <!----------===================ACCOUNT BALNCE OF ORGANIZATION==========-------------->
@@ -49,6 +48,26 @@ $active='index';
 
 
 
+            <!------------================= TOTAL ADMINS ===================---------- -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">admin_panel_settings</i>
+                    </div>
+                    <p class="card-category">Total Admins</p>
+                    <h3 class="card-title">{{ $CountAdmins }}</h3>
+                    </div>
+                    <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <!------------================= TOTAL ADMINS===================---------- -->
+
+
         <!------------================= TOTAL CLUBS===================---------- -->
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="card card-stats">
@@ -57,7 +76,7 @@ $active='index';
                         <i class="material-icons">house_siding</i>
                     </div>
                     <p class="card-category">Total Clubs</p>
-                    <h3 class="card-title">75</h3>
+                    <h3 class="card-title">{{ $CountClubs }}</h3>
                     </div>
                     <div class="card-footer">
                     <div class="stats">
@@ -77,7 +96,7 @@ $active='index';
                         <i class="material-icons">supervised_user_circle</i>
                     </div>
                     <p class="card-category">Total Users</p>
-                    <h3 class="card-title">+245</h3>
+                    <h3 class="card-title">{{ $CountUsers }}</h3>
                     </div>
                     <div class="card-footer">
                     <div class="stats">

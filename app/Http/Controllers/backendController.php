@@ -21,11 +21,46 @@ class backendController extends Controller
 {
     public function index()
     {
+
+        // # TOTAL USERS
+        // $user = User::whereHas(
+        //     'role',
+        //     function ($q) {
+        //         $q->where('name', 'user');
+        //     }
+        // )->get();
+
+
         # SUPER ADMIN FOR ACC BALANCE
         $superAdmin = User::where('id', 1)->get();
         $superAdmin = $superAdmin[0];
 
-        return view('dashboard.index', compact('superAdmin'));
+        # TOTAL ADMINS (normal users)
+        $CountAdmins = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'admin');
+            }
+        )->count();
+
+        # TOTAL USERS (normal users)
+        $CountUsers = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'user');
+            }
+        )->count();
+
+
+        # TOTAL CLUBS
+        $CountClubs = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'club_admin');
+            }
+        )->count();
+
+        return view('dashboard.index', compact('superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
     }
 
 
