@@ -201,4 +201,12 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/webmessage/sent/view', 'webMessageController@AdminviewSent')->name('webmessage.admin.view')->middleware(['roleChecker:super_admin,admin,null,null']);
 
     Route::post('/webmessage/send/{user_id}', 'webMessageController@AdminSendMessage')->name('webmessage.admin.send')->middleware(['roleChecker:super_admin,admin,null,null']);
+
+
+   #------------- WEB MESSAGE Club PART---------------------------------#
+    Route::get('/webmessage/club', 'webMessageController@ClubIndex')->name('webmessage.club.index');
+    // Route::get('/webmessage/club/sent/view', 'webMessageController@ClubviewSent')->name('webmessage.club.view')->middleware(['roleChecker:null,null,club,null']);
+
+    Route::get('/webmessage/Clubsend/', 'webMessageController@ClubSendMessage')->name('webmessage.club.send');
+    Route::post('/webmessage/Clubsend/store', 'webMessageController@ClubStoreMessage')->name('webmessage.club.store');
 });

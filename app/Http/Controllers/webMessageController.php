@@ -6,8 +6,6 @@ use App\webMessage;
 use App\WebMessageAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class webMessageController extends Controller
 {
@@ -28,10 +26,6 @@ class webMessageController extends Controller
         return view('Profile_Frontend.wallet_partials.messages.receivedwebmessage', compact('messages'));
     }
 
-
-
-
-
     public function Admingetuser($user_id)
     {
         // $user = webMessage::find($user_id);
@@ -39,15 +33,13 @@ class webMessageController extends Controller
         return view('dashboard.web_messages.webmessagesend', compact('user'));
     }
 
-
-
     # Admin Reply to User
     public function AdminSendMessage(Request $request)
     {
         // dd($request);
         $admin_message = new WebMessageAdmin();
         $admin_message->user_id = $request->user_id;
-         $admin_message->user_name = $request->user_name;
+        $admin_message->user_name = $request->user_name;
         $admin_message->admin_message_subject = $request->admin_message_subject;
         $admin_message->admin_sent_message = $request->admin_sent_message;
         $admin_message->save();
@@ -69,7 +61,6 @@ class webMessageController extends Controller
             'user_sent_message' => 'required',
         ]);
 
-
         $user_messages = new webMessage();
         $user_messages->user_id = $request->user_id;
         $user_messages->user_name = $request->user_name;
@@ -87,22 +78,37 @@ class webMessageController extends Controller
         return view('dashboard.web_messages.webmessage', compact('webmessages'));
     }
 
-
     public function AdminviewSent()
     {
         $sent_messages_admin = WebMessageAdmin::orderBy('id', 'asc')->get();
         return view('dashboard.web_messages.sentwebmessageview', compact('sent_messages_admin'));
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function ClubIndex()
     {
-        //
+        // $webmessages = webMessage::orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.clubs_message.club_received_message');
     }
+
+    public function ClubSendMessage()
+    {
+        return view('dashboard.web_messages.clubs_message.club_send_message');
+
+    }
+
+    public function ClubStoreMessage(Request $request)
+    {
+
+        $club_messages = new webMessage();
+        $club_messages->user_id = $request->club_id;
+        $club_messages->user_name = $request->club_name;
+        // $club_messages->user_type = $request->user_type;
+        $club_messages->user_message_subject = $request->club_message_subject;
+        $club_messages->user_sent_message = $request->club_sent_message;
+        $club_messages->save();
+
+        return back()->with('message', 'Message has been sent !!');
+
+    }
+
 }
