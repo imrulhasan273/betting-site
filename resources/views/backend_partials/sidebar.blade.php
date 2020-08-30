@@ -341,6 +341,21 @@
                 <p>Settings</p>
             </a>
             </li>
+                </li>
+
+      <!-- Start Club Message Panel -->
+
+            @if($active=='club_message')
+                <li class="active">
+                @else
+                <li class="nav-item ">
+            @endif
+            <a class="nav-link" href="{{ route('webmessage.club.index') }}">
+                <i class="material-icons">message</i>
+                <p>Club Message</p>
+            </a>
+            </li>
+                </li>
             <!-- End Index Panel -->
         </ul>
 

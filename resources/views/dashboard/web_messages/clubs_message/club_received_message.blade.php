@@ -1,5 +1,5 @@
 @php
-    $active="sent_webmessage"
+    $active="club_message"
 @endphp
 @extends('layouts.backend')
 @section('content')
