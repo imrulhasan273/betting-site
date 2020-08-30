@@ -16,6 +16,7 @@ class CreateWebMessageAdminsTable extends Migration
         Schema::create('web_message_admins', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->string('user_name');
             $table->string('admin_message_subject');
             $table->string('admin_sent_message');
 

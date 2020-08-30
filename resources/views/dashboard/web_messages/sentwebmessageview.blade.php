@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="card card-plain">
         <div class="card-header card-header-primary">
-          <h4 class="card-title mt-0">Received Web Messages</h4>
+          <h4 class="card-title mt-0">Sent Web Messages</h4>
         </div>
 
         <div class="card-body">

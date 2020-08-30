@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\webMessage;
+use App\Club;
+use App\User;
 use App\WebMessageAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class webMessageController extends Controller
 {
@@ -39,7 +42,7 @@ class webMessageController extends Controller
         // dd($request);
         $admin_message = new WebMessageAdmin();
         $admin_message->user_id = $request->user_id;
-        // $admin_message->user_name = $request->user_name;
+        $admin_message->user_name = $request->user_name;
         $admin_message->admin_message_subject = $request->admin_message_subject;
         $admin_message->admin_sent_message = $request->admin_sent_message;
         $admin_message->save();
@@ -86,9 +89,9 @@ class webMessageController extends Controller
 
     public function ClubIndex()
     {
-      $received_by_club = DB::table('web_message_admins')->where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
-        // $received_by_club = WebMessageAdmin::orderBy('id', 'asc')->get();
-        return view('dashboard.web_messages.clubs_message.club_received_message',compact('received_by_club'));
+      $auth_id = Auth::user()->id;
+      $received_by_club = DB::table('web_message_admins')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
+      return view('dashboard.web_messages.clubs_message.club_received_message',compact('received_by_club'));
     }
     public function AdminClubIndex()
 
@@ -114,5 +117,23 @@ class webMessageController extends Controller
         $club_messages->save();
 
         return back()->with('message', 'Message has been sent !!');
+    }
+
+
+    public function AdminSendMessageClub()
+    {
+
+     $clubs = DB::table('clubs')->orderBy('id','desc')->get();
+     return view('dashboard.web_messages.send_message_to_club',compact('clubs'));
+    }
+
+    public function AdminSendMessageClubStore(Request $request)
+    {
+        $club_id= $request->club_identity;
+
+        $club_name = DB::table('clubs')->get();
+
+        $club_name = Club::where('id', $club_id)->pluck('clubOwner');
+        dd($club_name);
     }
 }

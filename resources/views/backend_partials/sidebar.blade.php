@@ -252,6 +252,18 @@
                 <div class="collapse" id="webmsg">
                   <ul class="nav">
                       <!-- Received web message LIST --->
+                        @if($active=='send_to_club')
+                            <li class="active">
+                            @else
+                            <li>
+                        @endif
+                        <a class="nav-link" href="{{ route('webmessage.admin.send.club') }}">
+                            <i class="material-icons">send</i>
+                            <p>Send Message (Club)</p>
+                        </a>
+                        </li>
+                            </li>
+                      <!-- Received web message LIST --->
                         @if($active=='webmessage')
                             <li class="active">
                             @else
