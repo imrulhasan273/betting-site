@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Deposit;
 use App\PaymentOption;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DepositController extends Controller
 {
@@ -17,15 +19,25 @@ class DepositController extends Controller
 
     public function placeDeposit(Request $request)
     {
+        $userId = Auth::user()->id;
+
         $InsertDeposit = Deposit::create([
-            'method_id' => $request->method_id,
+            'user_id' =>  $userId,
             'deposit_to' => $request->deposit_to,
             'deposit_by' => $request->deposit_by,
             'amount' => $request->amount,
-            'transection_id' => $request->transection_id
+            'method_id' => $request->method_id,
+            'transection_id' => $request->transection_id,
+            'note' => '',
+            'status' => 'pending'
         ]);
 
-        $data = $request;
+        if ($InsertDeposit) {
+            $data = 'insert';
+        } else {
+            $data = 'failed to insert';
+        }
+
         return response()->json($data);
     }
     /**

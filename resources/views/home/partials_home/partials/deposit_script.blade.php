@@ -45,7 +45,7 @@
 
 
             $.ajax({
-            method: "GET",
+            method: "get",
             url: "{{route('deposits.place')}}",
             data: {
                 method_id: dMethodt,
