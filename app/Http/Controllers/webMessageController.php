@@ -93,7 +93,6 @@ class webMessageController extends Controller
     public function ClubSendMessage()
     {
         return view('dashboard.web_messages.clubs_message.club_send_message');
-
     }
 
     public function ClubStoreMessage(Request $request)
@@ -108,7 +107,5 @@ class webMessageController extends Controller
         $club_messages->save();
 
         return back()->with('message', 'Message has been sent !!');
-
     }
-
 }

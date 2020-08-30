@@ -52,7 +52,7 @@ $active='index';
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="bmd-label-floating">Type Password to validate</label>
+                        <label class="bmd-label-floating">Super Admin Password to Confirm</label>
                         <input name="passwordV" value="" type="password" class="form-control">
                     </div>
                 </div>

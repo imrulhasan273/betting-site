@@ -76,10 +76,15 @@ route::group(['prefix' => 'admin'], function () {
 
     Route::get('/payment-options', 'backendController@PaymentOption')->name('admin.paymentOption')->middleware(['roleChecker:super_admin,admin,null,null']);
 
+    Route::get('/deposits-user', 'backendController@UserDeposit')->name('admin.user.deposit')->middleware(['roleChecker:super_admin,admin,null,null']);
 
     # END BACKEND CONTROLLER
 
     #===================================================================================================
+
+    # START DEPOSIT CONTROLLER
+
+    #  END DEPOSIT CONTROLLER
 
     # ------START INDEX CONTROLLER
     Route::get('/account-balance/edit', 'IndexController@edit')->name('index.acc.edit')->middleware(['roleChecker:super_admin,admin,null,null']);
@@ -203,7 +208,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/webmessage/send/{user_id}', 'webMessageController@AdminSendMessage')->name('webmessage.admin.send')->middleware(['roleChecker:super_admin,admin,null,null']);
 
 
-   #------------- WEB MESSAGE Club PART---------------------------------#
+    #------------- WEB MESSAGE Club PART---------------------------------#
     Route::get('/webmessage/club', 'webMessageController@ClubIndex')->name('webmessage.club.index');
     // Route::get('/webmessage/club/sent/view', 'webMessageController@ClubviewSent')->name('webmessage.club.view')->middleware(['roleChecker:null,null,club,null']);
 

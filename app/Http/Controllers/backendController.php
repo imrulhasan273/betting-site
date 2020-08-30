@@ -11,6 +11,7 @@ use App\Notice;
 use App\Setting;
 use App\Question;
 use App\AutoStackCategory;
+use App\Deposit;
 use App\PaymentOption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -140,5 +141,11 @@ class backendController extends Controller
     public function SITE_ACC()
     {
         return view('dashboard.siteAccount');
+    }
+
+    public function UserDeposit()
+    {
+        $deposits = Deposit::all();
+        return view('dashboard.deposits', compact('deposits'));
     }
 }

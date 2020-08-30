@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Md. Super Admin',
             'email' => 'super@gmail.com',
-            'password' => Hash::make('0000000000super'),
+            'password' => Hash::make('$request->password'),
             'remember_token' => Str::random(60),
         ]);
         $user->role()->attach($role->id);

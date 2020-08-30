@@ -303,6 +303,21 @@
             {{-- @endif --}}
             <!--- PAYMENT OPTION PANEL --->
 
+            <!-- START DEPOSIT PANEL -->
+            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if($active=='Udeposits')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.user.deposit') }}">
+                <i class="material-icons">people</i>
+                <p>Deposit</p>
+            </a>
+            </li>
+            {{-- @endif --}}
+            <!---END DEPOSIT PANEL --->
+
             <!-- Start Notice Panel -->
             @if($active=='notice')
                 <li class="active">
