@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Club;
 use App\Game;
 use App\Answer;
+use App\PaymentOption;
 use App\Sponsor;
 use App\Question;
 use Illuminate\Http\Request;
@@ -34,6 +35,8 @@ class HomeController extends Controller
         $answers = Answer::all();
 
         // dd($games);
+        # FOR PAYMENT OPTIONS
+        // $paymentsOptions = PaymentOption::all();
 
         return view('home', compact('games', 'questions', 'answers'));
     }

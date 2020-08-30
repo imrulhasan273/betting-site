@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Deposit;
+use App\PaymentOption;
 use Illuminate\Http\Request;
 
 class DepositController extends Controller
 {
+
+    public function getNumber(Request $request)
+    {
+        $data = PaymentOption::where('id', $request->method_id)->get('phone');
+        return response()->json($data[0]->phone);
+    }
     /**
      * Display a listing of the resource.
      *

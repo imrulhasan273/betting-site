@@ -1,5 +1,8 @@
 <!-------deposit modal--------->
 <!--Start Modal deposit -->
+@php
+    $paymentsOptions = App\PaymentOption::all();
+@endphp
 <div id="deposit" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -21,15 +24,16 @@
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                             ×</button> <strong id="alertDeposit"> </strong><span id="signuperrorText"></span>
                         </div>
+
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <label style="text-align: left;width: 100%;">Method<span style="color:#03ad75;"></span></label>
                                     <select class="form-control" id="dMethodt">
-                                    <option disabled selected value>Select method</option>
-                                    <option value="16">
-                                        BKash
-                                    </option>
+                                    @foreach ($paymentsOptions as $paymentsOption)
+                                    {{-- <option disabled selected value>Select method</option> --}}
+                                    <option value="{{$paymentsOption->id}}">{{$paymentsOption->method}}</option>
+                                    @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -37,8 +41,9 @@
                                 <div class="form-group">
                                     <label style="text-align: left;width: 100%;">To <span style="color:#DD4F43;"></span></label>
                                     <select class="form-control" id="dTo">
-                                    <option disabled selected value>Select number</option>
-                                    <option> 01409-385876 BK </option>
+                                    {{-- <option disabled selected value>Select number</option> --}}
+                                    {{-- <option id="numA"> 01409-385876 BK </option> --}}
+                                    <option value="0" disabled="true" selected="true">Select</option>
                                     </select>
                                 </div>
                             </div>

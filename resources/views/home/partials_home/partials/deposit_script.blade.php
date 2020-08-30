@@ -1,5 +1,29 @@
 <script type="text/javascript">
 
+    //HERE IS THE SCRIPTS FOR DROPDOWN NUMBER FOR A METHOD
+    $("#dMethodt").change(function() {
+
+        var method_id = $("#dMethodt").val();
+        // console.log(method_id);
+
+        $.ajax({
+            method: "GET",
+            url: "{{ route('deposits.methods') }}",
+            data: {
+                method_id: method_id,
+            },
+            success: function(data) {
+                // console.log('RESPONSE: ');
+                // console.log(data);
+                op='<option value="'+data+'">'+data+'</option>';
+                $('#dTo').html(" ");
+                $('#dTo').append(op);
+            }
+        });
+    });
+    // ______________________________________________________
+
+
     var depositclick = 0;
     $("#depositSubmit").on("click", function() {
 
@@ -11,6 +35,8 @@
             var dFrom = $("#dFrom").val();
             var dReference = $("#dReference").val();
             var dTo = $("#dTo").val();
+
+            console.log(dMethodt);
 
             $.ajax({
             method: "POST",

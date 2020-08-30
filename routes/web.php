@@ -52,6 +52,11 @@ route::group(['prefix' => 'wallet'], function () {
 });
 # PROFILE
 
+# -------------------------------------- START DEPOSIT CONTROLLERS ----------------------------------
+Route::get('/method-id', 'DepositController@getNumber')->name('deposits.methods');
+# -------------------------------------- END DEPOSIT CONTROLLERS ----------------------------------
+
+
 
 # -----------------============= END CLIENT SIDE ROUTES ===========-------------------------#
 
