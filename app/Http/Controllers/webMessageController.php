@@ -39,7 +39,7 @@ class webMessageController extends Controller
         // dd($request);
         $admin_message = new WebMessageAdmin();
         $admin_message->user_id = $request->user_id;
-        $admin_message->user_name = $request->user_name;
+        // $admin_message->user_name = $request->user_name;
         $admin_message->admin_message_subject = $request->admin_message_subject;
         $admin_message->admin_sent_message = $request->admin_sent_message;
         $admin_message->save();
@@ -86,8 +86,15 @@ class webMessageController extends Controller
 
     public function ClubIndex()
     {
-        // $webmessages = webMessage::orderBy('id', 'desc')->get();
-        return view('dashboard.web_messages.clubs_message.club_received_message');
+      $received_by_club = DB::table('web_message_admins')->where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+        // $received_by_club = WebMessageAdmin::orderBy('id', 'asc')->get();
+        return view('dashboard.web_messages.clubs_message.club_received_message',compact('received_by_club'));
+    }
+    public function AdminClubIndex()
+
+    {
+           $webmessage_club = webMessage::orderBy('id', 'desc')->get();
+           return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
     }
 
     public function ClubSendMessage()

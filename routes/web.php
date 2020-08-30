@@ -208,6 +208,7 @@ route::group(['prefix' => 'admin'], function () {
 
     #------------- WEB MESSAGE Admin PART---------------------------------#
     Route::get('/webmessage', 'webMessageController@AdminIndex')->name('webmessage.admin.index')->middleware(['roleChecker:super_admin,admin,null,null']);
+    Route::get('/webmessage/club_messages', 'webMessageController@AdminClubIndex')->name('webmessage.admin.club.index')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/webmessage/get/{user_id}', 'webMessageController@Admingetuser')->name('webmessage.user.get')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/webmessage/sent/view', 'webMessageController@AdminviewSent')->name('webmessage.admin.view')->middleware(['roleChecker:super_admin,admin,null,null']);
 

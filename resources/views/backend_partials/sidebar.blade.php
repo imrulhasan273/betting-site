@@ -245,7 +245,7 @@
                 @endif
                 <a class="nav-link" data-toggle="collapse" href="#webmsg">
                   <i class="material-icons">forum</i>
-                  <p> User Messages
+                  <p> Web Messages
                     <b class="caret"></b>
                   </p>
                 </a>
@@ -253,13 +253,25 @@
                   <ul class="nav">
                       <!-- Received web message LIST --->
                         @if($active=='webmessage')
-                            <li class="active ">
+                            <li class="active">
                             @else
                             <li>
                         @endif
                         <a class="nav-link" href="{{ route('webmessage.admin.index') }}">
                             <i class="material-icons">send</i>
-                            <p>Received Message</p>
+                            <p>Received User Messages</p>
+                        </a>
+                        </li>
+                            </li>
+
+                             @if($active=='webmessage_club_index')
+                            <li class="active">
+                            @else
+                            <li>
+                        @endif
+                        <a class="nav-link" href="{{ route('webmessage.admin.club.index') }}">
+                            <i class="material-icons">club</i>
+                            <p>Received Club Messages</p>
                         </a>
                         </li>
                             </li>
@@ -272,7 +284,7 @@
                             <li>
                         @endif
                         <a class="nav-link" href="{{ route('webmessage.admin.view') }}">
-                            <i class="material-icons">received</i>
+                            <i class="material-icons">receive</i>
                             <p>Sent Messages</p>
                         </a>
                         </li>
