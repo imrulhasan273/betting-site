@@ -16,7 +16,7 @@
          <thead class="">
              <tr>
                 <th>SL.</th>
-                {{-- <th>Sender ID</th> --}}
+                <th>Role</th>
                 <th>Sender Name</th>
                 <th>Subject</th>
                 <th>Sent Message</th>
@@ -27,17 +27,31 @@
             @if($webmessages->count() > 0 )
                 <tbody>
             @foreach ($webmessages as $key=> $webmessage)
+
+            <!-- START ADDED --->
+            @php
+                $user = App\User::where('id', $webmessage->user_id)->first();
+                $msgROLE = $user->role[0]->name;
+            @endphp
+            @if($msgROLE == 'user')
+            <!-- END ADDED -->
+
             <tr>
                 <td>{{ ++$key }}</td>
-                {{-- <td>bet#{{ $webmessage->user_id }}</td> --}}
+                <td>{{ $msgROLE }}</td>
                 <td>{{ $webmessage->user_name }}</td>
                 <td>{{ $webmessage->user_message_subject }}</td>
                 <td>{{ $webmessage->user_sent_message }}</td>
                 <td>{{ $webmessage->created_at }}</td>
                 <td><a href="{{ route('webmessage.user.get',$webmessage->user_id) }}"><i class="material-icons">quickreply</i></a></td>
             </tr>
-              @endforeach
-                </tbody>
+
+            <!-- START ADDED -->
+            @endif
+            <!-- END ADDED-->
+
+            @endforeach
+            </tbody>
 
               @endif
             </table>

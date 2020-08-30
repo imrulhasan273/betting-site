@@ -30,25 +30,34 @@
         depositclick = depositclick + 1;
         if (depositclick == 1) {
             $('#deposit_load').show();
-            var dAmount = $("#dAmount").val();
-            var dMethodt = $("#dMethodt").val();
-            var dFrom = $("#dFrom").val();
-            var dReference = $("#dReference").val();
-            var dTo = $("#dTo").val();
 
-            console.log(dMethodt);
+            var dMethodt = $("#dMethodt").val();
+            var dTo = $("#dTo").val();
+            var dFrom = $("#dFrom").val();
+            var dAmount = $("#dAmount").val();
+            var dReference = $("#dTrans").val();
+
+            // console.log(dMethodt);
+            // console.log(dTo);
+            // console.log(dFrom);
+            // console.log(dAmount);
+            // console.log(dReference);
+
 
             $.ajax({
-            method: "POST",
-            //   url: 'deposit_request',
+            method: "GET",
+            url: "{{route('deposits.place')}}",
             data: {
-                dAmount: dAmount,
-                dMethodt: dMethodt,
-                dFrom: dFrom,
-                dReference: dReference,
-                dTo: dTo
+                method_id: dMethodt,
+                deposit_to: dTo,
+                deposit_by: dFrom,
+                amount: dAmount,
+                transection_id: dReference
             },
+
             success: function(data) {
+
+                console.log(data);
 
                 if (data == 'deposit request succesful') {
                 $('#deposit_load').hide();

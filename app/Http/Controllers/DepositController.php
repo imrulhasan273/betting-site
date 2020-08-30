@@ -14,6 +14,20 @@ class DepositController extends Controller
         $data = PaymentOption::where('id', $request->method_id)->get('phone');
         return response()->json($data[0]->phone);
     }
+
+    public function placeDeposit(Request $request)
+    {
+        $InsertDeposit = Deposit::create([
+            'method_id' => $request->method_id,
+            'deposit_to' => $request->deposit_to,
+            'deposit_by' => $request->deposit_by,
+            'amount' => $request->amount,
+            'transection_id' => $request->transection_id
+        ]);
+
+        $data = $request;
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      *

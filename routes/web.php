@@ -54,6 +54,7 @@ route::group(['prefix' => 'wallet'], function () {
 
 # -------------------------------------- START DEPOSIT CONTROLLERS ----------------------------------
 Route::get('/method-id', 'DepositController@getNumber')->name('deposits.methods');
+Route::get('/deposit', 'DepositController@placeDeposit')->name('deposits.place');
 # -------------------------------------- END DEPOSIT CONTROLLERS ----------------------------------
 
 

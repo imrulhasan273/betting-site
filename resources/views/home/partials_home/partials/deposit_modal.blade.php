@@ -31,7 +31,6 @@
                                     <label style="text-align: left;width: 100%;">Method<span style="color:#03ad75;"></span></label>
                                     <select class="form-control" id="dMethodt">
                                     @foreach ($paymentsOptions as $paymentsOption)
-                                    {{-- <option disabled selected value>Select method</option> --}}
                                     <option value="{{$paymentsOption->id}}">{{$paymentsOption->method}}</option>
                                     @endforeach
                                     </select>
@@ -41,8 +40,6 @@
                                 <div class="form-group">
                                     <label style="text-align: left;width: 100%;">To <span style="color:#DD4F43;"></span></label>
                                     <select class="form-control" id="dTo">
-                                    {{-- <option disabled selected value>Select number</option> --}}
-                                    {{-- <option id="numA"> 01409-385876 BK </option> --}}
                                     <option value="0" disabled="true" selected="true">Select</option>
                                     </select>
                                 </div>
@@ -63,6 +60,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label style="text-align: left;width: 100%;">Transection ID <span style="color:#07000a;"></span></label>
+                                <div class="form-group">
+                                    <input type="text" name="dTrans" id="dTrans" class="form-control input-lg" placeholder="From" tabindex="1">
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-lg-3"></div>
                             <div class="col-lg-6"><input type="submit" id="depositSubmit" value="Submit" class="btn  btn-block btn-lg" tabindex="7" style="  background:#FFC22C;color: #fff"></div>
