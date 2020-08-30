@@ -19,23 +19,28 @@ class DepositController extends Controller
 
     public function placeDeposit(Request $request)
     {
-        $userId = Auth::user()->id;
+        $InsertDeposit = false;
 
-        $InsertDeposit = Deposit::create([
-            'user_id' =>  $userId,
-            'deposit_to' => $request->deposit_to,
-            'deposit_by' => $request->deposit_by,
-            'amount' => $request->amount,
-            'method_id' => $request->method_id,
-            'transection_id' => $request->transection_id,
-            'note' => '',
-            'status' => 'pending'
-        ]);
+        if (is_numeric($request->amount)) {
+
+            $userId = Auth::user()->id;
+
+            $InsertDeposit = Deposit::create([
+                'user_id' =>  $userId,
+                'deposit_to' => $request->deposit_to,
+                'deposit_by' => $request->deposit_by,
+                'amount' => $request->amount,
+                'method_id' => $request->method_id,
+                'transection_id' => $request->transection_id,
+                'note' => '',
+                'status' => 'pending'
+            ]);
+        }
 
         if ($InsertDeposit) {
             $data = 'insert';
         } else {
-            $data = 'failed to insert';
+            $data = 'failed';
         }
 
         return response()->json($data);

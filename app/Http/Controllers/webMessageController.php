@@ -6,6 +6,7 @@ use App\webMessage;
 use App\WebMessageAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class webMessageController extends Controller
 {
@@ -86,15 +87,15 @@ class webMessageController extends Controller
 
     public function ClubIndex()
     {
-      $received_by_club = DB::table('web_message_admins')->where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+        $received_by_club = DB::table('web_message_admins')->where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         // $received_by_club = WebMessageAdmin::orderBy('id', 'asc')->get();
-        return view('dashboard.web_messages.clubs_message.club_received_message',compact('received_by_club'));
+        return view('dashboard.web_messages.clubs_message.club_received_message', compact('received_by_club'));
     }
     public function AdminClubIndex()
 
     {
-           $webmessage_club = webMessage::orderBy('id', 'desc')->get();
-           return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
+        $webmessage_club = webMessage::orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
     }
 
     public function ClubSendMessage()
