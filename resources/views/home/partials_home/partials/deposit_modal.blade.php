@@ -30,6 +30,7 @@
                                 <div class="form-group">
                                     <label style="text-align: left;width: 100%;">Method<span style="color:#03ad75;"></span></label>
                                     <select class="form-control" id="dMethodt">
+                                    <option value="">Select</option>
                                     @foreach ($paymentsOptions as $paymentsOption)
                                     <option value="{{$paymentsOption->id}}">{{$paymentsOption->method}}</option>
                                     @endforeach
