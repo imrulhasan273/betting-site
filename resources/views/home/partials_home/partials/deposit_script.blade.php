@@ -59,7 +59,7 @@
 
                 console.log(data);
 
-                if (data == 'deposit request succesful') {
+                if (data == 'insert') {
                 $('#deposit_load').hide();
                 $('#errorDeposit').show();
                 $('#errorDeposit').removeClass('alert-success');
@@ -71,8 +71,7 @@
                     location.reload();
                 }, 2000);
 
-
-                } else if (data == '2') {
+                } else if (data == 'failed') {
                 $('#deposit_load').hide();
                 $('#errorDeposit').show();
                 $('#errorDeposit').removeClass('alert-success');
