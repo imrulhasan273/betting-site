@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\webMessage;
 use App\Club;
 use App\User;
@@ -89,15 +90,15 @@ class webMessageController extends Controller
 
     public function ClubIndex()
     {
-      $auth_id = Auth::user()->id;
-      $received_by_club = DB::table('web_message_admins')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
-      return view('dashboard.web_messages.clubs_message.club_received_message',compact('received_by_club'));
+        $auth_id = Auth::user()->id;
+        $received_by_club = DB::table('web_message_admins')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.clubs_message.club_received_message', compact('received_by_club'));
     }
     public function AdminClubIndex()
 
     {
-           $webmessage_club = webMessage::orderBy('id', 'desc')->get();
-           return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
+        $webmessage_club = webMessage::orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
     }
 
     public function ClubSendMessage()
@@ -123,17 +124,19 @@ class webMessageController extends Controller
     public function AdminSendMessageClub()
     {
 
-     $clubs = DB::table('clubs')->orderBy('id','desc')->get();
-     return view('dashboard.web_messages.send_message_to_club',compact('clubs'));
+        $clubs = DB::table('clubs')->orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.send_message_to_club', compact('clubs'));
     }
 
     public function AdminSendMessageClubStore(Request $request)
     {
-        $club_id= $request->club_identity;
+        $club_id = $request->club_identity;
+        $club = Club::where('id',  $club_id)->first();
 
-        $club_name = DB::table('clubs')->get();
+        $club_owner_id = $club->user[0]->id;
+        $club_owner_name = $club->user[0]->name;
 
-        $club_name = Club::where('id', $club_id)->pluck('clubOwner');
-        dd($club_name);
+        dd($club_owner_name);
+        dd($club_owner_id);
     }
 }
