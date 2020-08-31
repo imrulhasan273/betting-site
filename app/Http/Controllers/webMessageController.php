@@ -144,10 +144,10 @@ class webMessageController extends Controller
         return back()->with('message', 'Message has been sent to the club!!');
     }
 
-     public function ClubSentItems()
-     {
-     $auth_id = Auth::user()->id;
-     $club_sent_items = DB::table('web_messages')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
-     return view('dashboard.web_messages.clubs_message.club_sent_message', compact('club_sent_items'));
-     }
+    public function ClubSentItems()
+    {
+        $auth_id = Auth::user()->id;
+        $club_sent_items = DB::table('web_messages')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.clubs_message.club_sent_message', compact('club_sent_items'));
+    }
 }

@@ -9,7 +9,7 @@
                     <!-- START OPTIONS -->
                     <div class="col-lg-12 bhoechie-tab-menu">
                         <div class="list-group " style="margin-top: 5px;overflow:hidden;">
-                            <a href=" #" class="active text-center liststyle" style="text-decoration: none;margin-top: 3px;">
+                            <a href=" #" class=" text-center liststyle" style="text-decoration: none;margin-top: 3px;">
                                 All Bets
                             </a>
 
