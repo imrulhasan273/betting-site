@@ -224,4 +224,5 @@ route::group(['prefix' => 'admin'], function () {
 
     Route::get('/webmessage/Clubsend/', 'webMessageController@ClubSendMessage')->name('webmessage.club.send')->middleware(['roleChecker:club_admin,null,null,null']);
     Route::post('/webmessage/Clubsend/store', 'webMessageController@ClubStoreMessage')->name('webmessage.club.store')->middleware(['roleChecker:club_admin,null,null,null']);
+    Route::get('/webmessage/Clubsend/view', 'webMessageController@ClubSentItems')->name('webmessage.club.sent.items')->middleware(['roleChecker:club_admin,null,null,null']);
 });

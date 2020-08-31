@@ -131,18 +131,23 @@ class webMessageController extends Controller
     public function AdminSendMessageClubStore(Request $request)
     {
         $club_id = $request->club_identity;
-        $club = Club::where('id',  $club_id)->first();
+        $club = Club::where('id', $club_id)->first();
         // $club_owner_id = $club->user[0]->id;
         // $club_owner_name = $club->user[0]->name;
-
+        $club_name = Club::where('id', $club_id)->pluck('name')[0];
         $send_to_club = new WebMessageAdmin();
         $send_to_club->user_id = $club->user[0]->id;
-        $send_to_club->user_name = $club->user[0]->name;
+        $send_to_club->user_name = $club_name;
         $send_to_club->admin_message_subject = $request->admin_message_subject;
         $send_to_club->admin_sent_message = $request->admin_sent_message;
         $send_to_club->save();
         return back()->with('message', 'Message has been sent to the club!!');
-
-        // dd($club_owner_name);
     }
+
+     public function ClubSentItems()
+     {
+     $auth_id = Auth::user()->id;
+     $club_sent_items = DB::table('web_messages')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
+     return view('dashboard.web_messages.clubs_message.club_sent_message', compact('club_sent_items'));
+     }
 }
