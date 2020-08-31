@@ -3,7 +3,14 @@
 @endphp
 @extends('layouts.backend')
 @section('content')
-
+    <div class="row">
+        <div class="col-md-6">
+        <a href="{{route('webmessage.club.index')}}" name="club_received" class="btn btn-success ">View Received Messages</a>
+    </div>
+    <div class="col-md-6">
+        <a style="float: right" href="{{route('webmessage.club.sent.items')}}" name="club_sent_items" class="btn btn-info ">View Sent Items</a>
+    </div>
+    </div>
      <div class="row">
 
         <div class="col-md-12">
@@ -19,7 +26,7 @@
                  <form action="{{ route('webmessage.club.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="club_id" value="{{ Auth::user()->id }}" readonly>
-                    <input type="hidden" name="club_name" value="{{ Auth::user()->name }}" readonly>
+                    <input type="hidden" name="club_name" value="{{ Auth::user()->clubOwner->pluck('name')[0] }}" readonly>
                     {{-- <input type="hidden" name="user_type" value="{{ Auth::user()->role->pluck('name') }}" readonly> --}}
 
                     <div class="form-group">
