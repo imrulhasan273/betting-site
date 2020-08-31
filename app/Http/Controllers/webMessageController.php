@@ -132,11 +132,17 @@ class webMessageController extends Controller
     {
         $club_id = $request->club_identity;
         $club = Club::where('id',  $club_id)->first();
+        // $club_owner_id = $club->user[0]->id;
+        // $club_owner_name = $club->user[0]->name;
 
-        $club_owner_id = $club->user[0]->id;
-        $club_owner_name = $club->user[0]->name;
+        $send_to_club = new WebMessageAdmin();
+        $send_to_club->user_id = $club->user[0]->id;
+        $send_to_club->user_name = $club->user[0]->name;
+        $send_to_club->admin_message_subject = $request->admin_message_subject;
+        $send_to_club->admin_sent_message = $request->admin_sent_message;
+        $send_to_club->save();
+        return back()->with('message', 'Message has been sent to the club!!');
 
-        dd($club_owner_name);
-        dd($club_owner_id);
+        // dd($club_owner_name);
     }
 }
