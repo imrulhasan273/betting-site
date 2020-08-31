@@ -30,6 +30,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+
+
         $games = Game::all();
         $questions = Question::all();
         $answers = Answer::all();

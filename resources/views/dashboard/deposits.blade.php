@@ -37,7 +37,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                     Amount
                 </th>
                 <th>
-                    Method ID
+                    Method
                 </th>
                 <th>
                     Transection ID
@@ -71,7 +71,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$deposit->amount}}
                         </th>
                         <td>
-                            {{$deposit->method_id}}
+                            {{$deposit->method->method}}
                         </td>
                         <td>
                             {{$deposit->transection_id}}
