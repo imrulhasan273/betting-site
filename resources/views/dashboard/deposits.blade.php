@@ -25,7 +25,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                     ID
                 </th>
                 <th>
-                    User ID
+                    User
                 </th>
                 <th>
                     Deposit By
@@ -59,7 +59,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$deposit->id}}
                         </td>
                         <td>
-                            {{$deposit->user_id}}
+                            {{$deposit->user->email}}
                         </td>
                         <td>
                             {{$deposit->deposit_by}}
@@ -83,12 +83,21 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$deposit->status}}
                         </td>
                         <td class="td-actions text-center">
-                            <a href="" type="button" rel="tooltip" class="btn btn-success">
-                                <i class="material-icons">edit</i>
+                            @if($deposit->status != 'paid')
+                            <a href="{{ route('deposits.status',[$deposit->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">done</i>
                             </a>
-                            <a onclick="return confirm('This will also delete the User. Delete?')" href="" type="button" rel="tooltip" class="btn btn-danger">
+                            @else
+                            <a type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">done</i>
+                            </a>
+                            @endif
+
+                            @if($deposit->status != 'paid')
+                            <a onclick="return confirm('This will also delete the User. Delete?')" href="{{ route('deposits.status',[$deposit->id,0])}}" type="button" rel="tooltip" class="btn btn-danger">
                                 <i class="material-icons">close</i>
                             </a>
+                            @endif
                         </td>
                     </tr>
                 </tbody>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Deposit;
 use App\PaymentOption;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class DepositController extends Controller
 {
@@ -44,6 +46,45 @@ class DepositController extends Controller
         }
 
         return response()->json($data);
+    }
+
+    public function status(Deposit $deposit, $code)
+    {
+
+        $state = null;
+        if ($code == 1) {
+            $state = 'paid';
+        } else if ($code == 0) {
+            $state = 'reject';
+        }
+
+        if ($state == 'paid') {
+            $PrevAmount = User::where('id', $deposit->user_id)->pluck('credits');
+            $updatingUserAccount = User::where('id', $deposit->user_id)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'credits' => $PrevAmount[0] + $deposit->amount
+                ]);
+            }
+        }
+
+
+        $updatingDeposit = Deposit::where('id', $deposit->id)->first();
+        if ($updatingDeposit) {
+            $updatingDeposit->update([
+                'status' => $state
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Deposit Request rejected!';
+        if ($code == 1) {
+            $msg1 = 'message';
+            $msg2 = 'Deposit Request accepted!';
+        }
+
+        return Redirect::route('admin.user.deposit')->with($msg1, $msg2);
     }
     /**
      * Display a listing of the resource.

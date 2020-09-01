@@ -89,7 +89,7 @@ route::group(['prefix' => 'admin'], function () {
     #===================================================================================================
 
     # START DEPOSIT CONTROLLER
-
+    Route::get('/deposits/{deposit}/{code}', 'DepositController@status')->name('deposits.status')->middleware(['roleChecker:super_admin,admin,null,null']); //added
     #  END DEPOSIT CONTROLLER
 
     # ------START INDEX CONTROLLER
