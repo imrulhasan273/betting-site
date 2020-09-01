@@ -49,6 +49,7 @@ route::group(['prefix' => 'wallet'], function () {
     Route::post('/webmessage/send', 'webMessageController@sendUser')->name('webmessage.send.user');
 
     Route::get('/webmessage/view', 'webMessageController@viewUser')->name('webmessage.view.user');
+    Route::get('/webmessage/view/sent', 'webMessageController@viewSentUser')->name('webmessage.view.user.sent');
 });
 # PROFILE
 
