@@ -93,7 +93,13 @@
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">
-                    </i> Received Message</div>
+                    </i> Inbox</div>
+                </a>
+                  <a style="padding:0px;font-size: 14px;" href="{{ route('webmessage.view.user.sent') }}">
+                    <div class="subMenus">
+                    <i aria-hidden="true">
+                        <img src="" style="max-width: 22px;">
+                    </i> Sent Items</div>
                 </a>
             </div>
 

@@ -19,6 +19,8 @@ class CreateWebMessagesTable extends Migration
             $table->string('user_name');
             $table->string('user_message_subject');
             $table->string('user_sent_message');
+            $table->boolean('is_seen')->default(0);
+
             $table->timestamps();
         });
     }

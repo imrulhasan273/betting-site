@@ -16,12 +16,13 @@
          <thead class="">
              <tr>
                 <th>SL.</th>
-                <th>Role</th>
-                <th>Sender Name</th>
+                {{-- <th>Role</th> --}}
+                <th>Sender</th>
                 <th>Subject</th>
-                <th>Sent Message</th>
+                <th>Message</th>
                 <th>Time</th>
-                <th>Action</th>
+                <th>Status</th>
+                <th>Reply</th>
              </tr>
         </thead>
             @if($webmessages->count() > 0 )
@@ -38,11 +39,18 @@
 
             <tr>
                 <td>{{ ++$key }}</td>
-                <td>{{ $msgROLE }}</td>
+                {{-- <td>{{ $msgROLE }}</td> --}}
                 <td>{{ $webmessage->user_name }}</td>
                 <td>{{ $webmessage->user_message_subject }}</td>
                 <td>{{ $webmessage->user_sent_message }}</td>
                 <td>{{ $webmessage->created_at }}</td>
+                 <td><p>
+                  @if ($webmessage->is_seen)
+                  <button type="button" class="btn btn-success btn-sm">Seen</button>
+                  @else
+                  <button type="button" class="btn btn-warning btn-sm">Unseen</button>
+                  @endif
+                </p></td>
                 <td><a href="{{ route('webmessage.user.get',$webmessage->user_id) }}"><i class="material-icons">quickreply</i></a></td>
             </tr>
 

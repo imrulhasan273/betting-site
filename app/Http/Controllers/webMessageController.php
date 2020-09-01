@@ -25,15 +25,23 @@ class webMessageController extends Controller
 
     public function viewUser()
     {
-        //////////////////////query should be here
         $messages = WebMessageAdmin::all();
         return view('Profile_Frontend.wallet_partials.messages.receivedwebmessage', compact('messages'));
+    }
+    public function viewSentUser()
+    {
+         $auth_id = Auth::user()->id;
+         $user_sent_items = DB::table('web_messages')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
+
+        return view('Profile_Frontend.wallet_partials.messages.sent_web_message', compact('user_sent_items'));
     }
 
     public function Admingetuser($user_id)
     {
-        // $user = webMessage::find($user_id);
-        $user = DB::table('web_messages')->where('user_id', $user_id)->orderBy('id', 'desc')->first();
+
+        $is_seen_by_admin = DB::table('web_messages')->where('user_id', $user_id)->update(['is_seen' =>1]);
+        $user = DB::table('web_messages')->where('user_id', $user_id)->orderBy('id','desc')->first();
+
         return view('dashboard.web_messages.webmessagesend', compact('user'));
     }
 
@@ -97,8 +105,8 @@ class webMessageController extends Controller
     public function AdminClubIndex()
 
     {
-        $webmessage_club = webMessage::orderBy('id', 'desc')->get();
-        return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
+        $webmessages_club = webMessage::orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.received_club_messages', compact('webmessages_club'));
     }
 
     public function ClubSendMessage()
