@@ -271,7 +271,7 @@ class AnswerController extends Controller
         foreach ($lossBets as $lossBet) {
 
             # CHANGE STATUS OF A BET TO WINNER
-            $UpdateBet = Bet::where('id', $winBet->id)->first();
+            $UpdateBet = Bet::where('id', $lossBet->id)->first();
             if ($UpdateBet) {
                 $UpdateBet->update([
                     'status' => 'loss',
