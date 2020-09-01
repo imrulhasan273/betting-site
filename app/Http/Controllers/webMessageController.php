@@ -32,8 +32,10 @@ class webMessageController extends Controller
 
     public function Admingetuser($user_id)
     {
-        // $user = webMessage::find($user_id);
-        $user = DB::table('web_messages')->where('user_id', $user_id)->orderBy('id', 'desc')->first();
+
+        $is_seen_by_admin = DB::table('web_messages')->where('user_id', $user_id)->update(['is_seen' =>1]);
+        $user = DB::table('web_messages')->where('user_id', $user_id)->orderBy('id','desc')->first();
+
         return view('dashboard.web_messages.webmessagesend', compact('user'));
     }
 
@@ -97,8 +99,8 @@ class webMessageController extends Controller
     public function AdminClubIndex()
 
     {
-        $webmessage_club = webMessage::orderBy('id', 'desc')->get();
-        return view('dashboard.web_messages.received_club_messages', compact('webmessage_club'));
+        $webmessages_club = webMessage::orderBy('id', 'desc')->get();
+        return view('dashboard.web_messages.received_club_messages', compact('webmessages_club'));
     }
 
     public function ClubSendMessage()

@@ -21,12 +21,13 @@
                 <th>Subject</th>
                 <th>Sent Message</th>
                 <th>Time</th>
-                <th>Action</th>
+                <th>Status</th>
+                <th>Reply</th>
              </tr>
         </thead>
-            @if($webmessage_club->count() > 0 )
+            @if($webmessages_club->count() > 0 )
                 <tbody>
-            @foreach ($webmessage_club as $key=> $webmessage_club)
+            @foreach ($webmessages_club as $key=> $webmessage_club)
 
             <!-- START ADDED --->
             @php
@@ -43,7 +44,15 @@
                 <td>{{ $webmessage_club->user_message_subject }}</td>
                 <td>{{ $webmessage_club->user_sent_message }}</td>
                 <td>{{ $webmessage_club->created_at }}</td>
-                <td><a href="{{ route('webmessage.user.get',$webmessage_club->user_id) }}"><i class="material-icons">quickreply</i></a></td>
+                <td><p>
+                  @if ($webmessage_club->is_seen)
+                  <button type="button" class="btn btn-success btn-sm">Seen</button>
+                  @else
+                  <button type="button" class="btn btn-warning btn-sm">Unseen</button>
+                  @endif
+                </p></td>
+
+                <td><span><a href="{{ route('webmessage.user.get',$webmessage_club->user_id) }}"><i class="material-icons">quickreply</i></a></span></td>
             </tr>
 
             <!-- START ADDED -->
