@@ -155,12 +155,12 @@ $active='games';
                                         {{$answer->result}}
                                     </td>
                                     <td class="td-actions text-center">
-                                        <a href="" type="button" rel="tooltip" class="btn btn-primary">
+                                        <a href="{{ route('admin.games.bet.ques.answer.result',[$question->id,$answer->id]) }}" type="button" rel="tooltip" class="btn btn-primary">
                                             <i class="material-icons">assignment_return</i>back
                                         </a>
-                                        <a href="" type="button" rel="tooltip" class="btn btn-danger">
+                                        {{-- <a href="" type="button" rel="tooltip" class="btn btn-danger">
                                             <i class="material-icons">get_app</i>return
-                                        </a>
+                                        </a> --}}
                                     </td>
                                     <td class="td-actions text-center">
                                         <a href="{{ route('admin.games.bet.ques.answer.edit',[$game->id,$answer->id]) }}" type="button" rel="tooltip" class="btn btn-success">

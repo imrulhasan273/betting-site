@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bet;
 use App\Game;
 use App\Answer;
 use App\Question;
@@ -171,5 +172,18 @@ class AnswerController extends Controller
         }
 
         return Redirect::route('admin.games.bet', [$game_id])->with($msg1, $msg2);
+    }
+
+    public function result(Question $question, Answer $answer)
+    {
+        $winedID = $answer->id;
+        $failedIDs = Answer::where('question_id', $question->id)
+            ->where('id', '!=', $answer->id)->pluck('id')->toArray();
+
+        $winBet = Bet::where('answer_id', $winedID)->first();
+        $lossBet = Bet::whereIn('answer_id', $failedIDs)->get();
+
+
+        dd($lossBet);
     }
 }

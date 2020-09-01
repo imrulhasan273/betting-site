@@ -183,6 +183,10 @@ route::group(['prefix' => 'admin'], function () {
 
     Route::get('/games/answers/{game_id}/{answer}/edit', 'AnswerController@edit')->name('admin.games.bet.ques.answer.edit')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::post('/games/answers/update', 'AnswerController@update')->name('admin.games.bet.ques.answer.update')->middleware(['roleChecker:super_admin,admin,null,null']);
+
+    # --- ---- ----- ---- ---- ---- ---WIN/LOSS IN ANSWEWR ---- ---- ---- ---
+    Route::get('/games/answers/result{question}/{answer}', 'AnswerController@result')->name('admin.games.bet.ques.answer.result')->middleware(['roleChecker:super_admin,admin,null,null']);
+
     # --END ANSWER CONTROLLERS
     # ______________________________ END GAME RELATED CONTROLLERS_________________________________________________________
 
