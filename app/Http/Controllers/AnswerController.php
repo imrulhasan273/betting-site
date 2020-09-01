@@ -180,8 +180,15 @@ class AnswerController extends Controller
         $failedIDs = Answer::where('question_id', $question->id)
             ->where('id', '!=', $answer->id)->pluck('id')->toArray();
 
-        $winBet = Bet::where('answer_id', $winedID)->first();
-        $lossBet = Bet::whereIn('answer_id', $failedIDs)->get();
+        # Finds the Bet which is winner and whose are looser
+        $winBet = Bet::where('answer_id', $winedID)->first();       # one answer will be winner | QUESTION
+        $lossBet = Bet::whereIn('answer_id', $failedIDs)->get();    # multiple answer can be looser | QUESTION
+
+
+        # SEND PRICE MONEY TO WINNER USERS, CLUBS AND SPONSORS
+
+
+        # RETURN MONEY FROM LOOSER USERS AND SEND THOSE TO SUPER ADMIN ACCOUNT
 
 
         dd($lossBet);
