@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bet;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -24,9 +25,29 @@ class BetController extends Controller
         $BETreturnRate =  $request->BETreturnRate;
         $BETamount =  $request->BETamount;
         $match =  $request->match;
-
-
         $total_win = $BETamount * $BETreturnRate;
+
+        # __________START NEED TO CHECK IF I HAVE ENOUGH BALANCE AND IF SO THEN MOVE THE BALANCE IN LOCK CREDITS COLUMN
+        $amount = User::where('id', $userId)->pluck('credits');
+        $amount = $amount[0];
+
+        $LockAmount = User::where('id', $userId)->pluck('lock_credits');
+        $LockAmount = $LockAmount[0];
+
+        if ($amount < $BETamount) {
+            return response()->json('Insufficient Balance');
+        } else {
+            $updatingUserAccount = User::where('id', $userId)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'credits' => $amount - $BETamount,
+                    'lock_credits' => $LockAmount + $BETamount
+                ]);
+            }
+        }
+        # __________END NEED TO CHECK IF I HAVE ENOUGH BALANCE AND IF SO THEN MOVE THE BALANCE IN LOCK CREDITS COLUMN
+
+
 
         # Calculation of Club Fee
         $club_id = DB::table('users')->where('id', $userId)->pluck('club_id');

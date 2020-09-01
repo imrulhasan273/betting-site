@@ -149,6 +149,18 @@ $("#placeBet").on("click", function() {
                             location.reload();
                         }, 1000);
                     }
+                    else if(data == "Insufficient Balance"){
+                        $('#errorBet').show();
+                        $('#errorBet').removeClass('alert-success');
+                        $('#errorBet').removeClass('alert-danger');
+                        $('#errorBet').addClass('alert-danger');
+                        $('#alertBet').html(data);
+                        betclick = 0;
+                        setTimeout(function()
+                        {
+                            $("#errorBet").hide();
+                        }, 1000);
+                    }
                     else
                     {
                         $('#errorBet').show();
