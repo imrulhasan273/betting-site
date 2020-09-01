@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Bet;
+use App\Club;
 use App\Game;
+use App\User;
 use App\Answer;
 use App\Question;
 use Illuminate\Http\Request;
@@ -176,21 +178,144 @@ class AnswerController extends Controller
 
     public function result(Question $question, Answer $answer)
     {
-        $winedID = $answer->id;
+        $winedID = $answer->id;                                         # one answer will be winner | QUESTION
         $failedIDs = Answer::where('question_id', $question->id)
-            ->where('id', '!=', $answer->id)->pluck('id')->toArray();
+            ->where('id', '!=', $answer->id)->pluck('id')->toArray();   # multiple answer can be looser | QUESTION
+
+
+
+        # CHANGE RESULT OF CORRECT ANSWER TO WIN
+        $UpdateAns = Answer::where('id', $winedID)->first();
+        if ($UpdateAns) {
+            $UpdateAns->update([
+                'result' => 'winned',
+            ]);
+        }
+
+        # CHANGE RESULT OF INCORRECT ANSWER TO LOSS
+        foreach ($failedIDs as $fail) {
+            $UpdateAns = Answer::where('id', $fail)->first();
+            if ($UpdateAns) {
+                $UpdateAns->update([
+                    'result' => 'lossed',
+                ]);
+            }
+        }
 
         # Finds the Bet which is winner and whose are looser
-        $winBet = Bet::where('answer_id', $winedID)->first();       # one answer will be winner | QUESTION
-        $lossBet = Bet::whereIn('answer_id', $failedIDs)->get();    # multiple answer can be looser | QUESTION
+        $winBets = Bet::where('answer_id', $winedID)->get();            # All the bets with correct ans
+        $lossBets = Bet::whereIn('answer_id', $failedIDs)->get();       # All the bets with incorrect ans
 
 
         # SEND PRICE MONEY TO WINNER USERS, CLUBS AND SPONSORS
+        foreach ($winBets as $winBet) {
+
+            # CHANGE STATUS OF A BET TO WINNER
+            $UpdateBet = Bet::where('id', $winBet->id)->first();
+            if ($UpdateBet) {
+                $UpdateBet->update([
+                    'status' => 'win',
+                ]);
+            }
+
+            #USER WHO PLACE BET
+            $user = User::where('id', $winBet->bet_by)->first();
+
+            # CLUB IN WHICH THE USER BELONGS TO
+            $clubID = $user->club_id;
+            $club = Club::where('id', $clubID)->first();
+
+            # UPDATE USER
+            $PrevAmount = User::where('id', $winBet->bet_by)->pluck('credits');
+            $PrevLockAmount = User::where('id', $winBet->bet_by)->pluck('lock_credits');
+
+            $updatingUserAccount = User::where('id', $winBet->bet_by)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'credits' => $PrevAmount[0] + $winBet->return_amount,
+                    'lock_credits' => $PrevLockAmount[0] - $winBet->amount
+                ]);
+            }
+
+            # UPDATE CLUB
+            $clubCredits = Club::where('id', $club->id)->pluck('balance');
+            $updatingClubAccount = User::where('id', $winBet->bet_by)->first();
+            if ($updatingClubAccount) {
+                $updatingClubAccount->update([
+                    'balance' => $clubCredits[0] + $winBet->club_fee,
+                ]);
+            }
+
+            # MINUS FROM SUPER ADMIN ACCOUNT
+            $superAdmin = User::whereHas(
+                'role',
+                function ($q) {
+                    $q->where('name', 'super_admin');
+                }
+            )->get();
+            $superAdmin = $superAdmin[0];
+
+            $BANK = User::where('id', $superAdmin->id)->pluck('credits');
+
+            $SuperAdminUser = User::where('id', $winBet->bet_by)->first();
+            if ($SuperAdminUser) {
+                $SuperAdminUser->update([
+                    'credits' => $BANK[0] - (($winBet->return_amount - $winBet->amount) + $winBet->club_fee),
+                ]);
+            }
+        }
 
 
         # RETURN MONEY FROM LOOSER USERS AND SEND THOSE TO SUPER ADMIN ACCOUNT
 
+        foreach ($lossBets as $lossBet) {
 
-        dd($lossBet);
+            # CHANGE STATUS OF A BET TO WINNER
+            $UpdateBet = Bet::where('id', $winBet->id)->first();
+            if ($UpdateBet) {
+                $UpdateBet->update([
+                    'status' => 'loss',
+                ]);
+            }
+
+            #USER WHO PLACE BET
+            $user = User::where('id', $lossBet->bet_by)->first();
+
+            # UPDATE USER
+            $PrevLockAmount = User::where('id', $lossBet->bet_by)->pluck('lock_credits');
+
+            $updatingUserAccount = User::where('id', $lossBet->bet_by)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'lock_credits' => $PrevLockAmount[0] - $lossBet->amount
+                ]);
+            }
+
+            # Add to Admin Account
+            $superAdmin = User::whereHas(
+                'role',
+                function ($q) {
+                    $q->where('name', 'super_admin');
+                }
+            )->get();
+            $superAdmin = $superAdmin[0];
+
+            $BANK = User::where('id', $superAdmin->id)->pluck('credits');
+
+            $SuperAdminUser = User::where('id', $winBet->bet_by)->first();
+            if ($SuperAdminUser) {
+                $SuperAdminUser->update([
+                    'credits' => $BANK[0] + $lossBet->amount
+                ]);
+            }
+        }
+
+
+        # CUSTOM ALERT
+
+        $msg1 = 'message';
+        $msg2 = 'Winner and Loser published!!!';
+
+        return back()->with($msg1, $msg2);
     }
 }
