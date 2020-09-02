@@ -34,7 +34,7 @@ $active='payments';
                     <label class="bmd-label-floating">Method</label>
                     <select name="method" class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Method">
                       <option disabled selected>Method</option>
-                      <option value="Bikash">Bikash</option>
+                      <option value="Bkash">Bkash</option>
                       <option value="Rocket">Rocket</option>
                     </select>
                 </div>

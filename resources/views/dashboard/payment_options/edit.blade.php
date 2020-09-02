@@ -41,7 +41,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                     <label class="bmd-label-floating">Method</label>
                     <select name="method" class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Method">
                         <option disabled selected>Method</option>
-                        <option style="color: rgb(20, 211, 77)" value="Bikash" {{ $paymentOption->method == 'Bikash' ? 'selected':'' }}>Bikash</option>
+                        <option style="color: rgb(20, 211, 77)" value="Bkash" {{ $paymentOption->method == 'Bkash' ? 'selected':'' }}>Bkash</option>
                         <option style="color: rgb(20, 211, 77)" value="Rocket" {{ $paymentOption->method == 'Rocket' ? 'selected':'' }}>Rocket</option>
                     </select>
                 </div>
