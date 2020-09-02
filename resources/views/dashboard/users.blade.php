@@ -25,35 +25,24 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+<table id="datatable" class="table table-striped table-bordered" style="width:100%">
               <thead class="">
-                <th>
-                    ID
-                </th>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Email
-                </th>
-                <th>
-                    Role
-                </th>
-                <th>
-                    Photo
-                </th>
-                <th>
-                    Edit
-                </th>
-                <th>
-                    Delete
-                </th>
+                <tr>
+                <th>Sl.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Photo</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                </tr>
               </thead>
-              @foreach ($users as $user)
+
+                <tbody>
+                      @foreach ($users as $user)
                 @php
                     $thisRole = $user->role[0];
                 @endphp
-                <tbody>
                     <tr>
                         <td>
                             {{$user->id}}
@@ -77,8 +66,9 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             <a onclick="return confirm('Are You Sure to delete the User?')"  href="{{route('users.destroy',[$user->id])}}">Delete</a>
                         </td>
                     </tr>
+                     @endforeach
                 </tbody>
-              @endforeach
+
             </table>
           </div>
         </div>

@@ -27,9 +27,10 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+<table id="datatable" class="table table-striped table-bordered" style="width:100%">
               <thead class="">
-                <th>
+             <tr>
+                    <th>
                     ID
                 </th>
                 <th>
@@ -56,11 +57,12 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 <th>
                     Delete
                 </th>
+             </tr>
               </thead>
-              @foreach ($clubs as $club)
-                @can('view', $club)
 
                 <tbody>
+                @foreach ($clubs as $club)
+                @can('view', $club)
                     <tr>
                         <td>
                             {{$club->id}}
@@ -95,9 +97,10 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                               </a>
                         </td>
                     </tr>
-                </tbody>
-                @endcan
+                      @endcan
               @endforeach
+                </tbody>
+
             </table>
           </div>
         </div>
