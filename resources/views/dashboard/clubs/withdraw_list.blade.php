@@ -11,7 +11,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
     </div>
 
     <div class="col-md-2">
-    <a href="" name="add" class="btn btn-warning ">Place Withdraw Request</a>
+    <a href="{{ route('admin.clubs.withdraw.request') }}" name="add" class="btn btn-warning ">Place Withdraw Request</a>
     </div>
 
     <div class="col-md-12">

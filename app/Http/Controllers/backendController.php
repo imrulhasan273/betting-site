@@ -148,8 +148,12 @@ class backendController extends Controller
         return view('dashboard.deposits', compact('deposits'));
     }
 
-    public function clubsWithdraw()
+    public function clubsWithdrawList()
     {
-        return view('dashboard.clubs.withdraw');
+        return view('dashboard.clubs.withdraw_list');
+    }
+    public function clubsWithdrawRequest()
+    {
+        return view('dashboard.clubs.withdraw_request');
     }
 }
