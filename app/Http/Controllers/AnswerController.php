@@ -202,10 +202,12 @@ class AnswerController extends Controller
             }
         }
 
-        # Finds the Bet which is winner and whose are looser
-        $winBets = Bet::where('answer_id', $winedID)->get();            # All the bets with correct ans
-        $lossBets = Bet::whereIn('answer_id', $failedIDs)->get();       # All the bets with incorrect ans
+        # Finds the Bet which are winner and which are looser
+        $winBets = Bet::where('answer_id', $winedID)->get();            # All the bets with the correct answer
+        $lossBets = Bet::whereIn('answer_id', $failedIDs)->get();       # All the bets with incorrect answers
 
+
+        # _________________________________________________________________________________
 
         # SEND PRICE MONEY TO WINNER USERS, CLUBS AND SPONSORS
         foreach ($winBets as $winBet) {
@@ -214,7 +216,7 @@ class AnswerController extends Controller
             $UpdateBet = Bet::where('id', $winBet->id)->first();
             if ($UpdateBet) {
                 $UpdateBet->update([
-                    'status' => 'win',
+                    'status' => 'winner',
                 ]);
             }
 
@@ -239,7 +241,8 @@ class AnswerController extends Controller
 
             # UPDATE CLUB
             $clubCredits = Club::where('id', $club->id)->pluck('balance');
-            $updatingClubAccount = User::where('id', $winBet->bet_by)->first();
+            $updatingClubAccount = Club::where('id', $club->id)->first();
+            // $updatingClubAccount = User::where('id', $winBet->bet_by)->first();         //////////////////////
             if ($updatingClubAccount) {
                 $updatingClubAccount->update([
                     'balance' => $clubCredits[0] + $winBet->club_fee,
@@ -266,15 +269,18 @@ class AnswerController extends Controller
         }
 
 
+        #__________________________________________________________________________________________
+
+
         # RETURN MONEY FROM LOOSER USERS AND SEND THOSE TO SUPER ADMIN ACCOUNT
 
         foreach ($lossBets as $lossBet) {
 
-            # CHANGE STATUS OF A BET TO WINNER
+            # CHANGE STATUS OF A BET TO LOOSER
             $UpdateBet = Bet::where('id', $lossBet->id)->first();
             if ($UpdateBet) {
                 $UpdateBet->update([
-                    'status' => 'loss',
+                    'status' => 'looser',
                 ]);
             }
 
