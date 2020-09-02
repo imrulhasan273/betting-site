@@ -74,8 +74,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users', 'backendController@users')->name('admin.users')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/roles', 'backendController@roles')->name('admin.roles')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/clubs', 'backendController@clubs')->name('admin.clubs')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
-    Route::get('/clubs/withdraw', 'backendController@clubsWithdrawList')->name('admin.clubs.withdraw.list')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
-    Route::get('/clubs/withdraw/request', 'backendController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
+
 
     Route::get('/games', 'backendController@games')->name('admin.games')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames')->middleware(['roleChecker:super_admin,admin,null,null']);
@@ -124,6 +123,9 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/clubs/{club}/edit', 'ClubController@edit')->name('clubs.edit')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
     Route::post('/clubs/update', 'ClubController@update')->name('clubs.update')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
     Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
+    # --- CLUB WIDTHDRAW
+    Route::get('/clubs/withdraw', 'ClubController@clubsWithdrawList')->name('admin.clubs.withdraw.list')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
+    Route::get('/clubs/withdraw/request', 'ClubController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
     # ------ END CLUBS CONTROLLER
 
     # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________

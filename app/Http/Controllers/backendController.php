@@ -147,13 +147,4 @@ class backendController extends Controller
         $deposits = Deposit::all();
         return view('dashboard.deposits', compact('deposits'));
     }
-
-    public function clubsWithdrawList()
-    {
-        return view('dashboard.clubs.withdraw_list');
-    }
-    public function clubsWithdrawRequest()
-    {
-        return view('dashboard.clubs.withdraw_request');
-    }
 }

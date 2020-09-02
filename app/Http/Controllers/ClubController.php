@@ -157,4 +157,14 @@ class ClubController extends Controller
 
         return back()->with('error', 'Club and User have not been Deleted!');
     }
+
+    public function clubsWithdrawList()
+    {
+        return view('dashboard.clubs.withdraw_list');
+    }
+
+    public function clubsWithdrawRequest()
+    {
+        return view('dashboard.clubs.withdraw_request');
+    }
 }

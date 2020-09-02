@@ -94,5 +94,14 @@ class UserSeeder extends Seeder
             ]);
         }
         // -- - - - - -- - -- - - - - ---
+        # Normal User Sponsor
+        $superAdmin = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'super_admin');
+            }
+        )->get();
+        $superAdmin = $superAdmin[0];
+        $user->ref()->attach($superAdmin->id);
     }
 }

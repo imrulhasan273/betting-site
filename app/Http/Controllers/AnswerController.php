@@ -178,6 +178,8 @@ class AnswerController extends Controller
 
     public function result(Question $question, Answer $answer)
     {
+        // _____________________________________________________________________
+
         # START CHECK IF THE ANSWER HAS ALREADY BEEN PUBLISH
         if ($question->flag == 1) {
             return back()->with('error', 'This Question Has Already Been Published!!!');
@@ -264,6 +266,32 @@ class AnswerController extends Controller
                 ]);
             }
 
+
+            # START UPDATE SPONSOR USER CREDITS___________________________
+            $userr = User::where('id', $winBet->bet_by)->first();
+            $SponsorID = $userr->ref[0]->id ?? null;
+            $SPcommission = 0;
+
+            if ($SponsorID != null) {
+
+                $SPcredits = User::where('id', $SponsorID)->pluck('credits');
+                $SPcredits = $SPcredits[0];
+
+                //-- -- COMISSION -- --
+                $percentage = 0.001;
+                $SPcommission = ($winBet->return_amount * $percentage) / 100;
+
+                $UpdateSponsor = User::where('id', $SponsorID)->first();
+                if ($UpdateSponsor) {
+                    $UpdateSponsor->update([
+                        'credits' => $SPcredits + $SPcommission,
+                    ]);
+                }
+            }
+            # END UPDATE SPONSOR USER CREDITS___________________________
+
+
+
             # MINUS FROM SUPER ADMIN ACCOUNT
             $superAdmin = User::whereHas(
                 'role',
@@ -278,7 +306,7 @@ class AnswerController extends Controller
             $SuperAdminUser = User::where('id', $superAdmin->id)->first();
             if ($SuperAdminUser) {
                 $SuperAdminUser->update([
-                    'credits' => $BANK[0] - (($winBet->return_amount - $winBet->amount) + $winBet->club_fee),
+                    'credits' => $BANK[0] - (($winBet->return_amount - $winBet->amount) + $winBet->club_fee + $SPcommission),
                 ]);
             }
         }
