@@ -104,8 +104,8 @@
                     @else
                     <li class="nav-item ">
                         @endif
-                        <a class="nav-link" href="">
-                            <i class="material-icons">people</i>
+                        <a class="nav-link" href="{{ route('admin.clubs.withdraw') }}">
+                            <i class="material-icons">cash</i>
                             <p>Club Widthdraw</p>
                         </a>
                     </li>

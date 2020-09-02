@@ -74,6 +74,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/users', 'backendController@users')->name('admin.users')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/roles', 'backendController@roles')->name('admin.roles')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/clubs', 'backendController@clubs')->name('admin.clubs')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
+    Route::get('/clubs/withdraw', 'backendController@clubsWithdraw')->name('admin.clubs.withdraw')->middleware(['roleChecker:super_admin,admin,club_admin,null']);
 
     Route::get('/games', 'backendController@games')->name('admin.games')->middleware(['roleChecker:super_admin,admin,null,null']);
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames')->middleware(['roleChecker:super_admin,admin,null,null']);
