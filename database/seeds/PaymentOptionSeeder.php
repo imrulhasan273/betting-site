@@ -13,7 +13,7 @@ class PaymentOptionSeeder extends Seeder
     public function run()
     {
         $payment = PaymentOption::create([
-            'method' => 'Bikash',
+            'method' => 'Bkash',
             'type' => 'personal',
             'phone' => '017XXXXXXXXX',
             'status' => 'active',

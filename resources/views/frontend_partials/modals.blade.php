@@ -686,7 +686,7 @@
                         <select class="form-control" id="dMethodt">
                           <option disabled selected value>Select method</option>
                           <option value="16">
-                            BKash
+                            Bkash
                           </option>
                         </select>
                       </div>
