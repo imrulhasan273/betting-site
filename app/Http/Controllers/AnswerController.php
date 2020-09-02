@@ -178,6 +178,21 @@ class AnswerController extends Controller
 
     public function result(Question $question, Answer $answer)
     {
+        # START CHECK IF THE ANSWER HAS ALREADY BEEN PUBLISH
+        if ($question->flag == 1) {
+            return back()->with('error', 'This Question Has Already Been Published!!!');
+        }
+        # SET THE QUESTION FLAG == 1 FROM 0
+        $UpdateQues = Question::where('id', $question->id)->first();
+        if ($UpdateQues) {
+            $UpdateQues->update([
+                'flag' => 1,
+            ]);
+        }
+        # END CHECK IF THE ANSWER HAS ALREADY BEEN PUBLISH
+
+
+
         $winedID = $answer->id;                                         # one answer will be winner | QUESTION
         $failedIDs = Answer::where('question_id', $question->id)
             ->where('id', '!=', $answer->id)->pluck('id')->toArray();   # multiple answer can be looser | QUESTION
@@ -260,7 +275,7 @@ class AnswerController extends Controller
 
             $BANK = User::where('id', $superAdmin->id)->pluck('credits');
 
-            $SuperAdminUser = User::where('id', $winBet->bet_by)->first();
+            $SuperAdminUser = User::where('id', $superAdmin->id)->first();
             if ($SuperAdminUser) {
                 $SuperAdminUser->update([
                     'credits' => $BANK[0] - (($winBet->return_amount - $winBet->amount) + $winBet->club_fee),
@@ -308,7 +323,7 @@ class AnswerController extends Controller
 
             $BANK = User::where('id', $superAdmin->id)->pluck('credits');
 
-            $SuperAdminUser = User::where('id', $winBet->bet_by)->first();
+            $SuperAdminUser = User::where('id', $superAdmin->id)->first();
             if ($SuperAdminUser) {
                 $SuperAdminUser->update([
                     'credits' => $BANK[0] + $lossBet->amount

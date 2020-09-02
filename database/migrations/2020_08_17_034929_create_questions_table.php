@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->string('question');
             $table->boolean('is_active')->default(true);
+            $table->boolean('flag')->default(false);
             $table->timestamps();
         });
     }

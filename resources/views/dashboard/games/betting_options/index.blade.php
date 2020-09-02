@@ -157,11 +157,11 @@ $active='games';
                                     </td>
 
                                     <td class="td-actions text-center">
-                                        @if($answer->result != 'winned' && $answer->result != 'lossed')
+                                        {{-- @if($answer->result != 'winned' && $answer->result != 'lossed') --}}
                                         <a href="{{ route('admin.games.bet.ques.answer.result',[$question->id,$answer->id]) }}" type="button" rel="tooltip" class="btn btn-primary">
                                             <i class="material-icons">assignment_return</i>back
                                         </a>
-                                        @endif
+                                        {{-- @endif --}}
                                         {{-- <a href="" type="button" rel="tooltip" class="btn btn-danger">
                                             <i class="material-icons">get_app</i>return
                                         </a> --}}

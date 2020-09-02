@@ -19,6 +19,7 @@ class CreateStackQuestionsTable extends Migration
             $table->foreign('auto_stack_cat_id')->references('id')->on('auto_stack_categories')->onDelete('cascade');
             $table->string('question');
             $table->boolean('is_active')->default(true);
+            $table->boolean('flag')->default(false);
             $table->timestamps();
         });
     }

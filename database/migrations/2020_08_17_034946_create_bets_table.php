@@ -34,7 +34,7 @@ class CreateBetsTable extends Migration
             $table->float('return_amount');
             $table->float('club_fee');
 
-            $table->enum('status', ['win', 'loss', 'cancelled', ''])->default('');
+            $table->enum('status', ['winner', 'looser', 'cancelled', ''])->default('');
 
             $table->timestamps();
         });

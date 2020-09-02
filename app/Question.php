@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['game_id', 'question', 'is_active'];
+    protected $fillable = ['game_id', 'question', 'is_active', 'flag'];
 
     public function game()
     {
