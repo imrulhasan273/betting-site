@@ -15,7 +15,7 @@ class RoleChecker
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $super_adminRole, $adminRole,  $clubRole, $sponsorRole)
+    public function handle($request, Closure $next, $super_adminRole, $adminRole,  $clubRole)
     {
         $roles = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 
@@ -25,9 +25,10 @@ class RoleChecker
             return $next($request);
         } else if (in_array($clubRole, $roles)) {
             return $next($request);
-        } else if (in_array($sponsorRole, $roles)) {
-            return $next($request);
         }
+        // else if (in_array($sponsorRole, $roles)) {
+        //     return $next($request);
+        // }
 
         return Redirect::route('home');
     }

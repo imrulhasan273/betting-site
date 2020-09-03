@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
         $role = Role::where('name', 'super_admin')->first();
         $user = User::create([
             'name' => 'Md. Super Admin',
+            'user_name' => 'SuperAdmin',
             'email' => 'super@gmail.com',
             'password' => Hash::make('0000000000super'),
             'remember_token' => Str::random(60),
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
         $role = Role::where('name', 'admin')->first();
         $user = User::create([
             'name' => 'Mr. Admin',
+            'user_name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('0000000000admin'),
             'remember_token' => Str::random(60),
@@ -41,6 +43,7 @@ class UserSeeder extends Seeder
         $role = Role::where('name', 'club_admin')->first();
         $user = User::create([
             'name' => 'Mr. Club Owner 1',
+            'user_name' => 'club1',
             'email' => 'club1@gmail.com',
             'password' => Hash::make('0000000000club1'),
             'remember_token' => Str::random(60),
@@ -53,6 +56,7 @@ class UserSeeder extends Seeder
         $role = Role::where('name', 'club_admin')->first();
         $user = User::create([
             'name' => 'Mr. Club Owner 2',
+            'user_name' => 'club2',
             'email' => 'club2@gmail.com',
             'password' => Hash::make('0000000000club2'),
             'remember_token' => Str::random(60),
@@ -60,15 +64,16 @@ class UserSeeder extends Seeder
         $user->role()->attach($role->id);
         $user->clubOwner()->attach($club->id);    //added
 
-        #Sponsor Seeder
-        $role = Role::where('name', 'sponsor_admin')->first();
-        $user = User::create([
-            'name' => 'Sponsor Admin',
-            'email' => 'sponsor@gmail.com',
-            'password' => Hash::make('0000000000sponsor'),
-            'remember_token' => Str::random(60),
-        ]);
-        $user->role()->attach($role->id);
+        // #Sponsor Seeder
+        // $role = Role::where('name', 'sponsor_admin')->first();
+        // $user = User::create([
+        //     'name' => 'Sponsor Admin',
+        //     'user_name' => 'sponsoradmin',
+        //     'email' => 'sponsor@gmail.com',
+        //     'password' => Hash::make('0000000000sponsor'),
+        //     'remember_token' => Str::random(60),
+        // ]);
+        // $user->role()->attach($role->id);
 
 
         ## Added a club id to the users
@@ -77,6 +82,7 @@ class UserSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Mr. Normal User',
+            'user_name' => 'user',
             'club_id' => 1,
             'email' => 'user@gmail.com',
             'password' => Hash::make('0000000000user'),

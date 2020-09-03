@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->float('credits')->nullable();
             $table->float('lock_credits')->nullable();
+            $table->string('user_name')->unique();
             $table->string('email')->unique();
             $table->string('photo')->nullable();
             $table->string('phone')->nullable();

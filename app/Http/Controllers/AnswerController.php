@@ -256,15 +256,15 @@ class AnswerController extends Controller
                 ]);
             }
 
-            # UPDATE CLUB
+            # START UPDATE CLUB USER BALANCE___________________________
             $clubCredits = Club::where('id', $club->id)->pluck('balance');
             $updatingClubAccount = Club::where('id', $club->id)->first();
-            // $updatingClubAccount = User::where('id', $winBet->bet_by)->first();         //////////////////////
             if ($updatingClubAccount) {
                 $updatingClubAccount->update([
                     'balance' => $clubCredits[0] + $winBet->club_fee,
                 ]);
             }
+            # END UPDATE CLUB USER BALANCE___________________________
 
 
             # START UPDATE SPONSOR USER CREDITS___________________________
@@ -277,7 +277,7 @@ class AnswerController extends Controller
                 $SPcredits = User::where('id', $SponsorID)->pluck('credits');
                 $SPcredits = $SPcredits[0];
 
-                //-- -- COMISSION -- --
+                #-- -- COMISSION -- --
                 $percentage = 0.001;
                 $SPcommission = ($winBet->return_amount * $percentage) / 100;
 
@@ -288,6 +288,8 @@ class AnswerController extends Controller
                     ]);
                 }
             }
+            # -- -- -- -- ADD NEW SPONSOR TRANSECTION -- -- -- --
+
             # END UPDATE SPONSOR USER CREDITS___________________________
 
 
