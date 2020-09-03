@@ -15,6 +15,17 @@ class CreateWidthdrawsTable extends Migration
     {
         Schema::create('widthdraws', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->string('user_role');
+
+            $table->unsignedBigInteger('method');
+            $table->float('amount');
+            $table->string('widthdraw_to');
+            $table->text('note')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -58,6 +58,11 @@ Route::get('/method-id', 'DepositController@getNumber')->name('deposits.methods'
 Route::get('/deposit', 'DepositController@placeDeposit')->name('deposits.place');
 # -------------------------------------- END DEPOSIT CONTROLLERS ----------------------------------
 
+# -------------------------------------- START WIDTHDRAW CONTROLLERS ----------------------------------
+Route::get('/widthdraw', 'WidthdrawController@requestUserWidthdraw')->name('widthdraw.user.request');
+# -------------------------------------- END WIDTHDRAW CONTROLLERS ----------------------------------
+
+
 
 
 # -----------------============= END CLIENT SIDE ROUTES ===========-------------------------#

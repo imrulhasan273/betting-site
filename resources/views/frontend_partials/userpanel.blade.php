@@ -42,7 +42,7 @@
                     </i> Deposit</div>
                 </a>
 
-                <a data-toggle="modal" data-target="#passwordverify" style="padding:0px;font-size: 14px;" href="#">
+                <a data-toggle="modal" data-target="#widthdraw" style="padding:0px;font-size: 14px;" href="#">
                     <div class="subMenus">
                     <i aria-hidden="true">
                         <img src="" style="max-width: 22px;">

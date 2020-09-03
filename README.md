@@ -23,7 +23,7 @@ $ php artisan make:middleware RoleChecker
 # Custom MIddlewire
 
 ```php
-middleware(['roleChecker:super_admin,admin,club_admin,sponsor_admin'])
+middleware(['roleChecker:super_admin,admin,club_admin'])
 ```
 
 # **IMPORTANT COMMAND AFTER**

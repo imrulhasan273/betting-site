@@ -54,8 +54,8 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 <th>
                     commission
                 </th>
-                <th>
-                    Delete
+                <th class="td-actions text-center">
+                    Action
                 </th>
              </tr>
               </thead>

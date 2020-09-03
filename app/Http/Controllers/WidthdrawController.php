@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class WidthdrawController extends Controller
 {
+
+    public function requestUserWidthdraw(Request $request)
+    {
+        $method = $request->method;
+        $type = $request->type;
+        $to = $request->to;
+        $amount =  $request->amount;
+
+        return response()->json($method);
+    }
     /**
      * Display a listing of the resource.
      *
