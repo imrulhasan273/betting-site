@@ -30,11 +30,11 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 <tr>
                 <th>Sl.</th>
                 <th>Name</th>
+                <th>User Name</th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Photo</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th class="td-actions text-center">Action</th>
                 </tr>
               </thead>
 
@@ -51,6 +51,9 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$user->name}}
                         </td>
                         <td>
+                            {{$user->user_name}}
+                        </td>
+                        <td>
                             {{$user->email}}
                         </td>
                         <td>
@@ -59,12 +62,15 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                         <td>
                             {{$user->photo}}
                         </td>
-                        <td>
-                            <a href="{{route('users.edit',[$user->id])}}">Edit</a>
+                        <td class="td-actions text-center">
+                            <a href="{{route('users.edit',[$user->id])}}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a onclick="return confirm('Are You Sure to delete the User?')"  href="{{route('users.destroy',[$user->id])}}" type="button" rel="tooltip" class="btn btn-danger">
+                                <i class="material-icons">close</i>
+                            </a>
                         </td>
-                        <td>
-                            <a onclick="return confirm('Are You Sure to delete the User?')"  href="{{route('users.destroy',[$user->id])}}">Delete</a>
-                        </td>
+
                     </tr>
                      @endforeach
                 </tbody>

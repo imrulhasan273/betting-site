@@ -88,10 +88,12 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        $ClubID = $user->clubOwner[0]->id;
+        $ClubID = $user->clubOwner[0]->id ?? null;
 
-        if ($user->role[0]->name == 'club_admin') {
-            $deleteClub = DB::table('clubs')->where('id', $ClubID)->delete();
+        if ($ClubID != null) {
+            if ($user->role[0]->name == 'club_admin') {
+                $deleteClub = DB::table('clubs')->where('id', $ClubID)->delete();
+            }
         }
 
         $deleteUser = DB::table('users')->where('id', $user->id)->delete();
