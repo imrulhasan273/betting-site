@@ -428,18 +428,21 @@ $active='index';
                     <thead class="text-warning">
                       <th>ID</th>
                       <th>Name</th>
+                      <th>Phone</th>
                       <th>Club</th>
-                      <th>Sponsor</th>
                     </thead>
                     <tbody>
                         @foreach ($dash_users as $key=> $user)
+                        @if($user->role[0]->name=='user');
                       <tr>
-                        <td>1</td>
-                        <td>Bakey</td>
-                        <td>$36,738</td>
-                        <td>Niger</td>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td>Club</td>
                       </tr>
+                        @endif
                         @endforeach
+
                     </tbody>
                   </table>
                 </div>
