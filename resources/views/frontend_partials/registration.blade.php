@@ -21,9 +21,12 @@
         {{-- <input type="number" name="mobileNumber" id="mobileNumber" placeholder="MOBILE NO" class="form-control fojFwL" style="margin-bottom: 10px;" /> --}}
         <input type="email" name="email" id="email" placeholder="EMAIL" class="form-control fojFwL" style="margin-bottom: 10px;" />
 
+        <input type="text" name="user_name" id="username" placeholder="User Name" class="form-control fojFwL" style="margin-bottom: 10px;" />
+
         @php
             $clubs = App\Club::all();
         @endphp
+
         <select name="club" class="form-control fojFwL" id="" name="club">
             <option value="">Select a Club</option>
             @foreach ($clubs ?? '' as $club)
@@ -39,7 +42,7 @@
             @endforeach
         </select> --}}
 
-        <input type="text" name="sponsor" id="sponsor" placeholder="Sponsor Email" class="form-control fojFwL" style="margin-bottom: 10px;" />
+        <input type="text" name="sponsor" id="sponsor" placeholder="Sponsor" class="form-control fojFwL" style="margin-bottom: 10px;" />
 
         <br>
         <input type="text" name="phone" id="phone" placeholder="Phone Number" class="form-control fojFwL" style="margin-bottom: 10px;" />

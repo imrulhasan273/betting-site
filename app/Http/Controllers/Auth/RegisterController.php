@@ -52,12 +52,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validate =  Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'sponsor' => ['required', 'string', 'email', 'max:255', 'exists:users,email'],
+            'user_name' => ['required', 'unique:users'],
+            'sponsor' => ['required', 'exists:users,user_name'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        return $validate;
     }
 
     /**
@@ -68,20 +71,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $REFuser = User::where('email', '=', $data['sponsor'])->first();
+        $REFuser = User::where('user_name', '=', $data['sponsor'])->first();
+
         if ($REFuser === null) {
             // user doesn't exist
             dd('does not exist');
         } else {
-            // dd($REFuser->id);
 
             $role = Role::where('name', 'user')->first();
 
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
+                'user_name' => $data['user_name'],
                 'club_id' => $data['club'],
-                // 'sponsor_id' => $REFuser->id,
                 'phone' => $data['phone'],
                 'password' => Hash::make($data['password']),
                 'remember_token' => Str::random(60),
