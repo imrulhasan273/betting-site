@@ -69,7 +69,11 @@ class backendController extends Controller
             }
         )->count();
 
-        return view('dashboard.index', compact('superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
+        # - - -- - - - - - - -- - - - - - - HERE IS THE USER STATE - -  -- -- - - - - - -- - -
+
+        $dash_users = DB::table('users')->limit(5)->orderBy('id', 'desc')->get();
+
+        return view('dashboard.index', compact('dash_users', 'superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
     }
 
 
@@ -151,9 +155,9 @@ class backendController extends Controller
         return view('dashboard.deposits', compact('deposits'));
     }
 
-    public function userStats()
-    {
-        $dash_users = DB::table('users')->limit(5)->orderBy('id', 'desc')->get();
-        return view('dashboard.index', compact('dash_users'));
-    }
+    // public function userStats()
+    // {
+    //     $dash_users = DB::table('users')->limit(5)->orderBy('id', 'desc')->get();
+    //     return view('dashboard.index', compact('dash_users'));
+    // }
 }

@@ -432,14 +432,14 @@ $active='index';
                       <th>Sponsor</th>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($dash_users as $key=> $user) --}}
+                        @foreach ($dash_users as $key=> $user)
                       <tr>
                         <td>1</td>
                         <td>Bakey</td>
                         <td>$36,738</td>
                         <td>Niger</td>
                       </tr>
-                    {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                   </table>
                 </div>

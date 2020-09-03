@@ -80,7 +80,6 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/roles', 'backendController@roles')->name('admin.roles')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/clubs', 'backendController@clubs')->name('admin.clubs')->middleware(['roleChecker:super_admin,admin,club_admin']);
 
-
     Route::get('/games', 'backendController@games')->name('admin.games')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/fgames', 'backendController@fgames')->name('admin.fgames')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/bets', 'backendController@bets')->name('admin.bets')->middleware(['roleChecker:super_admin,admin,null']);
@@ -90,7 +89,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/payment-options', 'backendController@PaymentOption')->name('admin.paymentOption')->middleware(['roleChecker:super_admin,admin,null']);
 
     Route::get('/deposits-user', 'backendController@UserDeposit')->name('admin.user.deposit')->middleware(['roleChecker:super_admin,admin,null']);
-    Route::get('/stats-user', 'backendController@userStats')->name('admin.user.stats')->middleware(['roleChecker:super_admin,admin,null']);
+    // Route::get('/stats-user', 'backendController@userStats')->name('admin.user.stats')->middleware(['roleChecker:super_admin,admin,null']);
 
     # END BACKEND CONTROLLER
 
