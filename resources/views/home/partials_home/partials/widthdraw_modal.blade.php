@@ -14,9 +14,9 @@
                 <div class="">
                     <div role="form" class="register-form">
                         <img src="frontend/img/loader.gif" style="width:60px;" id="widthdraw_load">
-                        <div id="errorDeposit" class="alert" role="alert">
+                        <div id="errorWidthdraw" class="alert" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                            ×</button> <strong id="alertDeposit"> </strong><span id="signuperrorText"></span>
+                            ×</button> <strong id="alertWidthdraw"> </strong><span id="signuperrorText"></span>
                         </div>
 
                         <div class="row">
@@ -48,7 +48,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <label style="text-align: left;width: 100%;">To <span style="color:#DD4F43;"></span></label>
-                                    <input type="text" name="Wto" id="Wto" class="form-control input-lg" placeholder="Amount" tabindex="1">
+                                    <input type="text" name="Wto" id="Wto" class="form-control input-lg" placeholder="Sent To" tabindex="1">
                                     </select>
                                 </div>
                             </div>

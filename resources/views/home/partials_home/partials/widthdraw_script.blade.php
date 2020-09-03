@@ -35,28 +35,41 @@
 
                 if (data == 'insert') {
                 $('#widthdraw_load').hide();
-                $('#errorDeposit').show();
-                $('#errorDeposit').removeClass('alert-success');
-                $('#errorDeposit').removeClass('alert-danger');
-                $('#errorDeposit').addClass('alert-success');
-                $('#alertDeposit').html("deposit request succesful");
+
+                $('#errorWidthdraw').show();
+                $('#errorWidthdraw').removeClass('alert-success');
+                $('#errorWidthdraw').removeClass('alert-danger');
+                $('#errorWidthdraw').addClass('alert-success');
+                $('#alertWidthdraw').html("Widthdraw request succesful");
                 setTimeout(function() {
-                    $("#errorDeposit").hide();
+                    $("#errorWidthdraw").hide();
                     location.reload();
                 }, 2000);
 
                 } else if (data == 'failed') {
                 $('#widthdraw_load').hide();
-                $('#errorDeposit').show();
-                $('#errorDeposit').removeClass('alert-success');
-                $('#errorDeposit').removeClass('alert-danger');
-                $('#errorDeposit').addClass('alert-danger');
-                $('#alertDeposit').html(data);
+                $('#errorWidthdraw').show();
+                $('#errorWidthdraw').removeClass('alert-success');
+                $('#errorWidthdraw').removeClass('alert-danger');
+                $('#errorWidthdraw').addClass('alert-danger');
+                $('#alertWidthdraw').html('Widthdraw Request Failed');
                 setTimeout(function() {
-                    $("#errorDeposit").hide();
+                    $("#errorWidthdraw").hide();
                 }, 2000);
                 WidthdrawClick = 0;
 
+                }
+                else if (data == 'Insufficient Balance') {
+                $('#widthdraw_load').hide();
+                $('#errorWidthdraw').show();
+                $('#errorWidthdraw').removeClass('alert-success');
+                $('#errorWidthdraw').removeClass('alert-danger');
+                $('#errorWidthdraw').addClass('alert-danger');
+                $('#alertWidthdraw').html(data);
+                setTimeout(function() {
+                    $("#errorWidthdraw").hide();
+                }, 2000);
+                WidthdrawClick = 0;
                 }
             }
             });

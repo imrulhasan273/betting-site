@@ -33,7 +33,6 @@ class backendController extends Controller
         //     }
         // )->get();
 
-
         # SUPER ADMIN FOR ACC BALANCE
         $superAdmin = User::whereHas(
             'role',
@@ -154,10 +153,4 @@ class backendController extends Controller
         $deposits = Deposit::all();
         return view('dashboard.deposits', compact('deposits'));
     }
-
-    // public function userStats()
-    // {
-    //     $dash_users = DB::table('users')->limit(5)->orderBy('id', 'desc')->get();
-    //     return view('dashboard.index', compact('dash_users'));
-    // }
 }
