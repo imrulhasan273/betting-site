@@ -103,11 +103,19 @@ $active='bets';
                         <td>
                             {{$bet->status}}
                         </td>
+                        @if($bet->status != 'winner' && $bet->status != 'looser')
                         <td class="td-actions text-center">
                             <a href="{{ route('admin.bets.status',[$bet->id,0]) }}" type="button" rel="tooltip" class="btn btn-danger">
                               <i class="material-icons">cancel_schedule_send</i>Cancel
                             </a>
                         </td>
+                        @else
+                        <td class="td-actions text-center">
+                            <a type="button" rel="tooltip" class="btn btn-danger">
+                              <i class="material-icons">cancel_schedule_send</i>Cancel
+                            </a>
+                        </td>
+                        @endif
                     </tr>
                 </tbody>
               @endforeach

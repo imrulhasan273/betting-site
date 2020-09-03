@@ -39,7 +39,14 @@ $active='index';
                         <i class="material-icons">store</i>
                     </div>
                     <p class="card-category">Account Balance</p>
-                    <h3 class="card-title">BDT. {{ $superAdmin->credits }}</h3>
+                    @if( $superAdmin->credits<0)
+                    @php
+                        $due = -$superAdmin->credits;
+                    @endphp
+                    <h4 class="card-title">DUE. {{ $due }}</h4>
+                    @else
+                    <h4 class="card-title">BDT. {{ $superAdmin->credits }}</h4>
+                    @endif
                 </div>
                 <div class="card-footer">
                     <a href="{{ route('index.acc.edit') }}" type="button" rel="tooltip" class="btn btn-success">

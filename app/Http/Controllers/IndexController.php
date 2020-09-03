@@ -28,7 +28,8 @@ class IndexController extends Controller
 
         $request->validate([
             'credits' => 'numeric',
-            'passwordV' => 'required'
+            'passwordV' => 'required',
+            'deposits' => 'required',
         ]);
 
         $checkPassValid = Hash::check($request->passwordV, $request->password);
@@ -39,7 +40,7 @@ class IndexController extends Controller
             $updateSITEbalance = User::where('id', $request->id)->first();
             if ($updateSITEbalance) {
                 $updateSITEbalance->update([
-                    'credits' => $request->credits,
+                    'credits' => $request->credits + $request->deposits,
                 ]);
             }
         }

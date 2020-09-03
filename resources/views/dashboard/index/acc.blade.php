@@ -36,21 +36,28 @@ $active='index';
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Balance</label>
-                        <input name="credits" value="{{ $superAdmin->credits }}" type="text" class="form-control">
+                        <input name="credits" value="{{ $superAdmin->credits }}" type="text" class="form-control" readonly>
                     </div>
                 </div>
 
-                <div class="col-md-6" hidden>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Deposit Amount</label>
+                        <input name="deposits" value="" type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-4" hidden>
                     <div class="form-group">
                         <label class="bmd-label-floating">Original Password</label>
                         <input name="password" value="{{ $superAdmin->password }}" type="password" class="form-control">
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Super Admin Password to Confirm</label>
                         <input name="passwordV" value="" type="password" class="form-control">

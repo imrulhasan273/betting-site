@@ -25,7 +25,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 
         <div class="card-body">
           <div class="table-responsive">
-<table id="datatable" class="table table-striped table-bordered" style="width:100%">
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%">
               <thead class="">
                 <tr>
                 <th>Sl.</th>
