@@ -70,7 +70,7 @@ class backendController extends Controller
 
         # - - -- - - - - - - -- - - - - - - HERE IS THE USER STATE - -  -- -- - - - - - -- - -
 
-        $dash_users = DB::table('users')->limit(5)->orderBy('id', 'desc')->get();
+        $dash_users = User::limit(5)->orderBy('id', 'desc')->get();
 
         return view('dashboard.index', compact('dash_users', 'superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
     }

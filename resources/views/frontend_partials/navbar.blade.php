@@ -39,7 +39,12 @@
                     padding: 2px 10px;
                     border-radius: 45px;">ট
                 </span>
-                <span id="tbalance" style="display: none;"> 0 </span>
+                @php
+                    $userId = Auth::user()->id;
+                    $CurrentCredits = App\User::where('id', $userId)->pluck('credits');
+                    $CurrentCredits = $CurrentCredits[0];
+                @endphp
+                <span id="tbalance" style="display: none;"> {{$CurrentCredits ?? 0}} </span>
                 <span id="tbalance2" style=""> Tap for balance</span>
             </p>
         </div>

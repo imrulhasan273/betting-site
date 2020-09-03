@@ -434,12 +434,16 @@ $active='index';
                     <tbody>
                         @foreach ($dash_users as $key=> $user)
                         @if($user->role[0]->name=='user');
-                      <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->phone }}</td>
-                        <td>Club</td>
-                      </tr>
+                        @php
+                            $clubName = App\Club::where('id', $user->club_id)->pluck('name');
+                            $clubName = $clubName[0];
+                        @endphp
+                            <tr>
+                                <td>{{ ++$key }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $clubName }}</td>
+                            </tr>
                         @endif
                         @endforeach
 
