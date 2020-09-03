@@ -90,6 +90,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/payment-options', 'backendController@PaymentOption')->name('admin.paymentOption')->middleware(['roleChecker:super_admin,admin,null']);
 
     Route::get('/deposits-user', 'backendController@UserDeposit')->name('admin.user.deposit')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::get('/stats-user', 'backendController@userStats')->name('admin.user.stats')->middleware(['roleChecker:super_admin,admin,null']);
 
     # END BACKEND CONTROLLER
 

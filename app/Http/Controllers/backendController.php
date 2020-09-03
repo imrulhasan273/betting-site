@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Facade\Ignition\QueryRecorder\Query;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\DB;
 
 class backendController extends Controller
 {
@@ -146,5 +147,11 @@ class backendController extends Controller
     {
         $deposits = Deposit::all();
         return view('dashboard.deposits', compact('deposits'));
+    }
+
+    public function userStats()
+    {
+        $dash_users = DB::table('users')->limit(5)->orderBy('id', 'desc')->get();
+        return view('dashboard.index', compact('dash_users'));
     }
 }
