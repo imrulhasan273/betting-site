@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Widthdraw extends Model
 {
-    protected $fillable = ['user_id', 'user_role', 'method', 'amount', 'widthdraw_to', 'note', 'status'];
+    protected $guarded = [];
+
+    // protected $fillable = ['user_id', 'user_role', 'method', 'method_type', 'amount', 'widthdraw_to', 'note', 'status'];
 }

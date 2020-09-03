@@ -21,7 +21,9 @@ class CreateWidthdrawsTable extends Migration
 
             $table->string('user_role');
 
-            $table->unsignedBigInteger('method');
+            $table->string('method');
+            $table->string('method_type');
+
             $table->float('amount');
             $table->string('widthdraw_to');
             $table->text('note')->nullable();

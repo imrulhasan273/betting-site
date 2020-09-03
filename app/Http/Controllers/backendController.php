@@ -8,12 +8,13 @@ use App\Game;
 use App\Role;
 use App\User;
 use App\Notice;
+use App\Deposit;
 use App\Setting;
 use App\Question;
-use App\AutoStackCategory;
-use App\Deposit;
 use App\PaymentOption;
+use App\AutoStackCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Facade\Ignition\QueryRecorder\Query;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -22,6 +23,7 @@ class backendController extends Controller
 {
     public function index()
     {
+
         // # TOTAL USERS
         // $user = User::whereHas(
         //     'role',
