@@ -65,7 +65,7 @@
             @endif
             <a class="nav-link" href="{{ route('admin.users') }}">
                 <i class="material-icons">people</i>
-                <p>User</p>
+                <p>Users</p>
             </a>
             </li>
             {{-- @endif --}}
@@ -79,7 +79,7 @@
                 <li class="nav-item ">
             @endif
             <a class="nav-link" data-toggle="collapse" href="#clb">
-            <i class="material-icons">people</i>
+            <i class="material-icons">store</i>
             <p> Club
                 <b class="caret"></b>
             </p>
@@ -93,7 +93,7 @@
                     <li class="nav-item ">
                         @endif
                         <a class="nav-link" href="{{ route('admin.clubs') }}">
-                            <i class="material-icons">people</i>
+                            <i class="material-icons">person_pin</i>
                             <p>Club List</p>
                         </a>
                     </li>
@@ -125,7 +125,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.roles') }}">
-                <i class="material-icons">psychology</i>
+                <i class="material-icons">admin_panel_settings</i>
                 <p>Role</p>
             </a>
             </li>
@@ -138,7 +138,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.games') }}">
-                <i class="material-icons">psychology</i>
+                <i class="material-icons">sports_esports</i>
                 <p>Game List</p>
             </a>
             </li>
@@ -151,7 +151,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.fgames') }}">
-                <i class="material-icons">psychology</i>
+                <i class="material-icons">sports</i>
                 <p>Finished Game List</p>
             </a>
             </li>
@@ -164,7 +164,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.bets') }}">
-                <i class="material-icons">psychology</i>
+                <i class="material-icons">local_atm</i>
                 <p>Game Bet List</p>
             </a>
             </li>
@@ -177,20 +177,13 @@
                 <li>
             @endif
             <a class="nav-link" href="{{route('admin.AutoStackCats')}}">
-                <i class="material-icons">psychology</i>
+                <i class="material-icons">backup_table</i>
                 <p>Auto Stack Management</p>
             </a>
             </li>
             <!-- END AUTO STACK LIST --->
 
             <!-- ROLE PANEL-->
-            <li class="nav-item ">
-                <a class="nav-link" href="./notifications.html">
-                    <i class="material-icons">notifications</i>
-                    <p>Notifications</p>
-                </a>
-            </li>
-
 
                 <!-- Start Dropdown Message Panel -->
                 @if($active=='sent_message' || $active=='message')
@@ -199,7 +192,7 @@
                     <li class="nav-item ">
                 @endif
                 <a class="nav-link" data-toggle="collapse" href="#msg">
-                  <i class="material-icons">message</i>
+                  <i class="material-icons">textsms</i>
                   <p> Message
                     <b class="caret"></b>
                   </p>
@@ -270,8 +263,8 @@
                             <li>
                         @endif
                         <a class="nav-link" href="{{ route('webmessage.admin.index') }}">
-                            <i class="material-icons">send</i>
-                            <p>Received User Messages</p>
+                            <i class="material-icons">reply_all</i>
+                            <p>Inbox (User)</p>
                         </a>
                         </li>
                             </li>
@@ -282,7 +275,7 @@
                             <li>
                         @endif
                         <a class="nav-link" href="{{ route('webmessage.admin.club.index') }}">
-                            <i class="material-icons">club</i>
+                            <i class="material-icons">local_post_office</i>
                             <p>Received Club Messages</p>
                         </a>
                         </li>
@@ -296,7 +289,7 @@
                             <li>
                         @endif
                         <a class="nav-link" href="{{ route('webmessage.admin.view') }}">
-                            <i class="material-icons">receive</i>
+                            <i class="material-icons">analytics</i>
                             <p>Sent Messages</p>
                         </a>
                         </li>
@@ -320,7 +313,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.paymentOption') }}">
-                <i class="material-icons">people</i>
+                <i class="material-icons">payment</i>
                 <p>Payment Option</p>
             </a>
             </li>
@@ -335,7 +328,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.user.deposit') }}">
-                <i class="material-icons">people</i>
+                <i class="material-icons">account_balance</i>
                 <p>Deposit</p>
             </a>
             </li>
@@ -375,7 +368,7 @@
                 <li class="nav-item ">
             @endif
             <a class="nav-link" href="{{ route('webmessage.club.index') }}">
-                <i class="material-icons">message</i>
+                <i class="material-icons">local_police</i>
                 <p>Club Message</p>
             </a>
             </li>
