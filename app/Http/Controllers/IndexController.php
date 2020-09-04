@@ -19,7 +19,7 @@ class IndexController extends Controller
         )->get();
         $superAdmin = $superAdmin[0];
 
-        return view('dashboard\index\acc', compact('superAdmin'));
+        return view('dashboard.index.acc', compact('superAdmin'));
     }
 
     # SITE BALANCE |
