@@ -18,9 +18,10 @@ $active='fgames';
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="datatable" style="width:100%">
               <thead class="">
-                <th class="td-actions text-center">
+                <tr>
+                    <th class="td-actions text-center">
                     ID
                 </th>
                 <th class="td-actions text-center">
@@ -47,9 +48,11 @@ $active='fgames';
                 <th class="td-actions text-center">
                     Action
                 </th>
+                </tr>
               </thead>
-              @foreach ($games as $game)
+
                 <tbody>
+                    @foreach ($games as $game)
                     @if($game->status=='finished')
 
                     @if ($game->status=='hidden')
@@ -93,8 +96,8 @@ $active='fgames';
                     </tr>
 
                     @endif
+                    @endforeach
                 </tbody>
-              @endforeach
             </table>
           </div>
         </div>

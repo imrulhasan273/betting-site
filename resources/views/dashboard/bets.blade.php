@@ -20,9 +20,10 @@ $active='bets';
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="datatable" style="width:100%">
               <thead class="">
-                <th>
+                <tr>
+                    <th>
                     Bet By
                 </th>
                 <th>
@@ -58,9 +59,10 @@ $active='bets';
                 <th>
                     Action
                 </th>
+                </tr>
               </thead>
-              @foreach ($bets as $bet)
                 <tbody>
+                    @foreach ($bets as $bet)
                     @if ($bet->status=='cancelled')
                     <tr style="background: rgb(221, 40, 67);color:white">
                     @elseif($bet->status=='win')
@@ -117,8 +119,8 @@ $active='bets';
                         </td>
                         @endif
                     </tr>
+                    @endforeach
                 </tbody>
-              @endforeach
             </table>
           </div>
         </div>
