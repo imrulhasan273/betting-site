@@ -70,7 +70,8 @@ class WidthdrawController extends Controller
 
     public function statusChangeByUser(Widthdraw $widthdraw, $code)
     {
-        $flag = Widthdraw::where('id', $widthdraw->user_id)->pluck('status');
+        $flag = Widthdraw::where('id', $widthdraw->id)->pluck('status');
+        $flag = $flag[0];
 
         if ($flag == 'paid') {
             return back()->with('error', 'Already Paid');
