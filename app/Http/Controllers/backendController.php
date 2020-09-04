@@ -9,17 +9,18 @@ use App\Role;
 use App\User;
 use App\Notice;
 use App\Deposit;
+use App\Session;
 use App\Setting;
 use App\Question;
+use App\Widthdraw;
 use App\PaymentOption;
 use App\AutoStackCategory;
-use App\Widthdraw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Facade\Ignition\QueryRecorder\Query;
 use Intervention\Image\ImageManagerStatic as Image;
-use Illuminate\Support\Facades\DB;
 
 class backendController extends Controller
 {
@@ -163,5 +164,11 @@ class backendController extends Controller
     {
         $widthdraws = Widthdraw::where('user_role', 'user')->get();
         return view('dashboard.Uwidthdraws', compact('widthdraws'));
+    }
+
+    public function session()
+    {
+        $sessions = Session::all();
+        return view('dashboard.sessions', compact('sessions'));
     }
 }

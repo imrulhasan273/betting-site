@@ -91,6 +91,8 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/deposits-user', 'backendController@UserDeposit')->name('admin.user.deposit')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/widthdraw-user', 'backendController@UserWidthdraw')->name('admin.user.widthdraw')->middleware(['roleChecker:super_admin,admin,null']);
 
+    Route::get('/session', 'backendController@session')->name('admin.session')->middleware(['roleChecker:super_admin,admin,null']);
+
     # END BACKEND CONTROLLER
 
     #===================================================================================================

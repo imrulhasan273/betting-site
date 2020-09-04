@@ -71,6 +71,21 @@
             {{-- @endif --}}
             <!--- USER PANEL --->
 
+            <!-- SESSION PANEL -->
+            {{-- @if($role == 'super_admin') --}}
+            @if($active=='session')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.session') }}">
+                <i class="material-icons">people</i>
+                <p>Session</p>
+            </a>
+            </li>
+            {{-- @endif --}}
+            <!--- SESSION PANEL --->
+
 
             <!-- Start Dropdown Club Panel -->
             @if($active=='clubs' || $active=='clubsWidth')
