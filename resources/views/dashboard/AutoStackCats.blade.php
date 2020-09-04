@@ -22,9 +22,10 @@ $active='autoStack';
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="datatable" style="width:100%">
               <thead class="">
-                <th class="td-actions text-center">
+              <tr>
+                    <th class="td-actions text-center">
                     ID
                 </th>
                 <th class="td-actions text-center">
@@ -36,9 +37,10 @@ $active='autoStack';
                 <th class="td-actions text-center">
                     Action
                 </th>
+              </tr>
               </thead>
-              @foreach ($AutoStackCats as $AutoStackCat)
                 <tbody>
+                     @foreach ($AutoStackCats as $AutoStackCat)
                     <tr style="background: rgb(178, 206, 233); color:rgb(0, 0, 0)">
                         <td class="td-actions text-center">
                             {{$AutoStackCat->id}}
@@ -60,8 +62,8 @@ $active='autoStack';
                             </a>
                         </td>
                     </tr>
+                     @endforeach
                 </tbody>
-              @endforeach
             </table>
           </div>
         </div>

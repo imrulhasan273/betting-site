@@ -14,14 +14,15 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
       <div class="card card-plain">
         <div class="card-header card-header-primary">
           <h4 class="card-title mt-0">Widthdraws | USER</h4>
-          <p class="card-category">Users with clubs</p>
+          <p class="card-category">Users Withdraw Requests</p>
         </div>
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="datatable" style="width:100%">
               <thead class="">
-                <th>
+                <tr>
+                    <th>
                     ID
                 </th>
                 <th>
@@ -48,9 +49,11 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 <th>
                     Action
                 </th>
+                </tr>
               </thead>
-              @foreach ($widthdraws as $widthdraw)
+
                 <tbody>
+                     @foreach ($widthdraws as $widthdraw)
                     <tr>
                         <td>
                             {{$widthdraw->id}}
@@ -92,8 +95,8 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
-              @endforeach
             </table>
           </div>
         </div>
