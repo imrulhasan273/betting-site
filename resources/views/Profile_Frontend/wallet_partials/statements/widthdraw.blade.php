@@ -1,5 +1,6 @@
 @php
-    $widthdraws = App\Widthdraw::where('user_role', 'user')->get();
+    $widthdraws = App\Widthdraw::where('user_role', 'user')
+                                ->where('user_id', Auth::user()->id)->get();
 @endphp
 <div class="bhoechie-tab-content">
     <center>

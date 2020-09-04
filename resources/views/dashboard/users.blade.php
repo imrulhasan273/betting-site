@@ -66,6 +66,11 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             <a href="{{route('users.edit',[$user->id])}}" type="button" rel="tooltip" class="btn btn-success">
                                 <i class="material-icons">edit</i>
                             </a>
+
+                            <a href="{{route('users.pass.edit',[$user->id])}}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">edit</i>Password
+                            </a>
+
                             <a onclick="return confirm('Are You Sure to delete the User?')"  href="{{route('users.destroy',[$user->id])}}" type="button" rel="tooltip" class="btn btn-danger">
                                 <i class="material-icons">close</i>
                             </a>

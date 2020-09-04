@@ -45,6 +45,35 @@ class UserController extends Controller
 
         return Redirect::route('admin.users')->with('error', 'User is not Added!');
     }
+    public function PassEdit(User $user)
+    {
+        return view('dashboard.users.password.edit', compact('user'));
+    }
+
+    public function PassUpdate(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+        ]);
+
+        $updatingUser = User::where('id', $request->id)->first();
+        if ($updatingUser) {
+            $updatingUser->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'User Password is not Updated!';
+        if ($updatingUser) {
+            $msg1 = 'message';
+            $msg2 = 'User Password is Updated!';
+        }
+
+        return Redirect::route('admin.users')->with($msg1, $msg2);
+    }
+
     public function edit(User $user)
     {
         $roles = Role::all();
