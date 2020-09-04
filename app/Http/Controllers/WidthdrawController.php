@@ -92,15 +92,31 @@ class WidthdrawController extends Controller
         }
 
         if ($state == 'paid') {
-            $PrevAmount = User::where('id', $widthdraw->user_id)->pluck('credits');
+            $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+            $LockCredits = $LockCredits[0];
+
             $updatingUserAccount = User::where('id', $widthdraw->user_id)->first();
             if ($updatingUserAccount) {
                 $updatingUserAccount->update([
-                    'credits' => $PrevAmount[0] + $widthdraw->amount
+                    'lock_credits' => $LockCredits - $widthdraw->amount
+                ]);
+            }
+        } else if ($state == 'cancel') {
+
+            $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');
+            $Credits = $Credits[0];
+
+            $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+            $LockCredits = $LockCredits[0];
+
+            $updatingUserAccount = User::where('id', $widthdraw->user_id)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'lock_credits' => $LockCredits - $widthdraw->amount,
+                    'credits' => $Credits + $widthdraw->amount
                 ]);
             }
         }
-
 
         $updatingDeposit = Widthdraw::where('id', $widthdraw->id)->first();
         if ($updatingDeposit) {

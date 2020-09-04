@@ -29,9 +29,6 @@ class CreateDepositsTable extends Migration
             $table->string('transection_id');
             $table->text('note');
             $table->string('status');
-
-            $table->string('flag')->nullable();
-
             $table->timestamps();
         });
     }
