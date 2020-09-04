@@ -25,7 +25,13 @@ $active='session';
                     ID
                 </th>
                 <th>
-                    User ID
+                    Role
+                </th>
+                <th>
+                    User Name
+                </th>
+                <th>
+                    Email
                 </th>
                 <th>
                     IP Address
@@ -38,13 +44,23 @@ $active='session';
                 </th>
               </thead>
               @foreach ($sessions as $session)
+              @php
+                $user = App\User::where('id',$session->user_id)->first();
+                $msgROLE = $user->role[0]->display_name;
+              @endphp
                 <tbody>
                     <tr style="background: rgb(186, 46, 241);color:white">
                         <td>
                             {{$session->id}}
                         </td>
                         <td>
-                            {{$session->user_id}}
+                            {{ $msgROLE }}
+                        </td>
+                        <td>
+                            {{$user->user_name}}
+                        </td>
+                        <td>
+                            {{$user->email}}
                         </td>
                         <td>
                             {{$session->ip}}

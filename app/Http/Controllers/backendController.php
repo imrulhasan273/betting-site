@@ -166,9 +166,13 @@ class backendController extends Controller
         return view('dashboard.Uwidthdraws', compact('widthdraws'));
     }
 
-    public function session()
+
+    # __________________ START SESSION FUNCTION ____________________________
+    public function session(Request $request)
     {
         $sessions = Session::all();
         return view('dashboard.sessions', compact('sessions'));
     }
+    # __________________ END SESSION FUNCTION ____________________________
+
 }
