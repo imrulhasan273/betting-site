@@ -329,11 +329,26 @@
             @endif
             <a class="nav-link" href="{{ route('admin.user.deposit') }}">
                 <i class="material-icons">account_balance</i>
-                <p>Deposit</p>
+                <p>User Deposit</p>
             </a>
             </li>
             {{-- @endif --}}
             <!---END DEPOSIT PANEL --->
+
+            <!-- START WIDTHDRAWS PANEL -->
+            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if($active=='Uwidthdraws')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.user.widthdraw') }}">
+                <i class="material-icons">account_balance</i>
+                <p>User Widthdraws</p>
+            </a>
+            </li>
+            {{-- @endif --}}
+            <!---END WIDTHDRAWS PANEL --->
 
             <!-- Start Notice Panel -->
             @if($active=='notice')

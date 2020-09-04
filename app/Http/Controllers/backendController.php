@@ -13,6 +13,7 @@ use App\Setting;
 use App\Question;
 use App\PaymentOption;
 use App\AutoStackCategory;
+use App\Widthdraw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -152,5 +153,11 @@ class backendController extends Controller
     {
         $deposits = Deposit::all();
         return view('dashboard.deposits', compact('deposits'));
+    }
+
+    public function UserWidthdraw()
+    {
+        $widthdraws = Widthdraw::where('user_role', 'user')->get();
+        return view('dashboard.Uwidthdraws', compact('widthdraws'));
     }
 }
