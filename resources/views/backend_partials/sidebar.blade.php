@@ -79,7 +79,7 @@
                 <li>
             @endif
             <a class="nav-link" href="{{ route('admin.session') }}">
-                <i class="material-icons">people</i>
+                <i class="material-icons">vpn_key</i>
                 <p>Session</p>
             </a>
             </li>

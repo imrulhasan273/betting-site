@@ -19,8 +19,9 @@ $active='session';
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover-striped" id="datatable" style="width: 100%">
               <thead class="">
+            <tr>
                 <th>
                     ID
                 </th>
@@ -42,13 +43,14 @@ $active='session';
                 <th class="td-actions text-center">
                     Action
                 </th>
+            </tr>
               </thead>
+                <tbody>
               @foreach ($sessions as $session)
               @php
                 $user = App\User::where('id',$session->user_id)->first();
                 $msgROLE = $user->role[0]->display_name;
               @endphp
-                <tbody>
                     <tr style="background: rgb(186, 46, 241);color:white">
                         <td>
                             {{$session->id}}
@@ -74,8 +76,8 @@ $active='session';
                             </a>
                         </td>
                     </tr>
+                     @endforeach
                 </tbody>
-              @endforeach
             </table>
           </div>
         </div>
