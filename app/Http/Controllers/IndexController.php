@@ -27,9 +27,8 @@ class IndexController extends Controller
     {
 
         $request->validate([
-            'credits' => 'numeric',
             'passwordV' => 'required',
-            'deposits' => 'required',
+            'deposits' => 'numeric|required',
         ]);
 
         $checkPassValid = Hash::check($request->passwordV, $request->password);
