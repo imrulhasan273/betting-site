@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AnswersTableSeeder::class);
 
         // $this->call(DepositSeeder::class);
+
+        $this->call(CommissionSeeder::class);
     }
 }

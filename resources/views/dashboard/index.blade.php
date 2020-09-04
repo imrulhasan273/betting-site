@@ -154,15 +154,27 @@ $active='index';
                 </div>
               </div>
             </div>
+
             <div class="col-md-4">
               <div class="card card-chart">
                 <div class="card-header card-header-danger">
                   <div class="ct-chart" id="completedTasksChart"></div>
                 </div>
+
                 <div class="card-body">
-                  <h4 class="card-title">Completed Tasks</h4>
-                  <p class="card-category">Last Campaign Performance</p>
+                    <form method="POST" action="{{route('sponsor.commission.update')}}">
+                    @csrf
+                        <h4 class="card-title">Sponsor Commission</h4>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Commission (%)</label>
+                                <input name="commission" value="{{ $commission }}" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <button name="submit" type="submit" class="btn btn-success pull-right">Update</button>
+                    </form>
                 </div>
+
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons">access_time</i> campaign sent 2 days ago

@@ -110,6 +110,8 @@ route::group(['prefix' => 'admin'], function () {
     # ------END INDEX CONTROLLER
 
 
+
+
     # -- START PAYMENT CONTROLLER --
     Route::get('/payments-option/create', 'PaymentOptionController@create')->name('payments-option.create')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/payments-option/store', 'PaymentOptionController@store')->name('payments-option.store')->middleware(['roleChecker:super_admin,admin,null']);
@@ -127,6 +129,8 @@ route::group(['prefix' => 'admin'], function () {
     # -- -- -- - -- - - -
     Route::get('/users-password/{user}/edit', 'UserController@PassEdit')->name('users.pass.edit')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/users-password/update', 'UserController@PassUpdate')->name('users.pass.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    # SPONSOR COMMISSION
+    Route::post('/sponsor-commission/update', 'UserController@SponsorCommission')->name('sponsor.commission.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
     # --END USER CONTROLLERS
 
 

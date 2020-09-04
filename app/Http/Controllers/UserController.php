@@ -131,4 +131,19 @@ class UserController extends Controller
             return back()->with('message', 'User Deleted!');
         }
     }
+
+    public function SponsorCommission(Request $request)
+    {
+        $commission = DB::table('sponsor_commission')->first();
+
+        $UpdateCommission = DB::table('sponsor_commission')->where('id', $commission->id)
+            ->update([
+                'commission' => $request->commission,
+            ]);
+
+        if ($UpdateCommission) {
+            return back()->with('message', 'Sponsor Commission Updated');
+        }
+        return back()->with('error', 'Sponsor Commission Updated Unsuccessfull');
+    }
 }

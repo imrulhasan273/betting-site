@@ -64,17 +64,6 @@ class UserSeeder extends Seeder
         $user->role()->attach($role->id);
         $user->clubOwner()->attach($club->id);    //added
 
-        // #Sponsor Seeder
-        // $role = Role::where('name', 'sponsor_admin')->first();
-        // $user = User::create([
-        //     'name' => 'Sponsor Admin',
-        //     'user_name' => 'sponsoradmin',
-        //     'email' => 'sponsor@gmail.com',
-        //     'password' => Hash::make('0000000000sponsor'),
-        //     'remember_token' => Str::random(60),
-        // ]);
-        // $user->role()->attach($role->id);
-
 
         ## Added a club id to the users
         #Normal User Seeder

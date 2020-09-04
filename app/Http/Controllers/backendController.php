@@ -73,7 +73,11 @@ class backendController extends Controller
 
         $dash_users = User::limit(5)->orderBy('id', 'desc')->get();
 
-        return view('dashboard.index', compact('dash_users', 'superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
+        # SPONSORS COMMMISSION FEE
+        $commission = DB::table('sponsor_commission')->first();
+        $commission = $commission->commission ?? null;
+
+        return view('dashboard.index', compact('commission', 'dash_users', 'superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
     }
 
 

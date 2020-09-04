@@ -278,7 +278,12 @@ class AnswerController extends Controller
                 $SPcredits = $SPcredits[0];
 
                 #-- -- COMISSION -- --
-                $percentage = 0.001;
+                # COMMISSION GET FETCH FORM BACKEND
+                $percentage = DB::table('sponsor_commission')->first();
+                $percentage = $percentage->commission ?? null;
+
+                # $percentage = 0.001; //HARD CODING COMMISSION VALUE
+
                 $SPcommission = ($winBet->return_amount * $percentage) / 100;
 
                 $UpdateSponsor = User::where('id', $SponsorID)->first();
