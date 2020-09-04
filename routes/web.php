@@ -100,6 +100,7 @@ route::group(['prefix' => 'admin'], function () {
     #  END DEPOSIT CONTROLLER
 
     # START WIDTHDRAW CONTROLLER
+    Route::get('/widthdraw-By-User/{widthdraw}/{code}', 'WidthdrawController@statusChangeByUser')->name('widthdraws.statusChangeByUser')->middleware('auth'); //added
     Route::get('/widthdraw/{widthdraw}/{code}', 'WidthdrawController@status')->name('widthdraws.status')->middleware(['roleChecker:super_admin,admin,null']); //added
     # END WIDTHDRAW CONTROLLER
 

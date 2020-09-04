@@ -68,6 +68,41 @@ class WidthdrawController extends Controller
     }
 
 
+    public function statusChangeByUser(Widthdraw $widthdraw, $code)
+    {
+        $flag = Widthdraw::where('id', $widthdraw->user_id)->pluck('status');
+
+        if ($flag == 'paid') {
+            return back()->with('error', 'Already Paid');
+        } else if ($flag == 'cancel') {
+            return back()->with('error', 'Already Cancelled');
+        }
+
+        # -- - - --- - - -- - - - -- - -- -- - - --- - - -- -- - -- - - - -
+
+        $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+        if ($updatingWidthdraw) {
+            $updatingWidthdraw->update([
+                'status' => 'cancel'
+            ]);
+        }
+
+        $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');
+        $Credits = $Credits[0];
+
+        $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+        $LockCredits = $LockCredits[0];
+
+        $updatingUserAccount = User::where('id', $widthdraw->user_id)->first();
+        if ($updatingUserAccount) {
+            $updatingUserAccount->update([
+                'lock_credits' => $LockCredits - $widthdraw->amount,
+                'credits' => $Credits + $widthdraw->amount
+            ]);
+        }
+
+        return back();
+    }
 
 
     public function status(Widthdraw $widthdraw, $code)
@@ -118,9 +153,9 @@ class WidthdrawController extends Controller
             }
         }
 
-        $updatingDeposit = Widthdraw::where('id', $widthdraw->id)->first();
-        if ($updatingDeposit) {
-            $updatingDeposit->update([
+        $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+        if ($updatingWidthdraw) {
+            $updatingWidthdraw->update([
                 'status' => $state
             ]);
         }
