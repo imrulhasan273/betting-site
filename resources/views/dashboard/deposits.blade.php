@@ -86,21 +86,30 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$deposit->status}}
                         </td>
                         <td class="td-actions text-center">
-                            @if($deposit->status != 'paid')
+                            @if($deposit->status != 'paid' && $deposit->status != 'cancel')
                             <a href="{{ route('deposits.status',[$deposit->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
                                 <i class="material-icons">done</i>
                             </a>
-                            @else
+                            <a href="{{ route('deposits.status',[$deposit->id,2])}}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">cancel</i>
+                            </a>
+                            @endif
+
+                            @if($deposit->status == 'paid')
                             <a type="button" rel="tooltip" class="btn btn-success">
                                 <i class="material-icons">done</i>
                             </a>
                             @endif
 
-                            @if($deposit->status != 'paid')
+                            @if($deposit->status == 'cancel')
+                            <a type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">cancel</i>
+                            </a>
+                            @endif
+
                             <a onclick="return confirm('This will also delete the User. Delete?')" href="{{ route('deposits.status',[$deposit->id,0])}}" type="button" rel="tooltip" class="btn btn-danger">
                                 <i class="material-icons">close</i>
                             </a>
-                            @endif
                         </td>
                     </tr>
                     @endforeach

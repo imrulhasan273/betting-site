@@ -50,12 +50,23 @@ class DepositController extends Controller
 
     public function status(Deposit $deposit, $code)
     {
+        $flag = Deposit::where('id', $deposit->user_id)->pluck('status');
+
+        if ($flag == 'paid') {
+            return back()->with('error', 'Already Paid');
+        } else if ($flag == 'cancel') {
+            return back()->with('error', 'Already Cancelled');
+        }
+
+        # -- - - --- - - -- - - - -- - -- -- - - --- - - -- -- - -- - - - -
 
         $state = null;
         if ($code == 1) {
             $state = 'paid';
         } else if ($code == 0) {
             $state = 'reject';
+        } else if ($code == 2) {
+            $state = 'cancel';
         }
 
         if ($state == 'paid') {
@@ -82,6 +93,9 @@ class DepositController extends Controller
         if ($code == 1) {
             $msg1 = 'message';
             $msg2 = 'Deposit Request accepted!';
+        } else if ($code == 2) {
+            $msg1 = 'error';
+            $msg2 = 'Deposit Request Cancelled!';
         }
 
         return Redirect::route('admin.user.deposit')->with($msg1, $msg2);

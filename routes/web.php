@@ -89,6 +89,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/payment-options', 'backendController@PaymentOption')->name('admin.paymentOption')->middleware(['roleChecker:super_admin,admin,null']);
 
     Route::get('/deposits-user', 'backendController@UserDeposit')->name('admin.user.deposit')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::get('/widthdraw-user', 'backendController@UserWidthdraw')->name('admin.user.widthdraw')->middleware(['roleChecker:super_admin,admin,null']);
 
     # END BACKEND CONTROLLER
 
@@ -97,6 +98,11 @@ route::group(['prefix' => 'admin'], function () {
     # START DEPOSIT CONTROLLER
     Route::get('/deposits/{deposit}/{code}', 'DepositController@status')->name('deposits.status')->middleware(['roleChecker:super_admin,admin,null']); //added
     #  END DEPOSIT CONTROLLER
+
+    # START WIDTHDRAW CONTROLLER
+    Route::get('/widthdraw-By-User/{widthdraw}/{code}', 'WidthdrawController@statusChangeByUser')->name('widthdraws.statusChangeByUser')->middleware('auth'); //added
+    Route::get('/widthdraw/{widthdraw}/{code}', 'WidthdrawController@status')->name('widthdraws.status')->middleware(['roleChecker:super_admin,admin,null']); //added
+    # END WIDTHDRAW CONTROLLER
 
     # ------START INDEX CONTROLLER
     Route::get('/account-balance/edit', 'IndexController@edit')->name('index.acc.edit')->middleware(['roleChecker:super_admin,admin,null']);

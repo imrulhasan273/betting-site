@@ -7,6 +7,7 @@ use App\Widthdraw;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class WidthdrawController extends Controller
 {
@@ -22,6 +23,9 @@ class WidthdrawController extends Controller
 
         $CurrentCredits = User::where('id', $userId)->pluck('credits');
         $CurrentCredits = $CurrentCredits[0];
+
+        $LockCredits = User::where('id', $userId)->pluck('lock_credits');
+        $LockCredits = $LockCredits[0];
 
         if ($CurrentCredits < $amount) {
             return response()->json('Insufficient Balance');
@@ -43,6 +47,15 @@ class WidthdrawController extends Controller
                 'note' => '',
                 'status' => 'pending'
             ]);
+
+            # MOVE WIDTHDRAW AMOUNT TO LOCK CREDITS
+            $creditsToLockCredits = User::where('id', $userId)->first();
+            if ($creditsToLockCredits) {
+                $creditsToLockCredits->update([
+                    'credits' => $CurrentCredits - $amount,
+                    'lock_credits' => $LockCredits + $amount
+                ]);
+            }
         }
 
         if ($InsertWidthdraw) {
@@ -52,6 +65,113 @@ class WidthdrawController extends Controller
         }
 
         return response()->json($data);
+    }
+
+
+    public function statusChangeByUser(Widthdraw $widthdraw, $code)
+    {
+        $flag = Widthdraw::where('id', $widthdraw->user_id)->pluck('status');
+
+        if ($flag == 'paid') {
+            return back()->with('error', 'Already Paid');
+        } else if ($flag == 'cancel') {
+            return back()->with('error', 'Already Cancelled');
+        }
+
+        # -- - - --- - - -- - - - -- - -- -- - - --- - - -- -- - -- - - - -
+
+        $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+        if ($updatingWidthdraw) {
+            $updatingWidthdraw->update([
+                'status' => 'cancel'
+            ]);
+        }
+
+        $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');
+        $Credits = $Credits[0];
+
+        $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+        $LockCredits = $LockCredits[0];
+
+        $updatingUserAccount = User::where('id', $widthdraw->user_id)->first();
+        if ($updatingUserAccount) {
+            $updatingUserAccount->update([
+                'lock_credits' => $LockCredits - $widthdraw->amount,
+                'credits' => $Credits + $widthdraw->amount
+            ]);
+        }
+
+        return back();
+    }
+
+
+    public function status(Widthdraw $widthdraw, $code)
+    {
+        $flag = Widthdraw::where('id', $widthdraw->user_id)->pluck('status');
+
+        if ($flag == 'paid') {
+            return back()->with('error', 'Already Paid');
+        } else if ($flag == 'cancel') {
+            return back()->with('error', 'Already Cancelled');
+        }
+
+        # -- - - --- - - -- - - - -- - -- -- - - --- - - -- -- - -- - - - -
+
+        $state = null;
+        if ($code == 1) {
+            $state = 'paid';
+        } else if ($code == 0) {
+            $state = 'reject';
+        } else if ($code == 2) {
+            $state = 'cancel';
+        }
+
+        if ($state == 'paid') {
+            $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+            $LockCredits = $LockCredits[0];
+
+            $updatingUserAccount = User::where('id', $widthdraw->user_id)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'lock_credits' => $LockCredits - $widthdraw->amount
+                ]);
+            }
+        } else if ($state == 'cancel') {
+
+            $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');
+            $Credits = $Credits[0];
+
+            $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+            $LockCredits = $LockCredits[0];
+
+            $updatingUserAccount = User::where('id', $widthdraw->user_id)->first();
+            if ($updatingUserAccount) {
+                $updatingUserAccount->update([
+                    'lock_credits' => $LockCredits - $widthdraw->amount,
+                    'credits' => $Credits + $widthdraw->amount
+                ]);
+            }
+        }
+
+        $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+        if ($updatingWidthdraw) {
+            $updatingWidthdraw->update([
+                'status' => $state
+            ]);
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Deposit Request rejected!';
+        if ($code == 1) {
+            $msg1 = 'message';
+            $msg2 = 'Deposit Request accepted!';
+        } else if ($code == 2) {
+            $msg1 = 'error';
+            $msg2 = 'Deposit Request Cancelled!';
+        }
+
+        return back()->with($msg1, $msg2);
     }
     /**
      * Display a listing of the resource.
