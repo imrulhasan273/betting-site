@@ -19,9 +19,10 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%">
               <thead class="">
-                <th>
+                <tr>
+                    <th>
                     ID
                 </th>
                 <th>
@@ -51,9 +52,11 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 <th>
                     Action
                 </th>
+            </tr>
               </thead>
-              @foreach ($deposits as $deposit)
+
                 <tbody>
+                    @foreach ($deposits as $deposit)
                     <tr>
                         <td>
                             {{$deposit->id}}
@@ -100,8 +103,9 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             @endif
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
-              @endforeach
+
             </table>
           </div>
         </div>
