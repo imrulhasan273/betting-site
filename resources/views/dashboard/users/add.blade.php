@@ -43,7 +43,9 @@ $active='users';
                     </div>
                 </div>
 
-                <div class="col-md-4">
+
+
+                {{-- <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Role</label>
                         <select name="role_id" class="form-control">
@@ -52,16 +54,32 @@ $active='users';
                             @endforeach
                         </select>
                     </div>
+                </div> --}}
+
+                <div class="col-lg-3 col-md-6 col-sm-3">
+                    <label class="bmd-label-floating">Role</label>
+                    <select name="role_id" class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Role">
+                    @foreach ($roles as $role)
+                        <option value="{{$role->id}}">{{$role->name}}</option>
+                    @endforeach
+                    </select>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">User Name</label>
+                        <input name="user_name" value="" type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Password</label>
                         <input name="password" value="" type="text" class="form-control">
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Re-Password</label>
                         <input name="passwordConfirm" value="" type="text" class="form-control">

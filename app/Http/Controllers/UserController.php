@@ -14,26 +14,34 @@ class UserController extends Controller
 {
     public function add()
     {
-        $roles = Role::all();
+        $superAdmin = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'super_admin');
+            }
+        )->get();
+        $superAdmin = $superAdmin[0];
+
+        $roles = Role::where('id', '!=', $superAdmin->id)->get();
 
         return view('dashboard.users.add', compact('roles'));
     }
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email,except,id',
+            'user_name' => ['required', 'unique:users'],
             'password' => 'required',
             'passwordConfirm' => 'required'
         ]);
-
 
         //Save to db
         if ($request->password == $request->passwordConfirm) {
 
             $user = User::create([
                 'name' =>  $request->input('name'),
+                'user_name' => $request->input('user_name'),
                 'email' => $request->input('email'),
                 'password' => Hash::make($request->input('password')),
                 'remember_token' => Str::random(60),
@@ -47,11 +55,14 @@ class UserController extends Controller
     }
     public function PassEdit(User $user)
     {
+        $this->authorize('edit', $user);
+
         return view('dashboard.users.password.edit', compact('user'));
     }
 
     public function PassUpdate(Request $request)
     {
+
         $request->validate([
             'password' => 'required',
         ]);
@@ -76,6 +87,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('edit', $user);
+
         $roles = Role::all();
 
         $thisRole = $user->role[0];
@@ -117,6 +130,8 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        $this->authorize('delete', $user);
+
         $ClubID = $user->clubOwner[0]->id ?? null;
 
         if ($ClubID != null) {
