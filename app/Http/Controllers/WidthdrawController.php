@@ -24,6 +24,9 @@ class WidthdrawController extends Controller
         $CurrentCredits = User::where('id', $userId)->pluck('credits');
         $CurrentCredits = $CurrentCredits[0];
 
+        $LockCredits = User::where('id', $userId)->pluck('lock_credits');
+        $LockCredits = $LockCredits[0];
+
         if ($CurrentCredits < $amount) {
             return response()->json('Insufficient Balance');
         }
@@ -44,6 +47,15 @@ class WidthdrawController extends Controller
                 'note' => '',
                 'status' => 'pending'
             ]);
+
+            # MOVE WIDTHDRAW AMOUNT TO LOCK CREDITS
+            $creditsToLockCredits = User::where('id', $userId)->first();
+            if ($creditsToLockCredits) {
+                $creditsToLockCredits->update([
+                    'credits' => $CurrentCredits - $amount,
+                    'lock_credits' => $LockCredits + $amount
+                ]);
+            }
         }
 
         if ($InsertWidthdraw) {

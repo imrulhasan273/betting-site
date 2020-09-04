@@ -77,6 +77,16 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$widthdraw->status}}
                         </td>
                         <td class="td-actions text-center">
+
+                            @if($widthdraw->status =='pending')
+                            <a href="{{ route('widthdraws.status',[$widthdraw->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">done</i>
+                            </a>
+                            <a href="{{ route('widthdraws.status',[$widthdraw->id,2])}}" type="button" rel="tooltip" class="btn btn-success">
+                                <i class="material-icons">cancel</i>
+                            </a>
+                            @endif
+
                             <a onclick="return confirm('This will also delete the User. Delete?')" href="" type="button" rel="tooltip" class="btn btn-danger">
                                 <i class="material-icons">close</i>
                             </a>
