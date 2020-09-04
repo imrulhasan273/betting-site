@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
     public function add()
     {
+        // $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+        // dd($authRole[0]);
+
         $superAdmin = User::whereHas(
             'role',
             function ($q) {
@@ -22,7 +26,16 @@ class UserController extends Controller
         )->get();
         $superAdmin = $superAdmin[0];
 
-        $roles = Role::where('id', '!=', $superAdmin->id)->get();
+
+        $user = User::where('id', Auth::user()->id)->get();
+        $Authrole = $user[0]->role[0]->name ?? null;
+
+        if ($Authrole == 'admin') {
+            $roles = Role::where('id', '!=', $superAdmin->id)
+                ->where('name', '!=', 'admin')->get();
+        } else {
+            $roles = Role::where('id', '!=', $superAdmin->id)->get();
+        }
 
         return view('dashboard.users.add', compact('roles'));
     }
@@ -89,8 +102,28 @@ class UserController extends Controller
     {
         $this->authorize('edit', $user);
 
-        $roles = Role::all();
+        # -- - -- - - - - - -- - - -
+        $superAdmin = User::whereHas(
+            'role',
+            function ($q) {
+                $q->where('name', 'super_admin');
+            }
+        )->get();
+        $superAdmin = $superAdmin[0];
 
+
+        $userx = User::where('id', Auth::user()->id)->get();
+        $Authrole = $userx[0]->role[0]->name ?? null;
+
+        if ($Authrole == 'admin') {
+            $roles = Role::where('id', '!=', $superAdmin->id)
+                ->where('name', '!=', 'admin')->get();
+        } else {
+            $roles = Role::where('id', '!=', $superAdmin->id)->get();
+        }
+        # - - - -- - -  -- - - -- - - -- - - - --
+
+        # $roles = Role::all();
         $thisRole = $user->role[0];
 
         return view('dashboard.users.edit', compact('user', 'roles', 'thisRole'));

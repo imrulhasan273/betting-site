@@ -1,6 +1,7 @@
 @php
 $active='clubs';
 $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+$authRole = $authRole[0];
 @endphp
 @extends('layouts.backend')
 @section('content')
@@ -13,7 +14,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 
     @if($authRole=='admin' || $authRole == 'super_admin')
     <div class="col-md-2">
-    <a href="{{route('clubs.add')}}" name="add" class="btn btn-primary ">Add New Club User</a>
+        <a href="{{route('clubs.add')}}" name="add" class="btn btn-primary ">Add New Club User</a>
     </div>
     @endif
 
@@ -22,12 +23,12 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
       <div class="card card-plain">
         <div class="card-header card-header-primary">
           <h4 class="card-title mt-0">Clubs</h4>
-          <p class="card-category">Users with clubs</p>
+          <p class="card-category">clubs</p>
         </div>
 
         <div class="card-body">
           <div class="table-responsive">
-<table id="datatable" class="table table-striped table-bordered" style="width:100%">
+            <table id="datatable" class="table table-striped table-bordered" style="width:100%">
               <thead class="">
              <tr>
                     <th>

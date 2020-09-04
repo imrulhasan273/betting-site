@@ -43,6 +43,13 @@ $active='clubs';
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">User Name</label>
+                        <input name="user_name" value="" type="text" class="form-control">
+                    </div>
+                </div>
+
 
                 <div class="col-md-6">
                     <div class="form-group">

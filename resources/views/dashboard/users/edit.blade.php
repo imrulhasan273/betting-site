@@ -35,14 +35,14 @@ $active='users';
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Name</label>
                         <input name="name" value="{{ $user->name }}" type="text" class="form-control">
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label class="bmd-label-floating">Email</label>
                         <input name="email" value="{{ $user->email }}" type="text" class="form-control">
@@ -56,12 +56,12 @@ $active='users';
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-lg-4 col-md-6 col-sm-3">
+                    <label class="bmd-label-floating">Role</label>
                     <div class="form-group">
-                        <label class="bmd-label-floating">Role</label>
-                        <select name="role_id" class="form-control">
+                        <select name="role_id" class="selectpicker" data-size="7" data-style="btn btn-primary btn-round" title="Role">
                             @foreach ($roles as $role)
-                                <option style="color: rgb(19, 146, 219)" value="{{$role->id}}" {{ $thisRole->id == $role->id ? 'selected':'' }}>{{$role->name}}</option>
+                                <option value="{{$role->id}}" {{ $thisRole->id == $role->id ? 'selected':'' }}>{{$role->name}}</option>
                             @endforeach
                         </select>
                     </div>

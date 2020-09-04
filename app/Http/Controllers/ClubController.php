@@ -52,6 +52,7 @@ class ClubController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email,except,id',
+            'user_name' => ['required', 'unique:users'],
             'password' => 'required',
             'passwordConfirm' => 'required'
         ]);
@@ -71,6 +72,7 @@ class ClubController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'user_name' => $request->user_name,
                 'password' => Hash::make($request->password),
                 'remember_token' => Str::random(60),
             ]);
