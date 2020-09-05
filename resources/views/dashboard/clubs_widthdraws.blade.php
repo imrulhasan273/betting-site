@@ -82,10 +82,10 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                           <td class="td-actions text-center">
 
                               @if($widthdraw->status =='pending')
-                              <a href="{{ route('widthdraws.status',[$widthdraw->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
+                              <a href="{{ route('admin.widthdraws.status.club',[$widthdraw->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
                                   <i class="material-icons">done</i>
                               </a>
-                              <a href="{{ route('widthdraws.statusChangeByClub',[$widthdraw->id,0])}}" type="button" rel="tooltip" class="btn btn-success">
+                              <a href="{{ route('admin.widthdraws.status.club',[$widthdraw->id,0])}}" type="button" rel="tooltip" class="btn btn-success">
                                   <i class="material-icons">cancel</i>
                               </a>
                               @endif

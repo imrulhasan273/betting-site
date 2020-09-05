@@ -149,7 +149,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/widthdraw-By-Club/{widthdraw}/{code}', 'ClubController@statusChangeByClub')->name('widthdraws.statusChangeByClub')->middleware(['roleChecker:null,null,club_admin']); //added
 
     Route::get('/clubs-withdraw-admin', 'ClubController@ClubWidthdraw')->name('admin.clubs.withdraw')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    Route::get('/widthdraw-status/{widthdraw}/{code}', 'ClubController@status')->name('admin.widthdraws.status.club')->middleware(['roleChecker:super_admin,admin,null']); //added
+    Route::get('/widthdraw-status/{widthdraw}/{code}', 'ClubController@WidthdrawStatus')->name('admin.widthdraws.status.club')->middleware(['roleChecker:super_admin,admin,null']); //added
     # ------ END CLUBS CONTROLLER
 
     # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________

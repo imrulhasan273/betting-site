@@ -282,7 +282,113 @@ class ClubController extends Controller
         return view('dashboard.clubs_widthdraws', compact('widthdraws'));
     }
 
-    public function status(Widthdraw $widthdraw, $code)
+    public function WidthdrawStatus(Widthdraw $widthdraw, $code)
     {
+        # CHECK IF ALREADY PAID OR CANCELLED
+        $flag = Widthdraw::where('id', $widthdraw->id)->pluck('status');
+        $flag  = $flag[0] ?? null;
+
+        if ($flag == 'paid') {
+            return back()->with('error', 'Already Paid');
+        } else if ($flag == 'cancel') {
+            return back()->with('error', 'Already Cancelled');
+        }
+
+        # SET VARIABLE STATE TO THE STATUS THAT I WILL SET
+        $state = null;
+        if ($code == 1) {
+            $state = 'paid';
+        } else if ($code == 0) {
+            $state = 'cancel';
+        }
+
+        if ($state == 'paid') {
+
+            # CHANGE STATUS TO CANCEL
+            $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+            if ($updatingWidthdraw) {
+                $updatingWidthdraw->update([
+                    'status' => 'paid'
+                ]);
+            }
+
+            # UPDATE LOCK CREDIT OF CLUB (SUBSTRACT LOCK BALANCE)
+            $user = User::where('id', $widthdraw->user_id)->get();
+            $clubID = $user[0]->clubOwner[0]->id;
+
+            $CurrentBalance = Club::where('id', $clubID)->pluck('balance');
+            $CurrentBalance = $CurrentBalance[0];
+
+            $LockBalance = Club::where('id', $clubID)->pluck('lock_balance');
+            $LockBalance = $LockBalance[0];
+
+            # MOVE WIDTHDRAW AMOUNT TO MAIN BALANCE
+            $creditsToLockCredits = Club::where('id', $clubID)->first();
+            if ($creditsToLockCredits) {
+                $creditsToLockCredits->update([
+                    'lock_balance' => $LockBalance - $widthdraw->amount
+                ]);
+            }
+
+            # START UPDATE SUPER ADMIN ACCOUNT (ADD)
+            $superAdmin = User::whereHas(
+                'role',
+                function ($q) {
+                    $q->where('name', 'super_admin');
+                }
+            )->get();
+            $superAdmin = $superAdmin[0];
+
+            $BANK = User::where('id', $superAdmin->id)->pluck('credits');
+
+            $SuperAdminUser = User::where('id', $superAdmin->id)->first();
+            if ($SuperAdminUser) {
+                $SuperAdminUser->update([
+                    'credits' => $BANK[0] + $widthdraw->amount,
+                ]);
+            }
+            # END UPDATE SUPER ADMIN ACCOUNT (SUBSTRACT)
+        } else if ($state == 'cancel') {
+            # CHANGE STATUS TO CANCEL
+            $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+            if ($updatingWidthdraw) {
+                $updatingWidthdraw->update([
+                    'status' => 'cancel'
+                ]);
+            }
+
+            # UPDATE LOCK CREDIT OF CLUB (ADD LOCK BALANCE  TO MAIN BALANCE)
+            $user = User::where('id', $widthdraw->user_id)->get();
+            $clubID = $user[0]->clubOwner[0]->id;
+
+            $CurrentBalance = Club::where('id', $clubID)->pluck('balance');
+            $CurrentBalance = $CurrentBalance[0];
+
+            $LockBalance = Club::where('id', $clubID)->pluck('lock_balance');
+            $LockBalance = $LockBalance[0];
+
+            # MOVE WIDTHDRAW AMOUNT TO MAIN BALANCE
+            $creditsToLockCredits = Club::where('id', $clubID)->first();
+            if ($creditsToLockCredits) {
+                $creditsToLockCredits->update([
+                    'balance' => $CurrentBalance + $widthdraw->amount,
+                    'lock_balance' => $LockBalance - $widthdraw->amount
+                ]);
+            }
+        }
+
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Widthdraw Request rejected!';
+        if ($code == 1) {
+            $msg1 = 'message';
+            $msg2 = 'Widthdraw Request accepted!';
+        } else if ($code == 0) {
+            $msg1 = 'error';
+            $msg2 = 'Widthdraw Request Cancelled!';
+        }
+
+        return back()->with($msg1, $msg2);
     }
 }

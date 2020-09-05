@@ -50,7 +50,9 @@ class DepositController extends Controller
 
     public function status(Deposit $deposit, $code)
     {
-        $flag = Deposit::where('id', $deposit->user_id)->pluck('status');
+        $flag = Deposit::where('id', $deposit->id)->pluck('status');
+        $flag  = $flag[0] ?? null;
+
 
         if ($flag == 'paid') {
             return back()->with('error', 'Already Paid');
