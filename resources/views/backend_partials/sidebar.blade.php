@@ -95,7 +95,7 @@
             @endif
             <a class="nav-link" data-toggle="collapse" href="#clb">
             <i class="material-icons">store</i>
-            <p> Club
+            <p> Clubs
                 <b class="caret"></b>
             </p>
             </a>
@@ -110,7 +110,7 @@
                 @endif
                     <a class="nav-link" href="{{ route('admin.clubs') }}">
                         <i class="material-icons">person_pin</i>
-                        <p>Club List</p>
+                        <p>Club</p>
                     </a>
                 </li>
                 </li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Bet;
 use App\User;
 use Illuminate\Http\Request;
@@ -23,9 +24,16 @@ class BetController extends Controller
         $quesID = $request->quesID;
         $ansID =  $request->ansID;
         $BETreturnRate =  $request->BETreturnRate;
-        $BETamount =  $request->BETamount;
+        $BETamount =  $request->BETamount;          //BET AMOUNT
         $match =  $request->match;
-        $total_win = $BETamount * $BETreturnRate;
+        $total_win = $BETamount * $BETreturnRate;   //TOTAL WIN -> RETURN AMOUNT
+
+
+
+
+
+
+
 
         # __________START NEED TO CHECK IF I HAVE ENOUGH BALANCE AND IF SO THEN MOVE THE BALANCE IN LOCK CREDITS COLUMN
         $amount = User::where('id', $userId)->pluck('credits');
@@ -54,8 +62,8 @@ class BetController extends Controller
         $club_id = $club_id[0] ?? null;
         $commission = DB::table('clubs')->where('id', $club_id)->pluck('commission');
         $commission = $commission[0] ?? null;
-        // $commission = ($commission * $total_win) / 100;
-        $commission = ($total_win) / 100;
+        $commission = ($commission * $total_win) / 100;
+        // $commission = ($total_win) / 100;
 
         $BetInsert = Bet::create([
             'bet_by' =>  $userId,
@@ -69,6 +77,19 @@ class BetController extends Controller
             'return_amount' => $total_win,
             'club_fee' => $commission,
         ]);
+
+        # START UPDATE ANsWER TABLE - -- -- - - - -- - - - --
+        $ans = Answer::where('id', $ansID)->first();
+        $UpdateAns = Answer::where('id', $ansID)->first();
+        if ($UpdateAns) {
+            $UpdateAns->update([
+                'place' => $ans->place + 1,
+                'bet_amount' => $ans->bet_amount + $BETamount,
+                'rtrn_amount' => $ans->rtrn_amount + $total_win,
+
+            ]);
+        }
+        # END UPDATE ANsWER TABLE - -- -- - - - -- - - - --
 
         if ($BetInsert) {
             $data = 'Bit has been placed successfully!';
