@@ -107,8 +107,10 @@ route::group(['prefix' => 'admin'], function () {
     # END WIDTHDRAW CONTROLLER
 
     # ------START INDEX CONTROLLER
-    Route::get('/account-balance/edit', 'IndexController@edit')->name('index.acc.edit')->middleware(['roleChecker:super_admin,admin,null']);
-    Route::post('/account-balance/update', 'IndexController@update')->name('index.acc.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    Route::get('/account-balance/edit', 'IndexController@edit')->name('index.acc.edit')->middleware(['roleChecker:super_admin,null,null']);
+    Route::post('/account-balance/update', 'IndexController@update')->name('index.acc.update')->middleware(['roleChecker:super_admin,null,null']);
+    # SPONSOR COMMISSION
+    Route::post('/sponsor-commission/update', 'UserController@SponsorCommission')->name('sponsor.commission.update')->middleware(['roleChecker:super_admin,null,null']);
     # ------END INDEX CONTROLLER
 
 
@@ -131,8 +133,6 @@ route::group(['prefix' => 'admin'], function () {
     # -- -- -- - -- - - -
     Route::get('/users-password/{user}/edit', 'UserController@PassEdit')->name('users.pass.edit')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/users-password/update', 'UserController@PassUpdate')->name('users.pass.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    # SPONSOR COMMISSION
-    Route::post('/sponsor-commission/update', 'UserController@SponsorCommission')->name('sponsor.commission.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
     # --END USER CONTROLLERS
 
 

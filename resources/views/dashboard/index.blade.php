@@ -1,14 +1,18 @@
 @php
 $active='index';
+$authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+$authRole = $authRole[0];
 @endphp
 @extends('layouts.backend')
 
 @section('content')
-    <div class="row">
 
-        <div class="col-md-12">
-            <x-alert/>
-        </div>
+    <div class="col-md-12">
+        <x-alert/>
+    </div>
+
+    @if($authRole == 'super_admin' || $authRole == 'admin')
+    <div class="row">
 
         {{-- <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
@@ -29,6 +33,7 @@ $active='index';
                 </div>
             </div>
         </div> --}}
+
 
 
         <!----------===================ACCOUNT BALNCE OF ORGANIZATION==========-------------->
@@ -60,23 +65,24 @@ $active='index';
 
 
 
-            <!------------================= TOTAL ADMINS ===================---------- -->
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                    <div class="card-header card-header-warning card-header-icon">
-                    <div class="card-icon">
-                        <i class="material-icons">admin_panel_settings</i>
-                    </div>
-                    <p class="card-category">Total Admins</p>
-                    <h3 class="card-title">{{ $CountAdmins }}</h3>
-                    </div>
-                    <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">update</i> Just Updated
-                    </div>
-                    </div>
+
+        <!------------================= TOTAL ADMINS ===================---------- -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">admin_panel_settings</i>
+                </div>
+                <p class="card-category">Total Admins</p>
+                <h3 class="card-title">{{ $CountAdmins }}</h3>
+                </div>
+                <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">update</i> Just Updated
+                </div>
                 </div>
             </div>
+        </div>
         <!------------================= TOTAL ADMINS===================---------- -->
 
 
@@ -118,10 +124,41 @@ $active='index';
                 </div>
             </div>
         <!------------================= TOTAL CLUBS===================---------- -->
+        </div>
+        @endif
 
 
-          </div>
-          <div class="row">
+        @if($authRole == 'super_admin' || $authRole == 'admin')
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-chart">
+                  <div class="card-header card-header-danger">
+                    <div class="ct-chart" id="completedTasksChart"></div>
+                  </div>
+
+                  <div class="card-body">
+                      <form method="POST" action="{{route('sponsor.commission.update')}}">
+                      @csrf
+                          <h4 class="card-title">Sponsor Commission</h4>
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <label class="bmd-label-floating">Commission (%)</label>
+                                  <input name="commission" value="{{ $commission }}" type="text" class="form-control">
+                              </div>
+                          </div>
+                          <button name="submit" type="submit" class="btn btn-success pull-right">Update</button>
+                      </form>
+                  </div>
+
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             <div class="col-md-4">
               <div class="card card-chart">
                 <div class="card-header card-header-success">
@@ -155,36 +192,13 @@ $active='index';
                 </div>
               </div>
             </div>
+        </div>
+        @endif
 
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-danger">
-                  <div class="ct-chart" id="completedTasksChart"></div>
-                </div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{route('sponsor.commission.update')}}">
-                    @csrf
-                        <h4 class="card-title">Sponsor Commission</h4>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">Commission (%)</label>
-                                <input name="commission" value="{{ $commission }}" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <button name="submit" type="submit" class="btn btn-success pull-right">Update</button>
-                    </form>
-                </div>
+        <!-- =====================CLUB DASHBOARDS CONTENTS GOES HERE============================= --->
 
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
+        <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-tabs card-header-primary">
@@ -466,4 +480,4 @@ $active='index';
               </div>
             </div>
           </div>
-@endsection
+    @endsection
