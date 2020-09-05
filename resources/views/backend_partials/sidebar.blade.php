@@ -365,6 +365,21 @@
             {{-- @endif --}}
             <!---END WIDTHDRAWS PANEL --->
 
+            <!-- START CLUB WIDTHDRAWS PANEL -->
+            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if($active=='Cwidthdraws')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.clubs.withdraw') }}">
+                <i class="material-icons">account_balance</i>
+                <p>Club Widthdraws</p>
+            </a>
+            </li>
+            {{-- @endif --}}
+            <!---END CLUB WIDTHDRAWS PANEL --->
+
             <!-- Start Notice Panel -->
             @if($active=='notice')
                 <li class="active">

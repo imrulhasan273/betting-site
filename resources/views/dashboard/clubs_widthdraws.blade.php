@@ -1,5 +1,5 @@
 @php
-$active='clubsWidth';
+$active='Cwidthdraws';
 $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 @endphp
 @extends('layouts.backend')
@@ -10,14 +10,10 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
         <x-alert/>
     </div>
 
-    <div class="col-md-2">
-    <a href="{{ route('admin.clubs.withdraw.request') }}" name="add" class="btn btn-warning ">Place Withdraw Request</a>
-    </div>
-
     <div class="col-md-12">
       <div class="card card-plain">
         <div class="card-header card-header-primary">
-          <h4 class="card-title mt-0">Clubs Withdraw List</h4>
+          <h4 class="card-title mt-0">Clubs Withdraws</h4>
           {{-- <p class="card-category">Clubs Withdraw List</p> --}}
         </div>
 
@@ -50,7 +46,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                   <th>
                       Status
                   </th>
-                  <th>
+                  <th class="td-actions text-center">
                       Action
                   </th>
                   </tr>
@@ -86,9 +82,9 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                           <td class="td-actions text-center">
 
                               @if($widthdraw->status =='pending')
-                              {{-- <a href="{{ route('widthdraws.status',[$widthdraw->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
+                              <a href="{{ route('widthdraws.status',[$widthdraw->id,1])}}" type="button" rel="tooltip" class="btn btn-success">
                                   <i class="material-icons">done</i>
-                              </a> --}}
+                              </a>
                               <a href="{{ route('widthdraws.statusChangeByClub',[$widthdraw->id,0])}}" type="button" rel="tooltip" class="btn btn-success">
                                   <i class="material-icons">cancel</i>
                               </a>

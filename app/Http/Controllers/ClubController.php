@@ -163,7 +163,8 @@ class ClubController extends Controller
 
     public function clubsWithdrawList()
     {
-        return view('dashboard.clubs.withdraw_list');
+        $widthdraws = Widthdraw::where('user_role', 'club_admin')->get();
+        return view('dashboard.clubs.withdraw_list', compact('widthdraws'));
     }
 
     public function clubsWithdrawRequest()
@@ -190,8 +191,6 @@ class ClubController extends Controller
 
         $LockBalance = Club::where('id', $clubID)->pluck('lock_balance');
         $LockBalance = $LockBalance[0];
-
-
 
         if ($CurrentBalance < $amount) {
             return Redirect::route('admin.clubs.withdraw.list')->with('error', 'Insuffient Balance');
@@ -233,5 +232,57 @@ class ClubController extends Controller
         }
 
         return Redirect::route('admin.clubs.withdraw.list')->with($msg1, $msg2);
+    }
+
+    public function statusChangeByClub(Widthdraw $widthdraw, $code)
+    {
+        $flag = Widthdraw::where('id', $widthdraw->id)->pluck('status');
+        $flag = $flag[0];
+
+        if ($flag == 'paid') {
+            return back()->with('error', 'Already Paid');
+        } else if ($flag == 'cancel') {
+            return back()->with('error', 'Already Cancelled');
+        }
+
+        if ($code == 0) {
+            # CHANGE STATUS TO CANCEL
+            $updatingWidthdraw = Widthdraw::where('id', $widthdraw->id)->first();
+            if ($updatingWidthdraw) {
+                $updatingWidthdraw->update([
+                    'status' => 'cancel'
+                ]);
+            }
+
+            $user = User::where('id', $widthdraw->user_id)->get();
+            $clubID = $user[0]->clubOwner[0]->id;
+
+            $CurrentBalance = Club::where('id', $clubID)->pluck('balance');
+            $CurrentBalance = $CurrentBalance[0];
+
+            $LockBalance = Club::where('id', $clubID)->pluck('lock_balance');
+            $LockBalance = $LockBalance[0];
+
+            # MOVE WIDTHDRAW AMOUNT TO MAIN BALANCE
+            $creditsToLockCredits = Club::where('id', $clubID)->first();
+            if ($creditsToLockCredits) {
+                $creditsToLockCredits->update([
+                    'balance' => $CurrentBalance + $widthdraw->amount,
+                    'lock_balance' => $LockBalance - $widthdraw->amount
+                ]);
+            }
+        }
+
+        return back()->with('message', 'Widthdraw Cancelled!!');
+    }
+
+    public function ClubWidthdraw()
+    {
+        $widthdraws = Widthdraw::where('user_role', 'club_admin')->get();
+        return view('dashboard.clubs_widthdraws', compact('widthdraws'));
+    }
+
+    public function status(Widthdraw $widthdraw, $code)
+    {
     }
 }
