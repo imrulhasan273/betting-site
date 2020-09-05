@@ -128,6 +128,8 @@ class WidthdrawController extends Controller
         }
 
         if ($state == 'paid') {
+
+            # UPDATE USER ACCOUNT (SUBSTRACT)
             $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
             $LockCredits = $LockCredits[0];
 
@@ -137,6 +139,25 @@ class WidthdrawController extends Controller
                     'lock_credits' => $LockCredits - $widthdraw->amount
                 ]);
             }
+
+            # START UPDATE SUPER ADMIN ACCOUNT (ADD)
+            $superAdmin = User::whereHas(
+                'role',
+                function ($q) {
+                    $q->where('name', 'super_admin');
+                }
+            )->get();
+            $superAdmin = $superAdmin[0];
+
+            $BANK = User::where('id', $superAdmin->id)->pluck('credits');
+
+            $SuperAdminUser = User::where('id', $superAdmin->id)->first();
+            if ($SuperAdminUser) {
+                $SuperAdminUser->update([
+                    'credits' => $BANK[0] + $widthdraw->amount,
+                ]);
+            }
+            # END UPDATE SUPER ADMIN ACCOUNT (SUBSTRACT)
         } else if ($state == 'cancel') {
 
             $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');

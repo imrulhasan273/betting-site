@@ -70,11 +70,31 @@ class DepositController extends Controller
         }
 
         if ($state == 'paid') {
+
+            # UPDATE USER ACCOUNT (ADD)
             $PrevAmount = User::where('id', $deposit->user_id)->pluck('credits');
             $updatingUserAccount = User::where('id', $deposit->user_id)->first();
             if ($updatingUserAccount) {
                 $updatingUserAccount->update([
                     'credits' => $PrevAmount[0] + $deposit->amount
+                ]);
+            }
+
+            # UPDATE SUPER ADMIN ACCOUNT (SUBSTRACT)
+            $superAdmin = User::whereHas(
+                'role',
+                function ($q) {
+                    $q->where('name', 'super_admin');
+                }
+            )->get();
+            $superAdmin = $superAdmin[0];
+
+            $BANK = User::where('id', $superAdmin->id)->pluck('credits');
+
+            $SuperAdminUser = User::where('id', $superAdmin->id)->first();
+            if ($SuperAdminUser) {
+                $SuperAdminUser->update([
+                    'credits' => $BANK[0] - $deposit->amount,
                 ]);
             }
         }
