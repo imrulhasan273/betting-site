@@ -17,7 +17,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
     <div class="col-md-12">
       <div class="card card-plain">
         <div class="card-header card-header-primary">
-          <h4 class="card-title mt-0">Clubs Withdraw List</h4>
+          <h4 class="card-title mt-0">Clubs Withdraws</h4>
           {{-- <p class="card-category">Clubs Withdraw List</p> --}}
         </div>
 

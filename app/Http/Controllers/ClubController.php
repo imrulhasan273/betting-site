@@ -163,7 +163,7 @@ class ClubController extends Controller
 
     public function clubsWithdrawList()
     {
-        $widthdraws = Widthdraw::where('user_role', 'club_admin')->get();
+        $widthdraws = Widthdraw::where('user_role', 'club_admin')->where('user_id', Auth::user()->id)->get();
         return view('dashboard.clubs.withdraw_list', compact('widthdraws'));
     }
 
@@ -188,6 +188,7 @@ class ClubController extends Controller
 
         $CurrentBalance = Club::where('id', $clubID)->pluck('balance');
         $CurrentBalance = $CurrentBalance[0];
+
 
         $LockBalance = Club::where('id', $clubID)->pluck('lock_balance');
         $LockBalance = $LockBalance[0];
@@ -234,6 +235,7 @@ class ClubController extends Controller
         return Redirect::route('admin.clubs.withdraw.list')->with($msg1, $msg2);
     }
 
+    # CLUB ACCESS   -  - - -- - -- -- - -- - - --  --
     public function statusChangeByClub(Widthdraw $widthdraw, $code)
     {
         $flag = Widthdraw::where('id', $widthdraw->id)->pluck('status');
@@ -276,6 +278,7 @@ class ClubController extends Controller
         return back()->with('message', 'Widthdraw Cancelled!!');
     }
 
+    # ADMIN ACCESS - - - -- - - - - -- - - - --
     public function ClubWidthdraw()
     {
         $widthdraws = Widthdraw::where('user_role', 'club_admin')->get();

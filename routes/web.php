@@ -142,12 +142,13 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/clubs/{club}/edit', 'ClubController@edit')->name('clubs.edit')->middleware(['roleChecker:super_admin,admin,club_admin']);
     Route::post('/clubs/update', 'ClubController@update')->name('clubs.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
     Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    # --- CLUB WIDTHDRAW
-    Route::get('/clubs/withdraw', 'ClubController@clubsWithdrawList')->name('admin.clubs.withdraw.list')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    Route::get('/clubs/withdraw/request', 'ClubController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    Route::post('/clubs/withdraw/store', 'ClubController@WidthDrawPlace')->name('admin.clubs.withdraw.place')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    # --- CLUB WIDTHDRAW CLUB ACCESS
+    Route::get('/clubs/withdraw', 'ClubController@clubsWithdrawList')->name('admin.clubs.withdraw.list')->middleware(['roleChecker:null,null,club_admin']);
+    Route::get('/clubs/withdraw/request', 'ClubController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:null,null,club_admin']);
+    Route::post('/clubs/withdraw/store', 'ClubController@WidthDrawPlace')->name('admin.clubs.withdraw.place')->middleware(['roleChecker:null,null,club_admin']);
     Route::get('/widthdraw-By-Club/{widthdraw}/{code}', 'ClubController@statusChangeByClub')->name('widthdraws.statusChangeByClub')->middleware(['roleChecker:null,null,club_admin']); //added
 
+    # ---- CLUB WIDTHDRAW ADMIN ACCESS
     Route::get('/clubs-withdraw-admin', 'ClubController@ClubWidthdraw')->name('admin.clubs.withdraw')->middleware(['roleChecker:super_admin,admin,club_admin']);
     Route::get('/widthdraw-status/{widthdraw}/{code}', 'ClubController@WidthdrawStatus')->name('admin.widthdraws.status.club')->middleware(['roleChecker:super_admin,admin,null']); //added
     # ------ END CLUBS CONTROLLER
