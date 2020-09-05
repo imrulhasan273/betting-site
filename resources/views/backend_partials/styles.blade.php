@@ -3,7 +3,7 @@
 <link rel="icon" type="image/png" href="{{asset('backend/img/favicon.png')}}">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>
-    Material Dashboard by Creative Tim
+    {{ config('app.name') }} || Dashboard
 </title>
 <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <script src="{{asset('backend/js/datatables.min.js')}}"></script>
