@@ -145,6 +145,7 @@ route::group(['prefix' => 'admin'], function () {
     # --- CLUB WIDTHDRAW
     Route::get('/clubs/withdraw', 'ClubController@clubsWithdrawList')->name('admin.clubs.withdraw.list')->middleware(['roleChecker:super_admin,admin,club_admin']);
     Route::get('/clubs/withdraw/request', 'ClubController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    Route::post('/clubs/withdraw/store', 'ClubController@WidthDrawPlace')->name('admin.clubs.withdraw.place')->middleware(['roleChecker:super_admin,admin,club_admin']);
     # ------ END CLUBS CONTROLLER
 
     # ______________________________ START AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Club;
 use App\Role;
 use App\User;
+use App\Widthdraw;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -168,5 +169,69 @@ class ClubController extends Controller
     public function clubsWithdrawRequest()
     {
         return view('dashboard.clubs.withdraw_request');
+    }
+
+    public function WidthDrawPlace(Request $request)
+    {
+        $userId = Auth::user()->id;
+
+        $method = $request->method;
+        $type = $request->type;
+        $to = $request->to;
+        $amount =  $request->amount;
+        $note =  $request->note;
+
+        $user = User::where('id', $userId)->get();
+        $clubID = $user[0]->clubOwner[0]->id;
+
+
+        $CurrentBalance = Club::where('id', $clubID)->pluck('balance');
+        $CurrentBalance = $CurrentBalance[0];
+
+        $LockBalance = Club::where('id', $clubID)->pluck('lock_balance');
+        $LockBalance = $LockBalance[0];
+
+
+
+        if ($CurrentBalance < $amount) {
+            return Redirect::route('admin.clubs.withdraw.list')->with('error', 'Insuffient Balance');
+        }
+
+        $InsertWidthdraw = false;
+
+        if (is_numeric($amount)) {
+
+            $userRole = Auth::user()->role[0]->name;
+
+            $InsertWidthdraw = Widthdraw::create([
+                'user_id' =>  $userId,
+                'user_role' => $userRole,
+                'method' => $method,
+                'method_type' => $type,
+                'amount' => $amount,
+                'widthdraw_to' => $to,
+                'note' => $note,
+                'status' => 'pending'
+            ]);
+
+            # MOVE WIDTHDRAW AMOUNT TO LOCK BALANCE
+            $creditsToLockCredits = Club::where('id', $clubID)->first();
+            if ($creditsToLockCredits) {
+                $creditsToLockCredits->update([
+                    'balance' => $CurrentBalance - $amount,
+                    'lock_balance' => $LockBalance + $amount
+                ]);
+            }
+        }
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Widthdraw Request is Unsuccessfull!';
+        if ($InsertWidthdraw) {
+            $msg1 = 'message';
+            $msg2 = 'Widthdraw Request Successfull!';
+        }
+
+        return Redirect::route('admin.clubs.withdraw.list')->with($msg1, $msg2);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Club extends Model
 {
-    protected $fillable = ['name', 'balance', 'member', 'commission'];
+    protected $fillable = ['name', 'balance', 'lock_balance', 'member', 'commission'];
 
     public function user()
     {
