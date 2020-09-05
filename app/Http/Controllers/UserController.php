@@ -141,11 +141,17 @@ class UserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
             ]);
-            if ($request->thisRole != $request->role_id) {
 
-                $det = $updatingUser->role()->detach($request->thisRole);
-                if ($det) {
-                    $updatingUser->role()->attach($request->role_id);
+            # IF USER IS AN ADMIN OR A SUPER ADMIN THEN HE CAN'T CHANGE HIS OWN ROLE (Admin/Super Can Access this)
+            if ($request->id != Auth::user()->id) {
+
+                # IF ROLE IS CHANGE THEN UPDATE THE ROLE
+                if ($request->thisRole != $request->role_id) {
+
+                    $det = $updatingUser->role()->detach($request->thisRole);
+                    if ($det) {
+                        $updatingUser->role()->attach($request->role_id);
+                    }
                 }
             }
         }

@@ -1,5 +1,7 @@
 @php
 $active='users';
+$authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+$authRole = $authRole[0];
 @endphp
 @extends('layouts.backend')
 
@@ -56,6 +58,7 @@ $active='users';
                     </div>
                 </div>
 
+                @if($user->id != Auth::user()->id)
                 <div class="col-lg-4 col-md-6 col-sm-3">
                     <label class="bmd-label-floating">Role</label>
                     <div class="form-group">
@@ -66,6 +69,7 @@ $active='users';
                         </select>
                     </div>
                 </div>
+                @endif
 
                 <div class="col-md-5">
                     <div class="form-group">
