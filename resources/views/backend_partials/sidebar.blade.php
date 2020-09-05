@@ -102,29 +102,33 @@
             <div class="collapse" id="clb">
             <ul class="nav">
                 <!-- Start Club List Panel -->
+
                 @if($active=='clubs')
                 <li class="active">
-                    @else
-                    <li class="nav-item ">
-                        @endif
-                        <a class="nav-link" href="{{ route('admin.clubs') }}">
-                            <i class="material-icons">person_pin</i>
-                            <p>Club List</p>
-                        </a>
-                    </li>
+                @else
+                <li class="nav-item ">
+                @endif
+                    <a class="nav-link" href="{{ route('admin.clubs') }}">
+                        <i class="material-icons">person_pin</i>
+                        <p>Club List</p>
+                    </a>
                 </li>
+                </li>
+
                 <!-- Start Club Widthdraw Panel -->
+                @if($role == 'club_admin')
                 @if($active=='clubsWidth')
                 <li class="active">
-                    @else
-                    <li class="nav-item ">
-                        @endif
-                        <a class="nav-link" href="{{ route('admin.clubs.withdraw.list') }}">
-                            <i class="material-icons">money</i>
-                            <p>Club Widthdraw</p>
-                        </a>
+                @else
+                <li class="nav-item ">
+                @endif
+                    <a class="nav-link" href="{{ route('admin.clubs.withdraw.list') }}">
+                        <i class="material-icons">money</i>
+                        <p>Club Widthdraw</p>
+                    </a>
                     </li>
                 </li>
+                @endif
             </ul>
             </div>
         </li>
