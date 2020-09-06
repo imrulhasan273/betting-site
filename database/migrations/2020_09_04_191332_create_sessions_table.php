@@ -14,9 +14,11 @@ class CreateSessionsTable extends Migration
     public function up()
     {
         Schema::create('sessions', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('ip');

@@ -14,12 +14,15 @@ class CreateClubUserTable extends Migration
     public function up()
     {
         Schema::create('club_user', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('club_id');
+            // $table->unsignedBigInteger('club_id');
+            $table->bigInteger('club_id')->unsigned();
             $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
 
             $table->timestamps();

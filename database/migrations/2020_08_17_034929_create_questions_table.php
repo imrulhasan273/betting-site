@@ -14,9 +14,13 @@ class CreateQuestionsTable extends Migration
     public function up()
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('game_id');
+            // $table->id();
+            $table->bigIncrements('id');
+
+            // $table->unsignedBigInteger('game_id');
+            $table->bigInteger('game_id')->unsigned();
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+
             $table->string('question');
             $table->boolean('is_active')->default(true);
             $table->boolean('flag')->default(false);

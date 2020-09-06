@@ -14,9 +14,13 @@ class CreateStackQuestionsTable extends Migration
     public function up()
     {
         Schema::create('stack_questions', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('auto_stack_cat_id');
+            // $table->id();
+            $table->bigIncrements('id');
+
+            // $table->unsignedBigInteger('auto_stack_cat_id');
+            $table->bigInteger('auto_stack_cat_id')->unsigned();
             $table->foreign('auto_stack_cat_id')->references('id')->on('auto_stack_categories')->onDelete('cascade');
+
             $table->string('question');
             $table->boolean('is_active')->default(true);
             $table->boolean('flag')->default(false);

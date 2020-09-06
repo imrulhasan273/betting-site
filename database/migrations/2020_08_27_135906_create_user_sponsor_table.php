@@ -14,12 +14,15 @@ class CreateUserSponsorTable extends Migration
     public function up()
     {
         Schema::create('user_sponsor', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('sponsor_id');
+            // $table->unsignedBigInteger('sponsor_id');
+            $table->bigInteger('sponsor_id')->unsigned();
             $table->foreign('sponsor_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();

@@ -14,13 +14,19 @@ class CreateAnswersTable extends Migration
     public function up()
     {
         Schema::create('answers', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('question_id');
+            // $table->id();
+            $table->bigIncrements('id');
+
+            // $table->unsignedBigInteger('question_id');
+            $table->bigInteger('question_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
+
             $table->string('answer');
             $table->float('bet_rate');
 
-            $table->unsignedBigInteger('place')->default(0);
+            // $table->unsignedBigInteger('place')->default(0);
+            $table->bigInteger('place')->default(0);
+
             $table->double('bet_amount')->default(0);
             $table->double('rtrn_amount')->default(0);
             $table->enum('status', ['active', 'inactive', 'win', 'loss'])->default('active');
