@@ -61,3 +61,11 @@ php artisan make:migration create_user_sponsor_table
 ## Middlewere imposed on routes
 
 php artisan make:migration create_sponsor_commission_table
+
+#
+
+`composer.json`
+
+```php
+"ext-gd": "*",
+```
