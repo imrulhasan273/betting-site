@@ -356,7 +356,7 @@
 
             <!-- START WIDTHDRAWS PANEL -->
             {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
-            @if($active=='Uwidthdraws')
+            {{-- @if($active=='Uwidthdraws')
                 <li class="active ">
                 @else
                 <li>
@@ -365,12 +365,50 @@
                 <i class="material-icons">account_balance</i>
                 <p>User Widthdraws</p>
             </a>
-            </li>
+            </li> --}}
             {{-- @endif --}}
             <!---END WIDTHDRAWS PANEL --->
 
             <!-- START CLUB WIDTHDRAWS PANEL -->
             {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            {{-- @if($active=='Cwidthdraws')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.clubs.withdraw') }}">
+                <i class="material-icons">account_balance</i>
+                <p>Club Widthdraws</p>
+            </a>
+            </li> --}}
+            {{-- @endif --}}
+            <!---END CLUB WIDTHDRAWS PANEL --->
+
+
+              <!-- Start Dropdown Withdraw Panel -->
+                @if($active=='Uwidthdraws' || $active=='Cwidthdraws')
+                    <li class="active">
+                @else
+                    <li class="nav-item ">
+                @endif
+                <a class="nav-link" data-toggle="collapse" href="#withdraw">
+                  <i class="material-icons">monetization_on</i>
+                  <p> Withdraws
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="withdraw">
+                  <ul class="nav">
+            @if($active=='Uwidthdraws')
+                <li class="active ">
+                @else
+                <li>
+            @endif
+            <a class="nav-link" href="{{ route('admin.user.widthdraw') }}">
+                <i class="material-icons">payments</i>
+                <p>User Widthdraws</p>
+            </a>
+            </li>
             @if($active=='Cwidthdraws')
                 <li class="active ">
                 @else
@@ -381,8 +419,11 @@
                 <p>Club Widthdraws</p>
             </a>
             </li>
-            {{-- @endif --}}
-            <!---END CLUB WIDTHDRAWS PANEL --->
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ">
+            <!-- End Dropdown Withdraw Panel -->
 
             <!-- Start Notice Panel -->
             @if($active=='notice')
