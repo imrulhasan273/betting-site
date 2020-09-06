@@ -21,7 +21,7 @@
             @media(max-width:992px){
                 .wrapper{
                     width:100%;
-                } 
+                }
             }
 
             .content-wrap {
@@ -48,7 +48,7 @@
             .form-control:focus{
                 border-color: #5cb85c;
             }
-            .form-control, .btn{        
+            .form-control, .btn{
                 border-radius: 3px;
             }
             .signup-form{
@@ -72,18 +72,18 @@
             .signup-form input[type="checkbox"]{
                 margin-top: 3px;
             }
-            .signup-form .btn{        
+            .signup-form .btn{
                 font-size: 16px;
-                font-weight: bold;		
+                font-weight: bold;
                 min-width: 140px;
                 outline: none !important;
             }
             .signup-form .row div:first-child{
-             
+
             }
             .signup-form .row div:last-child{
-               
-            }    	
+
+            }
 
             .marq {
                 border-left: 4px solid #CD4740;
@@ -150,7 +150,7 @@
     border-bottom: 2px solid #FECE44;
 }
 .callaction{
-    margin-top: -19px;
+    margin-top: 7%;
 }
 
 
@@ -289,7 +289,7 @@ div#exTab2 {
 }
 .bhoechie-tab-container,
 #sampleTable2_wrapper{
-   
+
     padding: 10px;
 }
 .bhoechie-tab-container .dataTables_wrapper .row,
