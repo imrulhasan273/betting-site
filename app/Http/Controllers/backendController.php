@@ -26,6 +26,11 @@ class backendController extends Controller
 {
     public function index()
     {
+        // $user_name = 'club1';
+        // $CHECKUSER = User::where('user_name', $user_name)->get();
+        // $role = $CHECKUSER[0]->role[0]->name;
+        // dd($role);
+
 
         // # TOTAL USERS
         // $user = User::whereHas(

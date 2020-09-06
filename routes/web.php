@@ -37,8 +37,8 @@ route::group(['prefix' => 'wallet'], function () {
     Route::get('/sponsor', 'ProfileController@sponsor')->name('profiles.sponsor');
     Route::get('/oneten', 'ProfileController@oneten')->name('profiles.oneten')->middleware('auth');
     #--------------================= Controlled Using Ajax========================------------------------
-    // Route::get('/deposit', 'ProfileController@deposit')->name('profiles.deposit');
-    // Route::get('/widthdraw', 'ProfileController@widthdraw')->name('profiles.widthdraw');
+    # Route::get('/deposit', 'ProfileController@deposit')->name('profiles.deposit');
+    # Route::get('/widthdraw', 'ProfileController@widthdraw')->name('profiles.widthdraw');
     Route::get('/b-transfer', 'ProfileController@bTransfer')->name('profiles.btransfer');
     Route::get('/change-club', 'ProfileController@changeClub')->name('profiles.changeclub');
     Route::get('/change-password', 'ProfileController@changePassword')->name('profiles.changepassword');

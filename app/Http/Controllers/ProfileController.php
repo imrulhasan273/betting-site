@@ -25,9 +25,77 @@ class ProfileController extends Controller
     {
         # MODAL //already done in widthdraw controller
     }
-    public function bTransfer()
+    public function bTransfer(Request $request)
     {
-        # MODAL
+        $userId = Auth::user()->id;
+
+        $amount = $request->amount;
+        $user_name = $request->user_name;
+        $password = $request->password;
+
+        # CHECK IF USER ROLE IS USER
+        $CHECKUSER = User::where('user_name', $user_name)->get();
+        $CHECKROLE = $CHECKUSER[0]->role[0]->name;
+
+        if ($CHECKROLE != 'user') {
+            return response()->json('User Not Exist');
+        }
+
+        # CHECK IF AMOUNT IS NUMERIC
+        if (is_numeric($amount)) {
+            # CHECK IF PASSWORD IS CORRECT
+            $query = DB::table('users')
+                ->where('id', '=', $userId)
+                ->pluck('password');
+            $curPassDB = $query[0];
+            $matchPass = Hash::check($password, $curPassDB);
+
+            if ($matchPass) {
+
+                # CHECK IF USER HAVE ENOUGH BALANCE TO TRANSFER
+                $CurrentCredits = User::where('id', $userId)->pluck('credits');
+                $CurrentCredits = $CurrentCredits[0];
+
+                # IF CREDITS BALANCE IS LESS THAN AMOUNT THEN GO BACK TO MODAL
+                if ($CurrentCredits < $amount) {
+                    return response()->json('insufficient');
+                }
+
+                $isExist = User::where('user_name', $user_name)->first();
+
+                #CHECK IF USER IS EXITS
+                if ($isExist) {
+
+                    # ADD TO TARGET ACCOUNT
+                    $TarCredits = User::where('user_name', $user_name)->pluck('credits');
+                    $TarCredits = $TarCredits[0];
+
+                    $TargetUserUpdate = User::where('user_name', $user_name);
+                    if ($TargetUserUpdate) {
+                        $TargetUserUpdate->update([
+                            'credits' => $TarCredits + $amount,
+                        ]);
+                    }
+
+                    # SUBSTRACT TO MY ACCOUNT
+                    $MyCredits = User::where('id', Auth::user()->id)->pluck('credits');
+                    $MyCredits = $MyCredits[0];
+
+                    $MyUserUpdate = User::where('id', Auth::user()->id);
+                    if ($MyUserUpdate) {
+                        $MyUserUpdate->update([
+                            'credits' => $MyCredits - $amount,
+                        ]);
+                    }
+
+                    return response()->json('sent');
+                } else {
+                    return response()->json('User Not Exist');
+                }
+            }
+            return response()->json('Incorrect Pass');
+        }
+        return response()->json('incorrect amount');
     }
     public function changeClub(Request $request)
     {

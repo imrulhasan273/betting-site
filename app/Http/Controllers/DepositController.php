@@ -19,6 +19,7 @@ class DepositController extends Controller
         return response()->json($data[0]->phone);
     }
 
+    # BY USER
     public function placeDeposit(Request $request)
     {
         $InsertDeposit = false;
@@ -48,6 +49,8 @@ class DepositController extends Controller
         return response()->json($data);
     }
 
+
+    #BY USER
     public function status(Deposit $deposit, $code)
     {
         $flag = Deposit::where('id', $deposit->id)->pluck('status');

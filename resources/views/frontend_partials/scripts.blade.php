@@ -899,65 +899,6 @@
 
 
     var click = 0;
-    $("#balanceTransferSubmit").on("click", function() {
-
-      click = click + 1;
-
-      if (click == 1) {
-        $('#balance_transfer_load').show();
-        var transferAmount = $("#transferAmount").val();
-        var to_userId = $("#to_userId").val();
-        var notes = $("#notes").val();
-        var transferPassword = $("#transferPassword").val();
-
-        $.ajax({
-          method: "POST",
-        //   url: 'usertouserbalancetransfer',
-          data: {
-            amount: transferAmount,
-            toUser: to_userId,
-            notes: notes,
-            transferPassword: transferPassword
-
-          },
-          success: function(data) {
-
-            if (data !== "") {
-
-              if (data == "User To User Balance transfer Successful") {
-
-                $('#balance_transfer_load').hide();
-                $('#errorBalanceTransfer').show();
-                $('#errorBalanceTransfer').removeClass('alert-success');
-                $('#errorBalanceTransfer').removeClass('alert-danger');
-                $('#errorBalanceTransfer').addClass('alert-success');
-                $('#alertBalanceTransfer').html(data);
-
-                setTimeout(function() {
-                  $("#errorBalanceTransfer").hide();
-                  $(".balanceTransfer").hide();
-                  location.reload();
-                }, 2000);
-              } else {
-                $('#balance_transfer_load').hide();
-                $('#errorBalanceTransfer').show();
-                $('#errorBalanceTransfer').removeClass('alert-success');
-                $('#errorBalanceTransfer').removeClass('alert-danger');
-                $('#errorBalanceTransfer').addClass('alert-danger');
-                $('#alertBalanceTransfer').html(data);
-                click = 0;
-                setTimeout(function() {
-                  $("#errorBalanceTransfer").hide();
-                }, 2000);
-              }
-
-            }
-          }
-        });
-      }
-
-    });
-    var click = 0;
 
     $("#balanceTransferSubmitclub").on("click", function() {
 

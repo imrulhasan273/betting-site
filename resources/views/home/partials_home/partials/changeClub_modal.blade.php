@@ -1,7 +1,9 @@
  @php
-    $clubs = App\Club::all();
-    $club_id = App\User::where('id',Auth::user()->id)->pluck('club_id');
-    $clubName = App\Club::where('id',$club_id)->pluck('name');
+    if(Auth::user()){
+        $clubs = App\Club::all();
+        $club_id = App\User::where('id',Auth::user()->id)->pluck('club_id');
+        $clubName = App\Club::where('id',$club_id)->pluck('name');
+    }
  @endphp
  <!--Start Modal change club -->
  <div id="changeClub" class="modal fade" role="dialog">
@@ -22,13 +24,15 @@
               <div class="form-group">
                 <label style="text-align: left;width: 100%;">Choose your Club<span style="color:#DD4F43;"></span></label>
                 <select class="form-control" id="cClub">
+                @if(Auth::user())
                 @foreach ($clubs as $club)
                     <option value="{{ $club->id }}">{{ $club->name }}</>
                 @endforeach
+                @endif
                 </select>
                 <div class="form-group">
                   <label style="text-align: left;width: 100%;"> Password <span style="color:#DD4F43;"></span></label>
-                  <input type="text" name="clubChangePass" id="clubChangePass" class="form-control input-lg" placeholder="" tabindex="3" required>
+                  <input type="password" name="clubChangePass" id="clubChangePass" class="form-control input-lg" placeholder="" tabindex="3" required>
                 </div>
               </div>
               <div class="row">
