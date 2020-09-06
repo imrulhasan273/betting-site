@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
 use App\Bet;
+use App\Club;
 use App\User;
+use App\Answer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,12 @@ class BetController extends Controller
         # Auth User
         $userId = Auth::user()->id;
 
+        # CHECK IF USER BELONGS TO A CLUB
+        $hasClub = User::where('id', 6)->pluck('club_id');
+        $hasClub = $hasClub[0] ?? null;
+        if ($hasClub == null) {
+            return response()->json('no club');
+        }
 
 
         # Requested Data from JS - Ajax Request
