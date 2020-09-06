@@ -37,7 +37,7 @@
 
                             <!-- START QUESTION LOOP -->
                             @foreach ($questions as $question)
-                            @if ($game->id == $question->game_id)
+                            @if ($game->id == $question->game_id && $question->is_active==1)
                             @php
                                 $ansCount++
                             @endphp
@@ -53,8 +53,8 @@
 
                                         <!-- ANSWER LOOP -->
                                         @foreach ($answers as $answer)
-                                        @if ($question->id == $answer->question_id)
-                                        <div class="col-md-3 col-xs-6 ans" style="margin-top: 0px;border:1px solid #777A7D;">
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active')
+                                        <div class="col-md-3 col-xs-6 ans" style="cursor: pointer; margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
                                             data-match = "{{$game->name}} | {{$game->tournament_name}} | {{$game->date}} | {{$game->time}}"
                                                 data-game_id = "{{$game->id}}"
@@ -139,7 +139,7 @@
 
                             <!-- START QUESTION LOOP -->
                             @foreach ($questions as $question)
-                            @if ($game->id == $question->game_id)
+                            @if ($game->id == $question->game_id && $question->is_active==1)
                             @php
                                 $ansCountU++
                             @endphp
@@ -155,8 +155,8 @@
 
                                         <!-- ANSWER LOOP -->
                                         @foreach ($answers as $answer)
-                                        @if ($question->id == $answer->question_id)
-                                        <div class="col-md-3 col-xs-6 ans" style="margin-top: 0px;border:1px solid #777A7D;">
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active')
+                                        <div class="col-md-3 col-xs-6 ans" style="cursor: pointer; margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
                                                 data-game_id = "{{$game->id}}"
                                                 data-match = "{{$game->name}} | {{$game->tournament_name}} | {{$game->date}} | {{$game->time}}"
