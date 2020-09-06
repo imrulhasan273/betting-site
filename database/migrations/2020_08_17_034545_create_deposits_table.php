@@ -14,19 +14,19 @@ class CreateDepositsTable extends Migration
     public function up()
     {
         Schema::create('deposits', function (Blueprint $table) {
-            // $table->id();
-            $table->bigIncrements('id');
+            $table->id();
+            // $table->bigIncrements('id');
 
-            // $table->unsignedBigInteger('user_id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
+            // $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('deposit_by');
             $table->string('deposit_to');
             $table->float('amount');
 
-            // $table->unsignedBigInteger('method_id');
-            $table->bigInteger('method_id')->unsigned();
+            $table->unsignedBigInteger('method_id');
+            // $table->bigInteger('method_id')->unsigned();
             $table->foreign('method_id')->references('id')->on('payment_options')->onDelete('cascade');
 
             $table->string('transection_id');

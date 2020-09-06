@@ -14,24 +14,24 @@ class CreateBetsTable extends Migration
     public function up()
     {
         Schema::create('bets', function (Blueprint $table) {
-            // $table->id();
-            $table->bigIncrements('id');
+            $table->id();
+            // $table->bigIncrements('id');
 
-            // $table->unsignedBigInteger('bet_by');
-            $table->bigInteger('bet_by')->unsigned();
+            $table->unsignedBigInteger('bet_by');
+            // $table->bigInteger('bet_by')->unsigned();
             $table->string('match');
 
-            // $table->unsignedBigInteger('game_id');
-            $table->bigInteger('game_id')->unsigned();
+            $table->unsignedBigInteger('game_id');
+            // $table->bigInteger('game_id')->unsigned();
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
 
-            // $table->unsignedBigInteger('question_id');
-            $table->bigInteger('question_id')->unsigned();
+            $table->unsignedBigInteger('question_id');
+            // $table->bigInteger('question_id')->unsigned();
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
 
 
-            // $table->unsignedBigInteger('answer_id');
-            $table->bigInteger('answer_id')->unsigned();
+            $table->unsignedBigInteger('answer_id');
+            // $table->bigInteger('answer_id')->unsigned();
             $table->foreign('answer_id')->references('id')->on('answers')->onDelete('cascade');
 
             $table->float('amount');
