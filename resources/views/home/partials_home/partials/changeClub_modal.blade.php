@@ -12,7 +12,9 @@
       <div class="modal-content">
         <div class="modal-header m-head" style="  background: #FF7118;">
           <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
-          <h4 class="modal-title" style="color: white"> &nbsp; Change Club : {{$clubName}} </h4>
+            @if(Auth::user())
+            <h4 class="modal-title" style="color: white"> &nbsp; Change Club : {{$clubName}} </h4>
+            @endif
         </div>
         <div class="modal-body" style="padding: 2% !important">
           <div class="">
