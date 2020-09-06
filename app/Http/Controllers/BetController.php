@@ -26,8 +26,9 @@ class BetController extends Controller
         $userId = Auth::user()->id;
 
         # CHECK IF USER BELONGS TO A CLUB
-        $hasClub = User::where('id', 6)->pluck('club_id');
+        $hasClub = User::where('id', $userId)->pluck('club_id');
         $hasClub = $hasClub[0] ?? null;
+
         if ($hasClub == null) {
             return response()->json('no club');
         }
