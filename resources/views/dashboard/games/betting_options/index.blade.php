@@ -80,7 +80,7 @@ $active='games';
                                 <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">
                                     <span class="material-icons">
                                         add_circle_outline
-                                    </span> Answer
+                                    </span> Answer +
                                 </a>
                             </h4>
                         </div>

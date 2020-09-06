@@ -31,6 +31,12 @@ class BetController extends Controller
 
 
 
+        # START CHECK IF AUTH USER ALREADY PLACED BIT FOR THIS QUESTION
+
+        # END CHECK IF AUTH USER ALREADY PLACED BIT FOR THIS QUESTION
+
+
+
         # __________START NEED TO CHECK IF I HAVE ENOUGH BALANCE AND IF SO THEN MOVE THE BALANCE IN LOCK CREDITS COLUMN
         $amount = User::where('id', $userId)->pluck('credits');
         $amount = $amount[0];
