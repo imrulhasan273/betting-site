@@ -52,7 +52,7 @@
 
                                         <!-- ANSWER LOOP -->
                                         @foreach ($answers as $answer)
-                                        @if ($question->id == $answer->question_id && $answer->status == 'active')
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result=='')
                                         <div class="col-md-3 col-xs-6 ans" style="cursor: pointer; margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
                                                 data-type_id = "{{$game->type_id}}"
@@ -154,7 +154,7 @@
 
                                         <!-- ANSWER LOOP -->
                                         @foreach ($answers as $answer)
-                                        @if ($question->id == $answer->question_id && $answer->status == 'active')
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result=='')
                                         <div class="col-md-3 col-xs-6 ans" style="cursor: pointer; margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select"
                                                       data-type_id = "{{$game->type_id}}"

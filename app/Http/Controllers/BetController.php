@@ -31,10 +31,6 @@ class BetController extends Controller
 
 
 
-
-
-
-
         # __________START NEED TO CHECK IF I HAVE ENOUGH BALANCE AND IF SO THEN MOVE THE BALANCE IN LOCK CREDITS COLUMN
         $amount = User::where('id', $userId)->pluck('credits');
         $amount = $amount[0];
@@ -78,7 +74,7 @@ class BetController extends Controller
             'club_fee' => $commission,
         ]);
 
-        # START UPDATE ANsWER TABLE - -- -- - - - -- - - - --
+        # START UPDATE ANSWER TABLE - -- -- - - - -- - - - --
         $ans = Answer::where('id', $ansID)->first();
         $UpdateAns = Answer::where('id', $ansID)->first();
         if ($UpdateAns) {
@@ -89,7 +85,7 @@ class BetController extends Controller
 
             ]);
         }
-        # END UPDATE ANsWER TABLE - -- -- - - - -- - - - --
+        # END UPDATE ANSWER TABLE - -- -- - - - -- - - - --
 
         if ($BetInsert) {
             $data = 'Bit has been placed successfully!';

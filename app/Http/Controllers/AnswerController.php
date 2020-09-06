@@ -272,6 +272,7 @@ class AnswerController extends Controller
             $SponsorID = $userr->ref[0]->id ?? null;
             $SPcommission = 0;
 
+            # IF USER HAVE A SPONSOR
             if ($SponsorID != null) {
 
                 $SPcredits = User::where('id', $SponsorID)->pluck('credits');
