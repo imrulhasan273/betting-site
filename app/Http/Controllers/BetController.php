@@ -16,8 +16,15 @@ class BetController extends Controller
     # ____________________________________Using Ajax__________________________________
     public function placeBit(Request $request)
     {
+        # IF GUEST USER THEN BACK WITH MESSAGE TO LOG IN
+        if (Auth::guest()) {
+            return response()->json('guest');
+        }
+
         # Auth User
         $userId = Auth::user()->id;
+
+
 
         # Requested Data from JS - Ajax Request
         $gameID = $request->gameID;

@@ -161,6 +161,18 @@ $("#placeBet").on("click", function() {
                             $("#errorBet").hide();
                         }, 1000);
                     }
+                    else if(data == "guest"){
+                        $('#errorBet').show();
+                        $('#errorBet').removeClass('alert-success');
+                        $('#errorBet').removeClass('alert-danger');
+                        $('#errorBet').addClass('alert-danger');
+                        $('#alertBet').html('Please Log In To Bit');
+                        betclick = 0;
+                        setTimeout(function()
+                        {
+                            $("#errorBet").hide();
+                        }, 1000);
+                    }
                     else
                     {
                         $('#errorBet').show();

@@ -24,7 +24,8 @@ Route::get('/rules', 'HomeController@rules')->name('rules');
 
 
 # START BET CONTROLLER
-Route::get('/place_bit', 'BetController@placeBit')->name('bets.placeBit')->middleware('auth');
+Route::get('/place_bit', 'BetController@placeBit')->name('bets.placeBit'); # NO MIDDLEWARE
+// Route::get('/place_bit', 'BetController@placeBit')->name('bets.placeBit')->middleware('auth');
 Route::get('/bets/status/{bet_id}/{code}', 'BetController@status')->name('admin.bets.status'); //added
 # END BET CONTROLLER
 

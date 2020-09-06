@@ -14,28 +14,6 @@ $authRole = $authRole[0];
     @if($authRole == 'super_admin' || $authRole == 'admin')
     <div class="row">
 
-        {{-- <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
-                    <div class="card-icon">
-                        <i class="material-icons">content_copy</i>
-                    </div>
-                    <p class="card-category">Requested Transection</p>
-                    <h3 class="card-title">49/50
-                        <small>GB</small>
-                    </h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons text-danger">warning</i>
-                        <a href="javascript:;">Get More Space...</a>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
-
-
         <!----------===================ACCOUNT BALNCE OF ORGANIZATION==========-------------->
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
@@ -124,8 +102,8 @@ $authRole = $authRole[0];
                 </div>
             </div>
         <!------------================= TOTAL CLUBS===================---------- -->
-        </div>
-        @endif
+    </div>
+    @endif
 
 
         @if($authRole == 'super_admin' || $authRole == 'admin')
@@ -463,7 +441,7 @@ $authRole = $authRole[0];
                         @if($user->role[0]->name=='user');
                         @php
                             $clubName = App\Club::where('id', $user->club_id)->pluck('name');
-                            $clubName = $clubName[0];
+                            $clubName = $clubName[0] ?? null;
                         @endphp
                             <tr>
                                 <td>{{ ++$key }}</td>
@@ -479,5 +457,5 @@ $authRole = $authRole[0];
                 </div>
               </div>
             </div>
-          </div>
-    @endsection
+        </div>
+@endsection

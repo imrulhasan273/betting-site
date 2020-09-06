@@ -26,7 +26,6 @@ class backendController extends Controller
 {
     public function index()
     {
-
         // # TOTAL USERS
         // $user = User::whereHas(
         //     'role',
