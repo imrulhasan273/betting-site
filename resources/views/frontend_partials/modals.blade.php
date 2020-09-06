@@ -364,87 +364,9 @@
       </div>
       <!----------End Modal Club to User balance Transfer------------->
 
+
       <!--Start Modal change club -->
-      <div id="changeClub" class="modal fade" role="dialog">
-        <div class="modal-dialog  ">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118;">
-              <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
-              <h4 class="modal-title" style="color: white"> &nbsp; Change Club</h4>
-            </div>
-            <div class="modal-body" style="padding: 2% !important">
-              <div class="">
-                <div role="form" class="register-form">
-                  <div id="errorClub" class="alert" role="alert">
-                    <button type="button" class="close" data-dismiss="" aria-hidden="true">
-                      ×</button> <strong id="alertClub"></strong> <span id="errorchangeClubText"></span>
-                  </div>
-                  <div class="form-group">
-                    <label style="text-align: left;width: 100%;">Choose your Club<span style="color:#DD4F43;"></span></label>
-                    <select class="form-control" id="cClub">
-                      <option disabled selected value>Select Club</option>
-                      <option value="Barisal Club">Barisal Club</option>
-                      <option value="Tipper shawon club">Tipper shawon club</option>
-                      <option value="BET LOVERS">BET LOVERS</option>
-                      <option value="MaxBet Club">💎MaxBet Club💎</option>
-                      <option value="Dark-Night">Dark-Night</option>
-                      <option value="BD 24">BD 24</option>
-                      <option value="5 Star Club">5 Star Club</option>
-                      <option value="Munshiganj Club">Munshiganj Club</option>
-                      <option value="RANGPUR CLUB">RANGPUR CLUB</option>
-                      <option value="Dubai Club">Dubai 🇦🇪 Club</option>
-                      <option value="Jamuna Club">Jamuna Club</option>
-                      <option value="Rock Club">Rock Club</option>
-                      <option value="King Club">King Club</option>
-                      <option value="GURU CLUB"> 🌀BET-GURU CLUB🌀 </option>
-                      <option value="Online Club">Online Club</option>
-                      <option value="City club">City club</option>
-                      <option value="Gazipur Club">Gazipur Club</option>
-                      <option value="STARWARS">Star Wars</option>
-                      <option value="THE-WORLD CLUB">THE-WORLD CLUB</option>
-                      <option value="Dhaka club">Dhaka club</option>
-                      <option value="Golden Club">Golden Club</option>
-                      <option value="Real Madrid club">Real Madrid club</option>
-                      <option value="FaridpurClub">Faridpur Club</option>
-                      <option value="Superclub">Super Club</option>
-                      <option value="Friends Club">Friends Club</option>
-                      <option value="Help line club">Help line club</option>
-                      <option value="Khulna Club">Khulna club</option>
-                      <option value="Green Club">Green Club</option>
-                      <option value="Lions Club">Lions Club</option>
-                      <option value="WinBet Club"> 🏆 WinBet Club 🏆</option>
-                      <option value="Australia Club ">Australia Club </option>
-                      <option value="Davil Club">Davil Club</option>
-                      <option value="CR7 CluB">CR7 CluB</option>
-                      <option value="Update club">Update club</option>
-                      <option value="Jessore Club">Jessore Club</option>
-                      <option value="AsiaClub">Asia club</option>
-                      <option value="SAKIB75 CLUB">SAKIB75 CLUB</option>
-                      <option value="Bangladesh Club">Bangladesh Club</option>
-                      <option value="Powerful Club">Powerful Club</option>
-                      <option value="Welcome to Sports">Welcome to Sports</option>
-                      <option value="Barcelona Club">Barcelona Club</option>
-                      <option value="Indiaclub">Indiaclub</option>
-                      <option value="Bet 365">Bet 365</option>
-                      <option value="Help Line bdBet">Help Line bdBet</option>
-                      <option value="STARS CLUB">STARS CLUB</option>
-                    </select>
-                    <div class="form-group">
-                      <label style="text-align: left;width: 100%;"> Password <span style="color:#DD4F43;"></span></label>
-                      <input type="text" name="PasswordClubChange" id="PasswordClubChange" class="form-control input-lg" placeholder="********" tabindex="3" required>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6"><input type="submit" id="changeClubSubmit" value="Update" class="btn btn-block btn-lg" tabindex="7" style="  background:#FFC22C ; color: #fff"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      @include('home.partials_home.partials.changeClub_modal')
       <!--End Modal change club -->
 
 

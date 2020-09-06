@@ -592,52 +592,7 @@
 
     });
 
-    $("#changeClubSubmit").on("click", function() {
 
-
-      var cClub = $("#cClub").val();
-      var PasswordClubChange = $("#PasswordClubChange").val();
-
-      $.ajax({
-        method: "POST",
-        // url: 'change_club',
-        data: {
-          cClub: cClub,
-          PasswordClubChange: PasswordClubChange
-
-        },
-        success: function(data) {
-
-          if (data == "Club Changed") {
-
-            $('#errorClub').show();
-            $('#errorClub').removeClass('alert-success');
-            $('#errorClub').removeClass('alert-danger');
-            $('#errorClub').addClass('alert-success');
-            $('#alertClub').html(data);
-
-            setTimeout(function() {
-              $("#errorClub").hide();
-            }, 3000);
-          } else {
-
-            $('#errorClub').show();
-            $('#errorClub').removeClass('alert-success');
-            $('#errorClub').removeClass('alert-danger');
-            $('#errorClub').addClass('alert-danger');
-            $('#alertClub').html(data);
-
-            setTimeout(function() {
-              $("#errorClub").hide();
-            }, 3000);
-
-
-          }
-        }
-      });
-
-
-    });
 
     // ============================================= START CHANGES PASSOWORD ====================================================
 

@@ -19,19 +19,44 @@ class ProfileController extends Controller
     }
     public function deposit()
     {
-        # MODAL
+        # MODAL //already done on Deposit controller
     }
     public function widthdraw()
     {
-        # MODAL
+        # MODAL //already done in widthdraw controller
     }
     public function bTransfer()
     {
         # MODAL
     }
-    public function changeClub()
+    public function changeClub(Request $request)
     {
-        # MODAL
+        $userId = Auth::user()->id;
+
+        $query = DB::table('users')
+            ->where('id', '=', $userId)
+            ->pluck('password');
+
+        $curPassDB = $query[0];
+
+        $matchPass = Hash::check($request->password, $curPassDB);
+
+        $updatingClubName = false;
+
+        if ($matchPass) {
+            $updatingClubName = User::where('id', $userId);
+            if ($updatingClubName) {
+                $updatingClubName->update([
+                    'club_id' => $request->clubID,
+                ]);
+            }
+
+            if ($updatingClubName) {
+                return response()->json('success');
+            } else {
+                return response()->json('failed');
+            }
+        }
     }
     # -----------------------------USING AJAX -----------------------------
     public function changePassword(Request $request)
