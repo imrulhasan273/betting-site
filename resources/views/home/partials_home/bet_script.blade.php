@@ -173,6 +173,18 @@ $("#placeBet").on("click", function() {
                             $("#errorBet").hide();
                         }, 1000);
                     }
+                    else if(data == "no club"){
+                        $('#errorBet').show();
+                        $('#errorBet').removeClass('alert-success');
+                        $('#errorBet').removeClass('alert-danger');
+                        $('#errorBet').addClass('alert-danger');
+                        $('#alertBet').html('Please Register Your Account In A club Before Play!!');
+                        betclick = 0;
+                        setTimeout(function()
+                        {
+                            $("#errorBet").hide();
+                        }, 4000);
+                    }
                     else
                     {
                         $('#errorBet').show();

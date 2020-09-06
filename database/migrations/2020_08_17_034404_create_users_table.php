@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
 
-            // $table->id();
-            $table->bigIncrements('id');
+            $table->id();
+            // $table->bigIncrements('id');
 
             $table->string('name');
             $table->double('credits')->nullable();
@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('photo')->nullable();
             $table->string('phone')->nullable();
 
-            $table->bigInteger('club_id')->unsigned()->nullable();
-            // $table->unsignedBigInteger('club_id')->nullable();
+            // $table->bigInteger('club_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('club_id')->nullable();
             $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
 
             $table->timestamp('email_verified_at')->nullable();

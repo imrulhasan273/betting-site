@@ -14,11 +14,11 @@ class CreateGamesTable extends Migration
     public function up()
     {
         Schema::create('games', function (Blueprint $table) {
-            // $table->id();
-            $table->bigIncrements('id');
+            $table->id();
+            // $table->bigIncrements('id');
 
-            // $table->unsignedBigInteger('type_id');
-            $table->bigInteger('type_id')->unsigned();
+            $table->unsignedBigInteger('type_id');
+            // $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
 
             //date
