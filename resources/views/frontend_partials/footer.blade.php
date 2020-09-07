@@ -9,7 +9,7 @@
             <div class="col-md-9">
               <p class="footer-links">
                 <a href="{{route('home')}}" id="footerlink">Home</a>
-                <a href="{{route('support')}}" id="footerlink"> Contact-us</a>
+                <a href="{{route('webmessage.index.user')}}" id="footerlink"> Contact-us</a>
                 <a href="{{route('rules')}}" id="footerlink"> Rules & Regulations</a>
                 <a href="#" id="footerlink"> FAQ</a>
                 <a href="{{route('about')}}" id="footerlink"> About Us</a>
