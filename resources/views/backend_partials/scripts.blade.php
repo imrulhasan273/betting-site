@@ -68,9 +68,14 @@
 
 <script>
     $(document).ready(function() {
-    $('#datatable').DataTable();
-
-} );
+    $('#datatable').DataTable({
+     responsive: true,
+     language: {
+          search: "_INPUT_",
+          searchPlaceholder: "Search records",
+        }
+    });
+});
 </script>
 
 <script>
