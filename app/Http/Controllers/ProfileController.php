@@ -35,11 +35,13 @@ class ProfileController extends Controller
 
         # CHECK IF USER ROLE IS USER
         $CHECKUSER = User::where('user_name', $user_name)->get();
-        $CHECKROLE = $CHECKUSER[0]->role[0]->name;
+        $CHECKROLE = $CHECKUSER[0]->role[0]->name ?? null;
 
         if ($CHECKROLE != 'user') {
             return response()->json('User Not Exist');
         }
+
+
 
         # CHECK IF AMOUNT IS NUMERIC
         if (is_numeric($amount)) {
