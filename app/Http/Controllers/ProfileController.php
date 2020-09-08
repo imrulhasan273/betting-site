@@ -90,6 +90,21 @@ class ProfileController extends Controller
                         ]);
                     }
 
+                    # ADD INFO TO BALANACE TRANSDER TABLE
+                    $AuthuserName = User::where('id', $userId)->pluck('user_name');
+                    $AuthuserName = $AuthuserName[0];
+                    DB::table('balance_transfer')->insert(
+                        [
+                            'from' => $AuthuserName,
+                            'to' => $user_name,
+                            'amount' => $amount,
+                            'note' => '',
+                            'created_at' =>  \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                        ]
+                    );
+                    # END BALANCE TRANSFER HISTORY
+
                     return response()->json('sent');
                 } else {
                     return response()->json('User Not Exist');
