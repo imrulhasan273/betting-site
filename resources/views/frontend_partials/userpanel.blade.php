@@ -1,6 +1,6 @@
 @php
     $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
-    $authRole = $authRole[0];
+    $authRole = $authRole[0] ?? null;
 @endphp
 @if (Auth::user())
 <div id="mySidenav" class="sidenav">
