@@ -185,6 +185,18 @@ $("#placeBet").on("click", function() {
                             $("#errorBet").hide();
                         }, 4000);
                     }
+                    else if(data == "admin"){
+                        $('#errorBet').show();
+                        $('#errorBet').removeClass('alert-success');
+                        $('#errorBet').removeClass('alert-danger');
+                        $('#errorBet').addClass('alert-danger');
+                        $('#alertBet').html('Admin/Super Admin Can Not Play!!!');
+                        betclick = 0;
+                        setTimeout(function()
+                        {
+                            $("#errorBet").hide();
+                        }, 4000);
+                    }
                     else
                     {
                         $('#errorBet').show();

@@ -17,9 +17,18 @@ class BetController extends Controller
     # ____________________________________Using Ajax__________________________________
     public function placeBit(Request $request)
     {
+
+
+
         # IF GUEST USER THEN BACK WITH MESSAGE TO LOG IN
         if (Auth::guest()) {
             return response()->json('guest');
+        }
+
+        # CHECK IF AUTH USER IS AN ADMIN/SUPER ADMIN
+        $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+        if ($authRole[0] == 'admin' || $authRole[0] == 'super_admin') {
+            return response()->json('admin');
         }
 
         # Auth User
