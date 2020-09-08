@@ -25,10 +25,10 @@ class BetController extends Controller
             return response()->json('guest');
         }
 
-        # CHECK IF AUTH USER IS AN ADMIN/SUPER ADMIN
+        # CHECK IF AUTH USER IS AN ADMIN/SUPER/CLUB ADMIN -> THEY CAN'T PLAY
         $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
-        if ($authRole[0] == 'admin' || $authRole[0] == 'super_admin') {
-            return response()->json('admin');
+        if ($authRole[0] == 'admin' || $authRole[0] == 'super_admin' || $authRole[0] == 'club_admin') {
+            return response()->json($authRole[0]);
         }
 
         # Auth User

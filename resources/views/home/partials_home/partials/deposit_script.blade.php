@@ -84,6 +84,19 @@
                 depositclick = 0;
 
                 }
+                else if (data == "admin" || data == 'super_admin' || data == 'club_admin') {
+                $('#deposit_load').hide();
+                $('#errorDeposit').show();
+                $('#errorDeposit').removeClass('alert-success');
+                $('#errorDeposit').removeClass('alert-danger');
+                $('#errorDeposit').addClass('alert-danger');
+                $('#alertDeposit').html(data + ' Can not Deposit Here');
+                setTimeout(function() {
+                    $("#errorDeposit").hide();
+                }, 2000);
+                depositclick = 0;
+
+                }
             }
             });
         }

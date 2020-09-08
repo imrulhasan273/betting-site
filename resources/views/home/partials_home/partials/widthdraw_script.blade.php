@@ -71,6 +71,18 @@
                 }, 2000);
                 WidthdrawClick = 0;
                 }
+                else if (data == "admin" || data == 'super_admin' || data == 'club_admin') {
+                $('#widthdraw_load').hide();
+                $('#errorWidthdraw').show();
+                $('#errorWidthdraw').removeClass('alert-success');
+                $('#errorWidthdraw').removeClass('alert-danger');
+                $('#errorWidthdraw').addClass('alert-danger');
+                $('#alertWidthdraw').html(data+' Can Not Widthdraw Here!!!');
+                setTimeout(function() {
+                    $("#errorWidthdraw").hide();
+                }, 2000);
+                WidthdrawClick = 0;
+                }
             }
             });
         }

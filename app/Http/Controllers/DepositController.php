@@ -22,6 +22,12 @@ class DepositController extends Controller
     # BY USER
     public function placeDeposit(Request $request)
     {
+        # CHECK IF AUTH USER IS AN ADMIN/SUPER/CLUB ADMIN -> THEY CAN'T PLAY
+        $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+        if ($authRole[0] == 'admin' || $authRole[0] == 'super_admin' || $authRole[0] == 'club_admin') {
+            return response()->json($authRole[0]);
+        }
+
         $InsertDeposit = false;
 
         if (is_numeric($request->amount)) {

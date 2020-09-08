@@ -1,3 +1,7 @@
+@php
+    $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+    $authRole = $authRole[0];
+@endphp
 @if (Auth::user())
 <div id="mySidenav" class="sidenav">
     <h2 style="padding-top: 17%;">
@@ -18,6 +22,9 @@
             @if (Auth::user())
                 <div class="eos-group-title"><i class="fa fa-user-tie" aria-hidden="true"></i> {{ Auth::user()->name }}</div>
             @endif
+
+
+            @if($authRole=='user')
             <div class="eos-group-title">
                 <i class="subMenus" aria-hidden="true">
                 </i>
@@ -112,6 +119,7 @@
                     <img src="{{asset('frontend/img/oneten.gif')}}" style="max-width: 22px;">
                 </i> OneTen</div>
             </a>
+            @endif
             <!--<a style="padding:0px;font-size: 14px;" href="coin_flip"><div class="eos-group-title"><i aria-hidden="true"><img src="frontend/img/coin.png" style="max-width: 22px;"></i> Coin Flip</div></a>-->
             <a style="padding:0px;font-size: 14px;" href="{{route('logout')}}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
