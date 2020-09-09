@@ -140,9 +140,9 @@ route::group(['prefix' => 'admin'], function () {
     # ------ START CLUBS CONTROLLER
     Route::get('/clubs/add', 'ClubController@add')->name('clubs.add')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/clubs/store', 'ClubController@store')->name('clubs.store')->middleware(['roleChecker:super_admin,admin,null']);
-    Route::get('/clubs/{club}/edit', 'ClubController@edit')->name('clubs.edit')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    Route::post('/clubs/update', 'ClubController@update')->name('clubs.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
-    Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    Route::get('/clubs/{club}/edit', 'ClubController@edit')->name('clubs.edit')->middleware(['roleChecker:super_admin,admin,null']);                    #club can't edit club
+    Route::post('/clubs/update', 'ClubController@update')->name('clubs.update')->middleware(['roleChecker:super_admin,admin,null']);                    #club can't update club
+    Route::get('/clubs/{club}/{user}/destroy', 'ClubController@destroy')->name('clubs.destroy')->middleware(['roleChecker:super_admin,admin,null']);    #club can't delete club
     # --- CLUB WIDTHDRAW CLUB ACCESS
     Route::get('/clubs/withdraw', 'ClubController@clubsWithdrawList')->name('admin.clubs.withdraw.list')->middleware(['roleChecker:null,null,club_admin']);
     Route::get('/clubs/withdraw/request', 'ClubController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:null,null,club_admin']);
