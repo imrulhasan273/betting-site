@@ -56,9 +56,10 @@ class DepositController extends Controller
     }
 
 
-    #BY USER
+    #BY ADMIN
     public function status(Deposit $deposit, $code)
     {
+        // dd($deposit);
         $flag = Deposit::where('id', $deposit->id)->pluck('status');
         $flag  = $flag[0] ?? null;
 
@@ -85,11 +86,26 @@ class DepositController extends Controller
             # UPDATE USER ACCOUNT (ADD)
             $PrevAmount = User::where('id', $deposit->user_id)->pluck('credits');
             $updatingUserAccount = User::where('id', $deposit->user_id)->first();
+
             if ($updatingUserAccount) {
                 $updatingUserAccount->update([
                     'credits' => $PrevAmount[0] + $deposit->amount
                 ]);
             }
+
+            # ADD TRANSECTION HISTORY FOR USER
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $deposit->user_id,
+                    'from_id' => '',
+                    'debit' => 0,
+                    'credit' => $deposit->amount,
+                    'balance' => $PrevAmount[0] + $deposit->amount,
+                    'description' => 'Deposit',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
 
             # UPDATE SUPER ADMIN ACCOUNT (SUBSTRACT)
             $superAdmin = User::whereHas(
@@ -108,6 +124,20 @@ class DepositController extends Controller
                     'credits' => $BANK[0] - $deposit->amount,
                 ]);
             }
+
+            # ADD TRANSECTION HISTORY FOR SUPER ADMIN
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $superAdmin->id,
+                    'from_id' => '',
+                    'debit' => $deposit->amount,
+                    'credit' => 0,
+                    'balance' => $BANK[0] - $deposit->amount,
+                    'description' => 'Deposit',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
         }
 
 

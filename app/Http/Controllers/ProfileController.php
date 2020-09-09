@@ -79,7 +79,7 @@ class ProfileController extends Controller
                         ]);
                     }
 
-                    # SUBSTRACT TO MY ACCOUNT
+                    # SUBSTRACT from MY ACCOUNT
                     $MyCredits = User::where('id', Auth::user()->id)->pluck('credits');
                     $MyCredits = $MyCredits[0];
 
@@ -90,7 +90,7 @@ class ProfileController extends Controller
                         ]);
                     }
 
-                    # ADD INFO TO BALANACE TRANSDER TABLE
+                    # ADD INFO TO BALANACE TRANSFER TABLE
                     $AuthuserName = User::where('id', $userId)->pluck('user_name');
                     $AuthuserName = $AuthuserName[0];
                     DB::table('balance_transfer')->insert(
@@ -104,6 +104,46 @@ class ProfileController extends Controller
                         ]
                     );
                     # END BALANCE TRANSFER HISTORY
+
+                    # ADD TRANSECTION HISTORY FOR SOURCE USER (WHO TRANSFER)
+                    $MyCreditsS = User::where('id', Auth::user()->id)->pluck('credits');
+                    $MyCreditsS = $MyCreditsS[0];
+
+                    $MyLCreditsS = User::where('id', Auth::user()->id)->pluck('lock_credits');
+                    $MyLCreditsS = $MyLCreditsS[0];
+
+                    $user_idT = User::where('user_name', $user_name)->pluck('id');
+                    $user_idT = $user_idT[0];
+                    DB::table('user_transection')->insert(
+                        [
+                            'user_id' => $userId,
+                            'from_id' => $user_idT,
+                            'debit' => $amount,
+                            'credit' => 0,
+                            'balance' => $MyCreditsS + $MyLCreditsS,
+                            'description' => 'Balance Transfer',
+                            'created_at' =>  \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                        ]
+                    );
+
+                    # ADD TRANSECTION HISTORY FOR TARGET USER (WHO GET)
+                    $MyCreditsT = User::where('user_name', $user_name)->pluck('credits');
+                    $MyCreditsT = $MyCreditsT[0];
+                    $MyLCreditsT = User::where('user_name', $user_name)->pluck('lock_credits');
+                    $MyLCreditsT = $MyLCreditsT[0];
+                    DB::table('user_transection')->insert(
+                        [
+                            'user_id' => $user_idT,
+                            'from_id' => $userId,
+                            'debit' => 0,
+                            'credit' => $amount,
+                            'balance' => $MyCreditsT + $MyLCreditsT,
+                            'description' => 'Balance Receive',
+                            'created_at' =>  \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                        ]
+                    );
 
                     return response()->json('sent');
                 } else {

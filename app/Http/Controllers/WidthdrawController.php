@@ -116,6 +116,8 @@ class WidthdrawController extends Controller
 
     public function status(Widthdraw $widthdraw, $code)
     {
+        // dd($widthdraw);
+
         $flag = Widthdraw::where('id', $widthdraw->id)->pluck('status');
 
         $flag  = $flag[0] ?? null;
@@ -150,6 +152,24 @@ class WidthdrawController extends Controller
                 ]);
             }
 
+            # ADD TRANSECTION HISTORY FOR USER
+            $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');
+            $Credits = $Credits[0];
+            $LockCredits = User::where('id', $widthdraw->user_id)->pluck('lock_credits');
+            $LockCredits = $LockCredits[0];
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $widthdraw->user_id,
+                    'from_id' => '',
+                    'debit' => $widthdraw->amount,
+                    'credit' => 0,
+                    'balance' =>  $Credits + $LockCredits,
+                    'description' => 'Widthdraw',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
+
             # START UPDATE SUPER ADMIN ACCOUNT (ADD)
             $superAdmin = User::whereHas(
                 'role',
@@ -168,6 +188,20 @@ class WidthdrawController extends Controller
                 ]);
             }
             # END UPDATE SUPER ADMIN ACCOUNT (SUBSTRACT)
+
+            # ADD TRANSECTION HISTORY FOR SUPER ADMIN
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $superAdmin->id,
+                    'from_id' => '',
+                    'debit' => 0,
+                    'credit' => $widthdraw->amount,
+                    'balance' => $BANK[0] + $widthdraw->amount,
+                    'description' => 'Widthdraw Request',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
         } else if ($state == 'cancel') {
 
             $Credits = User::where('id', $widthdraw->user_id)->pluck('credits');
@@ -194,13 +228,13 @@ class WidthdrawController extends Controller
 
         # CUSTOM ALERT
         $msg1 = 'error';
-        $msg2 = 'Deposit Request rejected!';
+        $msg2 = 'Widthdraw Request rejected!';
         if ($code == 1) {
             $msg1 = 'message';
-            $msg2 = 'Deposit Request accepted!';
+            $msg2 = 'Widthdraw Request accepted!';
         } else if ($code == 2) {
             $msg1 = 'error';
-            $msg2 = 'Deposit Request Cancelled!';
+            $msg2 = 'Widthdraw Request Cancelled!';
         }
 
         return back()->with($msg1, $msg2);
