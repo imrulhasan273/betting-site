@@ -69,4 +69,3 @@ php artisan make:migration create_sponsor_commission_table
 ```php
 "ext-gd": "*",
 ```
-p

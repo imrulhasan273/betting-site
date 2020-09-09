@@ -1,11 +1,15 @@
 @php
-$AuthuserName = App\User::where('id', Auth::user()->id)->pluck('user_name');
-$AuthuserName = $AuthuserName[0];
+
 
 $trHistories = DB::table('user_transection')
                 ->where('user_id', Auth::user()->id)
                 ->get();
+
+$AuthuserName = App\User::where('id', Auth::user()->id)->pluck('user_name');
+$AuthuserName = $AuthuserName[0];
+
 $sl=0;
+
 @endphp
 <div class="bhoechie-tab-content ">
     <center>
@@ -19,8 +23,8 @@ $sl=0;
                                     <thead>
                                         <tr>
                                             <th scope="col">SN.</th>
-                                            <th scope="col">User ID</th>
-                                            <th scope="col">With</th>
+                                            <th scope="col">User Name</th>
+                                            <th scope="col">With (User Name)</th>
                                             <th scope="col">Debit (Out)</th>
                                             <th scope="col" class="text-center">Credit (In)</th>
                                             <th scope="col">Description</th>

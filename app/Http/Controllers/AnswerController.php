@@ -273,6 +273,8 @@ class AnswerController extends Controller
             $SPcommission = 0;
 
             # IF USER HAVE A SPONSOR
+            $SPcredits = null;                                  ///initially
+            $SPcommission = null;                               ///initially
             if ($SponsorID != null) {
 
                 $SPcredits = User::where('id', $SponsorID)->pluck('credits');
@@ -317,6 +319,62 @@ class AnswerController extends Controller
                     'credits' => $BANK[0] - (($winBet->return_amount - $winBet->amount) + $winBet->club_fee + $SPcommission),
                 ]);
             }
+
+            $TOTAL_LOSS_BY_ADMIN = ($winBet->return_amount - $winBet->amount) + $winBet->club_fee + $SPcommission;
+            $CURRENT_AMOUNT_BY_ADMIN = $BANK[0] - (($winBet->return_amount - $winBet->amount) + $winBet->club_fee + $SPcommission);
+
+            #  -- - - - - -- - - --=========== START  TRANSECTION HISTORIES============ -- - -- - - - - - - --  -
+            # TRANSECTION HISTORY TO USER
+            $CreditsU = User::where('id', $winBet->bet_by)->pluck('credits');
+            $CreditsU = $CreditsU[0];
+            $LockCreditsU = User::where('id', $winBet->bet_by)->pluck('lock_credits');
+            $LockCreditsU = $LockCreditsU[0];
+
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $winBet->bet_by,
+                    'from_id' => '',
+                    'debit' => 0,
+                    'credit' => $winBet->return_amount - $winBet->amount,
+                    'balance' => $CreditsU  + $LockCreditsU,
+                    'description' => 'Match Win',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
+
+            # TRANSECTION HISTORY TO SPONSOR USER
+
+            if ($SponsorID != null) {
+                DB::table('user_transection')->insert(
+                    [
+                        'user_id' => $SponsorID,
+                        'from_id' => $winBet->bet_by,
+                        'debit' => 0,
+                        'credit' => $SPcommission,
+                        'balance' => $SPcredits + $SPcommission,
+                        'description' => 'Commission on Match Win',
+                        'created_at' =>  \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                    ]
+                );
+            }
+
+            # TRANSECTION HISTORY TO ADMIN (LOSS)
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $superAdmin->id,
+                    'from_id' => '',
+                    'debit' => $TOTAL_LOSS_BY_ADMIN,
+                    'credit' => 0,
+                    'balance' => $CURRENT_AMOUNT_BY_ADMIN,
+                    'description' => 'Match Loss',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
+            #  -- - - - - -- - - -- END  TRANSECTION HISTORIES -- - -- - - - - - - --  -
+
         }
 
 
@@ -365,6 +423,46 @@ class AnswerController extends Controller
                     'credits' => $BANK[0] + $lossBet->amount
                 ]);
             }
+
+            $TOTAL_WIN_BY_ADMIN = $lossBet->amount;
+            $CURRENT_AMOUNT_BY_ADMIN_WIN = $BANK[0] + $lossBet->amount;
+
+
+            #  -- - - - - -- - - --=========== START  TRANSECTION HISTORIES============ -- - -- - - - - - - --  -
+            # TRANSECTION HISTORY TO USER (LOSS)
+            $CreditsUL = User::where('id', $lossBet->bet_by)->pluck('credits');
+            $CreditsUL = $CreditsUL[0];
+            $LockCreditsUL = User::where('id', $lossBet->bet_by)->pluck('lock_credits');
+            $LockCreditsUL = $LockCreditsUL[0];
+
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $lossBet->bet_by,
+                    'from_id' => '',
+                    'debit' =>  $lossBet->amount,
+                    'credit' => 0,
+                    'balance' => $CreditsUL  + $LockCreditsUL,
+                    'description' => 'Match Loss',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
+
+
+            # TRANSECTION HISTORY TO ADMIN (WIN)
+            DB::table('user_transection')->insert(
+                [
+                    'user_id' => $superAdmin->id,
+                    'from_id' => '',
+                    'debit' => 0,
+                    'credit' => $TOTAL_WIN_BY_ADMIN,
+                    'balance' => $CURRENT_AMOUNT_BY_ADMIN_WIN,
+                    'description' => 'Match Loss',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
+            #  -- - - - - -- - - -- END  TRANSECTION HISTORIES -- - -- - - - - - - --  -
         }
 
 
