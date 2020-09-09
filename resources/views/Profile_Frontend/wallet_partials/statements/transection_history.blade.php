@@ -39,7 +39,7 @@ $sl=0;
                                     @endphp
                                     <tbody>
                                         <tr>
-                                            <th scope="col">sl</th>
+                                            <th scope="col">{{ ++$sl }}</th>
                                             <th scope="col">{{$AuthuserName}}</th>
                                             <th scope="col">{{$withName}}</th>
                                             <th scope="col">{{$trHistory->debit}}</th>

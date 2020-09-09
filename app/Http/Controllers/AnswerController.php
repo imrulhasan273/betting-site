@@ -337,7 +337,7 @@ class AnswerController extends Controller
                     'debit' => 0,
                     'credit' => $winBet->return_amount - $winBet->amount,
                     'balance' => $CreditsU  + $LockCreditsU,
-                    'description' => 'Match Win',
+                    'description' => 'Match Win( ' . $winBet->match . ' )',
                     'created_at' =>  \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]
@@ -353,7 +353,7 @@ class AnswerController extends Controller
                         'debit' => 0,
                         'credit' => $SPcommission,
                         'balance' => $SPcredits + $SPcommission,
-                        'description' => 'Commission on Match Win',
+                        'description' => 'Commission on Match Win( ' . $winBet->match . ' )',
                         'created_at' =>  \Carbon\Carbon::now(),
                         'updated_at' => \Carbon\Carbon::now(),
                     ]
@@ -368,12 +368,12 @@ class AnswerController extends Controller
                     'debit' => $TOTAL_LOSS_BY_ADMIN,
                     'credit' => 0,
                     'balance' => $CURRENT_AMOUNT_BY_ADMIN,
-                    'description' => 'Match Loss',
+                    'description' => 'Match Loss( ' . $winBet->match . ' )',
                     'created_at' =>  \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]
             );
-            #  -- - - - - -- - - -- END  TRANSECTION HISTORIES -- - -- - - - - - - --  -
+            #  -- - - - - -- - - --======== END  TRANSECTION HISTORIES========= -- - -- - - - - - - --  -
 
         }
 
@@ -442,7 +442,7 @@ class AnswerController extends Controller
                     'debit' =>  $lossBet->amount,
                     'credit' => 0,
                     'balance' => $CreditsUL  + $LockCreditsUL,
-                    'description' => 'Match Loss',
+                    'description' => 'Match Loss( ' . $lossBet->match . ' )',
                     'created_at' =>  \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]
@@ -457,7 +457,7 @@ class AnswerController extends Controller
                     'debit' => 0,
                     'credit' => $TOTAL_WIN_BY_ADMIN,
                     'balance' => $CURRENT_AMOUNT_BY_ADMIN_WIN,
-                    'description' => 'Match Loss',
+                    'description' => 'Match Win( ' . $lossBet->match . ' )',
                     'created_at' =>  \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]
