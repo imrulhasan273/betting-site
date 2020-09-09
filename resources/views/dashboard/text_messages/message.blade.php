@@ -7,7 +7,15 @@
      <div class="row">
 
         <div class="col-md-12">
-            {{-- @include('components.alert') --}}
+     @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+     </div>
+     @endif
             <x-alert/>
 
 
@@ -23,7 +31,7 @@
 
                     <div class="form-group">
                     <label><strong>Phone Number</strong></label>
-                    <input type="number" name="user_no" id="user_no" class="form-control" placeholder="+88017123456789">
+                    <input type="text" name="user_no" id="user_no" class="form-control" placeholder="017123456789">
                     </div>
 
                     <div class="form-group">

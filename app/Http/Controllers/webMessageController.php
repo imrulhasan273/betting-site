@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\webMessage;
 use App\Club;
 use App\User;
+use App\webMessage;
 use App\WebMessageAdmin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class webMessageController extends Controller
 {
@@ -30,8 +29,8 @@ class webMessageController extends Controller
     }
     public function viewSentUser()
     {
-         $auth_id = Auth::user()->id;
-         $user_sent_items = DB::table('web_messages')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
+        $auth_id = Auth::user()->id;
+        $user_sent_items = DB::table('web_messages')->where('user_id', $auth_id)->orderBy('id', 'desc')->get();
 
         return view('Profile_Frontend.wallet_partials.messages.sent_web_message', compact('user_sent_items'));
     }
@@ -39,8 +38,8 @@ class webMessageController extends Controller
     public function Admingetuser($user_id)
     {
 
-        $is_seen_by_admin = DB::table('web_messages')->where('user_id', $user_id)->update(['is_seen' =>1]);
-        $user = DB::table('web_messages')->where('user_id', $user_id)->orderBy('id','desc')->first();
+        $is_seen_by_admin = DB::table('web_messages')->where('user_id', $user_id)->update(['is_seen' => 1]);
+        $user = DB::table('web_messages')->where('user_id', $user_id)->orderBy('id', 'desc')->first();
 
         return view('dashboard.web_messages.webmessagesend', compact('user'));
     }
@@ -48,7 +47,21 @@ class webMessageController extends Controller
     # Admin Reply to User
     public function AdminSendMessage(Request $request)
     {
-        // dd($request);
+         $this->validate($request, [
+
+         'user_id' => 'required',
+         'user_name' => 'required',
+         'admin_message_subject' => 'required',
+         'admin_sent_message' => 'required',
+
+         ],
+         [
+         'user_id.required' => 'Provide a user id',
+         'user_name.required' => 'Provide a user name',
+         'admin_message_subject.required' => 'Message subject is required',
+         'admin_sent_message.required' => 'Message body is required',
+         ]);
+
         $admin_message = new WebMessageAdmin();
         $admin_message->user_id = $request->user_id;
         $admin_message->user_name = $request->user_name;
@@ -68,10 +81,20 @@ class webMessageController extends Controller
     public function sendUser(Request $request)
     {
 
-        $validatedData = $request->validate([
-            'user_message_subject' => 'required',
-            'user_sent_message' => 'required',
-        ]);
+        $this->validate($request, [
+
+           'user_id' => 'required',
+           'user_name' => 'required',
+           'user_message_subject' => 'required',
+           'user_sent_message' => 'required',
+
+        ],
+            [
+                'user_id.required' => 'Provide a user id',
+                'user_name.required' => 'Provide a user name',
+                'user_message_subject.required' => 'Message subject is required',
+                'user_sent_message.required' => 'Message body is required',
+            ]);
 
         $user_messages = new webMessage();
         $user_messages->user_id = $request->user_id;
@@ -103,7 +126,6 @@ class webMessageController extends Controller
         return view('dashboard.web_messages.clubs_message.club_received_message', compact('received_by_club'));
     }
     public function AdminClubIndex()
-
     {
         $webmessages_club = webMessage::orderBy('id', 'desc')->get();
         return view('dashboard.web_messages.received_club_messages', compact('webmessages_club'));
@@ -116,6 +138,20 @@ class webMessageController extends Controller
 
     public function ClubStoreMessage(Request $request)
     {
+        $this->validate($request, [
+
+            'club_id' => 'required',
+            'club_name' => 'required',
+            'club_message_subject' => 'required',
+            'club_sent_message' => 'required',
+
+        ],
+            [
+                'club_id.required' => 'Provide a club id',
+                'club_name.required' => 'Provide a club name',
+                'club_message_subject.required' => 'Message subject is required',
+                'club_sent_message.required' => 'Message body is required',
+            ]);
 
         $club_messages = new webMessage();
         $club_messages->user_id = $request->club_id;
@@ -128,7 +164,6 @@ class webMessageController extends Controller
         return back()->with('message', 'Message has been sent !!');
     }
 
-
     public function AdminSendMessageClub()
     {
 
@@ -138,6 +173,17 @@ class webMessageController extends Controller
 
     public function AdminSendMessageClubStore(Request $request)
     {
+        $this->validate($request, [
+
+            'admin_message_subject' => 'required',
+            'admin_sent_message' => 'required',
+
+        ],
+            [
+                'admin_message_subject.required' => 'Message subject is required',
+                'admin_sent_message.required' => 'Message body is required',
+            ]);
+
         $club_id = $request->club_identity;
         $club = Club::where('id', $club_id)->first();
         // $club_owner_id = $club->user[0]->id;

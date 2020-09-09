@@ -11,10 +11,21 @@ class settingsController extends Controller
 {
     public function settingStore(Request $request)
     {
+        $this->validate($request, [
+
+            'image' => 'nullable|image',
+            'footer' => 'nullable',
+            'warning' => 'nullable',
+
+        ],
+            [
+                'image.image' => 'only JPG, JPEG, PNG, GIF is allowed',
+            ]);
+
         $settings = new Setting();
 
         if (($request->image) > 0) {
-            $logo="logo";
+            $logo = "logo";
             $image = $request->file('image');
             $img = $logo . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/setting/' . $img);
@@ -30,6 +41,16 @@ class settingsController extends Controller
 
     public function settingUpdate(Request $request, $id)
     {
+        $this->validate($request, [
+
+            'image' => 'nullable|image',
+            'footer' => 'nullable|max:256',
+            'warning' => 'nullable|max:256',
+
+        ],
+            [
+                'image.image' => 'only JPG, JPEG, PNG, GIF is allowed',
+            ]);
 
         $settings = Setting::find($id);
 
