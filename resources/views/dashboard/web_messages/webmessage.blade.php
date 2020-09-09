@@ -32,7 +32,7 @@
             <!-- START ADDED --->
             @php
                 $user = App\User::where('id', $webmessage->user_id)->first();
-                $msgROLE = $user->role[0]->name;
+                $msgROLE = $user->role[0]->name ?? null;
             @endphp
             @if($msgROLE == 'user')
             <!-- END ADDED -->
