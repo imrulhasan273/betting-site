@@ -2,6 +2,7 @@
 $active='clubsTR';
 $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
 $authRole = $authRole[0];
+$sl=0;
 @endphp
 @extends('layouts.backend')
 @section('content')
@@ -27,11 +28,11 @@ $authRole = $authRole[0];
                 <tr>
                     <tr>
                         <th scope="col">SN.</th>
-                        <th scope="col">club_id</th>
-                        <th scope="col">club_owner_id</th>
-                        <th scope="col">from_id</th>
-                        <th scope="col">debit</th>
-                        <th scope="col">credit</th>
+                        <th scope="col">Club Name</th>
+                        <th scope="col">Owner (User Name)</th>
+                        <th scope="col">From (User Name)</th>
+                        <th scope="col">Debit</th>
+                        <th scope="col">Credit</th>
                         <th scope="col" class="text-center">balance</th>
                         <th scope="col">Description</th>
                         <th scope="col">Date &amp; Time</th>
@@ -40,12 +41,17 @@ $authRole = $authRole[0];
                 </thead>
 
                 @foreach ($transections as $transection)
+                @php
+                    $clubName = App\Club::where('id',$transection->club_id)->pluck('name')[0];
+                    $ClubOwnerName = App\User::where('id',$transection->club_owner_id)->pluck('name')[0];
+                    $fromUser = App\User::where('id',$transection->from_id)->pluck('user_name')[0];
+                @endphp
                 <tbody>
                     <tr>
-                        <th scope="col">SN.</th>
-                        <th scope="col">{{$transection->club_id}}</th>
-                        <th scope="col">{{$transection->club_owner_id}}</th>
-                        <th scope="col">{{$transection->from_id}}</th>
+                        <th scope="col">{{ ++$sl }}</th>
+                        <th scope="col">{{$clubName}}</th>
+                        <th scope="col">{{ $ClubOwnerName}}</th>
+                        <th scope="col">{{$fromUser}}</th>
                         <th scope="col">{{$transection->debit}}</th>
                         <th scope="col">{{$transection->credit}}</th>
                         <th scope="col" class="text-center">{{$transection->balance}}</th>
