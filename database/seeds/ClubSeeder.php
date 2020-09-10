@@ -16,16 +16,14 @@ class ClubSeeder extends Seeder
             'name' => 'Dhaka Club',
             'balance' => 10000,
             'member' => null,
-            // 'email' => 'dhakaclub@gmail.com',
-            'commission' => 0.02
+            'commission' => 0.2
         ]);
 
         Club::create([
             'name' => 'Rajshahi Club',
             'balance' => 11100,
             'member' => null,
-            // 'email' => 'rajshahiclub@gmail.com',
-            'commission' => 0.05
+            'commission' => 0.1
         ]);
     }
 }
