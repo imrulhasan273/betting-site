@@ -77,6 +77,17 @@ class backendController extends Controller
         $commission = DB::table('sponsor_commission')->first();
         $commission = $commission->commission ?? null;
 
+
+        #__________________________________CLUB DASHBOARD INFO_________________________________
+        // $TotalCredits = DB::table('club_transection')->where('club_owner_id', Auth::user()->id)->sum('credit');
+        // dd($TotalCredits);
+
+        // $user = User::where('id', Auth::user()->id)->get();
+        // $clubID = $user[0]->clubOwner[0]->id;
+        // dd($clubID);
+
+        #______________________________________________________________________________________
+
         return view('dashboard.index', compact('commission', 'dash_users', 'superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
     }
 

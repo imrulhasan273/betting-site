@@ -213,6 +213,31 @@ $authRole = $authRole[0];
 
      @if($authRole === 'club_admin')
 
+     @php
+        $ClubUser = App\User::where('id', Auth::user()->id)->get();
+        $clubID = $ClubUser[0]->clubOwner[0]->id;
+
+        # TOTAL BALANCE NOW
+        $Balance = App\Club::where('id',$clubID)->pluck('balance')[0];
+
+        # TOTAL CREDITS EARN
+        $TotalCredits = DB::table('club_transection')->where('club_owner_id', Auth::user()->id)->sum('credit');
+
+        # ERAN THIS MONTH
+        $currentMonth = date('m');
+        $currentYear = date('Y');
+        $MonthlyCredits = DB::table('club_transection')->
+                                    where('club_owner_id', Auth::user()->id)
+                                    ->whereRaw('MONTH(created_at) = ?',[$currentMonth])
+                                    ->whereRaw('YEAR(created_at) = ?',[$currentYear])->sum('credit');
+
+        # EARN THIS TODAY
+        $today = Carbon\Carbon::now()->format('Y-m-d').'%';
+        $TodayCredits = DB::table('club_transection')->
+                                    where('club_owner_id', Auth::user()->id)
+                                    ->where('created_at', 'like', $today)->sum('credit');
+     @endphp
+
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
@@ -221,7 +246,7 @@ $authRole = $authRole[0];
                     <i class="material-icons">monetization_on</i>
                   </div>
                   <p class="card-category">Current Balance</p>
-                  <h3 class="card-title">1000
+                  <h3 class="card-title">{{$Balance}}
                     <small>Tk.</small>
                   </h3>
                 </div>
@@ -241,7 +266,7 @@ $authRole = $authRole[0];
                     <i class="material-icons">money</i>
                   </div>
                   <p class="card-category">Today</p>
-                  <h3 class="card-title">1500
+                  <h3 class="card-title">{{$TodayCredits}}
                     <small>Tk.</small>
                   </h3>
                 </div>
@@ -261,7 +286,7 @@ $authRole = $authRole[0];
                     <i class="material-icons">local_atm</i>
                   </div>
                   <p class="card-category">This Month</p>
-                  <h3 class="card-title">500
+                  <h3 class="card-title">{{$MonthlyCredits}}
                     <small>Tk.</small>
                   </h3>
                 </div>
@@ -281,7 +306,7 @@ $authRole = $authRole[0];
                     <i class="material-icons">account_balance</i>
                   </div>
                   <p class="card-category">Life Time</p>
-                  <h3 class="card-title">2500
+                  <h3 class="card-title">{{$TotalCredits}}
                     <small>Tk.</small>
                   </h3>
                 </div>
