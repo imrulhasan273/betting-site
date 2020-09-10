@@ -27,29 +27,33 @@ $authRole = $authRole[0];
                 <tr>
                     <tr>
                         <th scope="col">SN.</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">With (User Name)</th>
-                        <th scope="col">Debit (Out)</th>
-                        <th scope="col" class="text-center">Credit (In)</th>
+                        <th scope="col">club_id</th>
+                        <th scope="col">club_owner_id</th>
+                        <th scope="col">from_id</th>
+                        <th scope="col">debit</th>
+                        <th scope="col">credit</th>
+                        <th scope="col" class="text-center">balance</th>
                         <th scope="col">Description</th>
-                        <th scope="col" class="text-center">Balance</th>
                         <th scope="col">Date &amp; Time</th>
                     </tr>
                 </tr>
                 </thead>
 
+                @foreach ($transections as $transection)
                 <tbody>
                     <tr>
                         <th scope="col">SN.</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">With (User Name)</th>
-                        <th scope="col">Debit (Out)</th>
-                        <th scope="col" class="text-center">Credit (In)</th>
-                        <th scope="col">Description</th>
-                        <th scope="col" class="text-center">Balance</th>
-                        <th scope="col">Date &amp; Time</th>
+                        <th scope="col">{{$transection->club_id}}</th>
+                        <th scope="col">{{$transection->club_owner_id}}</th>
+                        <th scope="col">{{$transection->from_id}}</th>
+                        <th scope="col">{{$transection->debit}}</th>
+                        <th scope="col">{{$transection->credit}}</th>
+                        <th scope="col" class="text-center">{{$transection->balance}}</th>
+                        <th scope="col">{{$transection->description}}</th>
+                        <th scope="col">{{$transection->created_at}}</th>
                     </tr>
                 </tbody>
+                @endforeach
 
             </table>
           </div>

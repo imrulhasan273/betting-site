@@ -398,6 +398,8 @@ class ClubController extends Controller
     # CLUB ACCESS
     public function ClubTransection()
     {
-        return view('dashboard.clubs.transection_history');
+        $clubOwner = Auth::user()->id;
+        $transections = DB::table('club_transection')->where('club_owner_id', $clubOwner)->get();
+        return view('dashboard.clubs.transection_history', compact('transections'));
     }
 }
