@@ -256,7 +256,7 @@ class AnswerController extends Controller
                 ]);
             }
 
-            # START UPDATE CLUB USER BALANCE___________________________
+            # START UPDATE CLUB USER BALANCE___________________________@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             $clubCredits = Club::where('id', $club->id)->pluck('balance');
             $updatingClubAccount = Club::where('id', $club->id)->first();
             if ($updatingClubAccount) {
@@ -369,6 +369,24 @@ class AnswerController extends Controller
                     'credit' => 0,
                     'balance' => $CURRENT_AMOUNT_BY_ADMIN,
                     'description' => 'Match Loss( ' . $winBet->match . ' )',
+                    'created_at' =>  \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                ]
+            );
+
+            # TRANSECTION HISTORY TO CLUB (WIN - - - -- - )@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+            $club_owner_id = $club->user[0]->id ?? null;
+
+            DB::table('club_transection')->insert(
+                [
+                    'club_id' => $club->id,
+                    'club_owner_id' => $club_owner_id,
+                    'from_id' => $winBet->bet_by,
+                    'debit' => 0,
+                    'credit' => $winBet->club_fee,
+                    'balance' => $clubCredits[0] + $winBet->club_fee,
+                    'description' => 'Commission on Match win by User',
                     'created_at' =>  \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                 ]
