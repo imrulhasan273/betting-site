@@ -129,6 +129,23 @@
                     </li>
                 </li>
                 @endif
+
+                 <!-- Start Club Transection History Panel -->
+                 @if($role == 'club_admin')
+                 @if($active=='clubsTR')
+                 <li class="active">
+                 @else
+                 <li class="nav-item ">
+                 @endif
+                     <a class="nav-link" href="{{ route('admin.clubs.transection.list') }}">
+                         <i class="material-icons">money</i>
+                         <p>Transection History</p>
+                     </a>
+                     </li>
+                 </li>
+                 @endif
+
+
             </ul>
             </div>
         </li>

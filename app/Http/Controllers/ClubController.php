@@ -278,7 +278,7 @@ class ClubController extends Controller
         return back()->with('message', 'Widthdraw Cancelled!!');
     }
 
-    # ADMIN ACCESS - - - -- - - - - -- - - - --
+    # CLUB ACCESS - - - -- - - - - -- - - - --
     public function ClubWidthdraw()
     {
         $widthdraws = Widthdraw::where('user_role', 'club_admin')->get();
@@ -393,5 +393,11 @@ class ClubController extends Controller
         }
 
         return back()->with($msg1, $msg2);
+    }
+
+    # CLUB ACCESS
+    public function ClubTransection()
+    {
+        return view('dashboard.clubs.transection_history');
     }
 }

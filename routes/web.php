@@ -148,6 +148,8 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/clubs/withdraw/request', 'ClubController@clubsWithdrawRequest')->name('admin.clubs.withdraw.request')->middleware(['roleChecker:null,null,club_admin']);
     Route::post('/clubs/withdraw/store', 'ClubController@WidthDrawPlace')->name('admin.clubs.withdraw.place')->middleware(['roleChecker:null,null,club_admin']);
     Route::get('/widthdraw-By-Club/{widthdraw}/{code}', 'ClubController@statusChangeByClub')->name('widthdraws.statusChangeByClub')->middleware(['roleChecker:null,null,club_admin']); //added
+    Route::get('/clubs/transection', 'ClubController@ClubTransection')->name('admin.clubs.transection.list')->middleware(['roleChecker:null,null,club_admin']);
+
 
     # ---- CLUB WIDTHDRAW ADMIN ACCESS
     Route::get('/clubs-withdraw-admin', 'ClubController@ClubWidthdraw')->name('admin.clubs.withdraw')->middleware(['roleChecker:super_admin,admin,club_admin']);
