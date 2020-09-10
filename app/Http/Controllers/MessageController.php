@@ -14,6 +14,17 @@ class MessageController extends Controller
 
     public function send(Request $request)
     {
+        $this->validate($request, [
+
+            'user_no' => 'required|numeric',
+            'user_message' => 'required|max:256',
+
+        ],
+            [
+                'user_no.required' => 'Provide a Valid Number',
+                'user_message.required' => 'Message body is required',
+            ]);
+
         $sms = new Message();
         $sms->user_no = $request->user_no;
         $sms->user_message = $request->user_message;
@@ -26,7 +37,6 @@ class MessageController extends Controller
         $message = $msg;
 
         $url = "http://api.greenweb.com.bd/api.php";
-
 
         $data = array(
             'to' => "$to",
