@@ -236,6 +236,11 @@ $authRole = $authRole[0];
         $TodayCredits = DB::table('club_transection')->
                                     where('club_owner_id', Auth::user()->id)
                                     ->where('created_at', 'like', $today)->sum('credit');
+
+        # LAST 5 REGSITERED USER BELONGS TO THE CLUB
+        $UserBelongsToClubs = App\User::limit(5)->orderBy('created_at', 'desc')->where('club_id', $clubID)->get();
+
+        $sl=0;
      @endphp
 
         <div class="row">
@@ -331,18 +336,24 @@ $authRole = $authRole[0];
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-primary">
-                      <tr><th>ID</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>phone</th>
-                    </tr></thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Name</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>phone</th>
+                    </tr>
+                    </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Philip Chaney</td>
-                        <td>user@gmail.com</td>
-                        <td>0197822685</td>
-                      </tr>
+                        @foreach ($UserBelongsToClubs as $user)
+                        <tr>
+                            <th>{{++$sl}}</th>
+                            <th>{{$user->name}}</th>
+                            <th>{{$user->user_name}}</th>
+                            <th>{{$user->email}}</th>
+                            <th>{{$user->phone}}</th>
+                        </tr>
+                        @endforeach
                     </tbody>
                   </table>
                 </div>

@@ -79,13 +79,14 @@ class backendController extends Controller
 
 
         #__________________________________CLUB DASHBOARD INFO_________________________________
-        // $TotalCredits = DB::table('club_transection')->where('club_owner_id', Auth::user()->id)->sum('credit');
-        // dd($TotalCredits);
 
-        // $user = User::where('id', Auth::user()->id)->get();
-        // $clubID = $user[0]->clubOwner[0]->id;
-        // dd($clubID);
+        // $ClubUser = User::where('id', Auth::user()->id)->get();
+        // $clubID = $ClubUser[0]->clubOwner[0]->id;
+        // $UserBelongsToClubs = User::limit(5)->orderBy('created_at', 'desc')->where('club_id', $clubID)->get();
 
+        // foreach ($UserBelongsToClubs as $user) {
+        //     dd($user->name);
+        // }
         #______________________________________________________________________________________
 
         return view('dashboard.index', compact('commission', 'dash_users', 'superAdmin', 'CountAdmins', 'CountUsers', 'CountClubs'));
