@@ -12,6 +12,17 @@ $authRole = $authRole[0];
     </div>
 
     @if($authRole == 'super_admin' || $authRole == 'admin')
+
+    @php
+        $countDeposits = App\Deposit::where('status', 'pending')->get();
+        $countDeposits = $countDeposits->count();
+
+        $countWidthdrawUser = App\Widthdraw::where('status', 'pending')->where('user_role', 'user')->get();
+        $countWidthdrawUser = $countWidthdrawUser->count();
+
+        $countWidthdrawClub = App\Widthdraw::where('status', 'pending')->where('user_role', 'club_admin')->get();
+        $countWidthdrawClub = $countWidthdrawClub->count();
+    @endphp
      <div class="row">
 
         <!----------===================ACCOUNT BALNCE OF ORGANIZATION==========-------------->
@@ -102,6 +113,64 @@ $authRole = $authRole[0];
                 </div>
             </div>
         <!------------================= TOTAL CLUBS===================---------- -->
+
+        <!------------================= PEDING WIDTHDRAW ===================---------- -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">admin_panel_settings</i>
+                </div>
+                <p class="card-category">Pending User Widthdraw</p>
+                <h3 class="card-title">{{  $countWidthdrawUser }}</h3>
+                </div>
+                <div class="card-footer">
+                <div class="stats">
+                    <a href="{{ route('admin.user.widthdraw') }}">Operate on Request</a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!------------=================PEDING WIDTHDRAW===================---------- -->
+
+        <!------------================= PEDING WIDTHDRAW ===================---------- -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">admin_panel_settings</i>
+                </div>
+                <p class="card-category">Pending Club Widthdraw</p>
+                <h3 class="card-title">{{ $countWidthdrawClub}}</h3>
+                </div>
+                <div class="card-footer">
+                <div class="stats">
+                    <a href="{{ route('admin.clubs.withdraw') }}">Operate on Request</a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!------------=================PEDING WIDTHDRAW===================---------- -->
+
+        <!------------================= PEDING Deposits ===================---------- -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">admin_panel_settings</i>
+                </div>
+                <p class="card-category">Pending Deposits (User)</p>
+                <h3 class="card-title">{{$countDeposits}}</h3>
+                </div>
+                <div class="card-footer">
+                <div class="stats">
+                    <a href="{{ route('admin.user.deposit') }}">Operate on Request</a>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!------------=================PEDING Deposits===================---------- -->
+
       </div>
      @endif
 
