@@ -134,6 +134,9 @@ route::group(['prefix' => 'admin'], function () {
     # -- -- -- - -- - - -
     Route::get('/users-password/{user}/edit', 'UserController@PassEdit')->name('users.pass.edit')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/users-password/update', 'UserController@PassUpdate')->name('users.pass.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    # ----- my account
+    Route::get('/myaccount/edit', 'UserController@myAccount')->name('users.myaccount.edit')->middleware(['roleChecker:super_admin,admin,club_admin']);
+    Route::post('/myaccount/update', 'UserController@myAccountUpdate')->name('users.myaccount.update')->middleware(['roleChecker:super_admin,admin,club_admin']);
     # --END USER CONTROLLERS
 
 

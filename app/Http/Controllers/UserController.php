@@ -9,10 +9,84 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
+    public function myAccount()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+        return view('dashboard.users.my_account', compact('user'));
+    }
+
+    public function myAccountUpdate(Request $request)
+    {
+        // dd($request);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email,' . $request->id,
+        ]);
+
+        $updatingUser = false;
+        if ($request->hasFile('image')) {
+
+            # image file choosen
+            $this->deleteOldImage($request->id);
+
+            $imageName = $this->storeNewImage($request->file('image'));
+
+            $updatingUser = User::where('id', $request->id)->first();
+            if ($updatingUser) {
+                $updatingUser->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'photo' => $imageName
+                ]);
+            }
+        } else {
+            # if no file is choosen
+            $updatingUser = User::where('id', $request->id)->first();
+            if ($updatingUser) {
+                $updatingUser->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                ]);
+            }
+        }
+
+
+        # CUSTOM ALERT
+        $msg1 = 'error';
+        $msg2 = 'Account info is not Updated!';
+        if ($updatingUser) {
+            $msg1 = 'message';
+            $msg2 = 'Account info is Updated!';
+        }
+
+        return Redirect::route('admin.index')->with($msg1, $msg2);
+    }
+
+    protected function deleteOldImage($id)
+    {
+        $oldImg = DB::table('users')->where('id', $id)->pluck('photo')->toArray();
+        $name = $oldImg[0];
+        Storage::delete('/public/profile/' . $name);
+    }
+
+    protected function storeNewImage($file)
+    {
+        $filenameWithExt = $file->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension = $file->getClientOriginalExtension();
+        $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+        $file->storeAs('public/profile', $fileNameToStore);
+
+        return $fileNameToStore;
+    }
+
+
     public function add()
     {
         // $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];

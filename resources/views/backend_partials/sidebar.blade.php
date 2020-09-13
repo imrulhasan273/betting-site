@@ -14,7 +14,7 @@
             <!-- START USER INFO -->
             <div class="user">
                 <div class="photo">
-                  <img src="{{asset('backend/assets/img/faces/avatar.jpg')}}" />
+                  <img src="{{asset('/storage/profile/'.Auth::user()->photo)}}" />
                 </div>
                 <div class="user-info">
                   <a data-toggle="collapse" href="#collapseExample" class="username">
@@ -25,14 +25,19 @@
                   </a>
                   <div class="collapse" id="collapseExample">
                     <ul class="nav">
-                      <li class="nav-item">
+
+                      {{-- <li class="nav-item">
                         <a class="nav-link" href="#">
                           <span class="sidebar-mini"> MP </span>
                           <span class="sidebar-normal"> My Profile </span>
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">
+                      </li> --}}
+                      @if($active=='myacc')
+                        <li class="active">
+                        @else
+                        <li class="nav-item ">
+                        @endif
+                        <a class="nav-link" href="{{route('users.myaccount.edit')}}">
                           <span class="sidebar-mini"> EP </span>
                           <span class="sidebar-normal"> Edit Profile </span>
                         </a>
