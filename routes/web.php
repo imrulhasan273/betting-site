@@ -240,6 +240,20 @@ route::group(['prefix' => 'admin'], function () {
     #-- END CONTROLLER
 
 
+    #-- FAQ CONTROLLER
+    Route::get('/faq', 'faqController@index')->name('admin.faq.index')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::post('/faq/store', 'faqController@Store')->name('admin.faq.store')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::post('/faq/update/{id}', 'faqController@Update')->name('admin.faq.update')->middleware(['roleChecker:super_admin,admin,null']);
+    #-- END FAQ CONTROLLER
+
+
+    #-- Rule CONTROLLER
+    Route::get('/rule', 'ruleController@index')->name('admin.rule.index')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::post('/rule/store', 'ruleController@Store')->name('admin.rule.store')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::post('/rule/update/{id}', 'ruleController@Update')->name('admin.rule.update')->middleware(['roleChecker:super_admin,admin,null']);
+    #-- END Rule CONTROLLER
+
+
     #-- MESSAGE CONTROLLER
     Route::get('/message', 'MessageController@index')->name('admin.message')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/message/send', 'MessageController@send')->name('admin.message.send')->middleware(['roleChecker:super_admin,admin,null']);

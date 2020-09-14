@@ -472,6 +472,29 @@
             </li>
                 </li>
 
+            @if($active=='faq')
+                <li class="active">
+                @else
+                <li class="nav-item ">
+            @endif
+            <a class="nav-link" href="{{ route('admin.faq.index') }}">
+                <i class="material-icons">flaky</i>
+                <p>FAQ</p>
+            </a>
+            </li>
+                </li>
+            @if($active=='rule')
+                <li class="active">
+                @else
+                <li class="nav-item ">
+            @endif
+            <a class="nav-link" href="{{ route('admin.rule.index') }}">
+                <i class="material-icons">rule_folder</i>
+                <p>Rules</p>
+            </a>
+            </li>
+                </li>
+
       <!-- Start Club Message Panel -->
 
             @if($active=='club_message')

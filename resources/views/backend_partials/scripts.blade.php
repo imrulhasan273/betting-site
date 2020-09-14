@@ -78,6 +78,13 @@
 });
 </script>
 
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
+
 <script>
 $(".datepicker").datetimepicker(
 {
