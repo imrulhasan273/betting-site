@@ -1,24 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="container">
-    <p style="margin-top: 10px">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, minima! Eveniet, aspernatur! Quisquam, laborum dolorum. Eos, magnam qui. Veritatis atque eum, sed voluptate voluptas vel quisquam. Repellendus porro dolorem aut!
-    </p>
+   <div class="container  p-0 " style="background: #f1f1f1;margin-top:60px;">
+        {!! $about_us->about_description !!}
 </div>
 @endsection

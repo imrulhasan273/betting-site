@@ -11,7 +11,7 @@
                 <a href="{{route('home')}}" id="footerlink">Home</a>
                 <a href="{{route('webmessage.index.user')}}" id="footerlink"> Contact-us</a>
                 <a href="{{route('rules')}}" id="footerlink"> Rules & Regulations</a>
-                <a href="#" id="footerlink"> FAQ</a>
+                <a href="{{ route('faq') }}" id="footerlink"> FAQ</a>
                 <a href="{{route('about')}}" id="footerlink"> About Us</a>
               </p>
             </div>

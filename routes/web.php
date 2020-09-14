@@ -21,6 +21,7 @@ Route::get('/mybet', 'HomeController@mybet')->name('mybet');
 // Route::get('/support', 'HomeController@support')->name('support');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/rules', 'HomeController@rules')->name('rules');
+Route::get('/faq', 'HomeController@faq')->name('faq');
 
 
 # START BET CONTROLLER
@@ -252,6 +253,12 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/rule/store', 'ruleController@Store')->name('admin.rule.store')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/rule/update/{id}', 'ruleController@Update')->name('admin.rule.update')->middleware(['roleChecker:super_admin,admin,null']);
     #-- END Rule CONTROLLER
+
+    #-- About us CONTROLLER
+    Route::get('/about_us', 'aboutController@index')->name('admin.about.index')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::post('/about_us/store', 'aboutController@Store')->name('admin.about.store')->middleware(['roleChecker:super_admin,admin,null']);
+    Route::post('/about_us/update/{id}', 'aboutController@Update')->name('admin.about.update')->middleware(['roleChecker:super_admin,admin,null']);
+    #-- END about us CONTROLLER
 
 
     #-- MESSAGE CONTROLLER

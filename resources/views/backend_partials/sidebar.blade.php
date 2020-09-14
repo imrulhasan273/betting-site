@@ -447,20 +447,22 @@
               <li class="nav-item ">
             <!-- End Dropdown Withdraw Panel -->
 
-            <!-- Start Notice Panel -->
-            @if($active=='notice')
-                <li class="active">
-                @else
-                <li class="nav-item ">
-            @endif
-            <a class="nav-link" href="{{ route('admin.notice') }}">
-                <i class="material-icons">announcement</i>
-                <p>Notice</p>
-            </a>
-            </li>
-            <!-- Start Setting Panel -->
 
-            @if($active=='settings')
+              <!-- Start Dropdown Setup site Panel -->
+                @if($active=='settings' || $active=='rule' || $active=='faq' || $active=='about' )
+                    <li class="active">
+                @else
+                    <li class="nav-item ">
+                @endif
+                <a class="nav-link" data-toggle="collapse" href="#site_setup">
+                  <i class="material-icons">language</i>
+                  <p> Setup Site
+                    <b class="caret"></b>
+                  </p>
+                </a>
+                <div class="collapse" id="site_setup">
+                  <ul class="nav">
+             @if($active=='settings')
                 <li class="active">
                 @else
                 <li class="nav-item ">
@@ -483,7 +485,8 @@
             </a>
             </li>
                 </li>
-            @if($active=='rule')
+
+                     @if($active=='rule')
                 <li class="active">
                 @else
                 <li class="nav-item ">
@@ -493,7 +496,38 @@
                 <p>Rules</p>
             </a>
             </li>
+                </li
+
+                  @if($active=='about')
+                <li class="active">
+                @else
+                <li class="nav-item ">
+            @endif
+            <a class="nav-link" href="{{ route('admin.about.index') }}">
+                <i class="material-icons">business</i>
+                <p>About US</p>
+            </a>
+            </li>
                 </li>
+
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item ">
+            <!-- End Dropdown Withdraw Panel -->
+
+            <!-- Start Notice Panel -->
+            @if($active=='notice')
+                <li class="active">
+                @else
+                <li class="nav-item ">
+            @endif
+            <a class="nav-link" href="{{ route('admin.notice') }}">
+                <i class="material-icons">announcement</i>
+                <p>Notice</p>
+            </a>
+            </li>
+
 
       <!-- Start Club Message Panel -->
 
