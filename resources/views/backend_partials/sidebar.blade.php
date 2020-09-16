@@ -93,7 +93,7 @@
 
 
             <!-- Start Dropdown Club Panel -->
-            @if($active=='clubs' || $active=='clubsWidth')
+            @if($active=='clubs' || $active=='clubsWidth' || $active== 'club_user_list')
             <li class="active">
             @else
                 <li class="nav-item ">
@@ -145,6 +145,21 @@
                      <a class="nav-link" href="{{ route('admin.clubs.transection.list') }}">
                          <i class="material-icons">money</i>
                          <p>Transection History</p>
+                     </a>
+                     </li>
+                 </li>
+                 @endif
+
+                 <!-- Start Club User History Panel -->
+                 @if($role == 'club_admin')
+                 @if($active=='club_user_list')
+                 <li class="active">
+                 @else
+                 <li class="nav-item ">
+                 @endif
+                     <a class="nav-link" href="{{ route('clubs.user.list') }}">
+                         <i class="material-icons">contacts</i>
+                         <p>Users</p>
                      </a>
                      </li>
                  </li>
