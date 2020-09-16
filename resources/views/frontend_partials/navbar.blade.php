@@ -1,3 +1,7 @@
+@php
+    $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
+    $authRole = $authRole[0] ?? null;
+@endphp
 <nav class="navbar navbar-fixed-top" style="border-bottom-color:#fff" id="navtop">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -51,11 +55,19 @@
         @endif
 
 
-        @if(Auth::user())
+        @if($authRole=='user')
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
             <div style="float: left;    margin-right: 6px;">
                 <img src="{{asset('frontend/img/withdraw.png')}}" style="width:40px;margin-left: 8px;" data-toggle="modal" data-target="#widthdraw">
                 <p style="font-size: 12px;">Withdraw</p>
+            </div>
+        </div>
+        @endif
+          @if($authRole==='club_admin'||$authRole==='super_admin'||$authRole==='admin')
+        <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
+            <div style="float: left;    margin-right: 6px;">
+                <a href="{{ route('admin.index') }}"><p style="font-size: 12px;">Dashboard</p><img src="{{asset('frontend/img/dash.png')}}" style="width:40px;margin-left: 8px;"></a>
+
             </div>
         </div>
         @endif
