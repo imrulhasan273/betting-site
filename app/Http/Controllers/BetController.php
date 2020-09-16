@@ -15,7 +15,7 @@ class BetController extends Controller
 {
 
     # ____________________________________Using Ajax__________________________________
-    public function placeBit(Request $request)
+    public function placeBet(Request $request)
     {
         # IF GUEST USER THEN BACK WITH MESSAGE TO LOG IN
         if (Auth::guest()) {
@@ -52,9 +52,9 @@ class BetController extends Controller
 
 
 
-        # START CHECK IF AUTH USER ALREADY PLACED BIT FOR THIS QUESTION
+        # START CHECK IF AUTH USER ALREADY PLACED BET FOR THIS QUESTION
 
-        # END CHECK IF AUTH USER ALREADY PLACED BIT FOR THIS QUESTION
+        # END CHECK IF AUTH USER ALREADY PLACED BET FOR THIS QUESTION
 
 
 
@@ -115,7 +115,7 @@ class BetController extends Controller
         # END UPDATE ANSWER TABLE - -- -- - - - -- - - - --
 
         if ($BetInsert) {
-            $data = 'Bit has been placed successfully!';
+            $data = 'Bet has been placed successfully!';
         } else {
             $data = 'Bet has not been placed!';
         }

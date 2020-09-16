@@ -86,9 +86,9 @@
 
 
 
-                     <!--START BIT SLIP-->
+                     <!--START BET SLIP-->
 
-                    <!--END BIT SLIP-->
+                    <!--END BET SLIP-->
 
                     <!-- START SCRIPTS -->
                     @include('Profile_Frontend.wallet_partials.statements.scripts')

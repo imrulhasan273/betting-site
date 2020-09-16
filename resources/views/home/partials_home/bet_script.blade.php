@@ -117,7 +117,7 @@ $("#placeBet").on("click", function() {
 
         $.ajax({
             method: "get",
-            url: "{{ route('bets.placeBit') }}",
+            url: "{{ route('bets.placeBet') }}",
             data: {
                 gameID: gameID,
                 quesID: quesID,
@@ -134,7 +134,7 @@ $("#placeBet").on("click", function() {
 
                 if (data !== "")
                 {
-                    if (data == "Bit has been placed successfully!")
+                    if (data == "Bet has been placed successfully!")
                     {
                         $('#errorBet').show();
                         $('#errorBet').removeClass('alert-success');
@@ -166,7 +166,7 @@ $("#placeBet").on("click", function() {
                         $('#errorBet').removeClass('alert-success');
                         $('#errorBet').removeClass('alert-danger');
                         $('#errorBet').addClass('alert-danger');
-                        $('#alertBet').html('Please Log In To Bit');
+                        $('#alertBet').html('Please Log In To Bet');
                         betclick = 0;
                         setTimeout(function()
                         {
