@@ -402,4 +402,12 @@ class ClubController extends Controller
         $transections = DB::table('club_transection')->where('club_owner_id', $clubOwner)->get();
         return view('dashboard.clubs.transection_history', compact('transections'));
     }
+
+    public function userlist()
+    {
+        $ClubUser = User::where('id', Auth::user()->id)->get();
+        $clubID = $ClubUser[0]->clubOwner[0]->id;
+        $UserBelongsToClubs = User::orderBy('created_at', 'desc')->where('club_id', $clubID)->get();
+        return view('dashboard.clubs.all_user',compact('UserBelongsToClubs'));
+    }
 }
