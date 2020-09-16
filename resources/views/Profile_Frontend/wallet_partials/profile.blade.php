@@ -23,8 +23,8 @@
                                 <td> {{ $user->email }}</td>
                             </tr>
                             <tr>
-                                <td><del>User Name</del> </td>
-                                <td><del>some text</del></td>
+                                <td>User Name </td>
+                                <td>{{ $user->user_name }}</del></td>
                             </tr>
                             <tr>
                                 <td style="min-width: 91px">Mobile No </td>

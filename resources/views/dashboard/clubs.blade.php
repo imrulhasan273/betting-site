@@ -55,9 +55,11 @@ $authRole = $authRole[0];
                 <th>
                     commission
                 </th>
+                @if($authRole=='admin' || $authRole == 'super_admin')
                 <th class="td-actions text-center">
                     Action
                 </th>
+                @endif
              </tr>
               </thead>
 
@@ -89,6 +91,7 @@ $authRole = $authRole[0];
                         <td>
                             {{$club->commission}}
                         </td>
+                        @if($authRole=='admin' || $authRole == 'super_admin')
                         <td class="td-actions text-center">
                             <a href="{{ route('clubs.edit',[$club->id]) }}" type="button" rel="tooltip" class="btn btn-success">
                                 <i class="material-icons">edit</i>
@@ -97,6 +100,7 @@ $authRole = $authRole[0];
                                 <i class="material-icons">close</i>
                               </a>
                         </td>
+                        @endif
                     </tr>
                       @endcan
               @endforeach

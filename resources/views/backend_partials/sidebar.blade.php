@@ -62,7 +62,7 @@
             <!-- End Index Panel -->
 
             <!-- USER PANEL -->
-            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='users')
                 <li class="active ">
                 @else
@@ -73,11 +73,11 @@
                 <p>Users</p>
             </a>
             </li>
-            {{-- @endif --}}
+            @endif
             <!--- USER PANEL --->
 
             <!-- SESSION PANEL -->
-            {{-- @if($role == 'super_admin') --}}
+            @if($role == 'super_admin')
             @if($active=='session')
                 <li class="active ">
                 @else
@@ -88,7 +88,7 @@
                 <p>Session</p>
             </a>
             </li>
-            {{-- @endif --}}
+            @endif
             <!--- SESSION PANEL --->
 
 
@@ -159,7 +159,7 @@
 
 
             <!-- ROLE PANEL -->
-            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='roles')
                 <li class="active ">
                 @else
@@ -170,9 +170,10 @@
                 <p>Role</p>
             </a>
             </li>
-            {{-- @endif --}}
+            @endif
 
             <!-- START GAMES LIST --->
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='games')
                 <li class="active ">
                 @else
@@ -183,9 +184,11 @@
                 <p>Game List</p>
             </a>
             </li>
+            @endif
             <!-- END GAMES LIST --->
 
             <!-- START FINISHED GAMES LIST --->
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='fgames')
                 <li class="active ">
                 @else
@@ -196,9 +199,11 @@
                 <p>Finished Game List</p>
             </a>
             </li>
+            @endif
             <!-- END FINISHED GAMES LIST --->
 
             <!-- START BET LIST --->
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='bets')
                 <li class="active ">
                 @else
@@ -209,9 +214,11 @@
                 <p>Game Bet List</p>
             </a>
             </li>
+            @endif
             <!-- END BET LIST --->
 
             <!-- START AUTO STACK LIST --->
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='autoStack')
                 <li class="active ">
                 @else
@@ -222,11 +229,13 @@
                 <p>Auto Stack Management</p>
             </a>
             </li>
+            @endif
             <!-- END AUTO STACK LIST --->
 
             <!-- ROLE PANEL-->
 
                 <!-- Start Dropdown Message Panel -->
+                @if ($role == 'admin' || $role == 'super_admin')
                 @if($active=='sent_message' || $active=='message')
                     <li class="active">
                 @else
@@ -268,10 +277,12 @@
                 </div>
               </li>
               <li class="nav-item ">
+            @endif
             <!-- End Dropdown Message Panel -->
 
 
                 <!-- Start Dropdown Web Message Panel -->
+                @if ($role == 'admin' || $role == 'super_admin')
                 @if($active=='webmessage' || $active=='sent_webmessage')
                     <li class="active">
                 @else
@@ -342,12 +353,13 @@
                 </div>
               </li>
               <li class="nav-item ">
+                @endif
             <!-- End Dropdown Message Panel -->
 
 
 
             <!-- PAYMENT OPTION PANEL -->
-            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='payments')
                 <li class="active ">
                 @else
@@ -358,11 +370,11 @@
                 <p>Payment Option</p>
             </a>
             </li>
-            {{-- @endif --}}
+            @endif
             <!--- PAYMENT OPTION PANEL --->
 
             <!-- START DEPOSIT PANEL -->
-            {{-- @if ($role == 'admin' || $role == 'super_admin') --}}
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='Udeposits')
                 <li class="active ">
                 @else
@@ -373,7 +385,7 @@
                 <p>User Deposit</p>
             </a>
             </li>
-            {{-- @endif --}}
+            @endif
             <!---END DEPOSIT PANEL --->
 
             <!-- START WIDTHDRAWS PANEL -->
@@ -408,6 +420,7 @@
 
 
               <!-- Start Dropdown Withdraw Panel -->
+              @if ($role == 'admin' || $role == 'super_admin')
                 @if($active=='Uwidthdraws' || $active=='Cwidthdraws')
                     <li class="active">
                 @else
@@ -445,16 +458,18 @@
                 </div>
               </li>
               <li class="nav-item ">
+            @endif
             <!-- End Dropdown Withdraw Panel -->
 
 
-              <!-- Start Dropdown Setup site Panel -->
-                @if($active=='settings' || $active=='rule' || $active=='faq' || $active=='about' )
-                    <li class="active">
-                @else
-                    <li class="nav-item ">
-                @endif
-                <a class="nav-link" data-toggle="collapse" href="#site_setup">
+            <!-- Start Dropdown Setup site Panel -->
+            @if ($role == 'admin' || $role == 'super_admin')
+            @if($active=='settings' || $active=='rule' || $active=='faq' || $active=='about' )
+            <li class="active">
+            @else
+            <li class="nav-item ">
+            @endif
+            <a class="nav-link" data-toggle="collapse" href="#site_setup">
                   <i class="material-icons">language</i>
                   <p> Setup Site
                     <b class="caret"></b>
@@ -497,8 +512,7 @@
             </a>
             </li>
                 </li
-
-                  @if($active=='about')
+                @if($active=='about')
                 <li class="active">
                 @else
                 <li class="nav-item ">
@@ -514,9 +528,11 @@
                 </div>
               </li>
               <li class="nav-item ">
+            @endif
             <!-- End Dropdown Withdraw Panel -->
 
             <!-- Start Notice Panel -->
+            @if ($role == 'admin' || $role == 'super_admin')
             @if($active=='notice')
                 <li class="active">
                 @else
@@ -527,11 +543,12 @@
                 <p>Notice</p>
             </a>
             </li>
+            @endif
 
 
       <!-- Start Club Message Panel -->
-
-            @if($active=='club_message')
+      @if ($role == 'club_admin')
+        @if($active=='club_message')
                 <li class="active">
                 @else
                 <li class="nav-item ">
@@ -544,7 +561,7 @@
                 </li>
             <!-- End Index Panel -->
         </ul>
-
+        @endif
 
     </div>
 </div>
