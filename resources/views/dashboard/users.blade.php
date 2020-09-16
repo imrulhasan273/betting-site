@@ -60,7 +60,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$thisRole->name}}
                         </td>
                         <td>
-                            {{$user->photo}}
+                            <img style="width: 40px; height:40px;" src="{{ asset('/storage/profile/'.$user->photo) }}" alt="Profile Photo">
                         </td>
                         <td class="td-actions text-center">
                             <a href="{{route('users.edit',[$user->id])}}" type="button" rel="tooltip" class="btn btn-success">
