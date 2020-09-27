@@ -33,7 +33,7 @@ class MessageController extends Controller
         $msg = $request->user_message;
 
         $to = $number;
-        $token = "2c153c492d6bc6af22e522efcc64e66d";
+        $token = "fa54572dd1d4ca5a34c92c41fc973ef2";
         $message = $msg;
 
         $url = "http://api.greenweb.com.bd/api.php";
