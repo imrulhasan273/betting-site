@@ -16,7 +16,6 @@
          <thead class="">
              <tr>
                 <th>SL.</th>
-                {{-- <th>Role</th> --}}
                 <th>Sender Name</th>
                 <th>Subject</th>
                 <th>Sent Message</th>
@@ -38,8 +37,7 @@
             <!-- END ADDED -->
 
             <tr>
-                <td>{{ ++$key }}</td>
-                {{-- <td>{{ $msgROLE }}</td> --}}
+                <td>{{ ++$key }}</td> /// Issue is here
                 <td>{{ $webmessage_club->user_name }}</td>
                 <td>{{ $webmessage_club->user_message_subject }}</td>
                 <td>{{ $webmessage_club->user_sent_message }}</td>

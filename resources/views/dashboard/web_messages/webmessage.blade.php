@@ -38,8 +38,7 @@
             <!-- END ADDED -->
 
             <tr>
-                <td>{{ ++$key }}</td>
-                {{-- <td>{{ $msgROLE }}</td> --}}
+                <td>{{ ++$key }}</td> /// Issue is here
                 <td>{{ $webmessage->user_name }}</td>
                 <td>{{ $webmessage->user_message_subject }}</td>
                 <td>{{ $webmessage->user_sent_message }}</td>
