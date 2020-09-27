@@ -10,7 +10,7 @@
     <div class="modal-dialog  ">
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header m-head" style="  background: #FF7118;">
+        <div class="modal-header m-head" style="  background: #4267B2;">
           <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
             @if(Auth::user())
             <h4 class="modal-title" style="color: white"> &nbsp; Change Club : {{$clubName}} </h4>

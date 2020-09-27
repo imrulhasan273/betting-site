@@ -4,7 +4,7 @@
         <div class="modal-dialog  modal-lg">
           <!-- Modal content-->
           <div class="modal-content m-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">×</button>
               <h4 class="modal-title" style="color: #C0C0C0"> &nbsp; All Sponsor's</h4>
             </div>
@@ -43,7 +43,7 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content m-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">×</button>
               <h4 class="modal-title" style="color: #D2D2D2;font-size: 23px;font-weight: 600;"> &nbsp; Place Bet</h4>
             </div>
@@ -157,7 +157,7 @@
         <div class="modal-dialog  ">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118  ">
+            <div class="modal-header m-head" style="  background: #4267B2  ">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
               <h4 class="modal-title" style="color: white;"> &nbsp;Request a withdraw <span><button class="btn btn-success" id="show_withdraw_notice">Tap for Withdraw Notice</button></span></h4>
             </div>
@@ -205,7 +205,7 @@
         <div class="modal-dialog  ">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
               <h4 class="modal-title" style="color: white;"> &nbsp; Balance Transfer</h4>
             </div>
@@ -290,7 +290,7 @@
         <div class="modal-dialog  ">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
               <h4 class="modal-title" style="color: white;"> &nbsp; Balance Transfer</h4>
             </div>
@@ -337,7 +337,7 @@
         <div class="modal-dialog  ">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118;">
+            <div class="modal-header m-head" style="  background: #4267B2;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
               <h4 class="modal-title" style="color: white"> &nbsp; Confirm Password</h4>
             </div>
@@ -371,7 +371,7 @@
         <div class="modal-dialog  ">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
               <h4 class="modal-title" style="color: white;"> &nbsp; Change Password</h4>
             </div>
@@ -413,7 +413,7 @@
         <div class="modal-dialog  ">
           <!-- Modal content-->
           <div class="modal-content m-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
 
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">×</button>
               <h4 class="modal-title text-center" style="color: #C0C0C0"> &nbsp; Sign Up</h4>
@@ -557,7 +557,7 @@
         @endphp
           <!-- Modal content-->
           <div class="modal-content m-content">
-            <div class="modal-header m-head" style="  background: #FF7118 !important;">
+            <div class="modal-header m-head" style="  background: #4267B2 !important;">
 
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">×</button>
               <h4 class="modal-title" style="color: #fff"> &nbsp; Notice</h4>
@@ -581,7 +581,7 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
-            <div class="modal-header m-head" style="  background: #FF7118;">
+            <div class="modal-header m-head" style="  background: #4267B2;">
               <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
               <h4 class="modal-title" style="color: white"> &nbsp; Confirm Password</h4>
             </div>

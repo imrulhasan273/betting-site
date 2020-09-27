@@ -7,7 +7,7 @@
         <div class="modal-content m-content">
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active">
-                    <div class="modal-header m-head" style="  background: #FF7118 !important;">
+                    <div class="modal-header m-head" style="  background: #4267B2 !important;">
                     </div>
                     <div class="modal-body" style="padding: 2% !important">
                         <div class="signup-form">

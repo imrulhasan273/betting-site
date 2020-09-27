@@ -3,7 +3,7 @@
     <div class="modal-dialog  ">
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header m-head" style="  background: #FF7118 !important;">
+        <div class="modal-header m-head" style="  background: #4267B2 !important;">
           <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
           <h4 class="modal-title" style="color: white;"> &nbsp; Balance Transfer</h4>
         </div>

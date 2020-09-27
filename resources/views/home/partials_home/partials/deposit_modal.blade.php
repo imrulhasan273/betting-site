@@ -8,7 +8,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header m-head" style="  background:#FF7118">
+            <div class="modal-header m-head" style="  background:#4267B2">
                 <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
                 <h4 class="modal-title" style="color: white;"> &nbsp; Request a deposit <span><button class="btn btn-success" id="show_deposit_notice">Tap for Deposit Notice</button></span></h4>
             </div>

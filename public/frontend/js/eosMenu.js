@@ -13,8 +13,8 @@
 				fontSize: '14px', //字体大小
 				color: '#eee', //字体颜色
 				hoverColor: '#eee', //鼠标悬停,字体颜色
-				background: '#FF7B29', //背景颜色
-				subBackground: '#f3b518', //子级背景颜色
+				background: '#4267B2', //背景颜色
+				subBackground: '#4267B2', //子级背景颜色
 				hoverBackground: '#293744', //鼠标悬停,背景颜色
 				height: '40px', //每行总高度
 				lineHeight: '40px', //每行行高
@@ -94,12 +94,12 @@
 				$this.find('.eos-item').click(function() {
 					if(typeof opts.onItemClick == 'function') opts.onItemClick($(this));
 				})
-				
+
 				//如果自动展开默认链接
  				if(opts.isAutoUrl){
  					$this.find('[href="'+opts.defaultUrl+'"]').parents('.eos-group-content').addClass('auto-height');
  				}
-				
+
 			});
 
 			//获取当前对象总高度

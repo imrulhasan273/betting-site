@@ -24,8 +24,8 @@
         </a>
         @if (Auth::user() == false)
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
-            <button href="" id="openregister" class="btn btn-success" style="background: #FFE71E;color:#000;">Register</button>
-            <button class="btn btn-success" style="margin-left: 10px;background: #208E50" id="openlogin">Login</button>
+            <button href="" id="openregister" class="btn btn-success" style="background: #4267B2;color:#fff;">Register</button>
+            <button class="btn btn-success" style="margin-left: 10px;background: #4267B2" id="openlogin">Login</button>
         </div>
         @endif
 
@@ -34,7 +34,7 @@
         <div style="position: absolute;
                     top: 8px;
                     left: 166px;
-                    background: #fd7117;
+                    background: #4267B2;
                     color: #fff;
                     border-radius: 32px;font-size: 14px;">
             <p style="padding: 5px 4px;" id="tapbalance">

@@ -1,4 +1,4 @@
-<footer class="footer-basic-centered " style="background: #147B45">
+<footer class="footer-basic-centered " style="background: #4267B2">
     <div class="">
       <div class="row">
 
@@ -27,7 +27,7 @@
                 ->pluck('warning');
                 $warning = $warnings[0] ?? null;
             @endphp
-          <span class="userAlert text-center" style="color: #f3bcab"> {{ $warning }} </span>
+          <span class="userAlert text-center" style="color: #fff"> {{ $warning }} </span>
           <hr>
         </div>
       </div>
@@ -41,5 +41,5 @@
     $footer = $footers[0] ?? null;
   @endphp
   <div class="col-md-12" style="padding: 0px;">
-  <p class="text-center" style="background: #FF7118; padding: 12px 0px;color: #fff;">&copy; {{ $footer }}</p>
+  <p class="text-center" style="background: black; padding: 12px 0px;color: #fff;">&copy; {{ $footer }}</p>
   </div>

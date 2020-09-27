@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="container p-0 " style="background: #147b45;padding-top: 10%;">
+<div class="container p-0 " style="background: #4267B2;padding-top: 10%;">
     <div class="col-lg-12">
         <!-- flight section -->
         <div class="" style="max-width: 300px;margin:0 auto">
@@ -28,11 +28,15 @@
                             </tr>
                             <tr>
                                 <td style="min-width: 91px">Mobile No </td>
-                                <td> 01780783709</td>
+                                <td> {{ $user->phone }}</td>
                             </tr>
                             <tr>
+                            @php
+                            $clubName = App\Club::where('id', $user->club_id)->pluck('name');
+                            $clubName = $clubName[0] ?? null;
+                            @endphp
                                 <td>Club </td>
-                                <td> RANGPUR CLUB</td>
+                                <td> {{ $clubName }}</td>
                             </tr>
                         </tbody>
                     </table>

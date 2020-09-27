@@ -1,11 +1,11 @@
 @extends('layouts.frontend')
 @section('content')
  <!--  START CONTENT -->
- <div style="max-width: 400px;margin: 0 auto;background: #147B45;min-height: 321px;overflow: hidden;padding-top: 56px;">
+ <div style="max-width: 400px;margin: 0 auto;background: #4267B2;min-height: 321px;overflow: hidden;padding-top: 56px;">
     <div style="width: 100%;
-                background: #0b5a31;
+                background: #4267B2;
                 height: 291px;">
-        <h1 style="color: #fff;text-align: center;font-size: 34px;"><span style="color: #E5A80D">One</span><span style="color: #FE7118;">Ten</span> Online Game</h1>
+        <h1 style="color: #fff;text-align: center;font-size: 34px;"><span style="color: #4267B2">One</span><span style="color: #FE7118;">Ten</span> Online Game</h1>
 
         <h1 style="color: #fff;text-align: center;margin-top: 12px;">Select any Number for Game: #00</h1>
         <div style="margin-top: 12px;max-width: 358px;
@@ -15,14 +15,14 @@
         </div>
         <h1 style="color: #fff;text-align: center;margin-top: 12px;">Bet Limit is 50 to 10,000. Draw in Every Day</h1>
         <div style="width:100%;margin-top:22px;">
-            <div style="width:33%;background: #E5A80E;color:#fff;padding:7px;margin:0 auto">
+            <div style="width:33%;background: #4267B2;color:#fff;padding:7px;margin:0 auto">
                 <p>Draw: </p>
             </div>
         </div>
     </div>
 
     <div style="width:100%;    padding-top: 35px;">
-        <h1 style="text-align: center;color:#fff;"><span style="color: yellow">OneTen:</span> Draw #0043 on 13 Jul 2020 2:42 PM</h1>
+        <h1 style="text-align: center;color:#fff;"><span style="color: #4267B2">OneTen:</span> Draw #0043 on 13 Jul 2020 2:42 PM</h1>
         <div style="width: 150px;
                     margin: 0 auto;
                     text-align: center;
@@ -70,7 +70,7 @@
                     margin: 0 auto;
                     text-align: center;
                     margin-top: 12px;
-                    background: #E5A80E;
+                    background: #4267B2;
                     font-weight: bold;
                     padding: 6px;
                     color: #fff;
@@ -83,7 +83,7 @@
                     margin: 0 auto;
                     text-align: center;
                     margin-top: 12px;
-                    background: #E5A80E;
+                    background: #4267B2;
                     font-weight: bold;
                     padding: 6px;
                     color: #fff;
@@ -96,7 +96,7 @@
                     margin: 0 auto;
                     text-align: center;
                     margin-top: 12px;
-                    background: #E5A80E;
+                    background: #4267B2;
                     font-weight: bold;
                     padding: 6px;
                     color: #fff;

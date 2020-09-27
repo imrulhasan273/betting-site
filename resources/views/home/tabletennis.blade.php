@@ -24,7 +24,7 @@
             @php
                 $quesCount++;
             @endphp
-            <div class="" data-toggle="collapse" data-parent="#accordion" href="#TTtab33419{{$quesCount}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
+            <div class="" data-toggle="collapse" data-parent="#accordion" href="#TTtab33419{{$quesCount}}" style="background:#4267B2;padding: 12px 7px;min-height:54px;">
                 <span class="gameicon"><img src="{{asset('frontend/img/TT.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
@@ -125,7 +125,7 @@
             @php
                 $quesCountU++;
             @endphp
-            <div class="" data-toggle="collapse" data-parent="#accordion" href="#TTUtab33419{{$quesCountU}}" style="background:#147B45;padding: 12px 7px;min-height:54px;">
+            <div class="" data-toggle="collapse" data-parent="#accordion" href="#TTUtab33419{{$quesCountU}}" style="background:#4267B2;padding: 12px 7px;min-height:54px;">
                 <span class="gameicon"><img src="{{asset('frontend/img/TT.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}

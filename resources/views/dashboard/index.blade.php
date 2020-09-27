@@ -117,9 +117,9 @@ $authRole = $authRole[0];
         <!------------================= PEDING WIDTHDRAW ===================---------- -->
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-info card-header-icon">
                 <div class="card-icon">
-                    <i class="material-icons">admin_panel_settings</i>
+                    <i class="material-icons">money</i>
                 </div>
                 <p class="card-category">Pending User Widthdraw</p>
                 <h3 class="card-title">{{  $countWidthdrawUser }}</h3>
@@ -138,7 +138,7 @@ $authRole = $authRole[0];
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                 <div class="card-icon">
-                    <i class="material-icons">admin_panel_settings</i>
+                    <i class="material-icons">attach_money</i>
                 </div>
                 <p class="card-category">Pending Club Widthdraw</p>
                 <h3 class="card-title">{{ $countWidthdrawClub}}</h3>
@@ -155,9 +155,9 @@ $authRole = $authRole[0];
         <!------------================= PEDING Deposits ===================---------- -->
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-success card-header-icon">
                 <div class="card-icon">
-                    <i class="material-icons">admin_panel_settings</i>
+                    <i class="material-icons">euro_symbol</i>
                 </div>
                 <p class="card-category">Pending Deposits (User)</p>
                 <h3 class="card-title">{{$countDeposits}}</h3>
@@ -171,18 +171,45 @@ $authRole = $authRole[0];
         </div>
         <!------------=================PEDING Deposits===================---------- -->
 
+
+        <!------------================= Sponsor Comission ===================---------- -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">date_range</i>
+                </div>
+                </div>
+                  <div class="card-body">
+                      <form method="POST" action="{{route('sponsor.commission.update')}}">
+                      @csrf
+                          <h4 class="card-title">Sponsor Commission (%)</h4>
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  {{-- <label class="bmd-label-floating">Commission (%)</label> --}}
+                                  <input name="commission" value="{{ $commission }}" type="text" class="form-control">
+                              </div>
+                          </div>
+                          <button name="submit" type="submit" class="btn btn-success pull-right">Update</button>
+                      </form>
+                  </div>
+                {{-- <div class="card-footer">
+                <div class="stats">
+                    <a href="{{ route('admin.user.deposit') }}">Operate on Request</a>
+                </div>
+                </div> --}}
+            </div>
+        </div>
+        <!------------=================PEDING Sponsor Comission===================---------- -->
+
       </div>
      @endif
 
 
-        @if($authRole == 'super_admin' || $authRole == 'admin')
+        {{-- @if($authRole == 'super_admin' || $authRole == 'admin')
         <div class="row">
             <div class="col-md-4">
                 <div class="card card-chart">
-                  <div class="card-header card-header-danger">
-                    <div class="ct-chart" id="completedTasksChart"></div>
-                  </div>
-
                   <div class="card-body">
                       <form method="POST" action="{{route('sponsor.commission.update')}}">
                       @csrf
@@ -204,43 +231,8 @@ $authRole = $authRole[0];
                   </div>
                 </div>
               </div>
-
-
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-warning">
-                  <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
         </div>
-        @endif
+        @endif --}}
 
         @if($authRole == 'super_admin' || $authRole == 'admin')
             <div class="col-lg-6 col-md-12">

@@ -13,7 +13,7 @@
         <a style="color: #fff;
                 text-align: center;
                 font-size: 30px;
-                background: #147b45;
+                background: #4267B2;
                 padding: 9px 3px;" href="{{ route('home')}}">
         </a>
     </h2>

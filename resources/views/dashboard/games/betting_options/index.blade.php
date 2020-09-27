@@ -67,17 +67,17 @@ $active='games';
                         @endif
                             <h4 style="color: black; font-weight:bold" class="card-title mt-0">
                                 {{ $question->question}}
-                                <a href="{{ route('admin.games.question.status',[$game->id,$question->id,1]) }}" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: blue;">
+                                <a href="{{ route('admin.games.question.status',[$game->id,$question->id,1]) }}" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: #4267B2;">
                                     @if ($question->is_active==true)
                                     <i class="material-icons">check_circle</i>
                                     @else
                                     <i class="material-icons">airplanemode_inactive</i>
                                     @endif
                                 </a>
-                                <a href="{{ route('admin.games.bet.question.destroy',[$question->id]) }}" class="btn btn-outline-secondary bg-danger" style="float:right;backgounrd: blue;">
+                                <a href="{{ route('admin.games.bet.question.destroy',[$question->id]) }}" class="btn btn-outline-secondary bg-danger" style="float:right;backgounrd: #4267B2;">
                                     <i class="material-icons">delete</i> Question
                                 </a>
-                                <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: blue;">
+                                <a href="{{ route('admin.games.bet.ques.answer.add',[$game->id,$question->id]) }}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: #4267B2;">
                                     <span class="material-icons">
                                         add_circle_outline
                                     </span> Answer +
