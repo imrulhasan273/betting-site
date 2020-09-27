@@ -1,5 +1,6 @@
 @php
-    $active="webmessage_club_index"
+    $active="webmessage_club_index";
+    $key=0;
 @endphp
 @extends('layouts.backend')
 @section('content')
@@ -26,7 +27,7 @@
         </thead>
             @if($webmessages_club->count() > 0 )
                 <tbody>
-            @foreach ($webmessages_club as $key=> $webmessage_club)
+            @foreach ($webmessages_club as $webmessage_club)
 
             <!-- START ADDED --->
             @php
@@ -37,7 +38,7 @@
             <!-- END ADDED -->
 
             <tr>
-                <td>{{ ++$key }}</td> /// Issue is here
+                <td>{{ ++$key }}</td> /// Issue is resolved
                 <td>{{ $webmessage_club->user_name }}</td>
                 <td>{{ $webmessage_club->user_message_subject }}</td>
                 <td>{{ $webmessage_club->user_sent_message }}</td>

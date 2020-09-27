@@ -1,5 +1,6 @@
 @php
-    $active="webmessage"
+    $active="webmessage";
+    $key=0;
 @endphp
 @extends('layouts.backend')
 @section('content')
@@ -27,7 +28,7 @@
         </thead>
             @if($webmessages->count() > 0 )
                 <tbody>
-            @foreach ($webmessages as $key=> $webmessage)
+            @foreach ($webmessages as $webmessage)
 
             <!-- START ADDED --->
             @php
@@ -38,7 +39,7 @@
             <!-- END ADDED -->
 
             <tr>
-                <td>{{ ++$key }}</td> /// Issue is here
+                <td>{{ ++$key }}</td> /// Issue is resolved
                 <td>{{ $webmessage->user_name }}</td>
                 <td>{{ $webmessage->user_message_subject }}</td>
                 <td>{{ $webmessage->user_sent_message }}</td>
