@@ -38,7 +38,7 @@
             <!-- END ADDED -->
 
             <tr>
-                <td>{{ ++$key }}</td> /// Issue is resolved
+                <td>{{ ++$key }}</td>
                 <td>{{ $webmessage_club->user_name }}</td>
                 <td>{{ $webmessage_club->user_message_subject }}</td>
                 <td>{{ $webmessage_club->user_sent_message }}</td>
