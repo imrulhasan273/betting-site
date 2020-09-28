@@ -4,7 +4,7 @@
                                             margin-right: 10px;">×</a>
     <div class="">
 
-    <p style="color: #FFE71E;position: absolute;
+    <p style="color: #4267B2;position: absolute;
                 top: 20px;
                 left: 63px;
                 font-size: 20px;">Login | ID</p>
@@ -13,6 +13,12 @@
         ×
         </button> <strong id="alertsignin"> </strong><span id="signuperrorText"></span>
     </div>
+    @if(session()->has('message'))
+    <div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="material-icons">close</i></button>{{ session()->get('message')}} </div>
+    {{ session()->forget('message') }}
+    @elseif(session()->has('error'))
+    <div class="alert alert-danger">{{ session()->get('error')}} </div>
+    @endif
     <form method="POST" action="{{ route('login') }}" class="form-group">
     @csrf
         <div class="form-group" style="padding: 7px;margin-top: 60px;">

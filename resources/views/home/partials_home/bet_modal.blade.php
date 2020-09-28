@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" id="placeBet" name="placeBet" class="btn btn-info btn-lg btn-block" style="background: #FFC22C;">Place Bet</button>
+                                    <button type="submit" id="placeBet" name="placeBet" class="btn btn-info btn-lg btn-block" style="background: #4267B2;">Place Bet</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal" style="">Close/Back </button>
                                 </div>
                             </div>

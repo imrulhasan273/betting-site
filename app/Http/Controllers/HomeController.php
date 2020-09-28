@@ -50,7 +50,7 @@ class HomeController extends Controller
 
     public function mybet()
     {
-        return view('mybet');
+        return view('Profile_Frontend.statements');
     }
 
     public function support()
