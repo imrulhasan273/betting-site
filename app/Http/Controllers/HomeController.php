@@ -51,7 +51,7 @@ class HomeController extends Controller
 
     public function mybet()
     {
-       $auth_user_id = Auth::user()->id;
+       $auth_user_id = Auth::user()->id ?? null;
        $user = User::where('id', $auth_user_id)->first();
        $userROLE = $user->role[0]->name ?? null;
 
