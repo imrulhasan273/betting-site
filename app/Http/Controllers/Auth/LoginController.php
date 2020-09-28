@@ -35,6 +35,13 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::ADMIN;
 
 
+
+    # START LOG IN WITH USER_NAME INSTEAD OF EMAIL STEP #1 of #3
+    protected $username;
+    # END LOG IN WITH USER_NAME INSTEAD OF EMAIL
+
+
+
     /**
      * Create a new controller instance.
      *
@@ -43,7 +50,20 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
+        # START LOG IN WITH USER_NAME INSTEAD OF EMAIL STEP #2 of #3
+        $this->username = 'user_name';
+        # START LOG IN WITH USER_NAME INSTEAD OF EMAIL
+
     }
+
+    # START LOG IN WITH USER_NAME INSTEAD OF EMAIL STEP #3 of #3
+    public function username()
+    {
+        return $this->username;
+    }
+    # START LOG IN WITH USER_NAME INSTEAD OF EMAIL
+
 
     # ADDED FUNCTION FOR SESSION SAVING ____________________________
     function authenticated(Request $request, $user)
