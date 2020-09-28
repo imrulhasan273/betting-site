@@ -22,9 +22,32 @@
             @if ($game->status=='live')
             @php
                 $quesCount++;
+                $GAME_TYPE_ID = $game->type_id;
+                if($GAME_TYPE_ID==1){
+                    $icon = "ka-pl.png"; //cricket
+                }
+                else if($GAME_TYPE_ID==2){
+                    $icon = "1393757333.png"; //football
+                }
+                else if($GAME_TYPE_ID==3) {
+                    $icon = "BB.png"; //basketball
+                }
+                else if($GAME_TYPE_ID==4) {
+                    $icon = "T.png"; //tennis
+                }
+                else if($GAME_TYPE_ID==5){
+                    $icon = "TT.png"; //table tennis
+                }
+                else if($GAME_TYPE_ID==6){
+                    $icon = "BN.png"; //badminton
+                }
             @endphp
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#ALLtab33419{{$quesCount}}" style="background:#4267B2;padding: 12px 7px;min-height:54px;">
-                <span class="gameicon"><img src="{{asset('frontend/img/all.png')}}" width="27px;"></span>
+                <span class="gameicon">
+                {{--  --}}
+                <img src="{{asset('frontend/img/'.$icon)}}" width="27px;">
+                {{--  --}}
+            </span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
@@ -124,9 +147,32 @@
             @if ($game->status=='upcoming')
             @php
                 $quesCountU++;
+                $GAME_TYPE_ID = $game->type_id;
+                if($GAME_TYPE_ID==1){
+                    $icon = "ka-pl.png"; //cricket
+                }
+                else if($GAME_TYPE_ID==2){
+                    $icon = "1393757333.png"; //football
+                }
+                else if($GAME_TYPE_ID==3) {
+                    $icon = "BB.png"; //basketball
+                }
+                else if($GAME_TYPE_ID==4) {
+                    $icon = "T.png"; //tennis
+                }
+                else if($GAME_TYPE_ID==5){
+                    $icon = "TT.png"; //table tennis
+                }
+                else if($GAME_TYPE_ID==6){
+                    $icon = "BN.png"; //badminton
+                }
             @endphp
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#ALLUtab33419{{$quesCountU}}" style="background:#4267B2;padding: 12px 7px;min-height:54px;">
-                <span class="gameicon"><img src="{{asset('frontend/img/all.png')}}" width="27px;"></span>
+                <span class="gameicon">\
+                    {{--  --}}
+                    <img src="{{asset('frontend/img/'.$icon)}}" width="27px;">
+                    {{--  --}}
+                </span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
