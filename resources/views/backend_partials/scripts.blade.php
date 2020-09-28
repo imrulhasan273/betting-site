@@ -1,8 +1,11 @@
-  <!--   Core JS Files   -->
-{{-- <script src=" {{asset('backend/js/core/jquery.min.js')}} "></script>
+<!--   Core JS Files   -->
+
+{{-- added for MOBILE VIEW NAV--}}
+<script src=" {{asset('backend/js/core/jquery.min.js')}} "></script>
 <script src="{{ asset('backend/js/core/popper.min.js') }}"></script>
 <script src=" {{asset('backend/js/core/bootstrap-material-design.min.js')}} "></script>
-<script src=" {{asset('backend/js/plugins/perfect-scrollbar.jquery.min.js')}} "></script> --}}
+<script src=" {{asset('backend/js/plugins/perfect-scrollbar.jquery.min.js')}} "></script>
+{{-- added for MOBILE VIEW NAV --}}
 
 
 

@@ -8,6 +8,7 @@
 <body class="">
     <div class="wrapper ">
 
+
         {{-- <x-alert/> --}}
 
         <!-- SIDE BAR -->
@@ -33,6 +34,7 @@
 
     <!-- SCRIPT FILES -->
     @include('backend_partials.scripts')
+
     <!-- SCRIPT FILES -->
 
 </body>
