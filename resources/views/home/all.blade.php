@@ -168,7 +168,7 @@
                 }
             @endphp
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#ALLUtab33419{{$quesCountU}}" style="background:#4267B2;padding: 12px 7px;min-height:54px;">
-                <span class="gameicon">\
+                <span class="gameicon">
                     {{--  --}}
                     <img src="{{asset('frontend/img/'.$icon)}}" width="27px;">
                     {{--  --}}
