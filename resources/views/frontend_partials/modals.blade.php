@@ -38,6 +38,7 @@
 
 
 
+
       <!--Start place bet oneten-->
       <div class="modal fade betForm" id="betting_oneten" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
@@ -609,3 +610,6 @@
         </div>
     </div>
     <!-- End Forget Password MODAL -->
+
+
+    @include('home.partials_home.partials.extra_modal')
