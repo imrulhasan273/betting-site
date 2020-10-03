@@ -27,7 +27,7 @@
                     $icon = "ka-pl.png"; //cricket
                 }
                 else if($GAME_TYPE_ID==2){
-                    $icon = "1393757333.png"; //football
+                    $icon = "f_ball.png"; //football
                 }
                 else if($GAME_TYPE_ID==3) {
                     $icon = "BB.png"; //basketball
@@ -36,7 +36,7 @@
                     $icon = "T.png"; //tennis
                 }
                 else if($GAME_TYPE_ID==5){
-                    $icon = "TT.png"; //table tennis
+                    $icon = "table_tenis.png"; //table tennis
                 }
                 else if($GAME_TYPE_ID==6){
                     $icon = "BN.png"; //badminton
@@ -152,7 +152,7 @@
                     $icon = "ka-pl.png"; //cricket
                 }
                 else if($GAME_TYPE_ID==2){
-                    $icon = "1393757333.png"; //football
+                    $icon = "f_ball.png"; //football
                 }
                 else if($GAME_TYPE_ID==3) {
                     $icon = "BB.png"; //basketball
@@ -161,7 +161,7 @@
                     $icon = "T.png"; //tennis
                 }
                 else if($GAME_TYPE_ID==5){
-                    $icon = "TT.png"; //table tennis
+                    $icon = "table_tenis.png"; //table tennis
                 }
                 else if($GAME_TYPE_ID==6){
                     $icon = "BN.png"; //badminton

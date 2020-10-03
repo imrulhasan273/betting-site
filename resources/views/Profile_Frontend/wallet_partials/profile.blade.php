@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="container p-0 " style="background: #4267B2;padding-top: 10%;">
+<div class="container p-0 " style="background: #4267B2;padding-top: 10%; margin-top:18px">
     <div class="col-lg-12">
         <!-- flight section -->
         <div class="" style="max-width: 300px;margin:0 auto">

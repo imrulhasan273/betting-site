@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('content')
-<div style="padding-top: 10%;padding-bottom: 20%;" class="container">
+<div style="padding-top: 10%;padding-bottom: 20%; margin-top:20px" class="container">
 
     <div class="row justify-content-center">
         <div class="col-md-8">
