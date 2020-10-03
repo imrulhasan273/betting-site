@@ -126,7 +126,7 @@
                 $quesCountU++;
             @endphp
             <div class="" data-toggle="collapse" data-parent="#accordion" href="#TTUtab33419{{$quesCountU}}" style="background:#4267B2;padding: 12px 7px;min-height:54px;">
-                <span class="gameicon"><img src="{{asset('frontend/img/TT.png')}}" width="27px;"></span>
+                <span class="gameicon"><img src="{{asset('frontend/img/table_tenis.png')}}" width="27px;"></span>
                 <h3 class="panel-title ">
                     {{ $game->name }}, {{ $game->tournament_name }} || {{ $game->date }} || {{ $game->time }}
                 </h3>
