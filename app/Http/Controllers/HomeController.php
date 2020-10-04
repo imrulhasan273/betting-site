@@ -11,7 +11,7 @@ use App\Question;
 use App\Rule;
 use App\Faq;
 use App\About;
-Use App\User;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,20 +51,18 @@ class HomeController extends Controller
 
     public function mybet()
     {
-       $auth_user_id = Auth::user()->id ?? null;
-       $user = User::where('id', $auth_user_id)->first();
-       $userROLE = $user->role[0]->name ?? null;
+        $auth_user_id = Auth::user()->id ?? null;
+        $user = User::where('id', $auth_user_id)->first();
+        $userROLE = $user->role[0]->name ?? null;
 
 
-        if($userROLE == 'user'){
+        if ($userROLE == 'user') {
 
             return view('Profile_Frontend.statements');
-        }
-        else{
+        } else {
 
-           return back();
+            return back();
         }
-
     }
 
     public function support()
@@ -75,17 +73,17 @@ class HomeController extends Controller
     public function about()
     {
         $about_us = About::orderBy('id', 'desc')->first();
-        return view('about',compact('about_us'));
+        return view('about', compact('about_us'));
     }
 
     public function rules()
     {
         $rules = Rule::orderBy('id', 'desc')->first();
-        return view('rules',compact('rules'));
+        return view('rules', compact('rules'));
     }
     public function faq()
     {
         $faqs = Faq::orderBy('id', 'desc')->first();
-        return view('faq',compact('faqs'));
+        return view('faq', compact('faqs'));
     }
 }

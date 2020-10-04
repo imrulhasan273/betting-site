@@ -81,6 +81,13 @@ class DepositController extends Controller
             $state = 'cancel';
         }
 
+        // dd($state);
+
+        if ($state == 'reject') {
+            DB::table('deposits')->where('id', $deposit->id)->delete();
+            return Redirect::route('admin.user.deposit')->with('error', 'Deposit Deleted');
+        }
+
         if ($state == 'paid') {
 
             # UPDATE USER ACCOUNT (ADD)

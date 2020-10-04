@@ -62,7 +62,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             {{$deposit->id}}
                         </td>
                         <td>
-                            {{$deposit->user->email}}
+                            {{$deposit->user->user_name}}
                         </td>
                         <td>
                             {{$deposit->deposit_by}}
@@ -107,7 +107,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                             </a>
                             @endif
 
-                            <a onclick="return confirm('This will also delete the User. Delete?')" href="{{ route('deposits.status',[$deposit->id,0])}}" type="button" rel="tooltip" class="btn btn-danger">
+                            <a onclick="return confirm('This will also delete the Deposit. Delete?')" href="{{ route('deposits.status',[$deposit->id,0])}}" type="button" rel="tooltip" class="btn btn-danger">
                                 <i class="material-icons">close</i>
                             </a>
                         </td>
