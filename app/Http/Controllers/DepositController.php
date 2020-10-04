@@ -63,6 +63,10 @@ class DepositController extends Controller
         $flag = Deposit::where('id', $deposit->id)->pluck('status');
         $flag  = $flag[0] ?? null;
 
+        if ($code == 0) {
+            DB::table('deposits')->where('id', $deposit->id)->delete();
+            return Redirect::route('admin.user.deposit')->with('error', 'Deposit Deleted');
+        }
 
         if ($flag == 'paid') {
             return back()->with('error', 'Already Paid');
@@ -81,12 +85,7 @@ class DepositController extends Controller
             $state = 'cancel';
         }
 
-        // dd($state);
 
-        if ($state == 'reject') {
-            DB::table('deposits')->where('id', $deposit->id)->delete();
-            return Redirect::route('admin.user.deposit')->with('error', 'Deposit Deleted');
-        }
 
         if ($state == 'paid') {
 
