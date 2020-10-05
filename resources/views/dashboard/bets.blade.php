@@ -73,7 +73,7 @@ $active='bets';
                     <tr style="background: rgb(197, 182, 169);color:black">
                     @endif
                         <td>
-                            {{$bet->user->email}}
+                            {{$bet->user->user_name}}
                         </td>
                         <td>
                             {{$bet->created_at}}
