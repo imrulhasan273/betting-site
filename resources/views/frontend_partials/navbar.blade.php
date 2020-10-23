@@ -49,11 +49,11 @@
                     $CurrentCredits = $CurrentCredits[0];
                 @endphp
                 <span id="tbalance" style="display: none;"> {{$CurrentCredits ?? 0}} </span>
-                <span id="tbalance2" style=""> Tap for balance</span>
+                <span id="tbalance2" style="">Tap for balance</span>
             </p>
+
         </div>
         @endif
-
 
         @if($authRole=='user')
         <div style="position:absolute;right:16px;color:#fff;top:7px;line-height: 6px;">
