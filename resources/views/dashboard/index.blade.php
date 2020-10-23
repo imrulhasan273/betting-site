@@ -251,7 +251,7 @@ $authRole = $authRole[0];
                     </thead>
                     <tbody>
                         @foreach ($dash_users as $key=> $user)
-                        @if($user->role[0]->name=='user');
+                        @if($user->role[0]->name=='user')
                         @php
                             $clubName = App\Club::where('id', $user->club_id)->pluck('name');
                             $clubName = $clubName[0] ?? null;

@@ -31,6 +31,7 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                 <th>Sl.</th>
                 <th>Name</th>
                 <th>User Name</th>
+                <th>Balance</th>
                 <th>Email</th>
                 <th>Role</th>
                 <th>Photo</th>
@@ -52,6 +53,9 @@ $authRole = Auth::check() ? Auth::user()->role->pluck('name')->toArray() : [];
                         </td>
                         <td>
                             {{$user->user_name}}
+                        </td>
+                        <td>
+                            {{$user->credits}}
                         </td>
                         <td>
                             {{$user->email}}
