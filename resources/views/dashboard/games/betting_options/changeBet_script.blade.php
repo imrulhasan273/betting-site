@@ -2,7 +2,6 @@
 
 
 // ------============= change bet rate Submit ===================---------
-
     $("#changeBetSubmit").on("click", function() {
 
         $('#deposit_load').show();
@@ -20,22 +19,17 @@
             },
 
             success: function(data) {
-
                 console.log(data);
+                var AID = data[0];
+                var BR = data[1];
+                // console.log(AID);
+                // console.log(BR);
 
-                // if (data == 'insert') {
-                // $('#deposit_load').hide();
-                // $('#errorDeposit').show();
-                // $('#errorDeposit').removeClass('alert-success');
-                // $('#errorDeposit').removeClass('alert-danger');
-                // $('#errorDeposit').addClass('alert-success');
-                // $('#alertDeposit').html("deposit request succesful");
-                // setTimeout(function() {
-                //     $("#errorDeposit").hide();
-                //     location.reload();
-                // }, 2000);
-                // }
+
+                $('#ans_id_'+AID).text(BR);
             }
         });
     });
 </script>
+
+

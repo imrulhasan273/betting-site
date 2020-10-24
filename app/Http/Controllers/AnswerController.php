@@ -24,7 +24,9 @@ class AnswerController extends Controller
             ]);
         }
 
-        return response()->json($request);
+        // return response()->json($request);
+        $data = [$request->ans_id, $request->bet_rate];
+        return response()->json($data);
     }
 
     public function add(Game $game, Question $question)

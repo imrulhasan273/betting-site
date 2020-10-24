@@ -145,23 +145,14 @@ $active='games';
                                     <td class="td-actions text-center">
                                         {{$answer->answer}}
                                     </td>
-                                    <td class="td-actions text-center">
-                                        {{$answer->bet_rate}}
-                                        {{-- <a data-toggle="modal" data-target="#changeBet" class="btn" type="button"
-                                            data-ans_id = "{{$answer->id}}"
-                                            data-ans_bet_rate = "{{$answer->bet_rate}}">
-                                            <div class="" align="center" style="color:#fff;">
-                                                <span id="" class="" text-align="center" style="color:#000000;">
-                                                    {{$answer->bet_rate}}
-                                                </span>
-                                            </div>
-                                        </a> --}}
+                                    <td id="" class="td-actions text-center">
+                                        {{-- {{$answer->bet_rate}} --}}
                                         <div class="data-show btn" data-toggle="modal"data-target="#changeBetRate" style="" id="select "
                                             data-ans_id = "{{$answer->id}}"
                                             data-ans_bet_rate = "{{$answer->bet_rate}}">
 
                                             <div class="" align="center" style="color:#fff;">
-                                                <span id="" class="" text-align="center" style="color:#000000;">
+                                                <span id="ans_id_{{$answer->id}}" class="" text-align="center" style="color:#000000;">
                                                     {{$answer->bet_rate}}
                                                 </span>
                                             </div>
@@ -225,3 +216,5 @@ $active='games';
 {{-- <!-- START SCRIPTS FOR DEPOSIT -->
 @include('dashboard.games.betting_options.changeBet_modal')
 <!-- END SCRIPTS FOR DEPOSIT --> --}}
+
+
