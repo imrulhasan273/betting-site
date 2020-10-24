@@ -612,4 +612,5 @@
     <!-- End Forget Password MODAL -->
 
 
-    @include('home.partials_home.partials.extra_modal')
+@include('home.partials_home.partials.extra_modal')
+

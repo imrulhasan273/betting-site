@@ -29,12 +29,15 @@
             </div>
             <!-- MAIN CONTENT -->
 
+            <!-- Start All the Modals -->
+            @include('backend_partials.modals')
+            <!-- End All the Modals -->
+
         </div>
     </div>
 
     <!-- SCRIPT FILES -->
     @include('backend_partials.scripts')
-
     <!-- SCRIPT FILES -->
 
 </body>
