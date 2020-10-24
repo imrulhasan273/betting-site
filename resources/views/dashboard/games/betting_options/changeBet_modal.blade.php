@@ -1,9 +1,5 @@
-<!-------deposit modal--------->
-<!--Start Modal deposit -->
-@php
-    $paymentsOptions = App\PaymentOption::all();
-@endphp
-<div id="changeBet" class="modal fade" role="dialog">
+
+<div style="color:black" class="modal fade betForm" id="changeBetRate" role="dialog" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -18,6 +14,13 @@
                     <div role="form" class="register-form">
 
                         <div class="row">
+                            <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
+                                <div class="form-group">
+                                    <label style="text-align: center;width: 100%;color:#07000a;">Ans ID</label>
+                                    <input style="text-align: center;width: 100%;" type="text" name="bet_ans_id" id="bet_ans_id" class="form-control input-md" placeholder="Ans ID" tabindex="1" readonly>
+                                </div>
+                            </div>
+
                             <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
                                 <div class="form-group">
                                     <label style="text-align: center;width: 100%;color:#07000a;">New Bet Rate</label>
@@ -41,3 +44,5 @@
 <!-- START SCRIPTS FOR DEPOSIT -->
 @include('dashboard.games.betting_options.changeBet_script')
 <!-- END SCRIPTS FOR DEPOSIT -->
+
+

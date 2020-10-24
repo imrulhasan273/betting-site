@@ -1,16 +1,22 @@
 <script type="text/javascript">
 
+
+// ------============= change bet rate Submit ===================---------
+
     $("#changeBetSubmit").on("click", function() {
 
         $('#deposit_load').show();
         var bet_rate = $("#change_bet_rate").val();
+        var bet_ans_id = $("#bet_ans_id").val();
         console.log(bet_rate);
+        console.log(bet_ans_id);
 
         $.ajax({
             method: "get",
-            url: "{{route('deposits.place')}}",
+            url: "{{ route('betRate.change' )}}",
             data: {
-                method_id: bet_rate,
+                bet_rate: bet_rate,
+                ans_id: bet_ans_id
             },
 
             success: function(data) {

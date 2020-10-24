@@ -14,24 +14,17 @@ use Illuminate\Support\Facades\Redirect;
 
 class AnswerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function changeBetRate(Request $request)
     {
-        //
+        $updatingAns = Answer::where('id', $request->ans_id)->first();
+        if ($updatingAns) {
+            $updatingAns->update([
+                'bet_rate' => $request->bet_rate,
+            ]);
+        }
+
+        return response()->json($request);
     }
 
     public function add(Game $game, Question $question)

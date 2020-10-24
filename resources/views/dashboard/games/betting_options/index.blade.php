@@ -55,9 +55,6 @@ $active='games';
 
         <div class="card-body">
           <div class="table-responsive">
-            @php
-                $countAns = 0;
-            @endphp
             <!-- Nested Table -->
                 @foreach ($questions as $question)
                 @if ($game->id == $question->game_id)
@@ -150,10 +147,16 @@ $active='games';
                                     </td>
                                     <td class="td-actions text-center">
                                         {{$answer->bet_rate}}
-                                        {{-- <a data-toggle="modal" data-target="#changeBet" class="btn" type="button"><img style="width:25px;" src="frontend/img/deposit.png">
-                                            <div class="efb59">change</div>
+                                        {{-- <a data-toggle="modal" data-target="#changeBet" class="btn" type="button"
+                                            data-ans_id = "{{$answer->id}}"
+                                            data-ans_bet_rate = "{{$answer->bet_rate}}">
+                                            <div class="" align="center" style="color:#fff;">
+                                                <span id="" class="" text-align="center" style="color:#000000;">
+                                                    {{$answer->bet_rate}}
+                                                </span>
+                                            </div>
                                         </a> --}}
-                                        <div class="data-show btn" data-toggle="modal" data-target="#changeBet" style="" id="select "
+                                        <div class="data-show btn" data-toggle="modal"data-target="#changeBetRate" style="" id="select "
                                             data-ans_id = "{{$answer->id}}"
                                             data-ans_bet_rate = "{{$answer->bet_rate}}">
 
@@ -210,9 +213,6 @@ $active='games';
                     </div>
                 </div>
                 @endif
-                @php
-                    $countAns++;
-                @endphp
                 @endforeach
             <!-- Nested Table -->
           </div>
@@ -225,7 +225,3 @@ $active='games';
 {{-- <!-- START SCRIPTS FOR DEPOSIT -->
 @include('dashboard.games.betting_options.changeBet_modal')
 <!-- END SCRIPTS FOR DEPOSIT --> --}}
-
-
-
-

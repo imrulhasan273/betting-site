@@ -28,6 +28,7 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/place_bet', 'BetController@placeBet')->name('bets.placeBet'); # NO MIDDLEWARE
 // Route::get('/place_bet', 'BetController@placeBet')->name('bets.placeBet')->middleware('auth');
 Route::get('/bets/status/{bet_id}/{code}', 'BetController@status')->name('admin.bets.status'); //added
+
 # END BET CONTROLLER
 
 # FRONT PAGES
@@ -186,6 +187,8 @@ route::group(['prefix' => 'admin'], function () {
     Route::get('/autostack-category/answers/{stackAnswer}/destroy', 'StackAnswerController@destroy')->name('admin.auto_stack.stack_options.ques.answer.destroy')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/autostack-category/answers/{cat_id}/{stackAnswer}/edit', 'StackAnswerController@edit')->name('admin.auto_stack.stack_options.ques.answer.edit')->middleware(['roleChecker:super_admin,admin,null']);
     Route::post('/autostack-category/answers/update', 'StackAnswerController@update')->name('admin.auto_stack.stack_options.ques.answer.update')->middleware(['roleChecker:super_admin,admin,null']);
+
+
     # --END AUTO STACK ANSWER CONTROLLERS
 
     # ______________________________ END AUTO STACK MANAGEMENT RELATED CONTROLLERS_________________________________________________________
@@ -227,6 +230,8 @@ route::group(['prefix' => 'admin'], function () {
 
     # --- ---- ----- ---- ---- ---- ---WIN/LOSS IN ANSWEWR ---- ---- ---- ---
     Route::get('/games/answers/result{question}/{answer}', 'AnswerController@result')->name('admin.games.bet.ques.answer.result')->middleware(['roleChecker:super_admin,admin,null']);
+
+    Route::get('/bet_rate', 'AnswerController@changeBetRate')->name('betRate.change')->middleware(['roleChecker:super_admin,admin,null']); //added
 
     # --END ANSWER CONTROLLERS
     # ______________________________ END GAME RELATED CONTROLLERS_________________________________________________________

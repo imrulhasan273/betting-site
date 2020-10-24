@@ -127,6 +127,31 @@ $(".timepicker").datetimepicker(
 </script>
 
 
+<!-- -----------================ ONCLICK BET RATE MODAL ==================-------------- -->
+<script type="text/javascript">
+    $('#changeBetRate').on('show.bs.modal', function (event) {
+    console.log("----------------");
+    // ============ get all the data from index.... ================
+    var button = $(event.relatedTarget)
+
+    var bet_rate = button.data('ans_bet_rate');
+    var ans_id = button.data('ans_id');
+
+    // let ans_id = button.data('ans_id');
+    console.log("----------------");
+    console.log(bet_rate);
+    console.log(ans_id);
+    console.log("----------------");
+
+    //========== Show All the datas in the Modal ===========
+    var modal = $(this);
+    //  Extra Values sent to Modal for identity
+    modal.find('#change_bet_rate').val(bet_rate);
+    modal.find('#bet_ans_id').val(ans_id);
+});
+</script>
+
+
 <!-- SCRIPTS FOR ACTIVE/INACTIVE ALL ANSWERS OF A QUESTION -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
