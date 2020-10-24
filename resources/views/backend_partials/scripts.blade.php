@@ -125,3 +125,38 @@ $(".timepicker").datetimepicker(
     }
 })
 </script>
+
+
+<!-- SCRIPTS FOR ACTIVE/INACTIVE ALL ANSWERS OF A QUESTION -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        let x;
+        <?php
+
+        $QUESTIONS = $questions ?? [];
+
+        foreach($QUESTIONS as $q)
+        { ?>
+            $('#QUES_ID_<?= $q->id; ?>').click(function() {
+                console.log("AJAX AJAX AJAX AJAX -----<?=$q->id; ?>------ AJAX AJAX AJAX AJAX")
+                let ID = <?=$q->id; ?>;
+                $.ajax({
+                    type:'get',
+                    data:{'id':ID},
+                    url:"{{ route('admin.games.question.answers.status') }}",
+                    success:function(data){
+                        console.log("SUCCESS: ")
+                        console.log(data)
+                    },
+                    error:function(){
+                        //
+                    }
+                });
+            });
+        <?php } ?>
+
+    });
+</script>
+
+

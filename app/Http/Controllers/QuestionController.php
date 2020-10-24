@@ -32,6 +32,11 @@ class QuestionController extends Controller
         //
     }
 
+    public function answersStatus(Request $request)
+    {
+        return response()->json($request->id);
+    }
+
     public function add(Game $game)
     {
         return view('dashboard.games.betting_options.questions.add', compact('game'));

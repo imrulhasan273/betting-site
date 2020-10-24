@@ -213,6 +213,7 @@ route::group(['prefix' => 'admin'], function () {
     Route::post('/games/betting_options/q/store', 'QuestionController@store')->name('admin.games.bet.question.store')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/games/questions/{question}/destroy', 'QuestionController@destroy')->name('admin.games.bet.question.destroy')->middleware(['roleChecker:super_admin,admin,null']);
     Route::get('/games/questions/status/{game_id}/{ques_id}/{code}', 'QuestionController@status')->name('admin.games.question.status')->middleware(['roleChecker:super_admin,admin,null']); //added
+    Route::get('/games/questions/answers/', 'QuestionController@answersStatus')->name('admin.games.question.answers.status')->middleware(['roleChecker:super_admin,admin,null']); //added
     # --END QUESTION CONTROLLERS
 
     #-- START ANSWER CONTROLLERS

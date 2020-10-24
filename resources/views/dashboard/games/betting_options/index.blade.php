@@ -55,6 +55,9 @@ $active='games';
 
         <div class="card-body">
           <div class="table-responsive">
+            @php
+                $countAns = 0;
+            @endphp
             <!-- Nested Table -->
                 @foreach ($questions as $question)
                 @if ($game->id == $question->game_id)
@@ -82,6 +85,14 @@ $active='games';
                                         add_circle_outline
                                     </span> Answer +
                                 </a>
+
+                                {{-- BTN to active/inactive all the answers for a Question --}}
+                                <a id="QUES_ID_{{$question->id}}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: #4267B2;">
+                                    <span class="material-icons">
+                                        airplanemode_inactive
+                                    </span> answers
+                                </a>
+                                {{--  -- - - - - End - -- - - --}}
                             </h4>
                         </div>
                     </div>
@@ -118,6 +129,7 @@ $active='games';
                                     Action
                                 </th>
                             </thead>
+
                             @foreach ($answers as $answer)
                             @if($question->id == $answer->question_id)
                             <tbody>
@@ -145,7 +157,7 @@ $active='games';
                                     <td class="td-actions text-center">
                                         {{$answer->rtrn_amount}}
                                     </td>
-                                    <td class="td-actions text-center">
+                                    <td class="td-actions text-center ques_id_{{$question->id}}">
                                         {{$answer->status}}
                                         <a href="{{ route('admin.games.bet.ques.answer.status',[$game->id,$answer->id,1]) }}" type="button" rel="tooltip" class="btn btn-warning">
                                             <i class="material-icons">av_timer</i>
@@ -182,6 +194,9 @@ $active='games';
                     </div>
                 </div>
                 @endif
+                @php
+                    $countAns++;
+                @endphp
                 @endforeach
             <!-- Nested Table -->
           </div>
@@ -190,3 +205,7 @@ $active='games';
     </div>
 </div>
 @endsection
+
+
+
+
