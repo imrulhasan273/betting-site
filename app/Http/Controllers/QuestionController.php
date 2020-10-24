@@ -13,11 +13,13 @@ class QuestionController extends Controller
 {
     public function answersStatus(Request $request)
     {
+        $state = 0;
         $questionStatus = DB::table('questions')->where('id', '=', $request->id)->pluck('flag_ans');
         $questionStatus = $questionStatus[0] ?? null;
 
         if ($questionStatus == 0) {
             $status = 'inactive';
+            $state = 0;
             $updatingQues = Question::where('id', $request->id)->first();
             if ($updatingQues) {
                 $updatingQues->update([
@@ -26,6 +28,7 @@ class QuestionController extends Controller
             }
         } else {
             $status = 'active';
+            $state = 1;
             $updatingQues = Question::where('id', $request->id)->first();
             if ($updatingQues) {
                 $updatingQues->update([
@@ -43,7 +46,10 @@ class QuestionController extends Controller
                 ]);
             }
         }
-        return response()->json($request->id);
+
+        $ques_id = $request->id;
+        $data = [$ques_id, $state];
+        return response()->json($data);
     }
 
     public function add(Game $game)

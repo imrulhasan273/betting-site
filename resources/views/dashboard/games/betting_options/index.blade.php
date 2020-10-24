@@ -87,19 +87,14 @@ $active='games';
                                 </a>
 
                                 {{-- BTN to active/inactive all the answers for a Question --}}
-                                @if ($question->flag_ans == 0)
                                 <a id="QUES_ID_{{$question->id}}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: #4267B2;">
-                                    <span class="material-icons">
+                                    <span id="" class="material-icons">
                                         check_circle
                                     </span>Ans
-                                </a>
-                                @else
-                                <a id="QUES_ID_{{$question->id}}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: #4267B2;">
                                     <span class="material-icons">
                                         airplanemode_inactive
-                                    </span>Ans
+                                    </span>
                                 </a>
-                                @endif
                                 {{--  -- - - - - End - -- - - --}}
                             </h4>
                         </div>
@@ -142,13 +137,13 @@ $active='games';
                             @if($question->id == $answer->question_id)
                             <tbody>
                                 @if ($answer->status=='inactive')
-                                <tr style="background: rgb(233, 128, 143)">
+                                <tr class="backG_{{$question->id}}" style="background: #e9808f">
                                 @elseif($answer->status=='active')
-                                <tr style="background: rgb(143, 218, 153)">
+                                <tr class="backG_{{$question->id}}" style="background: #8fda99">
                                 @elseif($answer->status=='win')
-                                <tr style="background: rgb(32, 199, 121)">
+                                <tr class="backG_{{$question->id}}" style="background: rgb(32, 199, 121)">
                                 @elseif($answer->status=='loss')
-                                <tr style="background: rgb(212, 7, 38)">
+                                <tr class="backG_{{$question->id}}" style="background: rgb(212, 7, 38)">
                                 @endif
                                     <td class="td-actions text-center">
                                         {{$answer->answer}}

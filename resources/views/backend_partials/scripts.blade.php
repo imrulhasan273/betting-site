@@ -147,7 +147,17 @@ $(".timepicker").datetimepicker(
                     url:"{{ route('admin.games.question.answers.status') }}",
                     success:function(data){
                         console.log("SUCCESS: ")
-                        console.log(data)
+                        console.log(data[0])
+                        if(data[1]==0)
+                        {
+                            $('.ques_id_<?= $q->id; ?>').text("inactive");
+                            $(".backG_<?= $q->id; ?>").css("background-color", "#e9808f");
+
+                        }
+                        else if(data[1]==1){
+                            $('.ques_id_<?= $q->id; ?>').text("active");
+                            $(".backG_<?= $q->id; ?>").css("background-color", "#8fda99");
+                        }
                     },
                     error:function(){
                         //
