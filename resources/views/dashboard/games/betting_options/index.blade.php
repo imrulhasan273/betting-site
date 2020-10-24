@@ -87,11 +87,19 @@ $active='games';
                                 </a>
 
                                 {{-- BTN to active/inactive all the answers for a Question --}}
+                                @if ($question->flag_ans == 0)
+                                <a id="QUES_ID_{{$question->id}}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: #4267B2;">
+                                    <span class="material-icons">
+                                        check_circle
+                                    </span>Ans
+                                </a>
+                                @else
                                 <a id="QUES_ID_{{$question->id}}" class="btn btn-outline-secondary bg-success" style="float:right;backgounrd: #4267B2;">
                                     <span class="material-icons">
                                         airplanemode_inactive
-                                    </span> answers
+                                    </span>Ans
                                 </a>
+                                @endif
                                 {{--  -- - - - - End - -- - - --}}
                             </h4>
                         </div>

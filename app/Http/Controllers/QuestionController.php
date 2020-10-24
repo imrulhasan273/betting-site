@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Game;
 use App\Question;
 use Illuminate\Http\Request;
@@ -10,30 +11,38 @@ use Illuminate\Support\Facades\Redirect;
 
 class QuestionController extends Controller
 {
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     public function answersStatus(Request $request)
     {
+        $questionStatus = DB::table('questions')->where('id', '=', $request->id)->pluck('flag_ans');
+        $questionStatus = $questionStatus[0] ?? null;
+
+        if ($questionStatus == 0) {
+            $status = 'inactive';
+            $updatingQues = Question::where('id', $request->id)->first();
+            if ($updatingQues) {
+                $updatingQues->update([
+                    'flag_ans' => 1,
+                ]);
+            }
+        } else {
+            $status = 'active';
+            $updatingQues = Question::where('id', $request->id)->first();
+            if ($updatingQues) {
+                $updatingQues->update([
+                    'flag_ans' => 0,
+                ]);
+            }
+        }
+
+        $answers = Answer::where('question_id', $request->id)->get();
+        foreach ($answers as $answer) {
+            $updatingAns = Answer::where('id', $answer->id)->first();
+            if ($updatingAns) {
+                $updatingAns->update([
+                    'status' => $status,
+                ]);
+            }
+        }
         return response()->json($request->id);
     }
 

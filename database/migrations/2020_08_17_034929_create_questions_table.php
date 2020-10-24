@@ -24,6 +24,7 @@ class CreateQuestionsTable extends Migration
             $table->string('question');
             $table->boolean('is_active')->default(true);
             $table->boolean('flag')->default(false);
+            $table->boolean('flag_ans')->default(false);
             $table->timestamps();
         });
     }
