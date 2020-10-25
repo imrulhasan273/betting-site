@@ -12,12 +12,16 @@
             <div class="modal-body" style="padding: 2% !important">
                 <div class="">
                     <div role="form" class="register-form">
+                        <div id="errorChangeBet" class="alert" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                            ×</button> <strong id="alertDeposit"> </strong><span id="signuperrorText"></span>
+                        </div>
 
-                        <div class="row">
+                        <div style="padding-top: 3 px;" class="row">
                             <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
                                 <div class="form-group">
                                     <label style="text-align: center;width: 100%;color:#07000a;">Ans ID</label>
-                                    <input style="text-align: center;width: 100%;" type="text" name="bet_ans_id" id="bet_ans_id" class="form-control input-md" placeholder="Ans ID" tabindex="1" readonly>
+                                    <input style="text-align: center;width: 100%;" type="text" name="bet_ans_id" id="bet_ans_id" class="form-control input-sm" placeholder="Ans ID" tabindex="1" readonly>
                                 </div>
                             </div>
 

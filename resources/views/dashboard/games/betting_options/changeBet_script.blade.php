@@ -19,14 +19,29 @@
             },
 
             success: function(data) {
-                console.log(data);
-                var AID = data[0];
-                var BR = data[1];
-                // console.log(AID);
-                // console.log(BR);
 
+                if(data=="not_numeric"){
+                    $('#errorChangeBet').show();
+                    $('#errorerrorChangeBetBet').removeClass('alert-success');
+                    $('#errorChangeBet').removeClass('alert-danger');
+                    $('#errorChangeBet').addClass('alert-danger');
+                    $('#errorChangeBet').html("Invalid Type of Bet Rate");
+                    setTimeout(function()
+                    {
+                        $("#errorChangeBet").hide();
+                    }, 1000);
+                }
+                else{
+                    console.log(data);
+                    var AID = data[0];
+                    var BR = data[1];
+                    $('#ans_id_'+AID).text(BR);
+                    setTimeout(function()
+                    {
+                        // $("#errorChangeBet").hide();
+                    }, 1000);
+                }
 
-                $('#ans_id_'+AID).text(BR);
             }
         });
     });

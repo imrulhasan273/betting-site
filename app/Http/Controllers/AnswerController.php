@@ -17,6 +17,9 @@ class AnswerController extends Controller
 
     public function changeBetRate(Request $request)
     {
+        if (is_numeric($request->bet_rate) == false) {
+            return response()->json("not_numeric");
+        }
         $updatingAns = Answer::where('id', $request->ans_id)->first();
         if ($updatingAns) {
             $updatingAns->update([

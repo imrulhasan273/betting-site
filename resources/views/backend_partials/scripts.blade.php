@@ -130,6 +130,7 @@ $(".timepicker").datetimepicker(
 <!-- -----------================ ONCLICK BET RATE MODAL ==================-------------- -->
 <script type="text/javascript">
     $('#changeBetRate').on('show.bs.modal', function (event) {
+    $("#errorChangeBet").hide();
     console.log("----------------");
     // ============ get all the data from index.... ================
     var button = $(event.relatedTarget)
