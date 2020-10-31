@@ -14,10 +14,11 @@
             </a> --}}
 
 
-            <a class="_5fc2c _42580 text-center" href="#">
-                <div class="ae156"><span style="color: #fff" id="MyClockDisplayx" onload="showTimex()"></span></div>
+            <p>
+                <span style="color: #fff" id="MyClockDisplayx" onload="showTimex()"></span>
+                {{-- <div class="ae156"></div> --}}
 
-            </a>
+            </p>
 
             @if (Auth::user())
             <a data-toggle="modal" data-target="#deposit" class="btn" type="button"><img style="width:25px;" src="frontend/img/deposit.png">
