@@ -48,11 +48,11 @@ route::group(['prefix' => 'wallet'], function () {
     Route::get('/forget-password', 'ProfileController@forgetPass')->name('profiles.forgetPass');
 
     #------------- WEB MESSAGE USER PART---------------------------------#
-    Route::get('/webmessage', 'webMessageController@indexUser')->name('webmessage.index.user');
-    Route::post('/webmessage/send', 'webMessageController@sendUser')->name('webmessage.send.user');
+    // Route::get('/webmessage', 'webMessageController@indexUser')->name('webmessage.index.user');
+    // Route::post('/webmessage/send', 'webMessageController@sendUser')->name('webmessage.send.user');
 
-    Route::get('/webmessage/view', 'webMessageController@viewUser')->name('webmessage.view.user');
-    Route::get('/webmessage/view/sent', 'webMessageController@viewSentUser')->name('webmessage.view.user.sent');
+    // Route::get('/webmessage/view', 'webMessageController@viewUser')->name('webmessage.view.user');
+    // Route::get('/webmessage/view/sent', 'webMessageController@viewSentUser')->name('webmessage.view.user.sent');
 });
 # PROFILE
 
