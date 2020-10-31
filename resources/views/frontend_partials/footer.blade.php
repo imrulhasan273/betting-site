@@ -41,42 +41,6 @@
     $footer = $footers[0] ?? null;
   @endphp
   <div class="col-md-12" style="padding: 0px;">
-  <p class="text-center" style="background: black; padding: 12px 0px;color: #fff;">&copy; {{ $footer }}  || Server Time:
-<span id="MyClockDisplayx" onload="showTimex()"></span>
+  <p class="text-center" style="background: black; padding: 12px 0px;color: #fff;">&copy; {{ $footer }}
 </p>
   </div>
-
-  <script type="text/javascript">
-                function showTimex() {
-                    var date = new Date();
-                    var h = date.getHours(); // 0 - 23
-                    var m = date.getMinutes(); // 0 - 59
-                    var s = date.getSeconds(); // 0 - 59
-                    var session = "AM";
-
-                    if (h == 0) {
-                        h = 12;
-                    }
-                    if (h > 12) {
-                        h = h - 12;
-                        session = "PM";
-                    }
-                    h = (h < 10) ? "0" + h : h;
-                    m = (m < 10) ? "0" + m : m;
-                    s = (s < 10) ? "0" + s : s;
-
-                    var time = h + ":" + m + ":" + s + "" + session;
-                    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-                    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                    var curWeekDay = days[date.getDay()];
-                    var curDay = date.getDate();
-                    var curMonth = months[date.getMonth()];
-                    var curYear = date.getFullYear();
-                    var today = curWeekDay + " " + curDay + " " + curMonth + " ";
-                    document.getElementById("MyClockDisplayx").innerText = today + "" + time;
-                    document.getElementById("MyClockDisplayx").textContent = time;
-                    setTimeout(showTimex, 1000);
-                }
-                showTimex();
-            </script>
-
