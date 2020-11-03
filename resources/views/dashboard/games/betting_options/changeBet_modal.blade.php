@@ -18,11 +18,12 @@
                         </div>
 
                         <div style="padding-top: 3 px;" class="row">
-                            {{-- <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
+
+                            {{-- <div style="display:none;" class="col-md-6 col-md-6 col-md-6; text-align: right;">
                                 <div class="form-group">
-                                    <label style="text-align: center;width: 100%;color:#07000a;">Ans ID</label>
-                                    <input style="text-align: center;width: 100%;" type="text" name="bet_ans_id" id="bet_ans_id" class="form-control input-sm" placeholder="Ans ID" tabindex="1" readonly>
-                                </div>
+                                    <label style="text-align: center;width: 100%;color:#07000a;">Ans ID</label> --}}
+                                    <input style="text-align: center;width: 100%;" type="hidden" name="bet_ans_id" id="bet_ans_id" class="form-control input-sm" placeholder="Ans ID" tabindex="1" readonly>
+                                {{-- </div>
                             </div> --}}
 
                             <div class="col-md-12 col-md-12 col-md-12; text-align: right;">
