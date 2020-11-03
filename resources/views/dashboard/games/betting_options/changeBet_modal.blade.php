@@ -18,14 +18,14 @@
                         </div>
 
                         <div style="padding-top: 3 px;" class="row">
-                            <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
+                            {{-- <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
                                 <div class="form-group">
                                     <label style="text-align: center;width: 100%;color:#07000a;">Ans ID</label>
                                     <input style="text-align: center;width: 100%;" type="text" name="bet_ans_id" id="bet_ans_id" class="form-control input-sm" placeholder="Ans ID" tabindex="1" readonly>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="col-md-6 col-md-6 col-md-6; text-align: right;">
+                            <div class="col-md-12 col-md-12 col-md-12; text-align: right;">
                                 <div class="form-group">
                                     <label style="text-align: center;width: 100%;color:#07000a;">New Bet Rate</label>
                                     <input style="text-align: center;width: 100%;" type="text" name="change_bet_rate" id="change_bet_rate" class="form-control input-md" placeholder="Bet Rate" tabindex="1">
