@@ -59,7 +59,7 @@
 
                             <!-- START QUESTION LOOP -->
                             @foreach ($questions as $question)
-                            @if ($game->id == $question->game_id && $question->is_active==1)
+                            @if ($game->id == $question->game_id)
                             @php
                                 $ansCount++
                             @endphp
@@ -75,7 +75,7 @@
 
                                         <!-- ANSWER LOOP -->
                                         @foreach ($answers as $answer)
-                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result=='')
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result==''  && $question->is_active==1)
                                         <div class="col-md-3 col-xs-6 ans" style="cursor: pointer; margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select "
                                                 data-type_id = "{{$game->type_id}}"
@@ -99,6 +99,16 @@
                                         </div>
 
                                         @endif
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result=='' && $question->is_active==0)            <!-- BREAK 3-->
+                                        <div class="col-md-3 col-xs-6 ans" style="background-color:#ee6969;cursor: pointer; margin-top: 0px;border:1px solid #f16c6c;">
+                                            <div class="" align="center" style="color:#fff;background:#5F5F5F;">
+                                                {{$answer->answer}}
+                                                <span class="" text-align="center" style="color:#F9CD51;">
+                                                {{$answer->bet_rate}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @endif
                                         @endforeach
                                         <!--END ANSWER LOOP -->
 
@@ -107,6 +117,7 @@
                             </div>
 
                             @endif
+
                             @endforeach
                             <!-- END QUESTION LOOP -->
 
@@ -184,7 +195,7 @@
 
                             <!-- START QUESTION LOOP -->
                             @foreach ($questions as $question)
-                            @if ($game->id == $question->game_id && $question->is_active==1)
+                            @if ($game->id == $question->game_id)
                             @php
                                 $ansCountU++
                             @endphp
@@ -200,7 +211,7 @@
 
                                         <!-- ANSWER LOOP -->
                                         @foreach ($answers as $answer)
-                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result=='')
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result==''  && $question->is_active==1)
                                         <div class="col-md-3 col-xs-6 ans" style="cursor: pointer; margin-top: 0px;border:1px solid #777A7D;">
                                             <div class="data-show" data-toggle="modal" data-target="#betting" style="" id="select"
                                                       data-type_id = "{{$game->type_id}}"
@@ -222,6 +233,16 @@
                                             </div>
                                         </div>
 
+                                        @endif
+                                        @if ($question->id == $answer->question_id && $answer->status == 'active' && $answer->result=='' && $question->is_active==0)            <!-- BREAK 3-->
+                                        <div class="col-md-3 col-xs-6 ans" style="background-color:#ee6969;cursor: pointer; margin-top: 0px;border:1px solid #f16c6c;">
+                                            <div class="" align="center" style="color:#fff;background:#5F5F5F;">
+                                                {{$answer->answer}}
+                                                <span class="" text-align="center" style="color:#F9CD51;">
+                                                {{$answer->bet_rate}}
+                                                </span>
+                                            </div>
+                                        </div>
                                         @endif
                                         @endforeach
                                         <!--END ANSWER LOOP -->
