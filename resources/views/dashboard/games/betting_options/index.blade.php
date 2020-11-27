@@ -55,6 +55,7 @@ $active='games';
 
         <div class="card-body">
           <div class="table-responsive">
+
             <!-- Nested Table -->
                 @foreach ($questions as $question)
                 @if ($game->id == $question->game_id)
@@ -67,6 +68,20 @@ $active='games';
                         @endif
                             <h4 style="color: black; font-weight:bold" class="card-title mt-0">
                                 {{ $question->question}}
+
+                                {{-- QUESTION EDIT USING AJAX METHOD --}}
+                                <div style="background-color:rgb(32, 199, 121)" class="data-show btn" data-toggle="modal"data-target="#ques_change_modal" style="" id="select "
+                                    data-quest_id = "{{$question->id}}"
+                                    data-question = "{{$question->question}}">
+                                    <div class="" align="center" style="color:#fff;">
+                                            <span id="ques_id_{{$question->id}}" class="" text-align="center" style="color:#000000;">
+                                            Update
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {{--  --}}
+
                                 <a href="{{ route('admin.games.question.status',[$game->id,$question->id,1]) }}" class="btn btn-outline-secondary bg-warning" style="float:right;backgounrd: #4267B2;">
                                     @if ($question->is_active==true)
                                     <i class="material-icons">check_circle</i>
@@ -97,6 +112,7 @@ $active='games';
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <table class="table table-hover">

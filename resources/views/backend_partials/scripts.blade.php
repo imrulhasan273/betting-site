@@ -152,6 +152,31 @@ $(".timepicker").datetimepicker(
 });
 </script>
 
+<!-- -----------================ ONCLICK CHANGE QUESTION MODAL ==================-------------- -->
+<script type="text/javascript">
+    $('#ques_change_modal').on('show.bs.modal', function (event) {
+    $("#errorChangeQues").hide();
+    console.log("----------------");
+    // ============ get all the data from index.... ================
+    var button = $(event.relatedTarget)
+
+    var quest_id = button.data('quest_id');
+    var question = button.data('question');
+
+    // let ans_id = button.data('ans_id');
+    console.log("--------question--------");
+    console.log(quest_id);
+    console.log(question);
+    console.log("----------------");
+
+    //========== Show All the datas in the Modal ===========
+    var modal = $(this);
+    //  Extra Values sent to Modal for identity
+    modal.find('#quest_id').val(quest_id);
+    modal.find('#change_quest').val(question);
+});
+</script>
+
 
 <!-- SCRIPTS FOR ACTIVE/INACTIVE ALL ANSWERS OF A QUESTION -->
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> --}}
