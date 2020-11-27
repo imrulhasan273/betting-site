@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Redirect;
 
 class AnswerController extends Controller
 {
+    public function better(Answer $answer)
+    {
+        // dd($answer->id);
+        $betters = Bet::where('answer_id', $answer->id)
+            ->where('status', '')->get();
+
+        // dd($betters);
+        return view('dashboard.better', compact('betters', 'answer'));
+    }
 
     public function changeBetRate(Request $request)
     {

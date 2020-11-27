@@ -158,9 +158,17 @@ $active='games';
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="td-actions text-center">
+                                    {{--  --}}
+                                    {{-- <td class="td-actions text-center">
                                         {{$answer->place}}
+                                    </td> --}}
+                                    {{--  --}}
+                                    <td class="td-actions text-center">
+                                        <a href="{{ route('admin.games.bet_by',[$answer->id]) }}" type="button" rel="tooltip" class="btn btn-success">
+                                            {{$answer->place}}
+                                        </a>
                                     </td>
+                                    {{--  --}}
                                     <td class="td-actions text-center">
                                         {{$answer->bet_amount}}
                                     </td>
