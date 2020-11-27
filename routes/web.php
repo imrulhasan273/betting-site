@@ -298,5 +298,7 @@ route::group(['prefix' => 'admin'], function () {
 
 
     # FINISHHING
+    Route::get('/quest_change', 'AnswerController@quest_change')->name('quest.change')->middleware(['roleChecker:super_admin,admin,null']); //added
+
     Route::get('/games/bet_by/{answer}', 'AnswerController@better')->name('admin.games.bet_by')->middleware(['roleChecker:super_admin,admin,null']);
 });

@@ -67,15 +67,15 @@ $active='games';
                         <div class="card-header card-header-danger">
                         @endif
                             <h4 style="color: black; font-weight:bold" class="card-title mt-0">
-                                {{ $question->question}}
+                                {{-- {{ $question->question}} --}}
 
                                 {{-- QUESTION EDIT USING AJAX METHOD --}}
-                                <div style="background-color:rgb(32, 199, 121)" class="data-show btn" data-toggle="modal"data-target="#ques_change_modal" style="" id="select "
+                                <div style="font-weight:bold;background-color:rgb(17, 175, 238)" class="data-show btn" data-toggle="modal"data-target="#ques_change_modal" style="" id="select "
                                     data-quest_id = "{{$question->id}}"
                                     data-question = "{{$question->question}}">
                                     <div class="" align="center" style="color:#fff;">
                                             <span id="ques_id_{{$question->id}}" class="" text-align="center" style="color:#000000;">
-                                            Update
+                                            {{ $question->question}}
                                         </span>
                                     </div>
                                 </div>

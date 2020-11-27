@@ -6,7 +6,7 @@
         <div class="modal-content">
             <div class="modal-header m-head" style="  background:#4267B2">
                 <button type="button" class="close" data-dismiss="modal" style="color: #ffffff">&times;</button>
-                <h4 class="modal-title" style="color: white;"> &nbsp; Change Question</h4>
+                <h4 class="modal-title" style="color: white;"> &nbsp; Edit Question</h4>
             </div>
 
             <div class="modal-body" style="padding: 2% !important">

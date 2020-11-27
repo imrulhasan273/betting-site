@@ -24,6 +24,20 @@ class AnswerController extends Controller
         return view('dashboard.better', compact('betters', 'answer'));
     }
 
+    public function quest_change(Request $request)
+    {
+        $updatingQues = Question::where('id', $request->quest_id)->first();
+        if ($updatingQues) {
+            $updatingQues->update([
+                'question' => $request->quest,
+            ]);
+        }
+
+        // return response()->json($request);
+        $data = [$request->quest_id, $request->quest];
+        return response()->json($data);
+    }
+
     public function changeBetRate(Request $request)
     {
         if (is_numeric($request->bet_rate) == false) {
